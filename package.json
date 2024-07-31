@@ -1,0 +1,11 @@
+{
+  "name": "moodscape",
+  "version": "0.0.0",
+  "description": "Moodscape is an e-commerce platform designed to offer a curated collection of unique watercolor art, Irish abstract landscapes, floral art, macro photography, digital art, and pen plotter art.",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
