@@ -98,6 +98,80 @@ Moodscape offers a wide range of unique and high-quality art pieces that make pe
 
 ### User Goals
 
+#### Emily - Art Enthusiast
+
+- **Discover New Art:** Easily find new and unique artworks from various artists and styles.
+- **Purchase High-Quality Art:** Buy high-quality, original art pieces that fit her aesthetic preferences.
+- **Support Artists:** Learn about the artists and support them through her purchases.
+- **Seamless Shopping Experience:** Enjoy a smooth and intuitive online shopping experience.
+- **Stay Updated:** Receive updates on new collections, promotions, and featured artists.
+
+#### Michael - Gift Shopper
+
+- **Find Unique Gifts:** Locate unique and high-quality art pieces suitable for gifts.
+- **Quick Purchase Process:** Complete purchases quickly and efficiently without hassle.
+- **Detailed Product Information:** Access detailed descriptions and high-quality images of art pieces.
+- **Secure Transactions:** Ensure safe and secure payment processing for peace of mind.
+- **Gift Recommendations:** Get personalized gift recommendations to simplify the selection process.
+
+### Five Planes of UX
+
+#### 1. Strategy Plane
+
+- **User Needs:** Understand the primary needs of our target personas, Emily and Michael. Emily seeks unique, high-quality art to enhance her home, while Michael looks for unique gifts that stand out.
+- **Business Goals:** Establish Moodscape as a reputable online marketplace for unique and high-quality artworks. Promote talented artists and provide a seamless, enjoyable shopping experience for art lovers.
+
+#### 2. Scope Plane
+
+- **Features:**
+  - Curated collection of artworks
+  - Detailed product pages with high-quality images and descriptions
+  - Secure online payment processing (Stripe)
+  - User account management
+  - Admin management for adding and updating products
+  - Advanced search and filter options
+  - Feedback system for purchase status
+  - Responsive design for various devices
+  - SEO techniques for improved search engine reach
+  - Authentication and authorization for secure access
+
+#### 3. Structure Plane
+
+- **Interaction Design:**
+  - Users navigate through a well-structured homepage featuring collections and promotions.
+  - Product pages provide comprehensive details and images.
+  - The shopping cart and checkout process are streamlined and user-friendly.
+  - Account management pages allow users to track orders and manage preferences.
+  - The admin panel enables easy product management.
+- **Information Architecture:**
+  - Clear and logical categorization of artworks.
+  - Intuitive navigation menu and structured layout.
+  - Consistent URLs and breadcrumb navigation for ease of use.
+
+#### 4. Skeleton Plane
+
+- **Interface Design:**
+  - Clean, modern design with a focus on high-quality images.
+  - Easy-to-use navigation menu and search bar.
+  - Prominent call-to-action buttons for adding items to the cart and completing purchases.
+  - Responsive layout adapting to various devices and screen sizes.
+- **Navigation Design:**
+  - Main navigation menu with categories like Home, Shop, About, and Contact.
+  - Footer with quick links to essential pages like About, Privacy Policy, Terms and Conditions and FAQ.
+- **Information Design:**
+  - Clear presentation of product details, prices, and availability.
+  - Highlighted promotions and featured collections on the homepage.
+  - Informative artist profiles with background and style descriptions.
+
+#### 5. Surface Plane
+
+- **Visual Design:**
+  - Aesthetic and cohesive color scheme reflecting the art-focused nature of the site.
+  - Use of high-quality images for artworks.
+  - Professional and elegant typography for readability and style.
+  - Consistent visual elements across all pages, including buttons, icons, and navigation.
+  - Visual feedback for user interactions, such as adding items to the cart or completing a purchase.
+
 ## Mockups and Wireframes
 
 ## Database Design
