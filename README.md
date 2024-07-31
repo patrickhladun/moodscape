@@ -12,7 +12,16 @@ The platform caters to art enthusiasts who wish to beautify their spaces with ex
 
 ### Project Scope
 
+The scope of Moodscape is to develop a fully functional e-commerce platform that offers a diverse range of art forms. The project aims to showcase a variety of unique artworks and provide a seamless, user-friendly experience for art enthusiasts. The platform will support secure transactions and highlight the talents of the contributing artists.
+
 ### Website Objectives
+
+- **Curated Collection**: Offer a wide range of carefully selected artworks, ensuring high quality and uniqueness.
+- **User-Friendly Interface**: Provide an intuitive and smooth user experience for browsing and purchasing art.
+- **Responsive Design**: Ensure the website is fully functional and visually appealing on all devices.
+- **Secure Transactions**: Implement secure payment gateways using systems like Stripe, protecting user information and transactions.
+- **Artist Promotion**: Highlight the unique qualities of the curated art collection.
+- **Feedback System**: Implement a feedback system to report successful and unsuccessful purchases to users.
 
 ### Key Components of the Website
 
