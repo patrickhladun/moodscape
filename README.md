@@ -44,6 +44,58 @@ By focusing on these objectives, Moodscape aims to provide a comprehensive and e
 
 ### Audience Personas
 
+**Persona 1: Emily - Art Enthusiast**
+
+#### Demographics
+
+- **Location:** Dublin, Ireland
+- **Age:** 34
+- **Education:** Bachelor's Degree in Art History
+- **Occupation:** Marketing Manager
+- **Income Level:** Upper-middle level
+
+#### Psychographics
+
+Emily values aesthetics and is passionate about art and interior design. She enjoys discovering new artists and unique art pieces. Emily is driven by a desire to create a beautiful and personalized home environment. She values quality and originality in the art she purchases.
+
+#### Behavioral Traits
+
+Emily frequently visits art galleries and art fairs. She prefers online shopping for its convenience and the broader range of options. She regularly follows artists and art influencers on social media and reads art magazines.
+
+#### Online Habits
+
+Emily spends a lot of time on Instagram and Pinterest for art inspiration. She visits online art marketplaces and artist websites to browse and buy art. She subscribes to newsletters from art galleries and online stores.
+
+#### How Moodscape Meets Emily's Needs
+
+Moodscape provides Emily with a curated collection of unique and high-quality artworks. The user-friendly interface and detailed product pages make it easy for her to find and purchase art pieces that match her taste. The platform's focus on promoting talented artists aligns with her interest in discovering new art.
+
+**Persona 2: Michael - Gift Shopper**
+
+#### Demographics
+
+- **Location:** Cork, Ireland
+- **Age:** 29
+- **Education:** Bachelor's Degree in Computer Science
+- **Occupation:** Software Developer
+- **Income Level:** Mid-level, salaried
+
+#### Psychographics
+
+Michael values thoughtful and meaningful gifts. He enjoys finding unique items that make special presents for his friends and family. Michael appreciates high-quality craftsmanship and likes to support independent creators.
+
+#### Behavioral Traits
+
+Michael shops online for most of his gifts due to the convenience and variety. He tends to look for products that come with good reviews and detailed descriptions. He appreciates sites that offer gift recommendations and easy return policies.
+
+#### Online Habits
+
+Michael frequently visits e-commerce sites and gift recommendation blogs. He uses social media platforms like Facebook and Twitter to look for gift ideas. He reads product reviews and relies on customer feedback before making purchases.
+
+#### How Moodscape Meets Michael's Needs
+
+Moodscape offers a wide range of unique and high-quality art pieces that make perfect gifts. The platform's advanced search and filter options help Michael find the right gift quickly. Detailed product descriptions and images ensure he knows exactly what he is buying, and the secure transaction process gives him peace of mind.
+
 ### User Goals
 
 ## Mockups and Wireframes
