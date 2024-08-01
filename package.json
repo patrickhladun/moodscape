@@ -6,6 +6,9 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tailwind": "npx tailwindcss -i ./src/styles/style.css -o ./static/assets/css/style.css --watch"
+  },
+  "dependencies": {
+    "tailwindcss": "^3.4.7"
   }
 }
