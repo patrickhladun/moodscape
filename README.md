@@ -209,6 +209,10 @@ The color scheme for Moodscape has been carefully chosen to create a clean, mode
 
 ## Fonts
 
+For this project, I have selected the Poppins font. Its clean and modern appearance enhances readability and complements the overall aesthetic of Moodscape.
+
+![Poppins](./docs/font-poppins.webp)
+
 ## Logo Design
 
 ## Images
