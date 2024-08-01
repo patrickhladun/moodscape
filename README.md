@@ -180,6 +180,33 @@ For designing the database, I used dbdiagram.io to create an Entity-Relationship
 
 ## Color Scheme
 
+The color scheme for Moodscape has been carefully chosen to create a clean, modern, and visually appealing design. The primary colors used are white, various shades of gray, and an accent color blue that aligns with our brand identity.
+
+#### Primary Colors
+
+- **White:** Used as the main background color to ensure a clean and uncluttered look.
+- **Grays:** Utilized for text, borders, and other UI elements to maintain a neutral and balanced appearance.
+
+#### Accent Color
+
+- **Brand Blue:** This accent color is used in the logo, certain buttons, and other accent elements to provide a cohesive and vibrant touch. The specific shades of blue are defined as follows in Tailwind CSS settings:
+
+```css
+'brand': {
+    '50': '#f1f8fa',
+    '100': '#dbecf2',
+    '200': '#bcd9e5',
+    '300': '#8dbed3',
+    '400': '#6ca6c1',
+    '500': '#3c7e9e',
+    '600': '#356785',
+    '700': '#30566e',
+    '800': '#2e485c',
+    '900': '#2a3e4f',
+    '950': '#182734',
+}
+```
+
 ## Fonts
 
 ## Logo Design
