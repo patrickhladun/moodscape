@@ -172,6 +172,130 @@ Moodscape offers a wide range of unique and high-quality art pieces that make pe
 
 ## Mockups and Wireframes
 
+Creating mockups and wireframes was a crucial step in the design process for Moodscape. Utilizing Figma, I was able to streamline my workflow by keeping both wireframes and mockups in a single, convenient platform.
+
+### Wireframes
+
+I started with wireframes to provide a clear and basic structure of the website's layout and navigation. This helped in planning the overall design and functionality without getting distracted by colors or images. Each page's wireframe laid out the essential elements, such as headers, footers, navigation menus, and content sections, ensuring a user-friendly interface.
+
+<details><summary>Home</summary>
+
+![Home Page Wireframe](./docs/wireframe-home.webp)
+
+</details>
+
+<details><summary>About</summary>
+
+![About Page Wireframe](./docs/wireframe-about.webp)
+
+</details>
+
+<details><summary>Contact</summary>
+
+![Contact Page Wireframe](./docs/wireframe-contact.webp)
+
+</details>
+
+<details><summary>Shop</summary>
+
+![Shop Page Wireframe](./docs/wireframe-shop.webp)
+
+</details>
+
+<details><summary>Product</summary>
+
+![Product Page Wireframe](./docs/wireframe-product.webp)
+
+</details>
+
+<details><summary>Admin Account</summary>
+
+![Admin Account Page Wireframe](./docs/wireframe-admin-account.webp)
+
+</details>
+
+<details><summary>Admin Orders</summary>
+
+![Admin Orders Page Wireframe](./docs/wireframe-admin-orders.webp)
+
+</details>
+
+<details><summary>Admin Order Update</summary>
+
+![Admin Order Update Page Wireframe](./docs/wireframe-admin-order-update.webp)
+
+</details>
+
+<details><summary>Admin Products</summary>
+
+![Admin Products Page Wireframe](./docs/wireframe-admin-products.webp)
+
+</details>
+
+<details><summary>Admin Product Update</summary>
+
+![Admin Product Update Page Wireframe](./docs/wireframe-admin-product-update.webp)
+
+</details>
+
+### Mockups
+
+Once the wireframes were finalized, I moved on to creating high-fidelity mockups in Figma. These mockups brought the wireframes to life by incorporating the visual elements, including the logo, brand colors, typography, and images. The mockups allowed me to visualize the final look and feel of the website, ensuring that the design aligns with our brand identity and user experience goals.
+
+<details><summary>Home</summary>
+
+![Home](./docs/mockup-home.webp)
+
+</details>
+
+<details><summary>About</summary>
+
+![About](./docs/mockup-about.webp)
+
+</details>
+
+<details><summary>Contact</summary>
+
+![Contact](./docs/mockup-contact.webp)
+
+</details>
+
+<details><summary>Shop</summary>
+
+![Shop](./docs/mockup-shop.webp)
+
+</details>
+
+<details><summary>Product</summary>
+
+![Product](./docs/mockup-product.webp)
+
+</details>
+
+<details><summary>Admin Account</summary>
+
+![Admin Account](./docs/mockup-admin-account.webp)
+
+</details>
+
+<details><summary>Admin Products</summary>
+
+![Admin Products](./docs/mockup-admin-products.webp)
+
+</details>
+
+<details><summary>Admin Product Update</summary>
+
+![Admin Product Update](./docs/mockup-admin-products.webp)
+
+</details>
+
+<details><summary>Admin Orders</summary>
+
+![Admin Orders](./docs/mockup-admin-orders.webp)
+
+</details>
+
 ## Database Design
 
 For designing the database, I used dbdiagram.io to create an Entity-Relationship Diagram (ERD) for Moodscape. This tool allowed me to visualize the relationships between different entities, ensuring a well-structured and efficient database schema. The database is built using PostgreSQL and includes tables for users, accounts, addresses, products, images, categories, orders, order lines, payments, and reviews. Below is the ERD that illustrates the database design.
