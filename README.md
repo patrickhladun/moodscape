@@ -1,7 +1,5 @@
 # Moodscape
 
-# Moodscape
-
 Moodscape is an e-commerce platform designed to offer a curated collection of unique watercolor art, Irish abstract landscapes, floral art, macro photography, digital art, and pen plotter art. This project serves as my final submission for the Full Stack Developer Diploma at Code Institute, showcasing my skills in developing a comprehensive, user-friendly online store.
 
 The platform caters to art enthusiasts who wish to beautify their spaces with exquisite artwork. Moodscape aims to provide a seamless shopping experience, allowing users to explore and purchase art pieces easily. The website not only features a variety of art styles but also focuses on ensuring that each piece is of high quality and uniquely crafted.
@@ -175,6 +173,10 @@ Moodscape offers a wide range of unique and high-quality art pieces that make pe
 ## Mockups and Wireframes
 
 ## Database Design
+
+For designing the database, I used dbdiagram.io to create an Entity-Relationship Diagram (ERD) for Moodscape. This tool allowed me to visualize the relationships between different entities, ensuring a well-structured and efficient database schema. The database is built using PostgreSQL and includes tables for users, accounts, addresses, products, images, categories, orders, order lines, payments, and reviews. Below is the ERD that illustrates the database design.
+
+![DB](./docs/database-design.webp)
 
 ## Color Scheme
 
