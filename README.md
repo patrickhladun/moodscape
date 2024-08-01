@@ -1,7 +1,5 @@
 # Moodscape
 
-# Moodscape
-
 Moodscape is an e-commerce platform designed to offer a curated collection of unique watercolor art, Irish abstract landscapes, floral art, macro photography, digital art, and pen plotter art. This project serves as my final submission for the Full Stack Developer Diploma at Code Institute, showcasing my skills in developing a comprehensive, user-friendly online store.
 
 The platform caters to art enthusiasts who wish to beautify their spaces with exquisite artwork. Moodscape aims to provide a seamless shopping experience, allowing users to explore and purchase art pieces easily. The website not only features a variety of art styles but also focuses on ensuring that each piece is of high quality and uniquely crafted.
@@ -174,13 +172,176 @@ Moodscape offers a wide range of unique and high-quality art pieces that make pe
 
 ## Mockups and Wireframes
 
+Creating mockups and wireframes was a crucial step in the design process for Moodscape. Utilizing Figma, I was able to streamline my workflow by keeping both wireframes and mockups in a single, convenient platform.
+
+### Wireframes
+
+I started with wireframes to provide a clear and basic structure of the website's layout and navigation. This helped in planning the overall design and functionality without getting distracted by colors or images. Each page's wireframe laid out the essential elements, such as headers, footers, navigation menus, and content sections, ensuring a user-friendly interface.
+
+<details><summary>Home</summary>
+
+![Home Page Wireframe](./docs/wireframe-home.webp)
+
+</details>
+
+<details><summary>About</summary>
+
+![About Page Wireframe](./docs/wireframe-about.webp)
+
+</details>
+
+<details><summary>Contact</summary>
+
+![Contact Page Wireframe](./docs/wireframe-contact.webp)
+
+</details>
+
+<details><summary>Shop</summary>
+
+![Shop Page Wireframe](./docs/wireframe-shop.webp)
+
+</details>
+
+<details><summary>Product</summary>
+
+![Product Page Wireframe](./docs/wireframe-product.webp)
+
+</details>
+
+<details><summary>Admin Account</summary>
+
+![Admin Account Page Wireframe](./docs/wireframe-admin-account.webp)
+
+</details>
+
+<details><summary>Admin Orders</summary>
+
+![Admin Orders Page Wireframe](./docs/wireframe-admin-orders.webp)
+
+</details>
+
+<details><summary>Admin Order Update</summary>
+
+![Admin Order Update Page Wireframe](./docs/wireframe-admin-order-update.webp)
+
+</details>
+
+<details><summary>Admin Products</summary>
+
+![Admin Products Page Wireframe](./docs/wireframe-admin-products.webp)
+
+</details>
+
+<details><summary>Admin Product Update</summary>
+
+![Admin Product Update Page Wireframe](./docs/wireframe-admin-product-update.webp)
+
+</details>
+
+### Mockups
+
+Once the wireframes were finalized, I moved on to creating high-fidelity mockups in Figma. These mockups brought the wireframes to life by incorporating the visual elements, including the logo, brand colors, typography, and images. The mockups allowed me to visualize the final look and feel of the website, ensuring that the design aligns with our brand identity and user experience goals.
+
+<details><summary>Home</summary>
+
+![Home](./docs/mockup-home.webp)
+
+</details>
+
+<details><summary>About</summary>
+
+![About](./docs/mockup-about.webp)
+
+</details>
+
+<details><summary>Contact</summary>
+
+![Contact](./docs/mockup-contact.webp)
+
+</details>
+
+<details><summary>Shop</summary>
+
+![Shop](./docs/mockup-shop.webp)
+
+</details>
+
+<details><summary>Product</summary>
+
+![Product](./docs/mockup-product.webp)
+
+</details>
+
+<details><summary>Admin Account</summary>
+
+![Admin Account](./docs/mockup-admin-account.webp)
+
+</details>
+
+<details><summary>Admin Products</summary>
+
+![Admin Products](./docs/mockup-admin-products.webp)
+
+</details>
+
+<details><summary>Admin Product Update</summary>
+
+![Admin Product Update](./docs/mockup-admin-products.webp)
+
+</details>
+
+<details><summary>Admin Orders</summary>
+
+![Admin Orders](./docs/mockup-admin-orders.webp)
+
+</details>
+
 ## Database Design
+
+For designing the database, I used dbdiagram.io to create an Entity-Relationship Diagram (ERD) for Moodscape. This tool allowed me to visualize the relationships between different entities, ensuring a well-structured and efficient database schema. The database is built using PostgreSQL and includes tables for users, accounts, addresses, products, images, categories, orders, order lines, payments, and reviews. Below is the ERD that illustrates the database design.
+
+![DB](./docs/database-design.webp)
 
 ## Color Scheme
 
+The color scheme for Moodscape has been carefully chosen to create a clean, modern, and visually appealing design. The primary colors used are white, various shades of gray, and an accent color blue that aligns with our brand identity.
+
+#### Primary Colors
+
+- **White:** Used as the main background color to ensure a clean and uncluttered look.
+- **Grays:** Utilized for text, borders, and other UI elements to maintain a neutral and balanced appearance.
+
+#### Accent Color
+
+- **Brand Blue:** This accent color is used in the logo, certain buttons, and other accent elements to provide a cohesive and vibrant touch. The specific shades of blue are defined as follows in Tailwind CSS settings:
+
+```css
+'brand': {
+    '50': '#f1f8fa',
+    '100': '#dbecf2',
+    '200': '#bcd9e5',
+    '300': '#8dbed3',
+    '400': '#6ca6c1',
+    '500': '#3c7e9e',
+    '600': '#356785',
+    '700': '#30566e',
+    '800': '#2e485c',
+    '900': '#2a3e4f',
+    '950': '#182734',
+}
+```
+
 ## Fonts
 
+For this project, I have selected the Poppins font. Its clean and modern appearance enhances readability and complements the overall aesthetic of Moodscape.
+
+![Poppins](./docs/font-poppins.webp)
+
 ## Logo Design
+
+The logo for Moodscape is a simple yet elegant icon presenting a landscape within a hexagon shape. This design captures the essence of Moodscape brand, symbolizing the diverse and unique art forms. The logo incorporates brand color, blue, which conveys trust, tranquility, and creativity.
+
+![Logo](./docs/moodscape-logo.webp)
 
 ## Images
 
