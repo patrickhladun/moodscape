@@ -215,6 +215,10 @@ For this project, I have selected the Poppins font. Its clean and modern appeara
 
 ## Logo Design
 
+The logo for Moodscape is a simple yet elegant icon presenting a landscape within a hexagon shape. This design captures the essence of Moodscape brand, symbolizing the diverse and unique art forms. The logo incorporates brand color, blue, which conveys trust, tranquility, and creativity.
+
+![Logo](./docs/moodscape-logo.webp)
+
 ## Images
 
 ## Icons
