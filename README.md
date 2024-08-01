@@ -413,7 +413,23 @@ The logo for Moodscape is a simple yet elegant icon presenting a landscape withi
 
 ## Automated testing with Pytest
 
-### Running Tests
+### Running Pytest
+
+To ensure the reliability and correctness of the backend code, we use pytest for automated testing. Follow these instructions to run the tests:
+
+1. **Ensure pytest is Installed:**
+
+Make sure `pytest` is installed in your project environment. If it's not installed, you can install it using pip:
+
+```sh
+pip install pytest
+```
+
+2. **Run the tests**
+
+```sh
+pytest -rP -v
+```
 
 ## Issues
 
