@@ -431,6 +431,20 @@ pip install pytest
 pytest -rP -v
 ```
 
+### Running Cypress Tests
+
+To open Cypress in interactive mode:
+
+```sh
+npm run cy:open
+```
+
+To run Cypress tests headlessly:
+
+```sh
+npm run cy:run
+```
+
 ## Issues
 
 ### User Stories
