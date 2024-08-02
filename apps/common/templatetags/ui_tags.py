@@ -26,9 +26,9 @@ def icon(name, size="md", class_name=""):
     """
 
     sizes = {
-        "sm": "w-6 h-6",
-        "md": "w-8 h-8",
-        "lg": "w-12 h-12",
+        "sm": "w-4 h-4",
+        "md": "w-6 h-6",
+        "lg": "w-10 h-10",
     }
 
     size = sizes.get(size, "w-8 h-8")
@@ -37,7 +37,7 @@ def icon(name, size="md", class_name=""):
         with open(os.path.join("static/assets/icons", f"{name}.svg")) as f:
             icon = f.read()
             return mark_safe(
-                f'<span class="inline-block {size}{ ' ' + class_name if class_name else '' }">{icon}</span>'
+                f'<span class="flex transition-all cursor-pointer { ' ' + class_name if class_name else '' }"><span class="inline-block {size}">{icon}</span></span>'
             )
     except FileNotFoundError:
         return mark_safe("<!-- Icon not found -->")
