@@ -1,18 +1,60 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block content %}
-  <main>
-    <!-- Hero -->
-    <section class="bg-neutral-100">
-      <div class="container py-xs">
-        <h1>Home</h1>
+{% extends 'base.html' %} {% load static %} {% block content %}
+<main>
+  <!-- Hero -->
+  <section class="bg-neutral-100">
+    <div class="container flex py-xs">
+      <div class="grid-col-1">
+        <h1>Great art in one place</h1>
       </div>
-    </section>
-    <section>
-      <div class="container py-rg ">
-        <h2>Content</h2>
+      <div class="grid-col-1">
+        <img src="https://placehold.co/600x400" alt="Hero" class="w-full" />
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+  <!-- Categories Section -->
+  <section>
+    <div class="container py-rg">
+      <h2>Categories</h2>
+      <div class="flex gap-4">
+        <div class="w-1/3">
+          <img src="https://placehold.co/300x300" alt="Category Watercolor" class="w-full" />
+          <div class="card-body">
+            <h3>Watercolor</h3>
+          </div>
+        </div>
+        <div class="w-1/3">
+          <img src="https://placehold.co/300x300" alt="Category Photography" class="w-full" />
+          <div class="card-body">
+            <h3>Photography</h3>
+          </div>
+        </div>
+        <div class="w-1/3">
+          <img src="https://placehold.co/300x300" alt="Category Digital Art" class="w-full" />
+          <div class="card-body">
+            <h3>Digital Art</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Featured Art Section -->
+  <section class="bg-neutral-100">
+    <div class="container py-rg">
+      <h2>Featured Art</h2>
+      <div class="grid grid-cols-2 flex-wrap gap-4">
+        <div class="grid-col-1">
+          <img src="https://placehold.co/300x300" alt="Featured Art" class="w-full" />
+        </div>
+        <div class="grid-col-1">
+          <img src="https://placehold.co/300x300" alt="Featured Art" class="w-full" />
+        </div>
+        <div class="grid-col-1">
+          <img src="https://placehold.co/300x300" alt="Featured Art" class="w-full" />
+        </div>
+        <div class="grid-col-1">
+          <img src="https://placehold.co/300x300" alt="Featured Art" class="w-full" />
+        </div>
+    </div>
+  </section>
+</main>
 {% endblock %}
