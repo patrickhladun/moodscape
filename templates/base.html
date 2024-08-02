@@ -2,15 +2,30 @@
 {% load static %}
 
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
 
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home</title>
+    <!-- Styles Block -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'assets/css/style.css' %}"
+    />
 
-  <!-- Styles Block -->
-  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" />
+    {% block corejs %}
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    {% endblock %}
 
   <!-- Favicon Includes -->
   <link rel="shortcut icon" href="{% static 'favicon.ico' %}" />
@@ -33,13 +48,12 @@
 
 </head>
 
-<body>
-  <header>
-    <a href="{% url 'home' %}" aria-label="Link to Home">Home</a>
-  </header>
-  {% block content %}
+  <body class="bg-neutral-50 flex flex-col h-screen justify-between">
+    {% include 'partials/header.html' %} 
+    {% block content %} 
+    {% endblock %} 
+    {% include 'partials/footer.html' %}
 
-  {% endblock %}
-</body>
-
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+  </body>
 </html>

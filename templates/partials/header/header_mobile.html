@@ -1,0 +1,29 @@
+{% load ui_tags %}
+
+<div class="ml-auto md:hidden">
+  
+  <!-- Dropdown button -->
+  <button id="mobileMenuButton" data-dropdown-toggle="mobileMenu" type="button">
+    {% icon 'icon-hamburger' 'sm' 'p-3 bg-blue-600 hover:bg-blue-700 rounded-md fill-blue-50' %}
+  </button>
+
+  <!-- Dropdown menu -->
+  <div id="mobileMenu" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-blue-700 dark:divide-gray-600">
+
+    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="mobileMenuButton">
+      <li>
+        <a href="#" class="block px-4 py-2 hover:bg-blue-100 dark:hover:bg-blue-600 dark:hover:text-white" aria-label="Link to Home">Home</a>
+      </li>
+      <li>
+        <a href="#" class="block px-4 py-2 hover:bg-blue-100 dark:hover:bg-blue-600 dark:hover:text-white" aria-label="Link to About">About</a>
+      </li>
+      <li>
+        <a href="#" class="block px-4 py-2 hover:bg-blue-100 dark:hover:bg-blue-600 dark:hover:text-white" aria-label="Link to Contact">Contact</a>
+      </li>
+    </ul>
+
+    {% include './admin_links.html' %}
+    
+  </div>
+
+</div>

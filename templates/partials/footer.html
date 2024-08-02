@@ -1,0 +1,60 @@
+{% load ui_tags %}
+
+<footer class="bg-blue-900 mt-auto text-blue-50 py-xxs">
+  <div class="container">
+    <div class="flex flex-wrap py-xxs">
+      <div class="w-full md:w-3/5">
+        <h2 class="text-h3 mb-4">Moonscape</h2>
+
+        <!-- Social Links -->
+        <div class="flex gap-2">
+          <a href="https://www.facebook.com/" target="_blank">{% icon 'icon-facebook' 'sm' 'p-1 bg-blue-400 rounded-sm fill-blue-200 hover:fill-blue-700' %}</a>
+          <a href="https://www.instagram.com/" target="_blank">{% icon 'icon-instagram' 'sm' 'p-1 bg-blue-400 rounded-sm fill-blue-200 hover:fill-blue-700' %}</a>
+          <a href="https://www.twitter.com/" target="_blank">{% icon 'icon-twitter' 'sm' 'p-1 bg-blue-400 rounded-sm fill-blue-200 hover:fill-blue-700' %}</a>
+          <a href="https://www.linkedin.com/" target="_blank">{% icon 'icon-linkedin' 'sm' 'p-1 bg-blue-400 rounded-sm fill-blue-200 hover:fill-blue-700' %}</a>
+        </div>
+        
+        <!-- Secondary Links -->
+        <ul class="flex items-center gap-2 pt-xxs">
+          <li>
+            <a href="#" aria-label="Link to Privacy Policy">Privacy Policy</a>
+          </li>
+          <li>
+            <a href="#" aria-label="Link to Terms and Conditions"
+              >Terms and Conditions</a
+            >
+          </li>
+          <li>
+            <a href="#" aria-label="Link to Delivery">Delivery</a>
+          </li>
+          <li>
+            <a href="#" aria-label="Link to Contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="w-full md:w-2/5">
+        <h3 class="text-h5 mb-2">Subscribe to our newsletter</h3>
+        <p class="mb-4">Join our newsletter for exclusive art collections, artist insights, and special offers.</p>
+        <form class="">
+          <div class="flex rounded-lg">
+            <input
+              type="email"
+              placeholder="Enter your best email"
+              class="bg-blue-800 text-blue-50 w-full border-none py-2 px-4 rounded-l-lg"
+            />
+            <button
+              type="submit"
+              class="flex items-center bg-blue-700 hover:bg-blue-800 text-blue-50 p-2 rounded-r-lg"
+            >
+              {% icon 'icon-envelope' 'sm' 'fill-blue-200' %}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <span class="block bg-blue-800 h-[1px] w-full"></span>
+    <div class="flex justify-center py-xxs">
+      &copy; 2024 Moodscape All rights reserved.
+    </div>
+  </div>
+</footer>
