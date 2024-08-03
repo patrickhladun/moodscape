@@ -15,7 +15,7 @@
     <div class="container grid md:grid-cols-2 gap-4 pb-rg">
       <div>
         <h1>Contact Moodscape</h1>
-        <form method="post">
+        <form id="contact-form" method="post">
           {% csrf_token %}
           {{ form.media }}
           {% for field in form %}
