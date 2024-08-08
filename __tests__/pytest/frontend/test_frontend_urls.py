@@ -27,6 +27,10 @@ urls = [
         'url': '/terms-and-conditions/',
         'name': 'terms',
     },
+    {
+        'url': '/faq/',
+        'name': 'faq',
+    },
 ]
 
 @pytest.mark.parametrize("url", urls)

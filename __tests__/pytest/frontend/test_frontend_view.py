@@ -28,6 +28,10 @@ views = [
         'url': 'terms',
         'template': 'frontend/terms.html',
     },
+    {
+        'url': 'faq',
+        'template': 'frontend/faq.html',
+    },
 ]
 
 @pytest.mark.parametrize("view", views)
