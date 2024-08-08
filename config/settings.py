@@ -1,9 +1,14 @@
 import os
+import environ
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = '39mpkail09q5bozqux61m344vJAGCxXUx3mSnQkWxRH+38d!SLkTiaR'
-DEBUG = True
+
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+env = environ.Env()
+
+SECRET_KEY = env("SECRET_KEY")
+DEBUG = env.bool("DEBUG", default=False)
 ALLOWED_HOSTS = []
 DJANGO_APPS = [
     'django.contrib.admin',
@@ -77,4 +82,14 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_HOST_USER = env("GMAIL_EMAIL")
+EMAIL_HOST_PASSWORD = env("GMAIL_PASS")
+DEFAULT_FROM_EMAIL = env("GMAIL_EMAIL")
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
