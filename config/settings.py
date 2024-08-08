@@ -4,11 +4,11 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+env = environ.Env()
 
-SECRET_KEY = '39mpkail09q5bozqux61m344vJAGCxXUx3mSnQkWxRH+38d!SLkTiaR'
-DEBUG = True
+SECRET_KEY = env("SECRET_KEY")
+DEBUG = env.bool("DEBUG", default=False)
 ALLOWED_HOSTS = []
 DJANGO_APPS = [
     'django.contrib.admin',
