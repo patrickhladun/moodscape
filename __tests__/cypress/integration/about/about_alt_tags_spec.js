@@ -1,7 +1,10 @@
 describe("Check all images have alt tags", () => {
-  it("should ensure all img elements have non-empty alt attributes", () => {
-    cy.visit("http://localhost:8000/about/");
 
+  beforeEach(() => {
+    cy.visit("/about/");
+  });
+
+  it("should ensure all img elements have non-empty alt attributes", () => {
     cy.get("img").each(($img) => {
       cy.wrap($img).should("have.attr", "alt").and("not.be.empty");
     });
