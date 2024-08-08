@@ -2,7 +2,7 @@ import "cypress-axe";
 
 describe("Privacy Policy Accessibility Test", () => {
   beforeEach(() => {
-    cy.visit("/privacy-policy/");
+    cy.visit("/terms-and-conditions/");
   });
 
   it("has no a11y violations", () => {
