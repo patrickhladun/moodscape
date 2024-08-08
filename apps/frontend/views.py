@@ -63,3 +63,8 @@ def privacy(request):
 def terms(request):
     template = "frontend/terms.html"
     return render(request, template)
+
+
+def faq(request):
+    template = "frontend/faq.html"
+    return render(request, template)
