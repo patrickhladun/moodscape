@@ -20,6 +20,10 @@ views = [
         'url': 'contact_success',
         'template': 'frontend/contact_success.html',
     },
+    {
+        'url': 'privacy',
+        'template': 'frontend/privacy.html',
+    },
 ]
 
 @pytest.mark.parametrize("view", views)

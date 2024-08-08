@@ -19,6 +19,10 @@ urls = [
         'url': '/contact/success/',
         'name': 'contact_success',
     },
+    {
+        'url': '/privacy-policy/',
+        'name': 'privacy',
+    },
 ]
 
 @pytest.mark.parametrize("url", urls)
