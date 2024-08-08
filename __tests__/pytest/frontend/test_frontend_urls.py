@@ -1,9 +1,28 @@
 import pytest
-from django.urls import URLPattern, URLResolver, reverse, resolve
-from apps.frontend.urls import urlpatterns
+from django.urls import resolve
 from apps.frontend import views
 
-def test_index_url_resolves():
-    resolver = resolve('/')
-    assert resolver.view_name == 'home'
-    assert resolver.func == views.home
+urls = [
+    {
+        'url': '/',
+        'name': 'home',
+    },
+    {
+        'url': '/about/',
+        'name': 'about',
+    },
+    {
+        'url': '/contact/',
+        'name': 'contact',
+    },
+    {
+        'url': '/contact/success/',
+        'name': 'contact_success',
+    },
+]
+
+@pytest.mark.parametrize("url", urls)
+def test_urls_resolves(url):
+    resolver = resolve(url['url'])
+    assert resolver.view_name == url['name']
+    assert resolver.func == getattr(views, url['name'])
