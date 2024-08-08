@@ -53,3 +53,8 @@ def contact(request):
 def contact_success(request):
     template = "frontend/contact_success.html"
     return render(request, template)
+
+
+def privacy(request):
+    template = "frontend/privacy.html"
+    return render(request, template)
