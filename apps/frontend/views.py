@@ -58,3 +58,8 @@ def contact_success(request):
 def privacy(request):
     template = "frontend/privacy.html"
     return render(request, template)
+
+
+def terms(request):
+    template = "frontend/terms.html"
+    return render(request, template)
