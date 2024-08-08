@@ -18,7 +18,10 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-EXTERNAL_APPS = []
+EXTERNAL_APPS = [
+    'allauth',
+    'allauth.account',
+]
 APPS = [
     'apps.common',
     'apps.frontend'
@@ -32,6 +35,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
@@ -71,6 +75,9 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+]
+AUTHENTICATION_BACKENDS = [
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 SITE_ID = 1
 LANGUAGE_CODE = "en-gb"
