@@ -1,4 +1,5 @@
 const { defineConfig } = require("cypress");
+require("dotenv").config();
 
 module.exports = defineConfig({
   e2e: {
@@ -7,5 +8,9 @@ module.exports = defineConfig({
     supportFile: "__tests__/cypress/support/commands.js",
     screenshotsFolder: "__tests__/cypress/screenshots",
     downloadsFolder: "__tests__/cypress/downloads",
+  },
+  env: {
+    username: process.env.CY_ADMIN_USER_EMAIL,
+    password: process.env.CY_ADMIN_USER_PASS,
   },
 });

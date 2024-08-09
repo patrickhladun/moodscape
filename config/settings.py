@@ -18,10 +18,14 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-EXTERNAL_APPS = []
+EXTERNAL_APPS = [
+    'allauth',
+    'allauth.account',
+]
 APPS = [
     'apps.common',
-    'apps.frontend'
+    'apps.frontend',
+    'apps.user',
 ]
 INSTALLED_APPS = DJANGO_APPS + EXTERNAL_APPS + APPS
 MIDDLEWARE = [
@@ -32,6 +36,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
@@ -39,6 +44,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, "templates"),
+            os.path.join(BASE_DIR, "templates", "account"),
+            os.path.join(BASE_DIR, "templates", "allauth"),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -72,6 +79,18 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.AllowAllUsersModelBackend",
+]
+AUTH_USER_MODEL = "user.User"
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+LOGIN_URL = "/account/login/"
+LOGIN_REDIRECT_URL = "/"
 SITE_ID = 1
 LANGUAGE_CODE = "en-gb"
 TIME_ZONE = "Europe/London"
