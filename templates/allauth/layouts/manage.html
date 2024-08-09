@@ -1,2 +1,7 @@
 {% extends "base.html" %}
-{% block content %}{% endblock %}
+{% block content %}
+<div class="container">
+  {% block content_allauth %}
+  {% endblock %}
+</div>
+{% endblock %}
