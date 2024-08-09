@@ -44,6 +44,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, "templates"),
+            os.path.join(BASE_DIR, "templates", "account"),
+            os.path.join(BASE_DIR, "templates", "allauth"),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -78,8 +80,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 AUTHENTICATION_BACKENDS = [
-    'allauth.account.auth_backends.AuthenticationBackend',
+    "django.contrib.auth.backends.AllowAllUsersModelBackend",
 ]
+AUTH_USER_MODEL = "user.User"
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+LOGIN_URL = "/account/login/"
+LOGIN_REDIRECT_URL = "/"
 SITE_ID = 1
 LANGUAGE_CODE = "en-gb"
 TIME_ZONE = "Europe/London"
