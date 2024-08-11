@@ -25,6 +25,7 @@ EXTERNAL_APPS = [
     'allauth.account',
     'constance',
     'constance.backends.database',
+    'django_summernote',
 ]
 APPS = [
     'apps.common',
@@ -151,5 +152,17 @@ CONSTANCE_CONFIG_FIELDSETS = {
     },
 }
 
+SUMMERNOTE_THEME = 'bs5'
+SUMMERNOTE_CONFIG = {
+    'summernote': {
+        'airMode': False,
+        'height': '280',
+        'lang': None,
+        'toolbar': [
+            ['font', ['bold', 'underline', 'clear']],
+            ['para', ['ul', 'ol']],
+        ],
+    },
+}
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
