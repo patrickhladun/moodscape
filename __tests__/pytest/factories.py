@@ -2,6 +2,7 @@ import factory
 from factory import Faker
 from factory.django import DjangoModelFactory
 from apps.user.models import User
+from apps.product.models import Product, Category
 
 class SuperuserFactory(DjangoModelFactory):
     class Meta:
@@ -15,3 +16,25 @@ class SuperuserFactory(DjangoModelFactory):
     is_superuser = True
     is_admin = True
 
+
+
+class CategoryFactory(DjangoModelFactory):
+    class Meta:
+        model = Category
+
+    name = Faker("name")
+    slug = Faker("slug")
+    description = Faker("text")
+
+
+class ProductFactory(DjangoModelFactory):
+    class Meta:
+        model = Product
+
+    name = Faker("name")
+    slug = Faker("slug")
+    details = Faker("html")
+    sku = Faker("ean13")
+    stock = Faker("random_int", min=1, max=100)
+    price = Faker("random_int", min=100, max=1000)
+    is_draft = False
