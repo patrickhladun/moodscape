@@ -1,6 +1,8 @@
 import pytest
-from django.conf import settings
+
 from django.urls import reverse
+from django.conf import settings
+
 from apps.user.forms import AccountProfileForm
 from __tests__.pytest.factories import SuperuserFactory
 
@@ -78,7 +80,6 @@ def test_update_user_email_form(client):
         "username": superuser.username,
     }
 
-    # Submit the form via POST request
     response = client.post(reverse("user_account"), data=form_data)
 
     assert response.status_code == 302
