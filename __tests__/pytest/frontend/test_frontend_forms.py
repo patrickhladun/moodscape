@@ -1,4 +1,5 @@
 import pytest
+
 from apps.frontend.forms import ContactForm
 
 @pytest.mark.django_db

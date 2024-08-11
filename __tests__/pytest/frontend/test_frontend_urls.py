@@ -1,5 +1,7 @@
 import pytest
+
 from django.urls import resolve
+
 from apps.frontend import views
 
 urls = [
@@ -31,6 +33,10 @@ urls = [
         'url': '/faq/',
         'name': 'faq',
     },
+    {
+        'url': '/shop/',
+        'name': 'shop',
+    }
 ]
 
 @pytest.mark.parametrize("url", urls)
