@@ -1,7 +1,10 @@
 from django.conf import settings
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
+from constance import config
 from .forms import ContactForm
+from apps.product.models import Product
+
 
 def home(request):
     return render(request, "frontend/index.html")
@@ -68,3 +71,14 @@ def terms(request):
 def faq(request):
     template = "frontend/faq.html"
     return render(request, template)
+
+
+def shop(request): 
+    products = Product.objects.all()
+
+    template = "frontend/shop.html"
+    context = {
+        "config" : config,
+        "products": products,
+    }
+    return render(request, template, context)
