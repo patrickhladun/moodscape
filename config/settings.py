@@ -1,6 +1,8 @@
 import os
 import environ
 from pathlib import Path
+from collections import OrderedDict
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,6 +23,8 @@ DJANGO_APPS = [
 EXTERNAL_APPS = [
     'allauth',
     'allauth.account',
+    'constance',
+    'constance.backends.database',
 ]
 APPS = [
     'apps.common',
@@ -111,5 +115,41 @@ EMAIL_USE_SSL = False
 EMAIL_HOST_USER = env("GMAIL_EMAIL")
 EMAIL_HOST_PASSWORD = env("GMAIL_PASS")
 DEFAULT_FROM_EMAIL = env("GMAIL_EMAIL")
+CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
+CONSTANCE_CONFIG = OrderedDict([
+    ('SITE_NAME', ('Moodscape', 'The name of the site')),
+    ('COPYRIGHT', ('All rights reserved.', 'Copyright information')),
+    
+    ('SHOP_ADDRESS', ('123 Main St', 'Shop address')),
+    ('SHOP_MOBILE_PHONE', ('091456523', 'Shop mobile phone number')),
+    ('SHOP_EMAIL', ('shop@moodscape.com', 'Shop email address')),
+    
+    ('CURRENCY', ('eur', 'Currency used in the shop')),
+    ('CURRENCY_SYMBOL', ('€', 'Currency symbol')),
+    ('FREE_DELIVERY_THRESHOLD', (50, 'Free delivery threshold amount')),
+    ('STANDARD_DELIVERY_PERCENTAGE', (10, 'Standard delivery percentage')),
+])
+CONSTANCE_CONFIG_FIELDSETS = {
+    'Site Settings': {
+        'fields': ('SITE_NAME', 'COPYRIGHT'),},
+    'Shop Details': {
+        'fields': (
+            'SHOP_ADDRESS', 
+            'SHOP_MOBILE_PHONE', 
+            'SHOP_EMAIL'
+        ),
+        'collapse': True
+    },
+    'Shop Settings': {
+        'fields': (
+            'CURRENCY',
+            'CURRENCY_SYMBOL',
+            'FREE_DELIVERY_THRESHOLD',
+            'STANDARD_DELIVERY_PERCENTAGE',
+        ),
+        'collapse': True
+    },
+}
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
