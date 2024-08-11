@@ -3,12 +3,11 @@ from apps.user.models import User
 
 class Product(models.Model):
     id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(User, related_name="products", on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True)
     details = models.TextField()
     sku = models.CharField(max_length=255, unique=True)
-    quantity = models.IntegerField()
+    stock = models.IntegerField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     featured = models.ImageField(upload_to="products/", null=True, blank=True)
     is_draft = models.BooleanField(default=False)
@@ -18,6 +17,7 @@ class Product(models.Model):
 
     class Meta:
         db_table = "mood_product"
+        verbose_name = "Product"
         verbose_name_plural = "Products"
 
     def __str__(self):
@@ -34,6 +34,7 @@ class Category(models.Model):
 
     class Meta:
         db_table = "mood_category"
+        verbose_name = "Category"
         verbose_name_plural = "Categories"
 
     def __str__(self):
