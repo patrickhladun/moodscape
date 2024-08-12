@@ -37,4 +37,4 @@ class ProductFactory(DjangoModelFactory):
     sku = Faker("ean13")
     stock = Faker("random_int", min=1, max=100)
     price = Faker("random_int", min=100, max=1000)
-    is_draft = False
+    is_published = False

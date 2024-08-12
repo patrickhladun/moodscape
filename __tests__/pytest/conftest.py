@@ -42,7 +42,7 @@ def test_data_products():
     price=128,
     featured="products/irish-coastal-sunset-watercolor.webp",
     category=category_1,
-    is_draft=False
+    is_published=False
   )
 
   product_2 = ProductFactory(
@@ -54,7 +54,7 @@ def test_data_products():
     price=42,
     featured="products/abstract-irish-cliffs-oil-painting.webp",
     category=category_1,
-    is_draft=False
+    is_published=False
   )
 
   product_3 = ProductFactory(
@@ -66,7 +66,7 @@ def test_data_products():
     price=120,
     featured="products/tranquil-irish-ocean-waves-print.webp",
     category=category_1,
-    is_draft=False
+    is_published=False
   )
 
   product_4 = ProductFactory(
@@ -78,7 +78,7 @@ def test_data_products():
     price=52,
     featured="products/golden-marguerite-close-up-photograph.webp",
     category=category_2,
-    is_draft=False
+    is_published=False
   )
 
   product_5 = ProductFactory(
@@ -90,7 +90,7 @@ def test_data_products():
     price=52,
     featured="products/vibrant-red-poppy-petals-macro-shot.webp",
     category=category_2,
-    is_draft=False
+    is_published=False
   ) 
 
   product_6 = ProductFactory(
@@ -102,7 +102,7 @@ def test_data_products():
     price=52,
     featured="products/white-marguerite-blossom-macro-print.webp",
     category=category_2,
-    is_draft=False
+    is_published=False
   )
   
   return [product_1, product_2, product_3, product_4, product_5, product_6]

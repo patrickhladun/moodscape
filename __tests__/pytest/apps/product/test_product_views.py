@@ -28,4 +28,4 @@ def test_product_view(test_data_products):
     assert response.context["product"].price == 128
     assert response.context["product"].featured == "products/irish-coastal-sunset-watercolor.webp"
     assert response.context["product"].category.name == "Watercolor"
-    assert response.context["product"].is_draft == False
+    assert response.context["product"].is_published == False

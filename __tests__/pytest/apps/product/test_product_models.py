@@ -65,7 +65,7 @@ def test_product_creation():
         stock=10,
         price=150.00,
         category=category,
-        is_draft=False
+        is_published=False
     )
     assert product.name == "Irish Coastal Sunset Watercolor"
     assert product.slug == "irish-coastal-sunset-watercolor"
@@ -103,7 +103,7 @@ def test_product_fields():
         stock=10,
         price=150.00,
         featured=image_file,
-        is_draft=False,
+        is_published=False,
         category=category
     )
 
@@ -116,7 +116,7 @@ def test_product_fields():
     assert isinstance(product.stock, int)
     assert isinstance(product.featured, product._meta.get_field('featured').attr_class)
     assert isinstance(product.price, float)
-    assert isinstance(product.is_draft, bool)
+    assert isinstance(product.is_published, bool)
 
     with pytest.raises(ValidationError):
         product.name = "x" * 256
@@ -147,7 +147,7 @@ def test_product_sku_unique():
         price=150.00,
         featured="products/irish-coastal-sunset-watercolor.webp",
         category=category,
-        is_draft=False
+        is_published=False
     )
 
     with pytest.raises(ValidationError):
@@ -160,7 +160,7 @@ def test_product_sku_unique():
             price=100.00,
             featured="products/irish-coastal-sunset-watercolor.webp",
             category=category,
-            is_draft=False
+            is_published=False
         )
         duplicate_product.full_clean()
 

@@ -34,7 +34,7 @@ def test_product_admin_list_display():
         'category',
         'created_at',
         'updated_at',
-        'is_draft',
+        'is_published',
     )
 
 
