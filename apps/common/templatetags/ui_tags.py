@@ -41,3 +41,9 @@ def icon(name, size="md", class_name=""):
             )
     except FileNotFoundError:
         return mark_safe("<!-- Icon not found -->")
+
+
+
+@register.simple_tag
+def is_active(request, pattern):
+    return ' active' if request.path == pattern else ''
