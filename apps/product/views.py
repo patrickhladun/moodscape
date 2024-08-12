@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from .models import Product
-from .forms import UpdateProductForm
+from .forms import AddProductForm, UpdateProductForm
 
 from constance import config
 
@@ -26,6 +26,26 @@ def products_view(request):
     context = {
         'products': products,
         'config': config,
+        'active': 'products'
+    }
+    return render(request, template, context)
+
+
+@login_required
+def product_add_view(request):
+    if request.method == 'POST':
+        form = AddProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Product updated successfully.')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = AddProductForm()
+
+    template = "product/admin/product_add.html"
+    context = {
+        "form": form,
         'active': 'products'
     }
     return render(request, template, context)
@@ -69,3 +89,5 @@ def product_delete_view(request, id):
         'active': 'products'
     }
     return render(request, template, context)
+
+

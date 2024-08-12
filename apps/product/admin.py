@@ -27,7 +27,7 @@ class ProductAdmin(SummernoteModelAdmin):
       'category',
       'created_at',
       'updated_at',
-      'is_draft',
+      'is_published',
     )
 
     summernote_fields = ('details',)

@@ -39,7 +39,7 @@ class Migration(migrations.Migration):
                 ('stock', models.IntegerField()),
                 ('price', models.DecimalField(decimal_places=2, max_digits=10)),
                 ('featured', models.ImageField(blank=True, null=True, upload_to='products/')),
-                ('is_draft', models.BooleanField(default=False)),
+                ('is_published', models.BooleanField(default=False)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
                 ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='product.category')),

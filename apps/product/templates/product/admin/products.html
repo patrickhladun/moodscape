@@ -6,6 +6,11 @@
   <section class="container md:hidden">
     <h1>Account</h1>
   </section>
+
+  <div class="container pb-sm">
+    <a href="{% url 'admin_product_add' %}">Add Product</a>
+  </div>
+
   <section class="container">
     <div>
       <div class="hidden md:grid md:grid-cols-4 mb-2 p-2 bg-neutral-200">
@@ -17,7 +22,7 @@
       {% for product in products %}
         <div class="md:grid md:grid-cols-4 mb-2 p-2 md:items-center bg-neutral-100">
           
-          <a href="{% url 'product_update' product.id %}" class="flex items-center">
+          <a href="{% url 'admin_product_update' product.id %}" class="flex items-center">
             {% if product.featured %}
               <img src="{{ product.featured.url }}" alt="{{ product.name }}" class="w-12 h-12 mr-4" />
             {% else %}

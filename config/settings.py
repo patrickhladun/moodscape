@@ -156,6 +156,7 @@ SUMMERNOTE_THEME = 'bs5'
 SUMMERNOTE_CONFIG = {
     'summernote': {
         'airMode': False,
+        'width': '100%',
         'height': '280',
         'lang': None,
         'toolbar': [
