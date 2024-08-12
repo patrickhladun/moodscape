@@ -8,7 +8,7 @@ from __tests__.pytest.factories import SuperuserFactory
 
 views = [
     {
-        'url': 'user_account',
+        'url': 'admin_account',
         'template': 'user/admin/account.html',
     },
 ]
@@ -49,7 +49,7 @@ def test_account_view_form(client):
 
     client.force_login(superuser)
 
-    response = client.get(reverse("user_account"))
+    response = client.get(reverse("admin_account"))
     assert response.status_code == 200
 
     form = response.context["form"]
@@ -67,7 +67,7 @@ def test_update_user_email_form(client):
 
     client.force_login(superuser)
 
-    response = client.get(reverse("user_account"))
+    response = client.get(reverse("admin_account"))
     assert response.status_code == 200
 
     form = response.context["form"]
@@ -80,11 +80,11 @@ def test_update_user_email_form(client):
         "username": superuser.username,
     }
 
-    response = client.post(reverse("user_account"), data=form_data)
+    response = client.post(reverse("admin_account"), data=form_data)
 
     assert response.status_code == 302
 
-    response = client.get(reverse("user_account"))
+    response = client.get(reverse("admin_account"))
     assert response.status_code == 200
 
     superuser.refresh_from_db()
