@@ -39,6 +39,7 @@ urls = [
     }
 ]
 
+
 @pytest.mark.parametrize("url", urls)
 def test_urls_resolves(url):
     resolver = resolve(url['url'])
