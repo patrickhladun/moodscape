@@ -1,18 +1,19 @@
 import pytest
 
+from django.template import Context
 from django.http import HttpRequest
 
-from apps.common.templatetags.ui_tags import is_active
+from apps.common.templatetags.ui_tags import active
 
 @pytest.mark.django_db
-def test_is_active_exact_match():
+def test_active_exact_match():
     request = HttpRequest()
     request.path = '/account/'
 
-    result = is_active(request, '/account/')
+    context = Context({'request': request, 'active': 'account'})
+
+    result = active(context, 'account')
     assert result == ' active'
 
-    result = is_active(request, '/account/products/')
+    result = active(context, 'products')
     assert result == ''
-
-

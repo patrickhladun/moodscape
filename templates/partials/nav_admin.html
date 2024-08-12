@@ -3,14 +3,14 @@
 <div class="container hidden md:flex pb-sm pt-rg">
 <a 
   href="{% url 'admin_account' %}" 
-  class="admin-nav-item{% is_active request '/account/' %}"
+  class="admin-nav-item{% active 'account' %}"
   aria-label="Link to Products"
   >
   Account
 </a>
 <a 
   href="{% url 'admin_products' %}" 
-  class="admin-nav-item{% is_active request '/account/products/' %}"
+  class="admin-nav-item{% active 'products' %}"
   aria-label="Link to Products"
   >
   Products

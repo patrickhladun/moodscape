@@ -22,6 +22,7 @@ def account_view(request):
     template = "user/admin/account.html"
     context = {
         'form': form,
+        'active': 'account'
     }
     return render(request, template, context)
 

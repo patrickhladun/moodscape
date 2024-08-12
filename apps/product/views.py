@@ -28,6 +28,7 @@ def products_view(request):
     context = {
         'products': products,
         'config': config,
+        'active': 'products'
     }
     return render(request, template, context)
 
@@ -49,6 +50,7 @@ def product_update_view(request, id):
     template = "product/admin/product_update.html"
     context = {
         "product": product,
-        "form": form
+        "form": form,
+        'active': 'products'
     }
     return render(request, template, context)

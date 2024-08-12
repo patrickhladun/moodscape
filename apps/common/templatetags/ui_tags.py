@@ -44,6 +44,7 @@ def icon(name, size="md", class_name=""):
 
 
 
-@register.simple_tag
-def is_active(request, pattern):
-    return ' active' if request.path == pattern else ''
+@register.simple_tag(takes_context=True)
+def active(context, link):
+    active = context.get('active')
+    return ' active' if active == link else ''
