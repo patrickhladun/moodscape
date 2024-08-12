@@ -1,0 +1,18 @@
+{% load ui_tags %}
+
+<div class="container hidden md:flex pb-sm pt-rg">
+<a 
+  href="{% url 'admin_account' %}" 
+  class="admin-nav-item{% is_active request '/account/' %}"
+  aria-label="Link to Products"
+  >
+  Account
+</a>
+<a 
+  href="{% url 'admin_products' %}" 
+  class="admin-nav-item{% is_active request '/account/products/' %}"
+  aria-label="Link to Products"
+  >
+  Products
+</a>
+</div>
