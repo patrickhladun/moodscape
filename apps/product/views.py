@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
@@ -16,8 +16,6 @@ def product_view(request, slug):
         "product": product,
     }
     return render(request, template, context)
-
-
 
 @login_required
 def products_view(request):
@@ -51,6 +49,23 @@ def product_update_view(request, id):
     context = {
         "product": product,
         "form": form,
+        'active': 'products'
+    }
+    return render(request, template, context)
+
+
+@login_required
+def product_delete_view(request, id):
+    product = get_object_or_404(Product, id=id)
+    
+    if request.method == 'POST':
+        product.delete()
+        messages.success(request, 'Product deleted successfully.')
+        return redirect(reverse('admin_products'))
+    
+    template = "product/admin/products.html"
+    context = {
+        "product": product,
         'active': 'products'
     }
     return render(request, template, context)
