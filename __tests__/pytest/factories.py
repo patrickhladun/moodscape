@@ -11,7 +11,7 @@ class SuperuserFactory(DjangoModelFactory):
 
     email = Faker("email")
     username = Faker("user_name")
-    password = factory.PostGenerationMethodCall('set_password', 'password123')
+    password = factory.PostGenerationMethodCall('set_password', 'password')
     is_staff = True
     is_superuser = True
     is_admin = True
@@ -33,7 +33,7 @@ class ProductFactory(DjangoModelFactory):
 
     name = Faker("name")
     slug = Faker("slug")
-    details = Faker("html")
+    details = Faker("text")
     sku = Faker("ean13")
     stock = Faker("random_int", min=1, max=100)
     price = Faker("random_int", min=100, max=1000)

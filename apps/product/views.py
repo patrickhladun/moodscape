@@ -37,7 +37,8 @@ def product_add_view(request):
         form = AddProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Product updated successfully.')
+            messages.success(request, 'Product added successfully.')
+            return redirect(reverse('admin_product_update', args=[form.instance.id]))
         else:
             messages.error(request, 'Please correct the error below.')
     else:

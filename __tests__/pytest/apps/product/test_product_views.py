@@ -7,6 +7,7 @@ from django.urls import reverse
 from apps.frontend import views
 from apps.product.models import Product, Category
 
+from __tests__.pytest.factories import SuperuserFactory, ProductFactory, CategoryFactory
 
 @pytest.mark.django_db
 def test_product_view(test_data_products):
@@ -29,3 +30,120 @@ def test_product_view(test_data_products):
     assert response.context["product"].featured == "products/irish-coastal-sunset-watercolor.webp"
     assert response.context["product"].category.name == "Watercolor"
     assert response.context["product"].is_published == False
+
+
+
+@pytest.mark.django_db
+def test_add_product_as_superadmin():
+    client = Client()
+
+    admin = SuperuserFactory()
+    admin.set_password("password")
+    admin.save()
+
+    client.force_login(admin)
+
+    url = reverse('admin_product_add')
+    category = CategoryFactory(id=2, name="Digital Art", slug="digital-art")
+
+    data = {
+        'name': 'Test Product',
+        'slug': '',
+        'details': 'This is a test product.',
+        'sku': 'wtc-ol-tp1',
+        'stock': 10,
+        'price': '40.00',
+        'category': category.id,
+        'is_published': False,
+    }
+
+    response = client.post(url, data)
+    
+    assert response.status_code == 302, f"Form errors: {response.context['form'].errors}"
+
+    try:
+        product = Product.objects.get(name='Test Product')
+    except Product.DoesNotExist:
+        assert False, "Product was not created in the database."
+
+    assert product.slug == 'test-product'
+    assert product.sku == 'wtc-ol-tp1'
+    assert product.stock == 10
+    assert product.price == 40.00
+    assert product.details == 'This is a test product.'
+    assert product.is_published is False
+
+
+
+@pytest.mark.django_db
+@pytest.mark.parametrize("data,expected_error", [
+    pytest.param(
+        {
+            'name': '',
+            'slug': '',
+            'details': 'This is a test product with no name.',
+            'sku': 'wtc-ol-tp1',
+            'stock': 10,
+            'price': '40.00',
+            'category': 1,
+            'is_published': False,
+        }, 'name', id="missing_name"
+    ),
+    pytest.param(
+        {
+            'name': 'Test Product',
+            'slug': '',
+            'details': 'This is a test product with a duplicate SKU.',
+            'sku': 'duplicate-sku',
+            'stock': 10,
+            'price': '40.00',
+            'category': 1,
+            'is_published': False,
+        }, 'sku', id="duplicate_sku"
+    ),
+    pytest.param(
+        {
+            'name': 'Test Product',
+            'slug': '',
+            'details': 'This is a test product with a negative price.',
+            'sku': 'wtc-ol-tp2',
+            'stock': 10,
+            'price': 'invalid-price',
+            'category': 1,
+            'is_published': False,
+        }, 'price', id="invalid_price"
+    ),
+     pytest.param(
+        {
+            'name': 'Test Product',
+            'slug': '',
+            'details': 'This is a test product with a negative price.',
+            'sku': 'wtc-ol-tp2',
+            'stock': -10,
+            'price': '40.00',
+            'category': 1,
+            'is_published': False,
+        }, 'stock', id="negative_stock"
+    ),
+])
+def test_add_product_with_invalid_data(data, expected_error):
+    client = Client()
+
+    admin = SuperuserFactory()
+    admin.set_password("password")
+    admin.save()
+
+    client.force_login(admin)
+
+    category = CategoryFactory(id=1, name="Digital Art", slug="digital-art")
+    data['category'] = category.id
+
+    if expected_error == 'sku':
+        ProductFactory(sku='duplicate-sku', category=category)
+
+    url = reverse('admin_product_add')
+
+    response = client.post(url, data)
+
+    assert response.status_code == 200
+    assert expected_error in response.context['form'].errors, f"Expected error in {expected_error} field."

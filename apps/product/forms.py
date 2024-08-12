@@ -23,6 +23,12 @@ class AddProductForm(forms.ModelForm):
 
         return slug
 
+    def clean_stock(self):
+        stock = self.cleaned_data.get('stock')
+        if stock < 0:
+            raise forms.ValidationError("Stock cannot be negative.")
+        return stock
+
 
 class UpdateProductForm(forms.ModelForm):
     class Meta:
