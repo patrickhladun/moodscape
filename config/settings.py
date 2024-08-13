@@ -11,6 +11,11 @@ env = environ.Env()
 
 SECRET_KEY = env("SECRET_KEY")
 DEBUG = env.bool("DEBUG", default=False)
+ENVIRONMENT = os.getenv('ENVIRONMENT')
+
+if ENVIRONMENT == 'development':
+    CSRF_TRUSTED_ORIGINS = ['http://localhost:3000',]
+
 ALLOWED_HOSTS = []
 DJANGO_APPS = [
     'django.contrib.admin',
