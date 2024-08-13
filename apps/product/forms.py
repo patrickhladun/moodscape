@@ -37,3 +37,11 @@ class UpdateProductForm(forms.ModelForm):
         widgets = {
             'details': SummernoteWidget(),
         }
+
+
+
+
+class CategoryForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = ['name', 'slug', 'description']

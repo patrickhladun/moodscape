@@ -2,8 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-from .models import Product
-from .forms import AddProductForm, UpdateProductForm
+from .models import Product, Category
+from .forms import AddProductForm, UpdateProductForm, CategoryForm
 
 from constance import config
 
@@ -92,3 +92,73 @@ def product_delete_view(request, id):
     return render(request, template, context)
 
 
+@login_required
+def categories_view(request):
+    user = request.user
+    categories = Category.objects.all()
+
+    template = "product/admin/categories.html"
+    context = {
+        'categories': categories,
+        'active': 'categories'
+    }
+
+    return render(request, template, context)
+
+
+def category_update_view(request, id):
+    category = get_object_or_404(Category, id=id)
+    
+    if request.method == 'POST':
+        form = CategoryForm(request.POST, instance=category)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Category updated successfully.')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = CategoryForm(instance=category)
+
+    template = "product/admin/category_update.html"
+    context = {
+        "category": category,
+        "form": form,
+        'active': 'categories'
+    }
+    return render(request, template, context)
+
+
+def category_delete_view(request, id):
+    category = get_object_or_404(Category, id=id)
+    
+    if request.method == 'POST':
+        category.delete()
+        messages.success(request, 'Category deleted successfully.')
+        return redirect(reverse('admin_categories'))
+    
+    template = "product/admin/categories.html"
+    context = {
+        "category": category,
+        'active': 'categories'
+    }
+    return render(request, template, context)
+
+
+def category_add_view(request):
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Category added successfully.')
+            return redirect(reverse('admin_categories'))
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = CategoryForm()
+
+    template = "product/admin/category_add.html"
+    context = {
+        "form": form,
+        'active': 'categories'
+    }
+    return render(request, template, context)
