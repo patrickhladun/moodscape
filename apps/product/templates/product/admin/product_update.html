@@ -1,12 +1,20 @@
 {% extends 'base.html' %}
+{% load ui_tags %}
 {% load static %}
 
 {% block content %}
   {% include 'partials/nav_admin.html' %}
+  
   <section class="container pb-sm">
-    <a href="{% url 'admin_products' %}">Back to Products</a>
+    <a href="{% url 'admin_products' %}" class="inline-block bg-neutral-200 hover:bg-neutral-300 transition-colors duration-200 ease-in-out p-2 pr-3 rounded-md">
+      <span class="flex items-center">
+        <span class="">{% icon 'icon-arrow' 'sm' %}</span>
+        <span class="text-xs uppercase font-bold">Back</span>
+      </span>
+    </a>
   </section>
-  <section class="container pb-rg">
+
+  <section class="container py-rg">
     <h2>{{ product.name }}</h2>
     <div>
       <form method="POST">
@@ -41,8 +49,10 @@
           </div>
         </div>
 
-        <button class="button" type="submit" name="add_item">Update</button>
-        <button id="delete-popup-button" data-product-id="{{ product.id }}">Delete</button>
+        <div class="flex items-center gap-4 py-xs">
+          <button class="button" type="submit" name="add_item">Update</button>
+          <button id="delete-popup-button" data-product-id="{{ product.id }}">Delete</button>
+        </div>
       </form>
       
     </div>
