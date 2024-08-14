@@ -78,3 +78,5 @@ def test_account_form_missing_username():
 
     assert not form.is_valid()
     assert 'username' in form.errors
+
+

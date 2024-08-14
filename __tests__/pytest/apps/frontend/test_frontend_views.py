@@ -1,6 +1,9 @@
 import pytest
-from django.conf import settings
+
+from django.test import Client
 from django.urls import reverse
+from django.conf import settings
+
 from apps.frontend.forms import ContactForm
 
 views = [
@@ -32,8 +35,13 @@ views = [
         'url': 'faq',
         'template': 'frontend/faq.html',
     },
+    {
+        'url': 'shop',
+        'template': 'frontend/shop.html',
+    },
 ]
 
+@pytest.mark.django_db
 @pytest.mark.parametrize("view", views)
 def test_views_status(client, view):
     url = reverse(view['url'])
@@ -86,3 +94,18 @@ def test_contact_post_invalid(client):
     assert isinstance(response.context['form'], ContactForm)
     assert response.context['form'].errors
     assert 'frontend/contact.html' in [t.name for t in response.templates]
+
+
+@pytest.mark.django_db
+def test_shop_view_list_all_products(test_data_products):
+    client = Client()
+
+    response = client.get(reverse('shop'))
+
+    assert response.status_code == 200
+    assert 'frontend/shop.html' in [t.name for t in response.templates]
+    assert len(response.context["products"]) == 6
+
+    assert response.context["products"][0].name == "Irish Coastal Sunset Watercolor"
+    assert response.context["products"][0].slug == "irish-coastal-sunset-watercolor"
+    assert response.context["products"][0].sku == "wtc-ol-icsw1"

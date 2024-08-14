@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import AccountProfileForm
 
+from constance import config
+
+from .forms import AccountProfileForm
 
 @login_required
 def account_view(request):
@@ -13,12 +15,16 @@ def account_view(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Account details updated successfully.")
-            return redirect('user_account')
+            return redirect('admin_account')
     else:
         form = AccountProfileForm(instance=user)
 
     template = "user/admin/account.html"
     context = {
         'form': form,
+        'active': 'account'
     }
     return render(request, template, context)
+
+
+

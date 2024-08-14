@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load ui_tags %}
+{% load static %}
+
+{% block content %}
+  {% include 'partials/nav_admin.html' %}
+  <section class="container md:hidden">
+    <h1>Account</h1>
+  </section>
+
+  <div class="container pb-sm">
+    <div class="flex items-center">
+      <a href="{% url 'admin_product_add' %}" class="inline-block bg-neutral-200 hover:bg-neutral-300 transition-colors duration-200 ease-in-out p-2 pr-3 rounded-md">
+        <span class="flex items-center">
+          <span class="">{% icon 'icon-plus' 'md' %}</span>
+          <span class="text-xs uppercase font-bold">Add Product</span>
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <section class="container">
+    <div>
+      <div class="hidden md:grid md:grid-cols-4 mb-2 p-2 bg-neutral-200">
+        <span>Product</span>
+        <span>Price</span>
+        <span>Category</span>
+        <span>Created</span>
+      </div>
+      {% for product in products %}
+        <div class="md:grid md:grid-cols-4 mb-2 p-2 md:items-center bg-neutral-100">
+          
+          <a href="{% url 'admin_product_update' product.id %}" class="flex items-center">
+            {% if product.featured %}
+              <img src="{{ product.featured.url }}" alt="{{ product.name }}" class="w-12 h-12 mr-4" />
+            {% else %}
+              <img src="{% static 'assets/images/placeholder.webp' %}" alt="{{ product.name }}" class="w-12 h-12 mr-4"/>
+            {% endif %}
+            <span class="truncate">{{ product.name }}</span>
+          </a>               
+          
+          <span class="inline-block w-full">
+            <span class="md:hidden">Price:</span>
+            <span>{{ config.CURRENCY_SYMBOL }}{{ product.price }}</span>
+          </span>
+          <span class="inline-block w-full">
+            <span class="md:hidden">Category:</span>
+            {{ product.category }}
+          </span>
+          <span class="inline-block w-full">
+            <span class="md:hidden">Created:</span>
+            {{ product.created_at }}
+          </span>
+          
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}

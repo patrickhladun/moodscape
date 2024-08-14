@@ -41,3 +41,10 @@ def icon(name, size="md", class_name=""):
             )
     except FileNotFoundError:
         return mark_safe("<!-- Icon not found -->")
+
+
+
+@register.simple_tag(takes_context=True)
+def active(context, link):
+    active = context.get('active')
+    return ' active' if active == link else ''

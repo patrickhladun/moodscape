@@ -1,5 +1,7 @@
 import pytest
+
 from django.utils.safestring import SafeString
+
 from apps.common.templatetags.ui_tags import icon
 
 icons_data = [

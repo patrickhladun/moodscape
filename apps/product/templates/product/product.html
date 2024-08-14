@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load ui_tags %}
+{% load static %} 
+
+{% block content %}
+<main>
+<section class="bg-neutral-100">
+  <div class="container py-xxs">
+    <div class="flex">
+      <div class="flex w-1/2">
+        <a href="{% url 'shop' %}" class="text-primary">Shop</a>
+        <span>&gt;</span>
+        <a href="{% url 'shop' %}" class="text-primary">{{ product.category }}</a>
+        <span>&gt;</span>
+        <a href="{% url 'product' product.slug %}" class="text-primary truncate">{{ product.name }}</a>
+        </div>
+    </div>
+  </div>
+</section>
+<section class="container">
+  <div class="flex gap-4 py-rg">
+    <div class="w-full md:w-3/5">
+      {% if product.featured %}
+        <img src="{{ product.featured.url }}" alt="{{ product.name }}" class="w-full" />
+      {% else %}
+        <img src="{% static 'assets/images/placeholder.webp' %}" alt="{{ product.name }}" class="w-full" />
+      {% endif %}
+    </div>
+
+    <div class="w-full md:w-2/5">
+      <p class="text-h3 font-bold">{{ config.CURRENCY_SYMBOL }}{{ product.price }}</p>
+      <h1 class="text-base font-normal">{{ product.name|safe }}</h1>
+      <div class="bg-neutral-100 font-medium p-2">
+        {% if product.stock == 0 %}
+            <span>Sold Out!</span>
+        {% elif product.stock <= 4 %}
+            <span>Only {{ product.stock }} left</span>
+        {% else %}
+            <span class="text-green-400">In Stock</span>
+        {% endif %}
+        </div>
+      <h2 class="text-h4">Details</h2>
+      <p>{{ product.details|safe }}</p>
+      <button type="submit" class="btn btn-primary">Add to Cart</button>
+    </main>
+  </div>
+</section>
+<section class="py-sm">
+  <div class="container">
+      <div class="flex flex-col">
+          <!-- Review 1 -->
+          <div class="p-4 mb-2">
+              <div class="flex mb-4">
+                  <img class="w-12 h-12 rounded-full mr-4" src="https://via.placeholder.com/150" alt="Reviewer 1">
+                  <div>
+                      <h3 class="text-xl font-semibold text-gray-900 m-0">Sarah Connor</h3>
+                      <div class="flex items-center">
+                        {% icon 'icon-star' 'sm' 'fill-neutral-800' %}
+                        {% icon 'icon-star' 'sm' 'fill-neutral-800' %}
+                        {% icon 'icon-star' 'sm' 'fill-neutral-800' %}
+                        {% icon 'icon-star' 'sm' 'fill-neutral-800' %}
+                        {% icon 'icon-star-half' 'sm' 'fill-neutral-800' %}
+                      </div>
+                  </div>
+              </div>
+              <p class="text-gray-700">"The colors are vibrant, and the detail is incredible. This painting has become the focal point of my living room!"</p>
+          </div>
+          
+      </div>
+  </div>
+</section>
+
+</main>
+{% endblock %}

@@ -14,6 +14,9 @@ const paths = {
   html: {
     src: "./**/templates/**/*.html",
   },
+  py: {
+    src: "./**/*.py",
+  },
 };
 
 // Compile SCSS, add Tailwind CSS and Autoprefixer, and output to the destination folder
@@ -34,13 +37,14 @@ function serve() {
     open: false, // Prevents BrowserSync from automatically opening the browser
   });
 
-  gulp.watch(paths.styles.src, styles); // Watch all SCSS files for changes
+  gulp.watch(paths.styles.src, styles);
+  gulp
+    .watch(paths.py.src)
+    .on("change", gulp.series(styles, browserSync.reload));
   gulp
     .watch(paths.html.src)
-    .on("change", gulp.series(styles, browserSync.reload)); // Watch for changes in HTML files and reload browser
+    .on("change", gulp.series(styles, browserSync.reload));
 }
-
-// Define the default task to compile styles and serve the project with live reloading
 const build = gulp.series(styles, serve);
 
 exports.styles = styles;

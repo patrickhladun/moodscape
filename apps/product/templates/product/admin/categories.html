@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load ui_tags %}
+
+{% block content %}
+  {% include 'partials/nav_admin.html' %}
+  <section class="container md:hidden">
+    <h1>Categories</h1>
+  </section>
+
+  <div class="container pb-sm">
+    <div class="flex items-center">
+      <a href="{% url 'admin_category_add' %}" class="inline-block bg-neutral-200 hover:bg-neutral-300 transition-colors duration-200 ease-in-out p-2 pr-3 rounded-md">
+        <span class="flex items-center">
+          <span class="">{% icon 'icon-plus' 'md' %}</span>
+          <span class="text-xs uppercase font-bold">Add Category</span>
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <section class="container">
+    <div class="flex flex-col">
+      {% for cat in categories %}
+        <div class="flex items-center gap-2 p-2 mb-1 bg-neutral-100 rounded-md">
+          <span class="mr-auto">{{ cat.name }}</span>
+          <a href="{% url 'admin_category_update' cat.id %}" class="inline-block bg-neutral-200 hover:bg-neutral-300 transition-colors duration-200 ease-in-out p-2 rounded-md">
+            <span class="flex items-center">
+              <span class="p-[4px]">{% icon 'icon-edit' 'sm' %}</span>
+              <span class="text-xs uppercase font-bold">Edit Category</span>
+            </span>
+          </a>    
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}

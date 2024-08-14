@@ -3,13 +3,13 @@
   {% if request.user.user_type in 'customer' %}
   {% endif %}
   <li>
-    <a href="{% url 'user_account' %}" class="block px-4 py-2 hover:bg-blue-100 dark:hover:bg-blue-600 dark:hover:text-white" aria-label="Link to Account">Account</a>
+    <a href="{% url 'admin_account' %}" class="block px-4 py-2 hover:bg-blue-100 dark:hover:bg-blue-600 dark:hover:text-white" aria-label="Link to Account">Account</a>
   </li>
   <li>
     <a href="#" class="block px-4 py-2 hover:bg-blue-100 dark:hover:bg-blue-600 dark:hover:text-white" aria-label="Link to Customers">Customers</a>
   </li>
   <li>
-    <a href="#" class="block px-4 py-2 hover:bg-blue-100 dark:hover:bg-blue-600 dark:hover:text-white" aria-label="Link to Products">Products</a>
+    <a href="{% url 'admin_products' %}" class="block px-4 py-2 hover:bg-blue-100 dark:hover:bg-blue-600 dark:hover:text-white" aria-label="Link to Products">Products</a>
   </li>
   <li>
     <a href="#" class="block px-4 py-2 hover:bg-blue-100 dark:hover:bg-blue-600 dark:hover:text-white" aria-label="Link to Orders">Orders</a>
