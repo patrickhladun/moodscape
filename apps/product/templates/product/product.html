@@ -20,11 +20,16 @@
 <section class="container">
   <div class="flex gap-4 py-rg">
     <div class="w-full md:w-3/5">
-      <img src="{{ product.featured.url }}" alt="{{ product.name }}" class="w-full">
+      {% if product.featured %}
+        <img src="{{ product.featured.url }}" alt="{{ product.name }}" class="w-full" />
+      {% else %}
+        <img src="{% static 'assets/images/placeholder.webp' %}" alt="{{ product.name }}" class="w-full" />
+      {% endif %}
     </div>
+
     <div class="w-full md:w-2/5">
       <p class="text-h3 font-bold">{{ config.CURRENCY_SYMBOL }}{{ product.price }}</p>
-      <h1 class="text-base font-normal">{{ product.name }}</h1>
+      <h1 class="text-base font-normal">{{ product.name|safe }}</h1>
       <div class="bg-neutral-100 font-medium p-2">
         {% if product.stock == 0 %}
             <span>Sold Out!</span>
