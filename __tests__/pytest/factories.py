@@ -22,6 +22,7 @@ class CategoryFactory(DjangoModelFactory):
     class Meta:
         model = Category
 
+    id = Faker("random_int")
     name = Faker("name")
     slug = Faker("slug")
     description = Faker("text")

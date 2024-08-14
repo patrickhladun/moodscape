@@ -7,17 +7,31 @@ from .factories import ProductFactory, CategoryFactory
 @pytest.fixture
 def test_data_categories():
   category_1 = CategoryFactory(
+    id=1,
+    name="Undefined",
+    slug="undefined",
+    description="Undefined category"
+  )
+  category_2 = CategoryFactory(
+    id=2,
     name="Watercolor",
     slug="watercolor",
     description="Watercolor paints"
   ) 
-  category_2 = CategoryFactory(
+  category_3 = CategoryFactory(
+    id=3,
     name="Photography",
     slug="photography",
     description="Photography prints"
   )
+  category_4 = CategoryFactory(
+    id=4,
+    name="Digital Art",
+    slug="digital-art",
+    description="Digital art prints"
+  )
   
-  return [category_1, category_2]
+  return [category_1, category_2, category_3]
 
 
 @pytest.fixture
