@@ -2,7 +2,7 @@
   {
     "model": "product.product",
     "fields": {
-      "category": 1,
+      "category": 2,
       "name": "Original Watercolor Seascape Abstract Painting, Wall Art Abstract Art Purple.",
       "slug": "irish-watercolor",
       "details": "<ul><li>width: 45cm</li><li>height: 76cm</li></ul>",
@@ -18,7 +18,7 @@
   {
     "model": "product.product",
     "fields": {
-      "category": 1,
+      "category": 2,
       "name": "Irish Seascape Watercolor Print",
       "slug": "irish-seascape-watercolor",
       "details": "",
@@ -34,7 +34,7 @@
   {
     "model": "product.product",
     "fields": {
-      "category": 1,
+      "category": 2,
       "name": "Irish Seascape Watercolor",
       "slug": "irish-seascape-watercolor-1",
       "details": "",
@@ -50,7 +50,7 @@
   {
     "model": "product.product",
     "fields": {
-      "category": 1,
+      "category": 2,
       "name": "Irish Seascape Watercolor",
       "slug": "irish-seascape-watercolor-2",
       "details": "",
@@ -66,7 +66,7 @@
   {
     "model": "product.product",
     "fields": {
-      "category": 1,
+      "category": 2,
       "name": "Abstract Watercolor",
       "slug": "abstract-watercolor",
       "details": "",
@@ -82,7 +82,7 @@
   {
     "model": "product.product",
     "fields": {
-      "category": 1,
+      "category": 2,
       "name": "Abstract Watercolor",
       "slug": "abstract-watercolor-1",
       "details": "",
@@ -98,7 +98,7 @@
   {
     "model": "product.product",
     "fields": {
-      "category": 1,
+      "category": 2,
       "name": "Abstract Watercolor",
       "slug": "abstract-watercolor-2",
       "details": "",
