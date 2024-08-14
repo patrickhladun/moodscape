@@ -3,7 +3,7 @@ from django.utils.text import slugify
 from .models import Product, Category
 from django_summernote.widgets import SummernoteWidget
 
-class AddProductForm(forms.ModelForm):
+class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = ['name', 'slug', 'details', 'sku', 'stock', 'price', 'featured', 'category', 'is_published']
@@ -28,16 +28,6 @@ class AddProductForm(forms.ModelForm):
         if stock < 0:
             raise forms.ValidationError("Stock cannot be negative.")
         return stock
-
-
-class UpdateProductForm(forms.ModelForm):
-    class Meta:
-        model = Product
-        fields = ['name', 'featured', 'price', 'slug', 'details', 'stock', 'sku', 'featured', 'is_published', 'category']
-        widgets = {
-            'details': SummernoteWidget(),
-        }
-
 
 
 

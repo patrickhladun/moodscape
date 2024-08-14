@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from .models import Product, Category
-from .forms import AddProductForm, UpdateProductForm, CategoryForm
+from .forms import ProductForm, CategoryForm
 
 from constance import config
 
@@ -34,7 +34,7 @@ def products_view(request):
 @login_required
 def product_add_view(request):
     if request.method == 'POST':
-        form = AddProductForm(request.POST, request.FILES)
+        form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, 'Product added successfully.')
@@ -42,7 +42,7 @@ def product_add_view(request):
         else:
             messages.error(request, 'Please correct the error below.')
     else:
-        form = AddProductForm()
+        form = ProductForm()
 
     template = "product/admin/product_add.html"
     context = {
@@ -57,14 +57,14 @@ def product_update_view(request, id):
     product = get_object_or_404(Product, id=id)
     
     if request.method == 'POST':
-        form = UpdateProductForm(request.POST, request.FILES, instance=product)
+        form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
             messages.success(request, 'Product updated successfully.')
         else:
             messages.error(request, 'Please correct the error below.')
     else:
-        form = UpdateProductForm(instance=product)
+        form = ProductForm(instance=product)
 
     template = "product/admin/product_update.html"
     context = {
@@ -132,6 +132,12 @@ def category_delete_view(request, id):
     category = get_object_or_404(Category, id=id)
     
     if request.method == 'POST':
+        if category.id == 1:
+            messages.error(request, 'You cannot delete the default category.')
+            return redirect(reverse('admin_category_update', args=[category.id]))
+        if category.product_set.count() > 0:
+            messages.error(request, 'You cannot delete a category with products.')
+            return redirect(reverse('admin_category_update', args=[category.id]))
         category.delete()
         messages.success(request, 'Category deleted successfully.')
         return redirect(reverse('admin_categories'))
