@@ -51,3 +51,10 @@ form p {
   display: flex;
   flex-direction: column;
 }
+
+.errorlist li {
+  color: red;
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 0;
+}

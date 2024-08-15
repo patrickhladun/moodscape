@@ -40,7 +40,9 @@ def product_add_view(request):
             messages.success(request, 'Product added successfully.')
             return redirect(reverse('admin_product_update', args=[form.instance.id]))
         else:
-            messages.error(request, 'Please correct the error below.')
+            error_message = "You have errors in the following fields: "
+            error_fields = ", ".join([field for field, _ in form.errors.items()])
+            messages.error(request, error_message + error_fields)
     else:
         form = ProductForm()
 
@@ -62,7 +64,9 @@ def product_update_view(request, id):
             form.save()
             messages.success(request, 'Product updated successfully.')
         else:
-            messages.error(request, 'Please correct the error below.')
+            error_message = "You have errors in the following fields: "
+            error_fields = ", ".join([field for field, _ in form.errors.items()])
+            messages.error(request, error_message + error_fields)
     else:
         form = ProductForm(instance=product)
 
@@ -115,7 +119,9 @@ def category_update_view(request, id):
             form.save()
             messages.success(request, 'Category updated successfully.')
         else:
-            messages.error(request, 'Please correct the error below.')
+            error_message = "You have errors in the following fields: "
+            error_fields = ", ".join([field for field, _ in form.errors.items()])
+            messages.error(request, error_message + error_fields)
     else:
         form = CategoryForm(instance=category)
 
@@ -158,7 +164,9 @@ def category_add_view(request):
             messages.success(request, 'Category added successfully.')
             return redirect(reverse('admin_categories'))
         else:
-            messages.error(request, 'Please correct the error below.')
+            error_message = "You have errors in the following fields: "
+            error_fields = ", ".join([field for field, _ in form.errors.items()])
+            messages.error(request, error_message + error_fields)
     else:
         form = CategoryForm()
 

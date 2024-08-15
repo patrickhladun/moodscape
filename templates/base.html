@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
+{% load compress %}
+{% load text_tags %}
 
 <html lang="en">
   <head>
@@ -20,11 +22,7 @@
     />
 
     {% block corejs %}
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
+    
     {% endblock %}
 
   <!-- Favicon Includes -->
@@ -54,6 +52,26 @@
     {% endblock %} 
     {% include 'partials/footer.html' %}
 
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+    {% if messages %}
+      {% for message in messages %}
+        {% with toast_template='partials/toasts/toast_'|addstr:message.tags|addstr:'.html' %}
+          {% include toast_template %}
+        {% endwith %}
+      {% endfor %}
+    {% endif %}
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script 
+      src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js">
+    </script>
+
+    {% compress js %}
+      <script src="{% static 'js/main.js' %}"></script>
+    {% endcompress %}
+
   </body>
 </html>
