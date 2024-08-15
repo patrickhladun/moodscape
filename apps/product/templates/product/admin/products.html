@@ -34,7 +34,7 @@
             {% if product.featured %}
               <img src="{{ product.featured.url }}" alt="{{ product.name }}" class="w-12 h-12 mr-4" />
             {% else %}
-              <img src="{% static 'assets/images/placeholder.webp' %}" alt="{{ product.name }}" class="w-12 h-12 mr-4"/>
+              <img src="{% static 'images/placeholder.webp' %}" alt="{{ product.name }}" class="w-12 h-12 mr-4"/>
             {% endif %}
             <span class="truncate">{{ product.name }}</span>
           </a>               
