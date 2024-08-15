@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
+{% load compress %}
+{% load text_tags %}
 
 <html lang="en">
   <head>
@@ -16,23 +18,19 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{% static 'assets/css/style.css' %}"
+      href="{% static 'css/style.css' %}"
     />
 
     {% block corejs %}
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
+    
     {% endblock %}
 
   <!-- Favicon Includes -->
   <link rel="shortcut icon" href="{% static 'favicon.ico' %}" />
   <link rel="icon" sizes="16x16 32x32 64x64" href="{% static 'favicon.ico' %}" />
-  <link rel="icon" type="image/svg+xml" sizes="any" href="{% static 'assets/favicon/favicon.svg' %}" />
-  <link rel="icon" type="image/png" sizes="160x160" href="{% static 'assets/favicon/favicon-160x160.png' %}" />
-  <link rel="icon" type="image/png" sizes="96x96" href="{% static 'assets/favicon/favicon-96x96.png' %}" />
+  <link rel="icon" type="image/svg+xml" sizes="any" href="{% static 'favicon/favicon.svg' %}" />
+  <link rel="icon" type="image/png" sizes="160x160" href="{% static 'favicon/favicon-160x160.png' %}" />
+  <link rel="icon" type="image/png" sizes="96x96" href="{% static 'favicon/favicon-96x96.png' %}" />
   <link rel="icon" type="image/png" sizes="64x64" href="{% static 'assets/favicon/favicon-64x64.png' %}" />
   <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/favicon/favicon-32x32.png' %}" />
   <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/favicon/favicon-16x16.png' %}" />
@@ -54,6 +52,26 @@
     {% endblock %} 
     {% include 'partials/footer.html' %}
 
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+    {% if messages %}
+      {% for message in messages %}
+        {% with toast_template='partials/toasts/toast_'|addstr:message.tags|addstr:'.html' %}
+          {% include toast_template %}
+        {% endwith %}
+      {% endfor %}
+    {% endif %}
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script 
+      src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js">
+    </script>
+
+    {% compress js %}
+      <script src="{% static 'js/main.js' %}"></script>
+    {% endcompress %}
+
   </body>
 </html>

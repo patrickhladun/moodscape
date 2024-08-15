@@ -9,7 +9,7 @@ const paths = {
   styles: {
     src: "src/styles/**/*.scss", // Watch all SCSS files
     entry: "src/styles/style.scss", // Entry point for the styles
-    dest: "static/assets/css/",
+    dest: "static/css/",
   },
   html: {
     src: "./**/templates/**/*.html",
