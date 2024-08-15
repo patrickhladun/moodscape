@@ -31,6 +31,7 @@ EXTERNAL_APPS = [
     'constance',
     'constance.backends.database',
     'django_summernote',
+    'compressor',
 ]
 APPS = [
     'apps.common',
@@ -107,11 +108,20 @@ LANGUAGE_CODE = "en-gb"
 TIME_ZONE = "Europe/London"
 USE_I18N = True
 USE_TZ = True
+
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+COMPRESS_ENABLED = True
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
