@@ -1,0 +1,130 @@
+[
+  {
+    "model": "product.product",
+    "fields": {
+      "name": "Pen Plotter Art Printed with Two Colors, 10 Print Code Art",
+      "slug": "pen-plotter-art-printed",
+      "details": "<p>This unique pen plotter art features a striking design created with two vibrant colors and coded to perfection. The artwork is printed on high-quality Giclée Art Paper Hahnemühle German Etching 310, ensuring rich textures and precise details.</p><p><strong>Size:</strong> 297x297mm</p><p>Please note that tones and colors may differ slightly depending on the monitor or screen used for viewing the artwork.</p><p>Your order will be shipped with a tracking number to ensure it reaches you safely.</p>",
+      "featured": "products/featured_1_050824_jf8y.webp",
+      "sku": "ppl-pl-ppac1",
+      "stock": 5,
+      "price": "148.00",
+      "is_published": true,
+      "category": 4,
+      "created_at": "2023-08-20T00:00:00Z",
+      "updated_at": "2024-08-16T10:44:26.672Z"
+    }
+  },
+  {
+    "model": "product.product",
+    "fields": {
+      "name": "Blue Waves, Gold Triangles on Black Background Pen Plotter Abstract Art",
+      "slug": "blue-waves-gold-black",
+      "details": "<p>This stunning pen plotter abstract art features flowing blue waves contrasted with sharp gold triangles, all set against a deep black background. The artwork is printed on Giclée Art Paper Hahnemühle German Etching 310, highlighting the intricate design with rich textures and depth.</p><p><strong>Size:</strong> 297x297mm</p><p>Please note that tones and colors may differ slightly depending on the monitor or screen used for viewing the artwork.</p><p>Your order will be shipped with a tracking number to ensure it reaches you safely.</p>",
+      "featured": "products/featured_1_050824_f4g2.webp",
+      "sku": "ppl-pl-bwgb1",
+      "stock": 7,
+      "price": "148.00",
+      "is_published": true,
+      "category": 4,
+      "created_at": "2023-08-20T00:00:00Z",
+      "updated_at": "2024-08-16T10:45:13.383Z"
+    }
+  },
+  {
+    "model": "product.product",
+    "fields": {
+      "name": "Fibonacci Sequence Pen Plotter Black on White Background, Minimal Amazing Art",
+      "slug": "fibonacci-sequence-pen",
+      "details": "<p>This minimal yet striking pen plotter art captures the elegance of the Fibonacci sequence, rendered in black ink on a crisp white background. The clean, precise lines create a visually mesmerizing pattern. The artwork is printed on Giclée Art Paper Hahnemühle German Etching 310, ensuring fine details and smooth textures.</p><p><strong>Size:</strong> 297x297mm</p><p>Please note that tones and colors may differ slightly depending on the monitor or screen used for viewing the artwork.</p><p>Your order will be shipped with a tracking number to ensure it reaches you safely.</p>",
+      "featured": "products/featured_1_050824_mnd2.webp",
+      "sku": "ppl-pl-fspb1",
+      "stock": 4,
+      "price": "148.00",
+      "is_published": true,
+      "category": 4,
+      "created_at": "2023-08-20T00:00:00Z",
+      "updated_at": "2024-08-16T10:45:44.556Z"
+    }
+  },
+  {
+    "model": "product.product",
+    "fields": {
+      "name": "Nice Minimal Wall Art Black Hole Style Design Pen Plotted Black on White",
+      "slug": "nice-minimal-wall-art",
+      "details": "<p>This elegant pen plotter art features a minimalist black hole design, skillfully rendered in black ink on a white background. The simplicity of the lines creates a captivating and thought-provoking visual. The artwork is printed on Giclée Art Paper Hahnemühle German Etching 310, ensuring sharp details and smooth textures.</p><p><strong>Size:</strong> 297x297mm</p><p>Please note that tones and colors may differ slightly depending on the monitor or screen used for viewing the artwork.</p><p>Your order will be shipped with a tracking number to ensure it reaches you safely.</p>",
+      "featured": "products/featured_1_050824_uybs.webp",
+      "sku": "ppl-pl-nmwb1",
+      "stock": 3,
+      "price": "148.00",
+      "is_published": true,
+      "category": 4,
+      "created_at": "2023-08-20T00:00:00Z",
+      "updated_at": "2024-08-16T10:47:58.180Z"
+    }
+  },
+  {
+    "model": "product.product",
+    "fields": {
+      "name": "Mathematical Abstract Plotted with Green Gradient on Black",
+      "slug": "mathematical-abstract-plotted",
+      "details": "<p>This captivating pen plotter art showcases a mathematical abstract design, plotted with a striking green gradient on a deep black background. The complex patterns and gradient effect create a visually stunning piece. The artwork is printed on Giclée Art Paper Hahnemühle German Etching 310, bringing out the intricate details with rich textures.</p><p><strong>Size:</strong> 297x297mm</p><p>Please note that tones and colors may differ slightly depending on the monitor or screen used for viewing the artwork.</p><p>Your order will be shipped with a tracking number to ensure it reaches you safely.</p>",
+      "featured": "products/featured_1_050824_4ff7.webp",
+      "sku": "ppl-pl-mapg1",
+      "stock": 5,
+      "price": "148.00",
+      "is_published": true,
+      "category": 4,
+      "created_at": "2023-08-20T00:00:00Z",
+      "updated_at": "2024-08-16T10:50:35.068Z"
+    }
+  },
+  {
+    "model": "product.product",
+    "fields": {
+      "name": "Black Lines Abstract on Light Background",
+      "slug": "black-lines-abstract",
+      "details": "<p>This sophisticated pen plotter art features an abstract design of black lines set against a light background. The interplay of lines creates a dynamic and modern aesthetic. The artwork is printed on Giclée Art Paper Hahnemühle German Etching 310, ensuring crisp details and smooth textures.</p><p><strong>Size:</strong> 297x297mm</p><p>Please note that tones and colors may differ slightly depending on the monitor or screen used for viewing the artwork.</p><p>Your order will be shipped with a tracking number to ensure it reaches you safely.</p>",
+      "featured": "products/featured_1_050824_zi9w.webp",
+      "sku": "ppl-pl-bla1",
+      "stock": 6,
+      "price": "148.00",
+      "is_published": true,
+      "category": 4,
+      "created_at": "2023-08-20T00:00:00Z",
+      "updated_at": "2024-08-16T10:53:18.434Z"
+    }
+  },
+  {
+    "model": "product.product",
+    "fields": {
+      "name": "Abstract Art Green Line Labyrinth Pen Plotted",
+      "slug": "abstract-art-green-line",
+      "details": "<p>This intriguing pen plotter art features an abstract labyrinth design created with green lines, offering a captivating and complex visual journey. The artwork is printed on Giclée Art Paper Hahnemühle German Etching 310, highlighting the intricate details with rich textures.</p><p><strong>Size:</strong> 297x297mm</p><p>Please note that tones and colors may differ slightly depending on the monitor or screen used for viewing the artwork.</p><p>Your order will be shipped with a tracking number to ensure it reaches you safely.</p>",
+      "featured": "products/featured_1_050824_qmqq.webp",
+      "sku": "ppl-pl-aagl1",
+      "stock": 4,
+      "price": "148.00",
+      "is_published": true,
+      "category": 4,
+      "created_at": "2023-08-20T00:00:00Z",
+      "updated_at": "2024-08-16T10:59:08.784Z"
+    }
+  },
+  {
+    "model": "product.product",
+    "fields": {
+      "name": "Stacked Blocks of Lines, Black on White, Generative Pen Plotter Art",
+      "slug": "stacked-blocks-lines",
+      "details": "<p>This generative pen plotter art presents a striking composition of stacked blocks of lines, rendered in black ink on a white background. The geometric design creates a bold and dynamic visual effect. The artwork is printed on Giclée Art Paper Hahnemühle German Etching 310, ensuring crisp lines and smooth textures.</p><p><strong>Size:</strong> 297x297mm</p><p>Please note that tones and colors may differ slightly depending on the monitor or screen used for viewing the artwork.</p><p>Your order will be shipped with a tracking number to ensure it reaches you safely.</p>",
+      "featured": "products/featured_1_050824_bn65.webp",
+      "sku": "ppl-pl-sblg1",
+      "stock": 7,
+      "price": "148.00",
+      "is_published": true,
+      "category": 4,
+      "created_at": "2023-08-20T00:00:00Z",
+      "updated_at": "2024-08-16T11:00:15.414Z"
+    }
+  }
+]

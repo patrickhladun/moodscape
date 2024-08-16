@@ -2,113 +2,97 @@
   {
     "model": "product.product",
     "fields": {
-      "category": 2,
       "name": "Original Watercolor Seascape Abstract Painting, Wall Art Abstract Art Purple.",
-      "slug": "irish-watercolor",
-      "details": "<ul><li>width: 45cm</li><li>height: 76cm</li></ul>",
-      "price": 124.0,
-      "stock": 1,
-      "sku": "wtc-ol-owsa1",
+      "slug": "irish-watercolor-seascape-abstract",
+      "details": "<p><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"font-weight: bolder;\">Original watercolor painting.</span></span><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">The painting is done with artist quality paints on 140 lb cold pressed, acid free watercolor paper.</span><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">Size: A5 -&nbsp;</span><font color=\"#222222\" face=\"Graphik Webfont, -apple-system, Helvetica Neue, Droid Sans, Arial, sans-serif\"><span style=\"letter-spacing: 0.16px;\">148 x 210mm</span></font><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">This painting is inspired by the beautiful landscapes in the West of Ireland.</span><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">Please note that tones and colors may differ slightly according to the monitor or screen used for viewing the painting.</span></p><ul><li><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px; font-size: 1rem;\">Signature at the front</span><br></li><li><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">The painting is not framed</span></li><li>It can be matted and framed</li></ul><p><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">Shipping with tracking number</span></p>",
       "featured": "products/featured_1_240624_26p2.webp",
+      "sku": "wtc-ol-owsa1",
+      "stock": 1,
+      "price": "168.00",
       "is_published": true,
+      "category": 2,
       "created_at": "2023-08-20T00:00:00Z",
-      "updated_at": "2023-08-20T00:00:00Z"
+      "updated_at": "2024-08-16T11:01:58.867Z"
     }
   },
   {
     "model": "product.product",
     "fields": {
-      "category": 2,
-      "name": "Irish Seascape Watercolor Print",
-      "slug": "irish-seascape-watercolor",
-      "details": "",
+      "name": "Irish Seascape Watercolor Painting",
+      "slug": "irish-seascape-watercolor-painting",
+      "details": "<p><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"font-weight: bolder;\">Original watercolor painting.</span></span><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">The painting is done with artist quality paints on 140 lb cold pressed, acid free watercolor paper.</span><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">Size: A5 -&nbsp;</span><font color=\"#222222\" face=\"Graphik Webfont, -apple-system, Helvetica Neue, Droid Sans, Arial, sans-serif\"><span style=\"letter-spacing: 0.16px;\">148 x 210mm</span></font><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">This painting is inspired by the beautiful landscapes in the West of Ireland.</span><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">Please note that tones and colors may differ slightly according to the monitor or screen used for viewing the painting.</span></p><ul><li><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px; font-size: 1rem;\">Signature at the front</span><br></li><li><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">The painting is not framed</span></li><li>It can be matted and framed</li></ul><p><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">Shipping with tracking number</span></p>",
       "featured": "products/featured_1_240624_45pj.webp",
-      "price": 42.0,
-      "stock": 4,
       "sku": "wtc-pt-isqp1",
+      "stock": 1,
+      "price": "168.00",
       "is_published": true,
+      "category": 2,
       "created_at": "2023-08-20T00:00:00Z",
-      "updated_at": "2023-08-20T00:00:00Z"
+      "updated_at": "2024-08-16T11:10:37.303Z"
     }
   },
   {
     "model": "product.product",
     "fields": {
-      "category": 2,
-      "name": "Irish Seascape Watercolor",
-      "slug": "irish-seascape-watercolor-1",
-      "details": "",
+      "name": "Original Abstract Irish Seascape Watercolor Original Painting Abstract Art Galway Indigo Wall Art",
+      "slug": "irish-seascape-watercolor-indygo",
+      "details": "<p><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"font-weight: bolder;\">Original watercolor painting.</span></span><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">The painting is done with artist quality paints on 140 lb cold pressed, acid free watercolor paper.</span><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">Size: A5 -&nbsp;</span><font color=\"#222222\" face=\"Graphik Webfont, -apple-system, Helvetica Neue, Droid Sans, Arial, sans-serif\"><span style=\"letter-spacing: 0.16px;\">148 x 210mm</span></font><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">This painting is inspired by the beautiful landscapes in the West of Ireland.</span><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">Please note that tones and colors may differ slightly according to the monitor or screen used for viewing the painting.</span></p><ul><li><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px; font-size: 1rem;\">Signature at the front</span><br></li><li><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">The painting is not framed</span></li><li>It can be matted and framed</li></ul><p><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">Shipping with tracking number</span></p>",
       "featured": "products/featured_1_240624_0683.webp",
-      "price": 42.0,
-      "stock": 5,
       "sku": "wtc-pt-iswp1",
+      "stock": 1,
+      "price": "168.00",
       "is_published": true,
+      "category": 2,
       "created_at": "2023-08-20T00:00:00Z",
-      "updated_at": "2023-08-20T00:00:00Z"
+      "updated_at": "2024-08-16T11:10:44.383Z"
     }
   },
   {
     "model": "product.product",
     "fields": {
-      "category": 2,
-      "name": "Irish Seascape Watercolor",
-      "slug": "irish-seascape-watercolor-2",
-      "details": "",
+      "name": "Original Abstract Irish Seascape Watercolor Original Painting Abstract Art Indigo",
+      "slug": "irish-seascape-watercolor-original",
+      "details": "<p><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"font-weight: bolder;\">Original watercolor painting.</span></span><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">The painting is done with artist quality paints on 140 lb cold pressed, acid free watercolor paper.</span><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">Size: A5 -&nbsp;</span><font color=\"#222222\" face=\"Graphik Webfont, -apple-system, Helvetica Neue, Droid Sans, Arial, sans-serif\"><span style=\"letter-spacing: 0.16px;\">148 x 210mm</span></font><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">This painting is inspired by the beautiful landscapes in the West of Ireland.</span><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">Please note that tones and colors may differ slightly according to the monitor or screen used for viewing the painting.</span></p><ul><li><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px; font-size: 1rem;\">Signature at the front</span><br></li><li><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">The painting is not framed</span></li><li>It can be matted and framed</li></ul><p><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">Shipping with tracking number</span></p>",
       "featured": "products/featured_1_240624_d76l.webp",
-      "price": 42.0,
-      "stock": 0,
       "sku": "watercolor4",
+      "stock": 1,
+      "price": "168.00",
       "is_published": true,
+      "category": 2,
       "created_at": "2023-08-20T00:00:00Z",
-      "updated_at": "2023-08-20T00:00:00Z"
+      "updated_at": "2024-08-16T11:10:52.754Z"
     }
   },
   {
     "model": "product.product",
     "fields": {
-      "category": 2,
-      "name": "Abstract Watercolor",
-      "slug": "abstract-watercolor",
-      "details": "",
+      "name": "Watercolor Abstract Art Indigo",
+      "slug": "abstract-watercolor-indigo",
+      "details": "<p><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"font-weight: bolder;\">Original watercolor painting.</span></span><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">The painting is done with artist quality paints on 140 lb cold pressed, acid free watercolor paper.</span><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">Size: A5 -&nbsp;</span><font color=\"#222222\" face=\"Graphik Webfont, -apple-system, Helvetica Neue, Droid Sans, Arial, sans-serif\"><span style=\"letter-spacing: 0.16px;\">148 x 210mm</span></font><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">Please note that tones and colors may differ slightly according to the monitor or screen used for viewing the painting.</span></p><ul><li><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px; font-size: 1rem;\">Signature at the front</span><br></li><li><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">The painting is not framed</span></li><li>It can be matted and framed</li></ul><p><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">Shipping with tracking number</span></p>",
       "featured": "products/featured_1_240624_ia0q.webp",
-      "price": 38.0,
-      "stock": 10,
       "sku": "wtc-pt-awsd1",
+      "stock": 1,
+      "price": "145.00",
       "is_published": true,
+      "category": 2,
       "created_at": "2023-08-20T00:00:00Z",
-      "updated_at": "2023-08-20T00:00:00Z"
+      "updated_at": "2024-08-16T11:11:09.049Z"
     }
   },
   {
     "model": "product.product",
     "fields": {
-      "category": 2,
-      "name": "Abstract Watercolor",
-      "slug": "abstract-watercolor-1",
-      "details": "",
+      "name": "Abstract Irish Landscape Watercolor Original Painting Abstract Art Galway",
+      "slug": "abstract-irish-landscape-watercolor",
+      "details": "<p><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"font-weight: bolder;\">Original watercolor painting.</span></span><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">The painting is done with artist quality paints on 140 lb cold pressed, acid free watercolor paper.</span><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">Size: A5 -&nbsp;</span><font color=\"#222222\" face=\"Graphik Webfont, -apple-system, Helvetica Neue, Droid Sans, Arial, sans-serif\"><span style=\"letter-spacing: 0.16px;\">148 x 210mm</span></font><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">This painting is inspired by the beautiful landscapes in the West of Ireland.</span><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><br style=\"box-sizing: inherit; margin: 0px; color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\"><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">Please note that tones and colors may differ slightly according to the monitor or screen used for viewing the painting.</span></p><ul><li><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px; font-size: 1rem;\">Signature at the front</span><br></li><li><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">The painting is not framed</span></li><li>It can be matted and framed</li></ul><p><span style=\"color: rgb(34, 34, 34); font-family: &quot;Graphik Webfont&quot;, -apple-system, &quot;Helvetica Neue&quot;, &quot;Droid Sans&quot;, Arial, &quot;sans-serif&quot;; letter-spacing: 0.16px;\">Shipping with tracking number</span></p>",
       "featured": "products/featured_1_240624_vlsh.webp",
-      "price": 42.0,
-      "stock": 5,
       "sku": "wtc-pt-awsd2",
+      "stock": 1,
+      "price": "168.00",
       "is_published": true,
-      "created_at": "2023-08-20T00:00:00Z",
-      "updated_at": "2023-08-20T00:00:00Z"
-    }
-  },
-  {
-    "model": "product.product",
-    "fields": {
       "category": 2,
-      "name": "Abstract Watercolor",
-      "slug": "abstract-watercolor-2",
-      "details": "",
-      "featured": "",
-      "price": 42.0,
-      "stock": 2,
-      "sku": "wtc-pt-awsd3",
-      "is_published": true,
       "created_at": "2023-08-20T00:00:00Z",
-      "updated_at": "2023-08-20T00:00:00Z"
+      "updated_at": "2024-08-16T11:10:12.092Z"
     }
   }
 ]
