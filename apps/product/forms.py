@@ -17,8 +17,9 @@ class ProductForm(forms.ModelForm):
         
         if not slug:
             slug = slugify(name)
-        
-        if Product.objects.filter(slug=slug).exists():
+
+        queryset = Product.objects.filter(slug=slug).exclude(id=self.instance.id)
+        if queryset.exists():
             raise forms.ValidationError("A product with this slug already exists. Please choose a different name or provide a unique slug.")
 
         return slug

@@ -1,9 +1,20 @@
 {% load ui_tags %}
-<div class="hidden md:flex gap-2">
+
+<div class="hidden md:flex gap-2 mr-auto">
   <a href="{% url 'shop' %}" aria-label="Link to Shop">Shop</a>
   <a href="{% url 'about' %}" aria-label="Link to About">About</a>
   <a href="{% url 'contact' %}" aria-label="Link to Contact">Contact</a>
 </div>
+
+<div class="flex items-center gap-4">
+  <div class="relative flex flex-wrap gap-4">
+    <a href="{% url 'bag' %}" aria-label="Link to Cart">
+      {% icon 'icon-bag' 'lg' 'fill-blue-200' %}
+      {% if product_count %}
+        <span class="absolute inline-block font-mono font-medium text-white bg-blue-500 w-5 h-5 p-[8px] bottom-0 right-0 flex items-center justify-center rounded-full text-xs">{{ product_count }}</span>
+      {% endif %}
+    </a>
+  </div>
 
 <div class="hidden md:flex ml-auto">
   <!-- Dropdown button -->

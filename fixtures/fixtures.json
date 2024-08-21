@@ -3,6 +3,7 @@
     "user.superuser.json",
     "product.categories.json",
     "product.watercolors.json",
-    "product.photographs.json"
+    "product.photographs.json",
+    "product.plotter.json"
   ]
 }
