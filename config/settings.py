@@ -35,8 +35,10 @@ EXTERNAL_APPS = [
 ]
 APPS = [
     'apps.bag',
+    'apps.checkout',
     'apps.common',
     'apps.frontend',
+    'apps.order',
     'apps.product',
     'apps.user',
 ]
