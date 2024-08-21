@@ -34,6 +34,7 @@ EXTERNAL_APPS = [
     'compressor',
 ]
 APPS = [
+    'apps.bag',
     'apps.common',
     'apps.frontend',
     'apps.product',
@@ -66,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'apps.bag.context.bag_contents',
             ],
         },
     },
