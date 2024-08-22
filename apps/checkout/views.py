@@ -23,8 +23,7 @@ def checkout_view(request):
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirm_password')
 
-        form_data = {
-            'email': request.POST['email'],
+        address = {
             'first_name': request.POST['first_name'],
             'last_name': request.POST['last_name'],
             'phone_number': request.POST['phone_number'],
@@ -34,6 +33,11 @@ def checkout_view(request):
             'address_line_1': request.POST['address_line_1'],
             'address_line_2': request.POST['address_line_2'],
             'county': request.POST['county'],
+        }
+
+        form_data = {
+            'email': request.POST['email'],
+            **address
         }
 
         order_form = CreateOrderForm(form_data)
