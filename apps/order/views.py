@@ -5,6 +5,7 @@ from .models import Order
 
 
 @login_required
+@superuser_required
 def orders_view(request):
     orders = Order.objects.all()
     
