@@ -1,4 +1,6 @@
+import re
 from django import forms
+from django.core.exceptions import ValidationError
 from .models import Order, OrderLineItem
 from apps.product.models import Product
 
@@ -69,3 +71,42 @@ class CreateOrderForm(forms.ModelForm):
             raise ValidationError('Please select a valid country.')
 
         return country
+
+
+class UpdateOrderForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = (
+            'email',
+            'first_name',
+            'last_name',
+            'phone_number',
+            'address_line_1', 
+            'address_line_2',
+            'town_city', 
+            'postcode', 
+            'country',
+            'county',
+        )
+
+class OrderStatusForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ['status']
+
+class OrderItemForm(forms.ModelForm):
+    class Meta:
+        model = OrderLineItem
+        fields = ['product', 'quantity']
+
+class AddOrderItemForm(forms.Form):
+    product = forms.ModelChoiceField(queryset=Product.objects.all(), required=True)
+    quantity = forms.IntegerField(min_value=1, required=True)
+
+class UpdateOrderStatusForm(forms.Form):
+    status_choices = [
+        ('cancelled', 'Cancelled'),
+        ('complete', 'Complete'),
+        ('processing', 'Processing'),
+    ]
+    status = forms.ChoiceField(choices=status_choices, required=True)
