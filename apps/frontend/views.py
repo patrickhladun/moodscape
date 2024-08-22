@@ -1,9 +1,12 @@
 from django.conf import settings
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
+from django.db.models import Q
+from django.db.models.functions import Lower
+from django.contrib import messages
 from constance import config
 from .forms import ContactForm
-from apps.product.models import Product
+from apps.product.models import Product, Category
 
 
 def home(request):
@@ -75,10 +78,48 @@ def faq(request):
 
 def shop(request): 
     products = Product.objects.all()
+    query = None
+    category = None
+    sort = None
+    direction = None
+
+    if request.GET:
+        if 'category' in request.GET:
+            category = request.GET['category']
+            products = products.filter(category__slug=category)
+
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.warning(request, "No search criteria provided")
+            else:
+                queries = Q(name__icontains=query) | Q(details__icontains=query)
+                products = products.filter(queries)
+
+        if 'sort' in request.GET:
+            sort_option = request.GET['sort']
+            sort = sort_option.split('_')[0]
+            direction = sort_option.split('_')[1]
+
+            if sort == 'alpha':
+                sort = 'name_lower'
+                products = products.annotate(name_lower=Lower('name'))
+            elif sort == 'price':
+                sort = 'price'
+            elif sort == 'rating':
+                sort = 'rating'
+
+            if direction == 'desc':
+                sort = f'-{sort}'
+
+            products = products.order_by(sort)
 
     template = "frontend/shop.html"
     context = {
-        "config" : config,
+        "config": config,
         "products": products,
+        "search_term": query,
+        "category": category,
+        "sort": f'{sort}_{direction}' if sort and direction else '',
     }
     return render(request, template, context)
