@@ -50,3 +50,22 @@ class CreateOrderForm(forms.ModelForm):
             self.fields[field].label = False
 
 
+    def clean_first_name(self):
+        first_name = self.cleaned_data.get('first_name')
+        
+        if len(first_name) < 3 or len(first_name) > 30:
+            raise ValidationError('First name must be between 2 and 30 characters long.')
+
+        if not re.match(r'^[a-zA-Z\s-]+$', first_name):
+            raise ValidationError('First name can only contain letters, spaces, and hyphens.')
+
+        return first_name
+        
+
+    def clean_country(self):
+        country = self.cleaned_data.get('country')
+
+        if not country or country.strip() == '':
+            raise ValidationError('Please select a valid country.')
+
+        return country
