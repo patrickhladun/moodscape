@@ -1,7 +1,47 @@
 .button {
-  @apply py-2 px-5 bg-blue-700 text-white rounded-md;
-}
+  @apply py-2 px-5 rounded-md transition duration-300 ease-in-out;
 
-button[type="submit"]:not(.newsletter) {
-  @extend .button;
+  &__primary {
+    @apply bg-blue-600 text-blue-100;
+
+    &:hover {
+      @apply bg-blue-900;
+    }
+  }
+
+  &__secondary {
+    @apply bg-gray-700;
+  }
+
+  &___icon {
+    @apply mr-2;
+  }
+
+  &__submit {
+    @apply bg-green-500;
+  }
+
+  &__outline-primary {
+    @apply border border-blue-500 text-blue-500;
+
+    &:hover {
+      @apply bg-gray-200;
+    }
+  }
+
+  &__outline-danger {
+    @apply border border-red-500 text-red-500;
+
+    &:hover {
+      @apply bg-gray-200;
+    }
+  }
+
+  &__remove {
+    @apply py-2 px-2 fill-red-500 bg-neutral-200;
+
+    &:hover {
+      @apply bg-neutral-300;
+    }
+  }
 }
