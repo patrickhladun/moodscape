@@ -4,6 +4,7 @@ from django.utils.timezone import now
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
+from django_countries.fields import CountryField
 from constance import config
 
 from apps.user.models import Customer
@@ -11,9 +12,9 @@ from apps.product.models import Product
 
 class Order(models.Model):
     STATUS_CHOICES = [
-        ('processing', 'Processing'),
-        ('complete', 'Complete'),
         ('cancelled', 'Cancelled'),
+        ('complete', 'Complete'),
+        ('processing', 'Processing'),
     ]
 
     customer = models.ForeignKey(Customer, null=True, blank=True, on_delete=models.SET_NULL, related_name='orders')
@@ -23,7 +24,7 @@ class Order(models.Model):
     first_name = models.CharField(max_length=30, null=False, blank=False)
     last_name = models.CharField(max_length=30, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
-    country = models.CharField(max_length=40, null=False, blank=False)
+    country = CountryField(blank_label='(select country)', null=False, blank=False)
     postcode = models.CharField(max_length=20, null=True, blank=True)
     town_city = models.CharField(max_length=40, null=False, blank=False)
     address_line_1 = models.CharField(max_length=80, null=False, blank=False)
