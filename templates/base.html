@@ -10,6 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
 
+    {% block extra_css %}
+    {% endblock %}
+
     <!-- Styles Block -->
     <link
       href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css"
@@ -22,7 +25,7 @@
     />
 
     {% block corejs %}
-    
+    <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
 
   <!-- Favicon Includes -->
@@ -73,5 +76,9 @@
       <script src="{% static 'js/main.js' %}"></script>
     {% endcompress %}
 
+    {% block postloadjs %}
+    {% endblock %}
+
   </body>
 </html>
+ 
