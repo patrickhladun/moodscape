@@ -5,7 +5,7 @@ import pytest
 urls = [
     {
         'url': '/account/',
-        'name': 'admin_account',
+        'name': 'user_account',
         'view': views.account_view
     }
 ]
