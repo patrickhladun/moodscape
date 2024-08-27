@@ -1,11 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
+from constance import config
+from apps.common.decorators import superuser_required
 
 from .models import Product, Category
 from .forms import ProductForm, CategoryForm
 
-from constance import config
+
 
 def product_view(request, slug):
     product = get_object_or_404(Product, slug=slug)
@@ -17,21 +19,24 @@ def product_view(request, slug):
     }
     return render(request, template, context)
 
+
 @login_required
+@superuser_required
 def products_view(request):
     user = request.user
     products = Product.objects.all()
 
     template = "product/admin/products.html"
     context = {
-        'products': products,
+        'active': 'products',
         'config': config,
-        'active': 'products'
+        'products': products 
     }
     return render(request, template, context)
 
 
 @login_required
+@superuser_required
 def product_add_view(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
@@ -55,6 +60,7 @@ def product_add_view(request):
 
 
 @login_required
+@superuser_required
 def product_update_view(request, id):
     product = get_object_or_404(Product, id=id)
     
@@ -80,6 +86,7 @@ def product_update_view(request, id):
 
 
 @login_required
+@superuser_required
 def product_delete_view(request, id):
     product = get_object_or_404(Product, id=id)
     
@@ -97,6 +104,7 @@ def product_delete_view(request, id):
 
 
 @login_required
+@superuser_required
 def categories_view(request):
     user = request.user
     categories = Category.objects.all()
@@ -110,6 +118,8 @@ def categories_view(request):
     return render(request, template, context)
 
 
+@login_required
+@superuser_required
 def category_update_view(request, id):
     category = get_object_or_404(Category, id=id)
     
@@ -134,6 +144,8 @@ def category_update_view(request, id):
     return render(request, template, context)
 
 
+@login_required
+@superuser_required
 def category_delete_view(request, id):
     category = get_object_or_404(Category, id=id)
     
@@ -156,6 +168,8 @@ def category_delete_view(request, id):
     return render(request, template, context)
 
 
+@login_required
+@superuser_required
 def category_add_view(request):
     if request.method == 'POST':
         form = CategoryForm(request.POST)

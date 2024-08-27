@@ -15,7 +15,15 @@ def test_user_admin_registration():
 @pytest.mark.django_db
 def test_user_admin_list_display():
     user_admin = site._registry[User]
-    assert user_admin.list_display == ('email', 'username', 'is_superuser', 'is_staff', 'is_active', 'user_type', 'date_joined', 'last_login')
+    assert user_admin.list_display == (
+        'email',
+        'username',
+        'is_superuser',
+        'is_staff',
+        'is_active',
+        'date_joined',
+        'last_login'
+    )
 
 
 @pytest.mark.django_db
@@ -34,7 +42,7 @@ def test_user_admin_ordering():
 def test_user_admin_fieldsets():
     user_admin = site._registry[User]
     assert user_admin.fieldsets == (
-        (None, {'fields': ('email', 'username', 'password', 'last_login', 'date_joined', 'user_type')}),
+        (None, {'fields': ('email', 'username', 'password', 'last_login', 'date_joined')}),
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions'), 'classes': ('collapse',)}),
     )
 

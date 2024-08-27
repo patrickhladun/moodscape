@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}" />
+{% endblock %}
+
+{% block page_header %}
+  <div class="container header-container">
+    <div class="row">
+      <div class="col"></div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <section class="container">
+    <div class="text-center">
+      <h2>A great big thank you</h2>
+      <p>We've sent a confirmation email to <strong>{{ order.email }}</strong>.</p>
+    </div>
+  </section>
+  <section class="container">
+    <h2>Details</h2>
+    <div>Order number: {{order}}</div>
+    <div class="flex flex-col border p-4 my-4">
+      <div class="flex gap-2">
+        <span class="font-bold ">Full name:</span>
+        <span>{{order.first_name}} {{order.last_name}}</span>
+      </div>
+      <div class="flex gap-2">
+        <span class="font-bold ">Phone number:</span>
+        <span>{{order.phone_number}}</span>
+      </div>
+      <div class="flex gap-2">
+        <span class="font-bold ">Country:</span>
+        <span>{{order.country}}</span>
+      </div>
+      <div class="flex gap-2">
+        <span class="font-bold ">Postcode:</span>
+        <span>{{order.postcode}}</span>
+      </div>
+      <div class="flex gap-2">
+        <span class="font-bold ">Town/City:</span>
+        <span>{{order.town_city}}</span>
+      </div>
+      <div class="flex gap-2">
+        <span class="font-bold ">Address line 1:</span>
+        <span>{{order.address_line_1}}</span>
+      </div>
+      <div class="flex gap-2">
+        <span class="font-bold ">Address line 2:</span>
+        <span>{{order.address_line_2}}</span>
+      </div>
+      <div class="flex gap-2">
+        <span class="font-bold ">County:</span>
+        <span>{{order.county}}</span>
+      </div>
+    </div>
+  </section>
+{% endblock %}

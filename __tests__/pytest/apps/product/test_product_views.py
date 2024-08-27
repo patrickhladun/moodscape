@@ -21,13 +21,12 @@ def test_product_view(test_data_products):
 
     product = get_object_or_404(Product, slug=product.slug)
 
-    assert response.context["product"].name == "Irish Coastal Sunset Watercolor"
-    assert response.context["product"].slug == "irish-coastal-sunset-watercolor"
-    assert response.context["product"].details == ""
-    assert response.context["product"].sku == "wtc-ol-icsw1"
-    assert response.context["product"].stock == 10
-    assert response.context["product"].price == 128
-    assert response.context["product"].featured == "products/irish-coastal-sunset-watercolor.webp"
+    assert response.context["product"].name == "Original Watercolor Seascape Abstract Painting, Wall Art Abstract Art Purple."
+    assert response.context["product"].slug == "irish-watercolor-seascape-abstract"
+    assert response.context["product"].sku == "wtc-ol-owsa1"
+    assert response.context["product"].stock == 1
+    assert response.context["product"].price == 168
+    assert response.context["product"].featured == "products/irish-watercolor-seascape-abstract.webp"
     assert response.context["product"].category.name == "Watercolor"
     assert response.context["product"].is_published == False
 

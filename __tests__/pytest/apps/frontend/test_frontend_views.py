@@ -104,8 +104,8 @@ def test_shop_view_list_all_products(test_data_products):
 
     assert response.status_code == 200
     assert 'frontend/shop.html' in [t.name for t in response.templates]
-    assert len(response.context["products"]) == 6
+    assert len(response.context["products"]) == 8
 
-    assert response.context["products"][0].name == "Irish Coastal Sunset Watercolor"
-    assert response.context["products"][0].slug == "irish-coastal-sunset-watercolor"
-    assert response.context["products"][0].sku == "wtc-ol-icsw1"
+    assert response.context["products"][0].name == "Original Watercolor Seascape Abstract Painting, Wall Art Abstract Art Purple."
+    assert response.context["products"][0].slug == "irish-watercolor-seascape-abstract"
+    assert response.context["products"][0].sku == "wtc-ol-owsa1"

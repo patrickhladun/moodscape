@@ -16,14 +16,15 @@
     </a>
   </div>
 
-<div class="hidden md:flex ml-auto">
-  <!-- Dropdown button -->
-  <button id="desktopMenuButton" data-dropdown-toggle="desktopMenu" type="button" aria-label="Menu Toggle Desktop">
-    {% icon 'icon-hamburger' 'sm' 'p-3 bg-blue-600 hover:bg-blue-700 rounded-md fill-blue-50' %}
-  </button>
+  <div class="hidden md:flex ml-auto">
+    <!-- Dropdown button -->
+    <button id="desktopMenuButton" data-dropdown-toggle="desktopMenu" type="button" aria-label="Menu Toggle Desktop">
+      {% icon 'icon-hamburger' 'sm' 'p-3 bg-blue-600 hover:bg-blue-700 rounded-md fill-blue-50' %}
+    </button>
 
-  <!-- Dropdown menu -->
-  <div id="desktopMenu" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-blue-700 dark:divide-gray-600">
-    {% include './admin_links.html' %}
+    <!-- Dropdown menu -->
+    <div id="desktopMenu" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-blue-700 dark:divide-gray-600">
+      {% include './admin_links.html' %}
+    </div>
   </div>
 </div>

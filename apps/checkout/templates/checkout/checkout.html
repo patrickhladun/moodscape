@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bag_tools %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <div>
+    <section class="container">
+      <div>
+        <h2>Checkout</h2>
+      </div>
+    </section>
+
+    <section class="container">
+      <p>Please fill out the form below to complete your order</p>
+
+      <div class="form-check-label" for="id-save-info">
+        <a class="text-info" href="{% url 'account_login' %}?next={% url 'checkout' %}">Login</a> to use your saved information.
+      </div>
+    </section>
+
+    <section class="container">
+    <div class="flex gap-4 py-rg">
+      <section class="w-1/2">
+        <div>
+          <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+            {% csrf_token %}
+            <div class="flex flex-col">
+              <fieldset class="flex flex-col">
+                <legend class="text-sm">Details</legend>
+                <div class="flex gap-4">
+                  <div class="field field__text">
+                    {{ order_form.first_name }}
+                  </div>
+                  <div class="field field__text">
+                    {{ order_form.last_name }}
+                  </div>
+                </div>
+                <div class="field field__text">
+                  {{ order_form.email }}
+                </div>
+                <div class="field field__text">
+                  {{ order_form.phone_number }}
+                </div>
+              </fieldset>
+              <fieldset class="flex flex-col">
+                <legend class="text-sm">Delivery</legend>
+                <div class="field field__select">
+                  {{ order_form.country }}
+                </div>
+                <div class="field field__text">
+                  {{ order_form.postcode }}
+                </div>
+                <div class="field field__text">
+                  {{ order_form.town_city }}
+                </div>
+                <div class="field field__text">
+                  {{ order_form.address_line_1 }}
+                </div>
+                <div class="field field__text">
+                  {{ order_form.address_line_2 }}
+                </div>
+                <div class="field field__text">
+                  {{ order_form.county }}
+                </div>
+              </fieldset>
+
+              <fieldset>
+                {% if not user.is_authenticated %}
+                  <div class="field field__checkbox">
+                    <input type="checkbox" id="id-create-account" name="create_account">
+                    <label class="" for="id-create-account">Create an account on checkout</label>
+                  </div>
+                  <div id="account-fields" class="mt-2" style="display: none;">
+                    <div class="field field__text">
+                      <label for="password">Password</label>
+                      <input type="password" id="password" name="password" class="form-control">
+                    </div>
+                    <div class="field field__text">
+                      <label for="confirm_password">Confirm Password</label>
+                      <input type="password" id="confirm_password" name="confirm_password" class="form-control">
+                    </div>
+                  </div>
+                {% endif %}
+              </fieldset>
+
+              <fieldset class="flex flex-col">
+                <legend class="text-sm">Payment</legend>
+                <!-- A Stripe card element will go here -->
+                <div id="card-element"></div>
+                <!-- Used to display form errors -->
+                <div id="card-errors" role="alert"></div>
+              </fieldset>
+            </div>
+            <div class="py-4">
+              <button id="submit-button" class="button button__primary" type="submit">Complete Order</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section class="w-1/2">
+        <div>
+          <p class="text-muted">Order Summary ({{ product_count }})</p>
+          {% for item in bag_items %}
+            <div class="flex gap-4 mb-4">
+              <div class="w-1/4">
+                <a href="{% url 'product' item.product.id %}">
+                  {% if item.product.featured %}
+                    <img class="w-full" src="{{ item.product.featured.url }}" alt="{{ product.name }}" />
+                  {% else %}
+                    <img class="w-full" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" />
+                  {% endif %}
+                </a>
+              </div>
+              <div class="w-3/4">
+                <div>
+                  <strong>{{ item.product.name }}</strong>
+                  <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                </div>
+                <div class="col-3">
+                  <p class="my-0 small text-muted">{{config.CURRENCY_SYMBOL}}{{ item.product.price|calc_subtotal:item.quantity }}</p>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="text-right">
+          <div class="bg-neutral-100 p-4">
+            <p class="m-0">Order Total: {{config.CURRENCY_SYMBOL}}{{ total|floatformat:2 }}</p>
+            {% if delivery == 0 %}
+              <p class="m-0">Delivery: Free</p>
+            {% else %}
+              <p class="m-0">Delivery: {{config.CURRENCY_SYMBOL}}{{ delivery|floatformat:2 }}</p>
+            {% endif %}
+            <p class="m-0">Grand Total: {{config.CURRENCY_SYMBOL}}{{ grand_total|floatformat:2 }}</p>
+          </div>
+        </div>
+      </section>
+    </div>
+    </section>
+  </div>
+
+  <script>
+    document.getElementById('id-create-account').addEventListener('change', function() {
+      const accountFields = document.getElementById('account-fields');
+      if (this.checked) {
+          accountFields.style.display = 'block';
+      } else {
+          accountFields.style.display = 'none';
+      }
+    });
+  </script>
+
+{% endblock %}
+
+{% block postloadjs %}
+  {{ block.super }}
+  {{ stripe_public_key|json_script:'id_stripe_public_key' }}
+  {{ client_secret|json_script:'id_client_secret' }}
+  <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+{% endblock %}
