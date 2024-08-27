@@ -27,7 +27,7 @@ class CreateOrderForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
-            'email': 'Email Address',
+            'email': 'Email',
             'first_name': 'First Name',
             'last_name': 'Last Name',
             'phone_number': 'Phone Number',
@@ -55,9 +55,6 @@ class CreateOrderForm(forms.ModelForm):
     def clean_first_name(self):
         first_name = self.cleaned_data.get('first_name')
         
-        if len(first_name) < 3 or len(first_name) > 30:
-            raise ValidationError('First name must be between 2 and 30 characters long.')
-
         if not re.match(r'^[a-zA-Z\s-]+$', first_name):
             raise ValidationError('First name can only contain letters, spaces, and hyphens.')
 
@@ -89,19 +86,23 @@ class UpdateOrderForm(forms.ModelForm):
             'county',
         )
 
+
 class OrderStatusForm(forms.ModelForm):
     class Meta:
         model = Order
         fields = ['status']
+
 
 class OrderItemForm(forms.ModelForm):
     class Meta:
         model = OrderLineItem
         fields = ['product', 'quantity']
 
+
 class AddOrderItemForm(forms.Form):
     product = forms.ModelChoiceField(queryset=Product.objects.all(), required=True)
     quantity = forms.IntegerField(min_value=1, required=True)
+
 
 class UpdateOrderStatusForm(forms.Form):
     status_choices = [
