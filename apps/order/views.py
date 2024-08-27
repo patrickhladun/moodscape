@@ -18,13 +18,13 @@ def order_update_view(request, order_number):
             if status_form.is_valid():
                 status_form.save()
                 messages.success(request, 'Order status updated successfully.')
-                return redirect(reverse('admin_order', args=[order_number]))
+                return redirect(reverse('admin_order_update', args=[order_number]))
         elif 'update_form' in request.POST:
             update_form = UpdateOrderForm(request.POST, instance=order)
             if update_form.is_valid():
                 update_form.save()
                 messages.success(request, 'Order updated successfully.')
-                return redirect(reverse('admin_order', args=[order_number]))
+                return redirect(reverse('admin_order_update', args=[order_number]))
         elif 'add_item' in request.POST:
             add_form = AddOrderItemForm(request.POST)
             if add_form.is_valid():
@@ -33,7 +33,7 @@ def order_update_view(request, order_number):
                 OrderLineItem.objects.create(order=order, product=product, quantity=quantity)
                 order.update_total()
                 messages.success(request, 'Item added successfully.')
-                return redirect(reverse('admin_order', args=[order_number]))
+                return redirect(reverse('admin_order_update', args=[order_number]))
         elif 'update_item' in request.POST:
             item_id = request.POST.get('item_id')
             item = get_object_or_404(OrderLineItem, id=item_id, order=order)
@@ -42,14 +42,14 @@ def order_update_view(request, order_number):
                 item_form.save()
                 order.update_total()
                 messages.success(request, 'Item updated successfully.')
-                return redirect(reverse('admin_order', args=[order_number]))
+                return redirect(reverse('admin_order_update', args=[order_number]))
         elif 'delete_item' in request.POST:
             item_id = request.POST.get('item_id')
             item = get_object_or_404(OrderLineItem, id=item_id, order=order)
             item.delete()
             order.update_total()
             messages.success(request, 'Item deleted successfully.')
-            return redirect(reverse('admin_order', args=[order_number]))
+            return redirect(reverse('admin_order_update', args=[order_number]))
     else:
         status_form = OrderStatusForm(instance=order)
         update_form = UpdateOrderForm(instance=order)
