@@ -40,6 +40,7 @@ APPS = [
     'apps.frontend',
     'apps.order',
     'apps.product',
+    'apps.review',
     'apps.user',
 ]
 INSTALLED_APPS = DJANGO_APPS + EXTERNAL_APPS + APPS
