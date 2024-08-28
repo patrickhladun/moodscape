@@ -3,14 +3,14 @@
 {% load static %}
 
 {% block content %}
-  {% include 'partials/nav_admin.html' %}
+  {% include 'partials/nav_cms.html' %}
   <section class="container md:hidden">
     <h1>Account</h1>
   </section>
 
   <div class="container pb-sm">
     <div class="flex items-center">
-      <a href="{% url 'admin_product_add' %}" class="inline-block bg-neutral-200 hover:bg-neutral-300 transition-colors duration-200 ease-in-out p-2 pr-3 rounded-md">
+      <a href="{% url 'cms_product_add' %}" class="inline-block bg-neutral-200 hover:bg-neutral-300 transition-colors duration-200 ease-in-out p-2 pr-3 rounded-md">
         <span class="flex items-center">
           <span class="">{% icon 'icon-plus' 'md' %}</span>
           <span class="text-xs uppercase font-bold">Add Product</span>
@@ -30,7 +30,7 @@
       {% for product in products %}
         <div class="md:grid md:grid-cols-4 mb-2 p-2 md:items-center bg-neutral-100">
           
-          <a href="{% url 'admin_product_update' product.id %}" class="flex items-center">
+          <a href="{% url 'cms_product_update' product.id %}" class="flex items-center">
             {% if product.featured %}
               <img src="{{ product.featured.url }}" alt="{{ product.name }}" class="w-12 h-12 mr-4" />
             {% else %}

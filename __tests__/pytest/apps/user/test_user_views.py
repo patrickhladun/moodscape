@@ -4,12 +4,12 @@ from django.urls import reverse
 from django.conf import settings
 
 from apps.user.forms import AccountProfileForm
-from __tests__.pytest.factories import SuperuserFactory
+from __tests__.pytest.factories import UserFactory, SuperuserFactory
 
 views = [
     {
-        'url': 'user_account',
-        'template': 'user/admin/account.html',
+        'url': 'account',
+        'template': 'user/account/account.html',
     },
 ]
 
@@ -23,14 +23,12 @@ def test_view_status_for_unauthenticated_user(client, view):
 
 @pytest.mark.django_db
 @pytest.mark.parametrize("view", views)
-def test_view_status_for_authenticated_user(client, view):
-    superuser = SuperuserFactory()
+def test_view_status_for_authenticated_account_user(client, view):
+    account = UserFactory()
+    account.set_password("4KDo#YFz3QG&6LIBh$")
+    account.save()
 
-    superuser = SuperuserFactory()
-    superuser.set_password("4KDo#YFz3QG&6LIBh$")
-    superuser.save()
-
-    client.force_login(superuser)
+    client.force_login(account)
 
     url = reverse(view['url'])
     response = client.get(url)
@@ -41,51 +39,47 @@ def test_view_status_for_authenticated_user(client, view):
 
 @pytest.mark.django_db
 def test_account_view_form(client):
-    superuser = SuperuserFactory()
+    account = UserFactory()
+    account.set_password("19IY4YOOV9BEOUWyjM")
+    account.save()
 
-    superuser = SuperuserFactory()
-    superuser.set_password("19IY4YOOV9BEOUWyjM")
-    superuser.save()
+    client.force_login(account)
 
-    client.force_login(superuser)
-
-    response = client.get(reverse("user_account"))
+    response = client.get(reverse("account"))
     assert response.status_code == 200
 
     form = response.context["form"]
     assert isinstance(form, AccountProfileForm)
-    assert str(form.instance.pk) == str(superuser.pk)
+    assert str(form.instance.pk) == str(account.pk)
 
 
 @pytest.mark.django_db
-def test_update_user_email_form(client):
-    superuser = SuperuserFactory()
+def test_update_account_user_email_form(client):
+    account = UserFactory()
+    account.set_password("19IY4YOOV9BEOUWyjM")
+    account.save()
 
-    superuser = SuperuserFactory()
-    superuser.set_password("fFJalbGV!Ot78cRk0b")
-    superuser.save()
+    client.force_login(account)
 
-    client.force_login(superuser)
-
-    response = client.get(reverse("user_account"))
+    response = client.get(reverse("account"))
     assert response.status_code == 200
 
     form = response.context["form"]
     assert isinstance(form, AccountProfileForm)
-    assert str(form.instance.pk) == str(superuser.pk)
+    assert str(form.instance.pk) == str(account.pk)
 
     new_email = "newemail@example.com"
     form_data = {
         "email": new_email,
-        "username": superuser.username,
+        "username": account.username,
     }
 
-    response = client.post(reverse("user_account"), data=form_data)
+    response = client.post(reverse("account"), data=form_data)
 
     assert response.status_code == 302
 
-    response = client.get(reverse("user_account"))
+    response = client.get(reverse("account"))
     assert response.status_code == 200
 
-    superuser.refresh_from_db()
-    assert superuser.email == new_email
+    account.refresh_from_db()
+    assert account.email == new_email

@@ -2,7 +2,7 @@
 {% load ui_tags %}
 
 {% block content %}
-  {% include 'partials/nav_admin.html' %}
+  {% include 'partials/nav_cms.html' %}
   <section class="container md:hidden">
     <h1>Orders</h1>
   </section>
@@ -43,7 +43,7 @@
 
           <div class="inline-block w-full">
             <span class="md:hidden">Actions:</span>
-            <a href="{% url 'admin_order_update' order.order_number %}">Edit</a>
+            <a href="{% url 'cms_order_update' order.order_number %}">Edit</a>
           </div>        
         </div>
       {% endfor %}

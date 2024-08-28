@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load ui_tags %}
+
+{% block content %}
+  {% include 'partials/nav_account.html' %}
+  <section class="container md:hidden">
+    <h1>Orders</h1>
+  </section>
+
+  <section class="container">
+    <div>
+      <div class="hidden md:grid md:grid-cols-3 mb-2 p-2 bg-neutral-200">
+        <span>Order</span>
+        <span>Total</span>
+        <span class="flex justify-end">Status</span>
+      </div>
+      {% for order in orders %}
+        <div class="md:grid md:grid-cols-4 mb-2 p-2 md:items-center bg-neutral-100">
+          <div class="inline-block w-full">
+            <span class="md:hidden">Order:</span>
+            {{ order.order_number }}
+          </div>
+          <div class="inline-block w-full">
+            <span class="md:hidden">Total:</span>
+            <span>{{ config.CURRENCY_SYMBOL }}{{ order.grand_total }}</span>
+          </div>
+          <div class="inline-block w-full">
+            <span class="md:hidden">Status:</span>
+            <span>{{ order.status }}</span>
+          </div>    
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}

@@ -22,11 +22,11 @@ def product_view(request, slug):
 
 @login_required
 @superuser_required
-def products_view(request):
+def cms_products_view(request):
     user = request.user
     products = Product.objects.all()
 
-    template = "product/admin/products.html"
+    template = "product/cms/products.html"
     context = {
         'active': 'products',
         'config': config,
@@ -37,13 +37,13 @@ def products_view(request):
 
 @login_required
 @superuser_required
-def product_add_view(request):
+def cms_product_add_view(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, 'Product added successfully.')
-            return redirect(reverse('admin_product_update', args=[form.instance.id]))
+            return redirect(reverse('cms_product_update', args=[form.instance.id]))
         else:
             error_message = "You have errors in the following fields: "
             error_fields = ", ".join([field for field, _ in form.errors.items()])
@@ -51,7 +51,7 @@ def product_add_view(request):
     else:
         form = ProductForm()
 
-    template = "product/admin/product_add.html"
+    template = "product/cms/product_add.html"
     context = {
         "form": form,
         'active': 'products'
@@ -61,7 +61,7 @@ def product_add_view(request):
 
 @login_required
 @superuser_required
-def product_update_view(request, id):
+def cms_product_update_view(request, id):
     product = get_object_or_404(Product, id=id)
     
     if request.method == 'POST':
@@ -76,7 +76,7 @@ def product_update_view(request, id):
     else:
         form = ProductForm(instance=product)
 
-    template = "product/admin/product_update.html"
+    template = "product/cms/product_update.html"
     context = {
         "product": product,
         "form": form,
@@ -87,15 +87,15 @@ def product_update_view(request, id):
 
 @login_required
 @superuser_required
-def product_delete_view(request, id):
+def cms_product_delete_view(request, id):
     product = get_object_or_404(Product, id=id)
     
     if request.method == 'POST':
         product.delete()
         messages.success(request, 'Product deleted successfully.')
-        return redirect(reverse('admin_products'))
+        return redirect(reverse('cms_products'))
     
-    template = "product/admin/products.html"
+    template = "product/cms/products.html"
     context = {
         "product": product,
         'active': 'products'
@@ -105,11 +105,11 @@ def product_delete_view(request, id):
 
 @login_required
 @superuser_required
-def categories_view(request):
+def cms_categories_view(request):
     user = request.user
     categories = Category.objects.all()
 
-    template = "product/admin/categories.html"
+    template = "product/cms/categories.html"
     context = {
         'categories': categories,
         'active': 'categories'
@@ -120,7 +120,7 @@ def categories_view(request):
 
 @login_required
 @superuser_required
-def category_update_view(request, id):
+def cms_category_update_view(request, id):
     category = get_object_or_404(Category, id=id)
     
     if request.method == 'POST':
@@ -135,7 +135,7 @@ def category_update_view(request, id):
     else:
         form = CategoryForm(instance=category)
 
-    template = "product/admin/category_update.html"
+    template = "product/cms/category_update.html"
     context = {
         "category": category,
         "form": form,
@@ -146,21 +146,21 @@ def category_update_view(request, id):
 
 @login_required
 @superuser_required
-def category_delete_view(request, id):
+def cms_category_delete_view(request, id):
     category = get_object_or_404(Category, id=id)
     
     if request.method == 'POST':
         if category.id == 1:
             messages.error(request, 'You cannot delete the default category.')
-            return redirect(reverse('admin_category_update', args=[category.id]))
+            return redirect(reverse('cms_category_update', args=[category.id]))
         if category.product_set.count() > 0:
             messages.error(request, 'You cannot delete a category with products.')
-            return redirect(reverse('admin_category_update', args=[category.id]))
+            return redirect(reverse('cms_category_update', args=[category.id]))
         category.delete()
         messages.success(request, 'Category deleted successfully.')
-        return redirect(reverse('admin_categories'))
+        return redirect(reverse('cms_categories'))
     
-    template = "product/admin/categories.html"
+    template = "product/cms/categories.html"
     context = {
         "category": category,
         'active': 'categories'
@@ -170,13 +170,13 @@ def category_delete_view(request, id):
 
 @login_required
 @superuser_required
-def category_add_view(request):
+def cms_category_add_view(request):
     if request.method == 'POST':
         form = CategoryForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, 'Category added successfully.')
-            return redirect(reverse('admin_categories'))
+            return redirect(reverse('cms_categories'))
         else:
             error_message = "You have errors in the following fields: "
             error_fields = ", ".join([field for field, _ in form.errors.items()])
@@ -184,7 +184,7 @@ def category_add_view(request):
     else:
         form = CategoryForm()
 
-    template = "product/admin/category_add.html"
+    template = "product/cms/category_add.html"
     context = {
         "form": form,
         'active': 'categories'

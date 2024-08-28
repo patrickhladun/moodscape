@@ -24,7 +24,24 @@
 
     <!-- Dropdown menu -->
     <div id="desktopMenu" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-blue-700 dark:divide-gray-600">
-      {% include './admin_links.html' %}
+
+      {% if request.user.is_authenticated %}
+        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
+          {% if request.user.is_superuser %}
+            {% include './cms_links.html' %}
+          {% else %}
+            {% include './account_links.html' %}
+          {% endif %}          
+        </ul>
+        <div class="py-2">
+          <a href="{% url 'account_logout' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100 dark:hover:bg-blue-600 dark:text-gray-200 dark:hover:text-white" aria-label="Link to Sign Out">Sign Out</a>
+        </div>
+      {% else %}
+        <div class="py-2">
+          <a href="{% url 'account_login' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100 dark:hover:bg-blue-600 dark:text-gray-200 dark:hover:text-white" aria-label="Link to Sign In">Sign In</a>
+        </div>
+      {% endif %}
+      
     </div>
   </div>
 </div>

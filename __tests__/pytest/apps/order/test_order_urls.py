@@ -21,28 +21,28 @@ def test_no_empty_path():
 
 
 @pytest.mark.django_db
-def test_orders_url_resolves():
-    expected_url = f"/account/orders/"
+def test_cms_orders_url_resolves():
+    expected_url = f"/cms/orders/"
 
-    url = reverse("admin_orders")
+    url = reverse("cms_orders")
     resolver = resolve(url)
 
-    assert resolver.view_name == 'admin_orders'
-    assert resolver.func == views.orders_view
+    assert resolver.view_name == 'cms_orders'
+    assert resolver.func == views.cms_orders_view
     assert url == expected_url
 
 
 @pytest.mark.django_db
-def test_order_update_url_resolves():
+def test_cms_order_update_url_resolves():
     order_number = "HDY36872GED"
-    expected_url = f"/account/orders/{order_number}/update/"
+    expected_url = f"/cms/orders/{order_number}/update/"
     
-    url = reverse("admin_order_update", args=[order_number])
+    url = reverse("cms_order_update", args=[order_number])
     resolver = resolve(url)
     
     assert resolver.kwargs['order_number'] == order_number
-    assert resolver.view_name == 'admin_order_update'
-    assert resolver.func == views.order_update_view
+    assert resolver.view_name == 'cms_order_update'
+    assert resolver.func == views.cms_order_update_view
     assert url == expected_url
 
 

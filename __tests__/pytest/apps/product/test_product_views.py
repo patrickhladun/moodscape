@@ -41,7 +41,7 @@ def test_add_product_as_superadmin():
 
     client.force_login(admin)
 
-    url = reverse('admin_product_add')
+    url = reverse('cms_product_add')
     category = CategoryFactory(id=2, name="Digital Art", slug="digital-art")
 
     data = {
@@ -138,7 +138,7 @@ def test_add_product_with_invalid_data(data, expected_error):
     if expected_error == 'sku':
         ProductFactory(sku='duplicate-sku', category=category)
 
-    url = reverse('admin_product_add')
+    url = reverse('cms_product_add')
 
     response = client.post(url, data)
 
@@ -157,10 +157,10 @@ def test_category_view(test_data_categories):
     client.force_login(admin)
 
     test_data_categories
-    response = client.get(reverse("admin_categories"))
+    response = client.get(reverse("cms_categories"))
     
     assert response.status_code == 200
-    assert "product/admin/categories.html" in (t.name for t in response.templates)
+    assert "product/cms/categories.html" in (t.name for t in response.templates)
     assert len(response.context["categories"]) == 4
 
 
@@ -174,7 +174,7 @@ def test_add_category_as_superadmin():
 
     client.force_login(admin)
 
-    url = reverse('admin_category_add')
+    url = reverse('cms_category_add')
 
     data = {
         'name': 'Test Category',
@@ -230,7 +230,7 @@ def test_add_product_with_invalid_data(data, expected_error):
     if expected_error == 'slug':
         CategoryFactory(slug='duplicated-slug')
 
-    url = reverse('admin_category_add')
+    url = reverse('cms_category_add')
     response = client.post(url, data)
 
     assert response.status_code == 200

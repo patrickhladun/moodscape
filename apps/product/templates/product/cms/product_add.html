@@ -3,9 +3,9 @@
 {% load static %}
 
 {% block content %}
-  {% include 'partials/nav_admin.html' %}
+  {% include 'partials/nav_cms.html' %}
   <section class="container pb-sm">
-    <a href="{% url 'admin_products' %}" class="inline-block bg-neutral-200 hover:bg-neutral-300 transition-colors duration-200 ease-in-out p-2 pr-3 rounded-md">
+    <a href="{% url 'cms_products' %}" class="inline-block bg-neutral-200 hover:bg-neutral-300 transition-colors duration-200 ease-in-out p-2 pr-3 rounded-md">
       <span class="flex items-center">
         <span class="">{% icon 'icon-arrow' 'sm' %}</span>
         <span class="text-xs uppercase font-bold">Back</span>
@@ -48,7 +48,7 @@
         </div>
 
         <button class="button" type="submit" name="add_item">Add</button>
-        <a href="{% url "admin_products" %}">Cancel</a>
+        <a href="{% url "cms_products" %}">Cancel</a>
       </form>
       
     </div>
