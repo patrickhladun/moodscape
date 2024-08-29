@@ -70,18 +70,19 @@ def account_view(request):
 @login_required
 def account_profile_view(request):
     user = request.user
+    customer = user.customer
 
     if request.method == "POST":
-        form = AccountProfileForm(request.POST, instance=user)
+        form = CustomerProfileForm(request.POST, instance=customer)
         if form.is_valid():
             form.save()
             messages.success(request, "Account details updated successfully.")
-            return redirect('account_profile')
     else:
-        form = AccountProfileForm(instance=user)
+        form = CustomerProfileForm(instance=customer)
 
     template = "user/account/profile.html"
     context = {
-        'active': 'profile'
+        'active': 'profile',
+        'form': form
     }
     return render(request, template, context)

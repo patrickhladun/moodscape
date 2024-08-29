@@ -3,9 +3,71 @@
 
 {% block content %}
 <main>
+  {% include 'partials/page_title.html' with title="Profile" %}
   {% include 'partials/nav_account.html' %}
-  <section class="container md:hidden">
-    <h1>Profile</h1>
+
+  <section class="container">
+    <div class="grid grid-cols-2 gap-4">
+      <form method="POST">
+        {% csrf_token %}
+        {{ form.media }}
+
+        <fieldset class="flex flex-col">
+          <legend class="font-bold uppercase py-2">Details</legend>
+          <div class="flex gap-4">
+            <div class="field field__text w-full">
+              {{ form.first_name.label_tag }}
+              {{ form.first_name }}
+              {{ form.first_name.error }}
+            </div>
+            <div class="field field__text w-full">
+              {{ form.last_name.label_tag }}
+              {{ form.last_name }}
+              {{ form.last_name.error }}
+            </div>
+          </div>
+          <div class="field field__text">
+            {{ form.phone_number.label_tag }}
+            {{ form.phone_number }}
+            {{ form.phone_number.error }}
+          </div>
+        </fieldset>
+
+        <fieldset class="flex flex-col">
+          <legend class="font-bold uppercase py-2">Shipping Address</legend>
+          <div class="field field__text">
+            {{ form.address_line_1.label_tag }}
+            {{ form.address_line_1 }}
+            {{ form.address_line_1.error }}
+          </div>
+          <div class="field field__text">
+            {{ form.address_line_2.label_tag }}
+            {{ form.address_line_2 }}
+            {{ form.address_line_2.error }}
+          </div>
+          <div class="field field__text">
+            {{ form.town_city.label_tag }}
+            {{ form.town_city }}
+            {{ form.town_city.error }}
+          </div>
+          <div class="field field__text">
+            {{ form.postcode.label_tag }}
+            {{ form.postcode }}
+            {{ form.postcode.error }}
+          </div>
+          <div class="field field__select">
+            {{ form.country.label_tag }}
+            {{ form.country }}
+            {{ form.country.error }}
+          </div>
+        </fieldset>
+
+        <div class="flex items-center gap-4 py-xs">
+          <button class="button button__primary" type="submit" name="add_item">Update</button>
+          <button class="button button__outline-danger" id="delete-popup-button" data-customer-id="{{ customer.id }}">Delete</button>
+        </div>
+      </form>
+    </div>
   </section>
 </main>
 {% endblock %}

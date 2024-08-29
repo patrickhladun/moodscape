@@ -719,6 +719,9 @@ video {
 .mb-rg {
   margin-bottom: 3rem;
 }
+.mb-sm {
+  margin-bottom: 2rem;
+}
 .block {
   display: block;
 }
@@ -1160,6 +1163,9 @@ video {
 }
 .text-h2 {
   font-size: 2.1875rem;
+}
+.text-lg {
+  font-size: 1.25rem;
 }
 .font-bold {
   font-weight: 700;
