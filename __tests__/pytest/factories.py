@@ -4,6 +4,7 @@ from factory.django import DjangoModelFactory
 from apps.user.models import User, Customer
 from apps.product.models import Product, Category
 from apps.order.models import Order, OrderLineItem
+from apps.review.models import Review
 
 class SuperuserFactory(DjangoModelFactory):
     class Meta:
@@ -21,6 +22,7 @@ class SuperuserFactory(DjangoModelFactory):
 class UserFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = User
+        skip_postgeneration_save = True 
 
     email = Faker("email")
     username = Faker("user_name")
@@ -30,10 +32,17 @@ class UserFactory(factory.django.DjangoModelFactory):
     is_staff = False
     is_superuser = False
 
+    @factory.post_generation
+    def save_user(self, create, extracted, **kwargs):
+        # Ensure the user is saved after setting the password
+        if create:
+            self.save()
+
 
 class CustomerFactory(DjangoModelFactory):
     class Meta:
         model = Customer
+        skip_postgeneration_save = True
 
     id = Faker("random_int")
     user = factory.SubFactory(UserFactory)
@@ -74,7 +83,6 @@ class ProductFactory(DjangoModelFactory):
     is_published = False
 
 
-
 class OrderFactory(DjangoModelFactory):
     class Meta:
         model = Order
@@ -108,3 +116,18 @@ class OrderLineItemFactory(DjangoModelFactory):
     product = factory.SubFactory(ProductFactory)
     quantity = Faker("random_int", min=1, max=10)
     lineitem_total = Faker("random_int", min=100, max=1000)
+
+
+class ReviewFactory(DjangoModelFactory):
+    class Meta:
+        model = Review
+
+    id = Faker("random_int")
+    user = factory.SubFactory(UserFactory)
+    product = factory.SubFactory(ProductFactory)
+    order_line_item = factory.SubFactory(OrderLineItemFactory)
+    comment = Faker("text")
+    rating = Faker("random_int", min=1, max=5)
+    created_at = Faker("date_time_this_year")
+    updated_at = Faker("date_time_this_year")
+
