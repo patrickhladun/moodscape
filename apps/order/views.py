@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from apps.common.decorators import superuser_required
+from constance import config
 
 from .models import Order, OrderLineItem
+from apps.review.models import Review
 from .forms import UpdateOrderForm, OrderStatusForm, AddOrderItemForm, OrderItemForm
 
 
@@ -88,6 +90,24 @@ def account_orders_view(request):
     template = 'order/account/orders.html'
     context = {
         'active': 'orders',
+        'config': config,
         'orders': orders,
     }
     return render(request, template, context)
+
+
+@login_required
+def account_order_view(request, order_number):
+    order = get_object_or_404(Order, order_number=order_number)
+    items = order.lineitems.all()
+
+    for item in items:
+        item.reviewed = Review.objects.filter(order_line_item=item, user=request.user).exists()
+
+    order.items = items
+
+    context = {
+        'active': 'orders',
+        'order': order
+    }
+    return render(request, 'order/account/order.html', context)

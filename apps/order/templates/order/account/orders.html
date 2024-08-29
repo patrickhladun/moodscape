@@ -9,27 +9,31 @@
 
   <section class="container">
     <div>
-      <div class="hidden md:grid md:grid-cols-3 mb-2 p-2 bg-neutral-200">
-        <span>Order</span>
-        <span>Total</span>
-        <span class="flex justify-end">Status</span>
+      <div class="hidden md:grid md:grid-cols-3 p-2 bg-blue-100 rounded-t-md border-b-4 border-blue-200">
+        <span class="md:border-r border-neutral-300 px-2">Order</span>
+        <span class="md:border-r border-neutral-300 px-2">Total</span>
+        <span class="px-2">Status</span>
       </div>
+      <ul role="list">
       {% for order in orders %}
-        <div class="md:grid md:grid-cols-4 mb-2 p-2 md:items-center bg-neutral-100">
-          <div class="inline-block w-full">
+        <li class="md:grid md:grid-cols-3 px-2 md:items-center odd:bg-neutral-100">
+          <div class="inline-block w-full md:border-r border-neutral-200 p-2">
             <span class="md:hidden">Order:</span>
-            {{ order.order_number }}
+            <a href="{% url 'account_order' order.order_number %}">{{ order.order_number }}</a>
           </div>
-          <div class="inline-block w-full">
+          
+          <div class="inline-block w-full md:border-r border-neutral-200 p-2">
             <span class="md:hidden">Total:</span>
             <span>{{ config.CURRENCY_SYMBOL }}{{ order.grand_total }}</span>
           </div>
-          <div class="inline-block w-full">
+          
+          <div class="inline-block w-full p-2">
             <span class="md:hidden">Status:</span>
             <span>{{ order.status }}</span>
-          </div>    
-        </div>
+          </div>
+        </li>
       {% endfor %}
+      </ul>
     </div>
   </section>
 {% endblock %}
