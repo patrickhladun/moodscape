@@ -53,8 +53,8 @@ def cms_product_add_view(request):
 
     template = "product/cms/product_add.html"
     context = {
+        'active': 'products',
         "form": form,
-        'active': 'products'
     }
     return render(request, template, context)
 
@@ -78,9 +78,9 @@ def cms_product_update_view(request, id):
 
     template = "product/cms/product_update.html"
     context = {
+        'active': 'products',
         "product": product,
         "form": form,
-        'active': 'products'
     }
     return render(request, template, context)
 
@@ -186,7 +186,7 @@ def cms_category_add_view(request):
 
     template = "product/cms/category_add.html"
     context = {
+        'active': 'categories',
         "form": form,
-        'active': 'categories'
     }
     return render(request, template, context)
