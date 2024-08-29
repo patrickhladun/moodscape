@@ -28,6 +28,13 @@
     aria-label="Link to Categories"
     >
     Categories
+  </a>
+  <a 
+    href="{% url 'cms_reviews' %}" 
+    class="admin-nav-item{% active 'reviews' %}"
+    aria-label="Link to Reviews"
+    >
+    Reviews
   </a>  
   <a 
     href="{% url 'admin:index' %}" 

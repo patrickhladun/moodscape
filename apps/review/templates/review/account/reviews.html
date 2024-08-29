@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load ui_tags %}
+
+{% block content %}
+  {% include 'partials/nav_account.html' %}
+  <section class="container md:hidden">
+    <h1>Reviews</h1>
+  </section>
+
+  <section class="container">
+    <h1 class="hidden md:block">Not reviewed products</h1>
+    <div>
+    {% for item in unreviewed_items %}
+      <div class="flex gap-4">
+        <img src="{{ item.product.featured.url }}" alt="{{ item.product.name }}" class="w-24 h-24">
+        <div>
+          <p class="m-0">{{ item.product.name }}</p>
+          <p class="m-0">{{ item.created_at }}</p>
+          <a href="{% url 'account_review_submit' item.id %}" class="btn btn-primary">Review</a>
+        </div>
+        
+      </div>
+    {% endfor %}
+    </div>
+  </section>
+
+  <section class="container">
+    <h1 class="hidden md:block">Reviewed products</h1>
+    <div>
+    {% for review in reviews %}
+      <div class="flex gap-4">
+        <img src="{{ review.product.featured.url }}" alt="{{ review.product.name }}" class="w-24 h-24">
+        <div>
+          <p class="m-0">{{ review.product.name }}</p>
+          <p class="m-0">{{ review.product.description }}</p>
+          <p class="m-0">{{ review.rating }}</p>
+          <p class="m-0">{{ review.comment }}</p>
+          <p class="m-0">{{ review.created_at }}</p>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load ui_tags %}
+
+{% block content %}
+  {% include 'partials/nav_account.html' %}
+
+  <section class="container pt-4">
+    <a href="javascript:history.back()" class="inline-block bg-neutral-200 hover:bg-neutral-300 transition-colors duration-200 ease-in-out p-2 pr-3 rounded-md">
+      <span class="flex items-center">
+        <span class="">{% icon 'icon-arrow' 'sm' %}</span>
+        <span class="text-xs uppercase font-bold">Back</span>
+      </span>
+    </a>
+  </section>
+
+  <section class="container md:hidden">
+    <h1>Product Review</h1>
+  </section>
+
+  <section class="container py-xs">
+    <div class="grid grid-cols-2 gap-4">
+      <div class="flex flex-col justify-between">
+        <header>
+          <h2 class="">Leave review for:</h2>
+          <p>{{ product.name }}</p>
+        </header>
+  
+        <form method="POST">
+          {% csrf_token %}
+          {{ form.media }}
+
+          {% for field in form %}
+            <div class="field field__text">
+              {{ field.label_tag }}
+              {{ field }}
+              {{ field.errors }}
+            </div>
+          {% endfor %}
+
+          <div class="flex items-center gap-4 py-xs">
+            <button class="button button__primary" type="submit" name="add_item">Add</button>
+            <a class="button button__outline-danger" href="{% url "cms_categories" %}">Cancel</a>
+          </div>
+        </form>
+      </div>
+      <img src="{{ product.featured.url }}" alt="{{ product.name }}" class="w-full h-full rounded-md">
+    </div>
+  </section>
+{% endblock %}

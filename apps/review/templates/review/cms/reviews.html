@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load ui_tags %}
+
+{% block content %}
+  {% include 'partials/nav_cms.html' %}
+  <section class="container md:hidden">
+    <h1>Customers Reviews</h1>
+  </section>
+
+  <section class="container">
+    <h1 class="hidden md:block">Reviews</h1>
+    <form method="GET">
+      <select name="status" id="status" class="p-2 border border-gray-300 rounded-md" onchange="this.form.submit()">
+        ('pending', 'Pending'),
+        ('approved', 'Approved'),
+        ('rejected', 'Rejected'),
+    ]
+        <option value="">All Reviews</option>
+        <option value="pending" {% if status == 'pending' %}selected{% endif %}>Pending</option>
+        <option value="approved" {% if status == 'approved' %}selected{% endif %}>Approved</option>
+        <option value="rejected" {% if status == 'rejected' %}selected{% endif %}>Rejected</option>
+      </select>
+    </form>
+
+    <div>
+    {% for review in reviews %}
+      <a href="{% url 'cms_review_update' review.id %}" class="flex gap-4 p-2 odd:bg-neutral-100 even:bg-neutral-50 hover:bg-blue-100 transition-colors">
+        <img src="{{ review.product.featured.url }}" alt="{{ review.product.name }}" class="w-16 h-16">
+        <div>
+          <p class="m-0">{{ review.product.name }}</p>
+          <p class="m-0">{{ review.product.description }}</p>
+          <p class="m-0">{{ review.created_at }}</p>
+        </div>
+      </a>
+    {% endfor %}
+    </div>
+  </section>
+{% endblock %}
