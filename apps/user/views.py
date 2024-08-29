@@ -6,7 +6,21 @@ from constance import config
 
 from apps.common.decorators import superuser_required
 
+from .models import Customer
 from .forms import AccountProfileForm
+
+@login_required
+@superuser_required
+def cms_customers_view(request):
+    customers = Customer.objects.all()
+
+    template = "user/cms/customers.html"
+    context = {
+        'active': 'customers',
+        'config': config,
+        'customers': customers 
+    }
+    return render(request, template, context)
 
 @login_required
 def account_view(request):

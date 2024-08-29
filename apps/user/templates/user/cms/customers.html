@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load ui_tags %}
+{% load static %}
+
+{% block content %}
+  {% include 'partials/nav_cms.html' %}
+  <section class="container md:hidden">
+    <h1>Customers</h1>
+  </section>
+
+  <div class="container pb-sm">
+    <div class="flex items-center">
+      <a href="" class="inline-block bg-neutral-200 hover:bg-neutral-300 transition-colors duration-200 ease-in-out p-2 pr-3 rounded-md">
+        <span class="flex items-center">
+          <span class="">{% icon 'icon-plus' 'md' %}</span>
+          <span class="text-xs uppercase font-bold">Add Customer</span>
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <section class="container">
+    <div>
+      <div class="hidden md:grid md:grid-cols-4 mb-2 p-2 bg-neutral-200">
+        <span>Name</span>
+        <span>Created</span>
+        <span>Actions</span>
+      </div>
+      {% for customer in customers %}
+        <div class="md:grid md:grid-cols-4 mb-2 p-2 md:items-center bg-neutral-100">             
+          
+          <span class="inline-block w-full">
+            <span class="md:hidden">Name:</span>
+            <span>{{ customer.first_name }} {{ customer.last_name }}</span>
+          </span>
+          <span class="inline-block w-full">
+            <span class="md:hidden">Created:</span>
+            {{ customer.created_at }}
+          </span>
+          <span class="inline-block w-full">
+            <span class="md:hidden">Action</span>
+            <a href="{% url 'cms_customer_update' customer.id %}">Edit</a>
+          </span>
+          
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}
