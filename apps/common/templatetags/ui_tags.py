@@ -48,3 +48,16 @@ def icon(name, size="md", class_name=""):
 def active(context, link):
     active = context.get('active')
     return ' active' if active == link else ''
+
+@register.simple_tag
+def render_field(field, type="text", class_name=""):   
+    classes = f" {class_name}" if class_name else "" 
+    field_html = f"""
+    <div class="field field__{type}{classes}">
+        {field.label_tag()}
+        {field}
+        {field.errors}
+    </div>
+    """
+    
+    return mark_safe(field_html)
