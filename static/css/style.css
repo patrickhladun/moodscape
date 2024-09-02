@@ -684,6 +684,9 @@ video {
 .mb-4 {
   margin-bottom: 1rem;
 }
+.mb-xs {
+  margin-bottom: 1.5rem;
+}
 .ml-auto {
   margin-left: auto;
 }
@@ -707,9 +710,6 @@ video {
 }
 .mt-auto {
   margin-top: auto;
-}
-.mb-xs {
-  margin-bottom: 1.5rem;
 }
 .block {
   display: block;
@@ -1447,6 +1447,13 @@ form p {
 .admin-nav-item.active {
   --tw-bg-opacity: 1;
   background-color: rgb(188 217 229 / var(--tw-bg-opacity));
+}
+
+.site-logo svg > path {
+  fill: #bcd9e5;
+}
+.site-logo svg g path {
+  fill: #2e485c;
 }
 .odd\:bg-neutral-100:nth-child(odd) {
   --tw-bg-opacity: 1;

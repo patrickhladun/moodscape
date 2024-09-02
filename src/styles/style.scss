@@ -61,3 +61,12 @@
 @import "components/buttons";
 @import "components/forms";
 @import "components/navigation";
+
+.site-logo svg {
+  > path {
+    @apply fill-blue-200;
+  }
+  g path {
+    @apply fill-blue-800;
+  }
+}
