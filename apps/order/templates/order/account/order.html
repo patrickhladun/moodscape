@@ -6,7 +6,7 @@
   {% include 'partials/page_title.html' with title="Orders" variant="backend" %}
   {% include 'partials/nav_account.html' %}
   
-  <section class="container pb-sm">
+  <section class="container py-rg">
     <a href="{% url 'account_orders' %}" class="inline-block bg-neutral-200 hover:bg-neutral-300 transition-colors duration-200 ease-in-out p-2 pr-3 rounded-md">
       <span class="flex items-center">
         <span class="">{% icon 'icon-arrow' 'sm' %}</span>
@@ -15,7 +15,7 @@
     </a>
   </section>
   
-  <section class="container">
+  <section class="container pb-rg">
     <!-- Order number and date -->
     <h2 class="text-2xl font-bold">Order Details</h2>
     <div class="bg-neutral-100 p-4 my-xs">
@@ -34,7 +34,7 @@
     </div>
   </section>
 
-  <section class="container">
+  <section class="container pb-rg">
     <h2 class="text-2xl font-bold">Customer Details</h2>
     <div class="bg-neutral-100 p-4 my-xs">
       <div class="flex gap-2">
@@ -78,39 +78,38 @@
     </div>
   </section>
 
-  <section class="container">
+  <section class="container pb-rg">
     <h2 class="text-2xl font-bold">Your Items</h2>
     <div class="bg-neutral-100 p-4">
     <!-- Order items -->
      {% for item in order.items %}
-     <div class="flex gap-4 my-4">
-      <img src="{{ item.product.featured.url }}" alt="{{ item.product.name }}" class="w-24 h-24 object-cover rounded-md"> 
-      <div>
+      <div class="flex gap-4 my-4">
+        <img src="{{ item.product.featured.url }}" alt="{{ item.product.name }}" class="w-24 h-24 object-cover rounded-md"> 
         <div>
-          <span class="font-bold">{{ item.product.name }}</span>
-        </div>
-        <div class="flex gap-2">
-          <span class="font-bold">Items:</span>
-          <span>{{ item.quantity }}</span>
-        </div>
-        <div class="flex gap-2">
-          <span class="font-bold">Price:</span>
-          <span>{{ item.lineitem_total }}</span>
-        </div>
+          <div>
+            <span class="font-bold">{{ item.product.name }}</span>
+          </div>
+          <div class="flex gap-2">
+            <span class="font-bold">Items:</span>
+            <span>{{ item.quantity }}</span>
+          </div>
+          <div class="flex gap-2">
+            <span class="font-bold">Price:</span>
+            <span>{{ item.lineitem_total }}</span>
+          </div>
 
-        {% if item.reviewed %}
-          <span class="badge badge-success">Reviewed</span>
-        {% else %}
-          <a href="{% url 'account_review_submit' item.id %}" class="text-primary-500 hover:text-primary-600 transition-colors duration-200 ease-in-out">Review the Product</a>
-        {% endif %}
-
+          {% if item.reviewed %}
+            <span class="badge badge-success">Reviewed</span>
+          {% else %}
+            <a href="{% url 'account_review_submit' item.id %}" class="text-primary-500 hover:text-primary-600 transition-colors duration-200 ease-in-out">Review the Product</a>
+          {% endif %}
+        </div>
       </div>
-     </div>
-    {% endfor %}
-  </div>
+      {% endfor %}
+    </div>
   </section>
 
-  <section class="container py-rg">
+  <section class="container pb-rg">
     <!-- Order items -->
     <div class="bg-neutral-100 p-4">
       <div class="flex gap-2">

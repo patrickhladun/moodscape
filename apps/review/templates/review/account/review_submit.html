@@ -5,7 +5,7 @@
   {% include 'partials/page_title.html' with title="Review" variant="backend" %}
   {% include 'partials/nav_account.html' %}
 
-  <section class="container pt-4">
+  <section class="container py-rg">
     <a href="javascript:history.back()" class="inline-block bg-neutral-200 hover:bg-neutral-300 transition-colors duration-200 ease-in-out p-2 pr-3 rounded-md">
       <span class="flex items-center">
         <span class="">{% icon 'icon-arrow' 'sm' %}</span>
@@ -14,13 +14,9 @@
     </a>
   </section>
 
-  <section class="container md:hidden">
-    <h1>Product Review</h1>
-  </section>
-
-  <section class="container py-xs">
+  <section class="container pb-rg">
     <div class="grid grid-cols-2 gap-4">
-      <div class="flex flex-col justify-between">
+      <div class="flex flex-col">
         <header>
           <h2 class="">Leave review for:</h2>
           <p>{{ product.name }}</p>

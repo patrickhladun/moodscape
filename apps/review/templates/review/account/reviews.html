@@ -4,11 +4,7 @@
 {% block content %}
   {% include 'partials/page_title.html' with title="Reviews" variant="backend" %}
   {% include 'partials/nav_account.html' %}
-  <section class="container md:hidden">
-    <h1>Reviews</h1>
-  </section>
-
-  <section class="container">
+  <section class="container py-rg">
     <h1 class="hidden md:block">Not reviewed products</h1>
     <div>
     {% for item in unreviewed_items %}
@@ -25,7 +21,7 @@
     </div>
   </section>
 
-  <section class="container">
+  <section class="container pb-rg">
     <h1 class="hidden md:block">Reviewed products</h1>
     <div>
     {% for review in reviews %}
