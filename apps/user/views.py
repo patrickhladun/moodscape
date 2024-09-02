@@ -55,7 +55,8 @@ def account_view(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Account details updated successfully.")
-            return redirect('account')
+        else:
+            messages.error(request, "Please correct form errors.")
     else:
         form = AccountProfileForm(instance=user)
 
