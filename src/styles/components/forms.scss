@@ -1,17 +1,24 @@
 @mixin input {
   @apply p-2 my-2 rounded-md border border-neutral-300;
 }
+@mixin label {
+  @apply text-neutral-600 text-sm;
+}
 
-.form-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+input[type="email"],
+input[type="password"],
+input[type="text"],
+select,
+textarea {
+  @include input;
 }
 
 .field {
-  display: flex;
-  flex-direction: column;
+  @apply flex flex-col;
+
+  label {
+    @include label;
+  }
 
   &__text {
     input,
@@ -41,20 +48,19 @@
   }
 }
 
-input {
-  @include input;
+.form-header {
+  @apply flex justify-between items-center mb-xs;
 }
 
 form p {
-  display: flex;
-  flex-direction: column;
+  @apply flex flex-col;
 }
 
-.errorlist li {
-  color: red;
-  font-size: 0.8rem;
-  margin: 0;
-  padding: 0;
+.errorlist {
+  @apply -mt-1 mb-1;
+  li {
+    @apply text-red-500 text-xs m-0 p-0;
+  }
 }
 
 .StripeElement,
