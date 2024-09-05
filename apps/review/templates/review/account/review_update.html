@@ -2,7 +2,7 @@
 {% load ui_tags %}
 
 {% block content %}
-  {% include 'partials/page_title.html' with title="Review" variant="backend" %}
+  {% include 'partials/page_title.html' with title='Review' variant='backend' %}
   {% include 'partials/nav_account.html' %}
 
   <section class="container py-rg">
@@ -13,7 +13,7 @@
     <div class="grid grid-cols-2 gap-4">
       <div class="flex flex-col">
         <header>
-          <p class="h5 m-0">Leave review for:</p>
+          <p class="h5 m-0">Update review for:</p>
           <p class="m-0">{{ product.name }}</p>
         </header>
 
@@ -22,13 +22,14 @@
 
           <div class="star-rating my-4">
             {% for radio in form.rating %}
-              <input type="radio" id="{{ radio.id_for_label }}" name="{{ form.rating.name }}" value="{{ radio.data.value }}" class="star" />
+              <input type="radio" id="{{ radio.id_for_label }}" name="{{ form.rating.name }}" 
+                value="{{ radio.data.value }}" class="star" {% if review.rating == radio.data.value %} checked {% endif %}>
               <label for="{{ radio.id_for_label }}" title="{{ radio.choice_label }}">{% icon 'icon-star' 'md' %}</label>
             {% endfor %}
           </div>
           {% render_field form.comment %}
           <div class="flex items-center gap-4 py-xs">
-            <button class="button button__primary" type="submit" name="add_item">Submit</button>
+            <button class="button button__primary" type="submit" name="add_item">Resubmit</button>
             <a class="button button__outline-danger" href="{% url 'cms_categories' %}">Cancel</a>
           </div>
         </form>

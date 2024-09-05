@@ -4,38 +4,66 @@
 {% block content %}
   {% include 'partials/page_title.html' with title="Reviews" variant="backend" %}
   {% include 'partials/nav_account.html' %}
-  <section class="container py-rg">
-    <h1 class="hidden md:block">Not reviewed products</h1>
-    <div>
-    {% for item in unreviewed_items %}
-      <div class="flex gap-4">
-        <img src="{{ item.product.featured.url }}" alt="{{ item.product.name }}" class="w-24 h-24">
-        <div>
-          <p class="m-0">{{ item.product.name }}</p>
-          <p class="m-0">{{ item.created_at }}</p>
-          <a href="{% url 'account_review_submit' item.id %}" class="btn btn-primary">Review</a>
-        </div>
-        
-      </div>
-    {% endfor %}
-    </div>
-  </section>
 
-  <section class="container pb-rg">
-    <h1 class="hidden md:block">Reviewed products</h1>
-    <div>
-    {% for review in reviews %}
-      <div class="flex gap-4">
-        <img src="{{ review.product.featured.url }}" alt="{{ review.product.name }}" class="w-24 h-24">
-        <div>
-          <p class="m-0">{{ review.product.name }}</p>
-          <p class="m-0">{{ review.product.description }}</p>
-          <p class="m-0">{{ review.rating }}</p>
-          <p class="m-0">{{ review.comment }}</p>
-          <p class="m-0">{{ review.created_at }}</p>
+  <section class="container py-rg">
+
+    <form method="GET">
+      <select 
+        name="reviews_filter" 
+        id="reviews_filter" 
+        class="p-2 border border-gray-300 rounded-md" 
+        onchange="this.form.submit()"
+      >
+        <option value="not-reviewed" {% if reviews_filter == 'not-reviewed' %}selected{% endif %}>Not Reviewed</option>
+        <option value="reviewed" {% if reviews_filter == 'reviewed' %}selected{% endif %}>Reviewed</option>
+        <option value="rejected" {% if reviews_filter == 'rejected' %}selected{% endif %}>Rejected</option>
+      </select>
+    </form>
+
+    {% if reviews_filter == 'not-reviewed' %}
+    {% for item in reviews %}
+      <div class="flex gap-4 p-2 bg-neutral-100 mb-2">
+        <img src="{{ item.product.featured.url }}" alt="{{ item.product.name }}" class="w-16 h-16" />
+        <div class="md:flex gap-4 w-full items-center justify-between">
+          <p class="mb-2 md:m-0">{{ item.product.name }}</p>
+          <a href="{% url 'account_review_submit' item.id %}" class="button button__icon button--small">
+            {% icon 'icon-star-empty' 'sm' %}
+            Review
+          </a>
         </div>
       </div>
     {% endfor %}
-    </div>
+    {% elif reviews_filter == 'reviewed' %}
+      {% for review in reviews %}
+        <div class="flex items-center gap-4 p-2 bg-neutral-100 mb-2">
+          <img src="{{ review.product.featured.url }}" alt="{{ review.product.name }}" class="w-16 h-16 self-start" />
+          <div class="mr-auto">
+            <p class="m-0">{{ review.product.name }}</p>
+            <div class="py-6">
+            <p class="m-0">Rating: {{ review.rating }}</p>
+            <p class="m-0">"{{ review.comment }}"</p>
+            </div>
+          </div>
+          <a href="{% url 'account_resubmit_update_review' review.id %}" class="button button__icon button--small">
+            {% icon 'icon-star-empty' 'sm' %}
+            Update
+          </a>
+        </div>
+      {% endfor %}
+    {% elif reviews_filter == 'rejected' %}
+      {% for review in reviews %}
+        <div class="flex gap-4 p-2 bg-neutral-100 mb-2">
+          <img src="{{ review.product.featured.url }}" alt="{{ review.product.name }}" class="w-16 h-16" />
+          <div class="md:flex gap-4 w-full items-center justify-between">
+            <p class="mb-2 md:m-0">{{ review.product.name }}</p>
+            <a href="{% url 'account_resubmit_update_review' review.id %}" class="button button__icon button--small">
+              {% icon 'icon-star-empty' 'sm' %}
+              Resubmit Review
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+
   </section>
 {% endblock %}

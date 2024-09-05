@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 
@@ -55,16 +55,22 @@ def cms_review_update_view(request, id):
 
 @login_required
 def account_reviews_view(request):
-    reviews = Review.objects.filter(user=request.user)
-
-    purchased_items = OrderLineItem.objects.filter(order__customer=request.user.customer)
-    unreviewed_items = purchased_items.exclude(id__in=reviews.values('order_line_item_id'))
+    user_reviews = Review.objects.filter(user=request.user)
+    purchased = OrderLineItem.objects.filter(order__customer=request.user.customer)
+    reviews_filter = request.GET.get('reviews_filter', 'not-reviewed')
+    
+    if reviews_filter == 'not-reviewed':
+        reviews = purchased.exclude(id__in=user_reviews.values('order_line_item_id'))
+    elif reviews_filter == 'reviewed':
+        reviews = user_reviews.exclude(status='rejected')
+    elif reviews_filter == 'rejected':
+        reviews = user_reviews.filter(status='rejected')
 
     template = "review/account/reviews.html"
     context = {
         'active': 'reviews',
         'reviews': reviews,
-        'unreviewed_items': unreviewed_items
+        'reviews_filter': reviews_filter
     }
     return render(request, template, context)
 
@@ -72,10 +78,10 @@ def account_reviews_view(request):
 @login_required
 def account_review_submit_view(
     request, 
-    line_item_id
+    id
     ):
     
-    line_item = get_object_or_404(OrderLineItem, id=line_item_id)
+    line_item = get_object_or_404(OrderLineItem, id=id)
     product = line_item.product
     
     if request.method == 'POST':
@@ -102,4 +108,48 @@ def account_review_submit_view(
     return render(request, template, context)
 
 
+@login_required
+def account_review_update_view(request, id):
+    review = get_object_or_404(Review, id=id, user=request.user)
+    product = review.product
+    
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, instance=review)
+        
+        if form.is_valid():
+            new_comment = form.cleaned_data['comment']
+            new_rating = form.cleaned_data['rating']
+            
+            if review.status == 'rejected':
+                if new_comment == review.comment:
+                    messages.error(request, 'You must provide a new comment that is different from the previous one to resubmit the review.')
+                else:
+                    review.comment = new_comment
+                    review.status = 'pending'
+                    review.rating = new_rating
+                    review.save()
+                    messages.success(request, 'Your review has been resubmitted and is now pending approval.')
+                    return redirect('account_reviews')
 
+            else:
+                if new_comment != review.comment:
+                    review.comment = new_comment
+                    review.status = 'pending'
+                    messages.success(request, 'Your review has been updated and is now pending approval for the comment change.')
+                else:
+                    review.rating = new_rating
+                    messages.success(request, 'Your review rating has been updated.')
+                review.save()
+                return redirect('account_reviews')
+                
+    else:
+        form = ReviewForm(instance=review)
+
+    template = "review/account/review_update.html"
+    context = {
+        'active': 'reviews',
+        'review': review,
+        'form': form,
+        'product': product,
+    }
+    return render(request, template, context)

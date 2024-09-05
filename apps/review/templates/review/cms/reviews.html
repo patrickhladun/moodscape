@@ -10,11 +10,11 @@
   <section class="container">
     <h1 class="hidden md:block">Reviews</h1>
     <form method="GET">
-      <select name="status" id="status" class="p-2 border border-gray-300 rounded-md" onchange="this.form.submit()">
-        ('pending', 'Pending'),
-        ('approved', 'Approved'),
-        ('rejected', 'Rejected'),
-    ]
+      <select 
+        name="status" 
+        id="status" 
+        class="p-2 border border-gray-300 rounded-md" 
+        onchange="this.form.submit()">
         <option value="">All Reviews</option>
         <option value="pending" {% if status == 'pending' %}selected{% endif %}>Pending</option>
         <option value="approved" {% if status == 'approved' %}selected{% endif %}>Approved</option>

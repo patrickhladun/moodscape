@@ -10,11 +10,19 @@
   }
 
   &__secondary {
-    @apply bg-gray-700;
+    @apply bg-gray-200;
+
+    &:hover {
+      @apply bg-gray-300;
+    }
   }
 
-  &___icon {
-    @apply mr-2;
+  &__icon {
+    @apply bg-gray-200 inline-flex items-center justify-center gap-1;
+
+    &:hover {
+      @apply bg-gray-300;
+    }
   }
 
   &__submit {
@@ -43,5 +51,9 @@
     &:hover {
       @apply bg-neutral-300;
     }
+  }
+
+  &--small {
+    @apply py-1 px-2 text-sm;
   }
 }
