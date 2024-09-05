@@ -15,54 +15,91 @@
         onchange="this.form.submit()"
       >
         <option value="not-reviewed" {% if reviews_filter == 'not-reviewed' %}selected{% endif %}>Not Reviewed</option>
-        <option value="reviewed" {% if reviews_filter == 'reviewed' %}selected{% endif %}>Reviewed</option>
+        <option value="approved" {% if reviews_filter == 'approved' %}selected{% endif %}>Approved</option>
+        <option value="pending" {% if reviews_filter == 'pending' %}selected{% endif %}>Pending</option>
         <option value="rejected" {% if reviews_filter == 'rejected' %}selected{% endif %}>Rejected</option>
       </select>
     </form>
 
     {% if reviews_filter == 'not-reviewed' %}
-    {% for item in reviews %}
-      <div class="flex gap-4 p-2 bg-neutral-100 mb-2">
-        <img src="{{ item.product.featured.url }}" alt="{{ item.product.name }}" class="w-16 h-16" />
-        <div class="md:flex gap-4 w-full items-center justify-between">
-          <p class="mb-2 md:m-0">{{ item.product.name }}</p>
-          <a href="{% url 'account_review_submit' item.id %}" class="button button__icon button--small">
-            {% icon 'icon-star-empty' 'sm' %}
-            Review
-          </a>
-        </div>
-      </div>
-    {% endfor %}
-    {% elif reviews_filter == 'reviewed' %}
-      {% for review in reviews %}
-        <div class="flex items-center gap-4 p-2 bg-neutral-100 mb-2">
-          <img src="{{ review.product.featured.url }}" alt="{{ review.product.name }}" class="w-16 h-16 self-start" />
-          <div class="mr-auto">
-            <p class="m-0">{{ review.product.name }}</p>
-            <div class="py-6">
-            <p class="m-0">Rating: {{ review.rating }}</p>
-            <p class="m-0">"{{ review.comment }}"</p>
+      {% if reviews %}
+        {% for item in reviews %}
+          <div class="flex gap-4 p-2 bg-neutral-100 mb-2">
+            <img src="{{ item.product.featured.url }}" alt="{{ item.product.name }}" class="w-16 h-16" />
+            <div class="md:flex gap-4 w-full items-center justify-between">
+              <p class="mb-2 md:m-0">{{ item.product.name }}</p>
+              <a href="{% url 'account_review_submit' item.id %}" class="button button__icon button--small">
+                {% icon 'icon-star-empty' 'sm' %}
+                Review
+              </a>
             </div>
-          </div>
-          <a href="{% url 'account_resubmit_update_review' review.id %}" class="button button__icon button--small">
-            {% icon 'icon-star-empty' 'sm' %}
-            Update
-          </a>
-        </div>
-      {% endfor %}
-    {% elif reviews_filter == 'rejected' %}
-      {% for review in reviews %}
-        <div class="flex gap-4 p-2 bg-neutral-100 mb-2">
-          <img src="{{ review.product.featured.url }}" alt="{{ review.product.name }}" class="w-16 h-16" />
-          <div class="md:flex gap-4 w-full items-center justify-between">
-            <p class="mb-2 md:m-0">{{ review.product.name }}</p>
+          </div>  
+        {% endfor %}
+      {% else %}
+        <p>It looks like you have no products to review. <br>Maybe it’s time to add a new piece of art to your collection.</p>
+        <a href="{% url 'shop' %}" class="button button__primary">Check out our shop!</a>
+      {% endif %}
+    {% elif reviews_filter == 'pending' %}
+      {% if reviews %}
+        {% for review in reviews %}
+          <div class="flex items-center gap-4 p-2 bg-neutral-100 mb-2">
+            <img src="{{ review.product.featured.url }}" alt="{{ review.product.name }}" class="w-16 h-16 self-start" />
+            <div class="mr-auto">
+              <p class="m-0">{{ review.product.name }}</p>
+              <div class="py-6">
+              <p class="m-0">Rating: {{ review.rating }}</p>
+              <p class="m-0">"{{ review.comment }}"</p>
+              </div>
+            </div>
             <a href="{% url 'account_resubmit_update_review' review.id %}" class="button button__icon button--small">
               {% icon 'icon-star-empty' 'sm' %}
-              Resubmit Review
+              Update
             </a>
           </div>
-        </div>
-      {% endfor %}
+        {% endfor %}
+      {% else %}
+        <p>It looks like you have no products to review. <br>Maybe it’s time to add a new piece of art to your collection.</p>
+        <a href="{% url 'shop' %}" class="button button__primary">Check out our shop!</a>
+      {% endif %}
+    {% elif reviews_filter == 'approved' %}
+      {% if reviews %}
+        {% for review in reviews %}
+          <div class="flex items-center gap-4 p-2 bg-neutral-100 mb-2">
+            <img src="{{ review.product.featured.url }}" alt="{{ review.product.name }}" class="w-16 h-16 self-start" />
+            <div class="mr-auto">
+              <p class="m-0">{{ review.product.name }}</p>
+              <div class="py-6">
+              <p class="m-0">Rating: {{ review.rating }}</p>
+              <p class="m-0">"{{ review.comment }}"</p>
+              </div>
+            </div>
+            <a href="{% url 'account_resubmit_update_review' review.id %}" class="button button__icon button--small">
+              {% icon 'icon-star-empty' 'sm' %}
+              Update
+            </a>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p>It looks like you have no products to review. <br>Maybe it’s time to add a new piece of art to your collection.</p>
+        <a href="{% url 'shop' %}" class="button button__primary">Check out our shop!</a>
+      {% endif %}  
+    {% elif reviews_filter == 'rejected' %}
+      {% if reviews %}
+        {% for review in reviews %}
+          <div class="flex gap-4 p-2 bg-neutral-100 mb-2">
+            <img src="{{ review.product.featured.url }}" alt="{{ review.product.name }}" class="w-16 h-16" />
+            <div class="md:flex gap-4 w-full items-center justify-between">
+              <p class="mb-2 md:m-0">{{ review.product.name }}</p>
+              <a href="{% url 'account_resubmit_update_review' review.id %}" class="button button__icon button--small">
+                {% icon 'icon-star-empty' 'sm' %}
+                Resubmit Review
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p>No rejected reviews found.</p>
+      {% endif %}
     {% endif %}
 
   </section>

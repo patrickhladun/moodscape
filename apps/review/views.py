@@ -61,8 +61,10 @@ def account_reviews_view(request):
     
     if reviews_filter == 'not-reviewed':
         reviews = purchased.exclude(id__in=user_reviews.values('order_line_item_id'))
-    elif reviews_filter == 'reviewed':
-        reviews = user_reviews.exclude(status='rejected')
+    elif reviews_filter == 'approved':
+        reviews = user_reviews.filter(status='approved')
+    elif reviews_filter == 'pending':
+        reviews = user_reviews.filter(status='pending')
     elif reviews_filter == 'rejected':
         reviews = user_reviews.filter(status='rejected')
 
@@ -113,6 +115,9 @@ def account_review_update_view(request, id):
     review = get_object_or_404(Review, id=id, user=request.user)
     product = review.product
     
+    actual_comment = review.comment
+    actual_rating = review.rating
+
     if request.method == 'POST':
         form = ReviewForm(request.POST, instance=review)
         
@@ -121,7 +126,7 @@ def account_review_update_view(request, id):
             new_rating = form.cleaned_data['rating']
             
             if review.status == 'rejected':
-                if new_comment == review.comment:
+                if new_comment == actual_comment:
                     messages.error(request, 'You must provide a new comment that is different from the previous one to resubmit the review.')
                 else:
                     review.comment = new_comment
