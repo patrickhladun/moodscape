@@ -41,6 +41,7 @@ def cms_review_update_view(request, id):
             if status_form.is_valid():
                 status_form.save()
                 messages.success(request, 'Review status updated successfully.')
+                return redirect('cms_reviews')
     else:
         status_form = ReviewStatusForm(instance=review)
 
@@ -97,6 +98,7 @@ def account_review_submit_view(
             
             review.save()
             messages.success(request, 'Review submitted successfully.')
+            return redirect('account_reviews')
     else:
         form = ReviewForm()
 
