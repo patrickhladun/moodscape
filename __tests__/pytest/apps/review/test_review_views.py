@@ -159,7 +159,7 @@ def test_account_review_submit_view_post(
 
     form_data = {
         'rating': 5,
-        'comment': 'This is a great product!',
+        'text': 'This is a great product!',
     }
 
     response = client.post(url, form_data)
@@ -167,7 +167,7 @@ def test_account_review_submit_view_post(
     review = Review.objects.filter(user=user, product=product, order_line_item=line_item).first()
     assert review is not None
     assert review.rating == 5
-    assert review.comment == 'This is a great product!'
+    assert review.text == 'This is a great product!'
     assert review.user == user
     assert review.product == product
     assert review.order_line_item == line_item

@@ -126,7 +126,7 @@ class ReviewFactory(DjangoModelFactory):
     user = factory.SubFactory(UserFactory)
     product = factory.SubFactory(ProductFactory)
     order_line_item = factory.SubFactory(OrderLineItemFactory)
-    comment = Faker("text")
+    text = Faker("text")
     rating = Faker("random_int", min=1, max=5)
     created_at = Faker("date_time_this_year")
     updated_at = Faker("date_time_this_year")

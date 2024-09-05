@@ -2,7 +2,7 @@
 {% load ui_tags %}
 
 {% block content %}
-  {% include 'partials/page_title.html' with title="Review" variant="backend" %}
+  {% include 'partials/page_title.html' with title='Review' variant='backend' %}
   {% include 'partials/nav_account.html' %}
 
   <section class="container py-rg">
@@ -26,7 +26,7 @@
               <label for="{{ radio.id_for_label }}" title="{{ radio.choice_label }}">{% icon 'icon-star' 'md' %}</label>
             {% endfor %}
           </div>
-          {% render_field form.comment %}
+          {% render_field form.text %}
           <div class="flex items-center gap-4 py-xs">
             <button class="button button__primary" type="submit" name="add_item">Submit</button>
             <a class="button button__outline-danger" href="{% url 'cms_categories' %}">Cancel</a>

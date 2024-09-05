@@ -282,7 +282,7 @@ def test_data_reviews(test_data_products, test_data_line_items):
         user=test_data_line_items[0].order.customer.user,
         product=test_data_products[0],
         order_line_item=test_data_line_items[0],
-        comment="Beautiful painting! The colors are vibrant and the details are stunning.",
+        text="Beautiful painting! The colors are vibrant and the details are stunning.",
         rating=5,
         status="approved"
     )
@@ -292,7 +292,7 @@ def test_data_reviews(test_data_products, test_data_line_items):
         user=test_data_line_items[1].order.customer.user,
         product=test_data_products[1],
         order_line_item=test_data_line_items[1],
-        comment="The abstract art is mesmerizing. I love the indigo hues and the flow of the design.",
+        text="The abstract art is mesmerizing. I love the indigo hues and the flow of the design.",
         rating=4,
         status="rejected"
     )
@@ -302,7 +302,7 @@ def test_data_reviews(test_data_products, test_data_line_items):
         user=test_data_line_items[2].order.customer.user,
         product=test_data_products[2],
         order_line_item=test_data_line_items[2],
-        comment="The landscape painting captures the essence of Galway beautifully. I'm impressed by the details and the colors.",
+        text="The landscape painting captures the essence of Galway beautifully. I'm impressed by the details and the colors.",
         rating=5,
         status="deleted"
     )
@@ -312,7 +312,7 @@ def test_data_reviews(test_data_products, test_data_line_items):
         user=test_data_line_items[2].order.customer.user,
         product=test_data_products[3],
         order_line_item=test_data_line_items[3],
-        comment="The macro shot of the small flowers is exquisite. The colors are vibrant and the details are stunning.",
+        text="The macro shot of the small flowers is exquisite. The colors are vibrant and the details are stunning.",
         rating=5,
         status="pending"
     )
@@ -322,7 +322,7 @@ def test_data_reviews(test_data_products, test_data_line_items):
         user=test_data_line_items[2].order.customer.user,
         product=test_data_products[4],
         order_line_item=test_data_line_items[4],
-        comment="The macro shot of the dandelion is beautiful. The composition and details are captivating.",
+        text="The macro shot of the dandelion is beautiful. The composition and details are captivating.",
         rating=4,
         status="pending"
     )
@@ -332,7 +332,7 @@ def test_data_reviews(test_data_products, test_data_line_items):
         user=test_data_line_items[2].order.customer.user,
         product=test_data_products[5],
         order_line_item=test_data_line_items[5],
-        comment="The withered daisy photograph is stunning. The details and textures are beautifully captured.",
+        text="The withered daisy photograph is stunning. The details and textures are beautifully captured.",
         rating=5,
         status="approved"
     )
@@ -342,7 +342,7 @@ def test_data_reviews(test_data_products, test_data_line_items):
         user=test_data_line_items[2].order.customer.user,
         product=test_data_products[6],
         order_line_item=test_data_line_items[6],
-        comment="The pen plotter abstract art is mesmerizing. The colors and patterns are captivating.",
+        text="The pen plotter abstract art is mesmerizing. The colors and patterns are captivating.",
         rating=4,
         status="approved"
     )
@@ -352,7 +352,7 @@ def test_data_reviews(test_data_products, test_data_line_items):
         user=test_data_line_items[2].order.customer.user,
         product=test_data_products[7],
         order_line_item=test_data_line_items[7],
-        comment="The pen plotter mathematical abstract is intriguing. The gradient and patterns are fascinating.",
+        text="The pen plotter mathematical abstract is intriguing. The gradient and patterns are fascinating.",
         rating=5,
         status="pending"
     )

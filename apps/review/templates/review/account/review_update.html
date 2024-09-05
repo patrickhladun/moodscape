@@ -27,7 +27,7 @@
               <label for="{{ radio.id_for_label }}" title="{{ radio.choice_label }}">{% icon 'icon-star' 'md' %}</label>
             {% endfor %}
           </div>
-          {% render_field form.comment %}
+          {% render_field form.text %}
           <div class="flex items-center gap-4 py-xs">
             <button class="button button__primary" type="submit" name="add_item">Resubmit</button>
             <a class="button button__outline-danger" href="{% url 'cms_categories' %}">Cancel</a>

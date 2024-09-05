@@ -4,7 +4,7 @@ from .models import Review
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
-        fields = ['rating', 'comment']
+        fields = ['rating', 'text']
         widgets = {
             'rating': forms.RadioSelect(choices=[
                 (5, '5 Star'),
@@ -13,7 +13,7 @@ class ReviewForm(forms.ModelForm):
                 (2, '2 Stars'),
                 (1, '1 Stars'),
             ]),
-            'comment': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
+            'text': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
         }
 
 

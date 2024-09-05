@@ -16,7 +16,7 @@ class Review(models.Model):
     user = models.ForeignKey(User, related_name="user_reviews", on_delete=models.CASCADE)
     order_line_item = models.ForeignKey(OrderLineItem, on_delete=models.CASCADE, related_name='lineitem_reviews')
     rating = models.PositiveIntegerField()
-    comment = models.TextField(max_length=160)
+    text = models.TextField(max_length=160)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

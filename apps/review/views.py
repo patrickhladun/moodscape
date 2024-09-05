@@ -115,21 +115,21 @@ def account_review_update_view(request, id):
     review = get_object_or_404(Review, id=id, user=request.user)
     product = review.product
     
-    actual_comment = review.comment
+    actual_text = review.text
     actual_rating = review.rating
 
     if request.method == 'POST':
         form = ReviewForm(request.POST, instance=review)
         
         if form.is_valid():
-            new_comment = form.cleaned_data['comment']
+            new_text = form.cleaned_data['text']
             new_rating = form.cleaned_data['rating']
             
             if review.status == 'rejected':
-                if new_comment == actual_comment:
-                    messages.error(request, 'You must provide a new comment that is different from the previous one to resubmit the review.')
+                if new_text == actual_text:
+                    messages.error(request, 'You must provide a new text that is different from the previous one to resubmit the review.')
                 else:
-                    review.comment = new_comment
+                    review.text = new_text
                     review.status = 'pending'
                     review.rating = new_rating
                     review.save()
@@ -137,10 +137,10 @@ def account_review_update_view(request, id):
                     return redirect('account_reviews')
 
             else:
-                if new_comment != review.comment:
-                    review.comment = new_comment
+                if new_text != review.text:
+                    review.text = new_text
                     review.status = 'pending'
-                    messages.success(request, 'Your review has been updated and is now pending approval for the comment change.')
+                    messages.success(request, 'Your review has been updated and is now pending approval for the text change.')
                 else:
                     review.rating = new_rating
                     messages.success(request, 'Your review rating has been updated.')

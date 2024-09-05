@@ -6,13 +6,13 @@ from apps.review.models import Review
 def test_review_form_initialization():
     form = ReviewForm()
     assert 'rating' in form.fields
-    assert 'comment' in form.fields
+    assert 'text' in form.fields
 
 
 def test_review_form_valid_data():
     form_data = {
         'rating': 5,
-        'comment': 'Great product!',
+        'text': 'Great product!',
     }
     form = ReviewForm(data=form_data)
     assert form.is_valid()
@@ -21,7 +21,7 @@ def test_review_form_valid_data():
 def test_review_form_invalid_data():
     form_data = {
         'rating': 6,
-        'comment': '',
+        'text': '',
     }
     form = ReviewForm(data=form_data)
     assert not form.is_valid()
@@ -31,7 +31,7 @@ def test_review_form_rendering():
     form = ReviewForm()
     form_html = form.as_p()
     assert '<input type="number" name="rating"' in form_html
-    assert '<textarea name="comment"' in form_html
+    assert '<textarea name="text"' in form_html
 
 
 def test_review_status_form_initialization():

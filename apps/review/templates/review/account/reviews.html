@@ -48,7 +48,7 @@
               <p class="m-0">{{ review.product.name }}</p>
               <div class="py-6">
               <p class="m-0">Rating: {{ review.rating }}</p>
-              <p class="m-0">"{{ review.comment }}"</p>
+              <p class="m-0">"{{ review.text }}"</p>
               </div>
             </div>
             <a href="{% url 'account_resubmit_update_review' review.id %}" class="button button__icon button--small">
@@ -58,8 +58,7 @@
           </div>
         {% endfor %}
       {% else %}
-        <p>It looks like you have no products to review. <br>Maybe it’s time to add a new piece of art to your collection.</p>
-        <a href="{% url 'shop' %}" class="button button__primary">Check out our shop!</a>
+        <p>No pending reviews found.</p>
       {% endif %}
     {% elif reviews_filter == 'approved' %}
       {% if reviews %}
@@ -70,7 +69,7 @@
               <p class="m-0">{{ review.product.name }}</p>
               <div class="py-6">
               <p class="m-0">Rating: {{ review.rating }}</p>
-              <p class="m-0">"{{ review.comment }}"</p>
+              <p class="m-0">"{{ review.text }}"</p>
               </div>
             </div>
             <a href="{% url 'account_resubmit_update_review' review.id %}" class="button button__icon button--small">
@@ -80,8 +79,7 @@
           </div>
         {% endfor %}
       {% else %}
-        <p>It looks like you have no products to review. <br>Maybe it’s time to add a new piece of art to your collection.</p>
-        <a href="{% url 'shop' %}" class="button button__primary">Check out our shop!</a>
+        <p>No approved reviews found.</p>
       {% endif %}  
     {% elif reviews_filter == 'rejected' %}
       {% if reviews %}
