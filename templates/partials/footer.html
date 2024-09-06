@@ -18,9 +18,7 @@
             <a href="{% url 'privacy' %}" aria-label="Link to Privacy Policy">Privacy Policy</a>
           </li>
           <li>
-            <a href="{% url 'terms' %}" aria-label="Link to Terms and Conditions"
-              >Terms and Conditions</a
-            >
+            <a href="{% url 'terms' %}" aria-label="Link to Terms and Conditions">Terms and Conditions</a>
           </li>
           <li>
             <a href="#" aria-label="Link to Delivery">Delivery</a>
@@ -37,27 +35,14 @@
         <h3 class="h5 mb-2">Subscribe to our newsletter</h3>
         <p class="mb-4">Join our newsletter for exclusive art collections, artist insights, and special offers.</p>
         <form>
-          <div class="flex rounded-lg">
-            <input
-              type="email"
-              placeholder="Enter your best email"
-              class="bg-blue-800 text-blue-50 w-full border-none py-2 px-4 rounded-l-lg m-0"
-              aria-label="Email Address"
-            />
-            <button
-              type="submit"
-              class="flex items-center bg-blue-700 hover:bg-blue-800 text-blue-50 p-2 rounded-r-lg newsletter"
-              aria-label="Newsletter Submit"
-            >
-              {% icon 'icon-envelope' 'sm' 'fill-blue-200' %}
-            </button>
+          <div class="flex rounded-lg border-2 border-transparent focus-within:border-blue-700 newsletter">
+            <input type="email" placeholder="Enter your best email" class="bg-blue-800 text-blue-50 w-full py-2 px-4 m-0 rounded-l-lg border-none focus:ring-0" aria-label="Email Address" />
+            <button type="submit" class="flex items-center bg-blue-700 hover:bg-blue-800 text-blue-50 p-2 rounded-r-md newsletter" aria-label="Newsletter Submit">{% icon 'icon-envelope' 'sm' 'fill-blue-200' %}</button>
           </div>
         </form>
       </div>
     </div>
     <span class="block bg-blue-800 h-[1px] w-full"></span>
-    <div class="flex justify-center py-xxs">
-      &copy; 2024 Moodscape All rights reserved.
-    </div>
+    <div class="flex justify-center py-xxs">&copy; 2024 Moodscape All rights reserved.</div>
   </div>
 </footer>

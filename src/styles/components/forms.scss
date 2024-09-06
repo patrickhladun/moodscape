@@ -5,12 +5,12 @@
   @apply text-neutral-600 text-sm;
 }
 
-input[type="email"],
-input[type="password"],
-input[type="text"],
-select,
-textarea {
-  @include input;
+input {
+  &[type="email"]:not(.newsletter &),
+  &[type="password"],
+  &[type="text"] {
+    @include input;
+  }
 }
 
 .field {
