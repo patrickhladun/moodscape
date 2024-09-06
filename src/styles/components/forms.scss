@@ -14,7 +14,7 @@ textarea {
 }
 
 .field {
-  @apply flex flex-col;
+  @apply flex flex-col w-full;
 
   label {
     @include label;
