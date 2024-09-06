@@ -45,6 +45,30 @@ def cms_review_update_view(request, id):
     else:
         status_form = ReviewStatusForm(instance=review)
 
+        if review.status == 'pending':
+            status_form.fields['status'].choices = [
+                ('approved', 'Approved'),
+                ('rejected', 'Rejected'),
+                ('deleted', 'Deleted'),
+            ]
+        elif review.status == 'approved':
+            status_form.fields['status'].choices = [
+                ('rejected', 'Rejected'),
+                ('deleted', 'Deleted'),
+            ]
+
+        elif review.status == 'rejected':
+            status_form.fields['status'].choices = [
+                ('approved', 'Approved'),
+                ('deleted', 'Deleted'),
+            ]
+
+        elif review.status == 'deleted':
+            status_form.fields['status'].choices = [
+                ('approved', 'Approved'),
+                ('rejected', 'Rejected'),
+            ]
+
     template = "review/cms/review_update.html"
     context = {
         'active': 'reviews',
