@@ -2,34 +2,34 @@
 {% load ui_tags %}
 
 {% block content %}
-  {% include 'partials/page_title.html' with title="Orders" variant="backend" %}
+  {% include 'partials/page_title.html' with title='Orders' variant='backend' %}
   {% include 'partials/nav_account.html' %}
 
   <section class="container py-rg">
-      <div class="hidden md:grid md:grid-cols-3 p-2 bg-blue-100 rounded-t-md border-b-4 border-blue-200">
-        <span class="md:border-r border-neutral-300 px-2">Order</span>
-        <span class="md:border-r border-neutral-300 px-2">Total</span>
-        <span class="px-2">Status</span>
-      </div>
-      <ul role="list">
+    <div class="hidden md:grid md:grid-cols-3 p-2 bg-blue-100 rounded-t-md border-b-4 border-blue-200">
+      <span class="md:border-r border-neutral-300 px-2">Order</span>
+      <span class="md:border-r border-neutral-300 px-2">Total</span>
+      <span class="px-2">Status</span>
+    </div>
+    <ul role="list">
       {% for order in orders %}
         <li class="md:grid md:grid-cols-3 px-2 md:items-center odd:bg-neutral-100">
           <div class="inline-block w-full md:border-r border-neutral-200 p-2">
             <span class="md:hidden">Order:</span>
             <a href="{% url 'account_order' order.order_number %}">{{ order.order_number }}</a>
           </div>
-          
+
           <div class="inline-block w-full md:border-r border-neutral-200 p-2">
             <span class="md:hidden">Total:</span>
             <span>{{ config.CURRENCY_SYMBOL }}{{ order.grand_total }}</span>
           </div>
-          
+
           <div class="inline-block w-full p-2">
             <span class="md:hidden">Status:</span>
             <span>{{ order.status }}</span>
           </div>
         </li>
       {% endfor %}
-      </ul>
+    </ul>
   </section>
 {% endblock %}
