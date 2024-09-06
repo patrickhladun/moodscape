@@ -47,31 +47,14 @@
   </div>
 </section>
 
-<section class="py-sm">
-  <div class="container">
-      <div class="flex flex-col">
-          <!-- Review 1 -->
-          <div class="p-4 mb-2">
-              <div class="flex mb-4">
-                  <img class="w-12 h-12 rounded-full mr-4" src="https://via.placeholder.com/150" alt="Reviewer 1">
-                  <div>
-                      <h3 class="text-xl font-semibold text-gray-900 m-0">Sarah Connor</h3>
-                      <div class="flex items-center">
-                        {% icon 'icon-star' 'sm' 'fill-neutral-800' %}
-                        {% icon 'icon-star' 'sm' 'fill-neutral-800' %}
-                        {% icon 'icon-star' 'sm' 'fill-neutral-800' %}
-                        {% icon 'icon-star' 'sm' 'fill-neutral-800' %}
-                        {% icon 'icon-star' 'sm' %}
-                      </div>
-                  </div>
-                  
-              </div>
-              <p class="text-gray-700">"The colors are vibrant, and the detail is incredible. This painting has become the focal point of my living room!"</p>
-          </div>
-          
+    <section class="py-sm">
+      <div class="container">
+        <div class="flex flex-col">
+          {% for review in reviews %}
+            {% include 'review/partials/review.html' %}
+          {% endfor %}
+        </div>
       </div>
-  </div>
-</section>
-
-</main>
+    </section>
+  </main>
 {% endblock %}

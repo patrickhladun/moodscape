@@ -26,11 +26,7 @@
     {% for review in reviews %}
       <a href="{% url 'cms_review_update' review.id %}" class="flex gap-4 p-2 odd:bg-neutral-100 even:bg-neutral-50 hover:bg-blue-100 transition-colors">
         <img src="{{ review.product.featured.url }}" alt="{{ review.product.name }}" class="w-16 h-16">
-        <div>
-          <p class="m-0">{{ review.product.name }}</p>
-          <p class="m-0">{{ review.product.description }}</p>
-          <p class="m-0">{{ review.created_at }}</p>
-        </div>
+        {% include 'review/partials/review.html' %}
       </a>
     {% endfor %}
     </div>

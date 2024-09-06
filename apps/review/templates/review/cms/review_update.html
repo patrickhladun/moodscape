@@ -8,16 +8,12 @@
   </section>
 
   <section class="container">
-    <h2 class="hidden md:block">Reviews</h2>
-
     <div class="flex gap-4">
       <img src="{{ review.product.featured.url }}" alt="{{ review.product.name }}" class="w-24 h-24" />
       <div>
-        <p class="m-0">{{ review.product.name }}</p>
-        <p class="m-0">{{ review.product.description }}</p>
-        <p class="m-0">{{ review.rating }}</p>
-        <p class="m-0">{{ review.text }}</p>
-        <p class="m-0">{{ review.created_at }}</p>
+        {% render_status review.status %}
+        <p class="text-lg m-0">{{ review.product.name }}</p>
+        {% include 'review/partials/review.html' %}
       </div>
     </div>
 

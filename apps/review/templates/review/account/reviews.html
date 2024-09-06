@@ -45,11 +45,7 @@
           <div class="flex items-center gap-4 p-2 bg-neutral-100 mb-2">
             <img src="{{ review.product.featured.url }}" alt="{{ review.product.name }}" class="w-16 h-16 self-start" />
             <div class="mr-auto">
-              <p class="m-0">{{ review.product.name }}</p>
-              <div class="py-6">
-              <p class="m-0">Rating: {{ review.rating }}</p>
-              <p class="m-0">"{{ review.text }}"</p>
-              </div>
+              {% include 'review/partials/review.html' %}
             </div>
             <a href="{% url 'account_resubmit_update_review' review.id %}" class="button button__icon button--small">
               {% icon 'icon-star-empty' 'sm' %}
