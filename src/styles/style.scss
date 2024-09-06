@@ -78,38 +78,6 @@
 
 @import "components/buttons";
 @import "components/forms";
+@import "components/header";
 @import "components/navigation";
-
-.site-logo svg {
-  > path {
-    @apply fill-blue-200;
-  }
-  g path {
-    @apply fill-blue-800;
-  }
-}
-
-.star-rating {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-}
-
-.star {
-  display: none;
-}
-
-.star + label {
-  font-size: 2rem;
-  fill: #ccc;
-  cursor: pointer;
-}
-
-.star:checked + label {
-  fill: #f5b301;
-}
-
-.star + label:hover,
-.star + label:hover ~ label {
-  fill: #f5b301;
-}
+@import "components/reviews";
