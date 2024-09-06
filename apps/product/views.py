@@ -11,11 +11,13 @@ from .forms import ProductForm, CategoryForm
 
 def product_view(request, slug):
     product = get_object_or_404(Product, slug=slug)
+    reviews = product.reviews.all()
 
     template = "product/product.html"
     context = {
         "config" : config,
         "product": product,
+        "reviews": reviews
     }
     return render(request, template, context)
 
