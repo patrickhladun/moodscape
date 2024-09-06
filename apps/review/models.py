@@ -12,7 +12,6 @@ class Review(models.Model):
         ('deleted', 'Deleted'),
     ]
 
-    id = models.AutoField(primary_key=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')
     user = models.ForeignKey(User, related_name="user_reviews", on_delete=models.CASCADE)
     order_line_item = models.ForeignKey(OrderLineItem, on_delete=models.CASCADE, related_name='lineitem_reviews')
@@ -26,6 +25,11 @@ class Review(models.Model):
     class Meta:
         db_table = 'mood_reviews'
         unique_together = ('order_line_item', 'user')
+
+    @property
+    def name(self):
+        """Returns the user's full name (first name + last name)"""
+        return f"{self.user.customer.first_name} {self.user.customer.last_name}"
 
     def __str__(self):
         return f"Review for {self.product.name} by {self.user.username}"
