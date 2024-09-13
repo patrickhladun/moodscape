@@ -4,7 +4,7 @@
  * handled before each test and that each navigation and content verification
  * is correctly executed.
  */
-describe("Test Account user login and pages navigation.", () => {
+describe("Test Account Reviews page.", () => {
   const username = Cypress.env("account_username");
   const password = Cypress.env("account_password");
 
