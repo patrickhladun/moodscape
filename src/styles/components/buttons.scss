@@ -38,7 +38,7 @@
   }
 
   &__outline-danger {
-    @apply border border-red-500 text-red-500;
+    @apply border border-red-600 text-red-600;
 
     &:hover {
       @apply bg-gray-200;

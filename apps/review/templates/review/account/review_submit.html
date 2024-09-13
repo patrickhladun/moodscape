@@ -20,12 +20,12 @@
         <form method="POST">
           {% csrf_token %}
 
-          <div class="star-rating my-4">
+          <fieldset class="star-rating my-4">
             {% for radio in form.rating %}
               <input type="radio" id="{{ radio.id_for_label }}" name="{{ form.rating.name }}" value="{{ radio.data.value }}" class="star" />
-              <label for="{{ radio.id_for_label }}" title="{{ radio.choice_label }}">{% icon 'icon-star' 'md' %}</label>
+              <label for="{{ radio.id_for_label }}" title="{{ radio.choice_label }}" aria-label="{{ radio.choice_label|default:'Rate' }}">{% icon 'icon-star' 'md' %}</label>
             {% endfor %}
-          </div>
+          </fieldset>
           {% render_field form.text %}
           <div class="flex items-center gap-4 py-xs">
             <button class="button button__primary" type="submit" name="add_item">Submit</button>
