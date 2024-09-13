@@ -105,9 +105,10 @@ def account_order_view(request, order_number):
         item.reviewed = Review.objects.filter(order_line_item=item, user=request.user).exists()
 
     order.items = items
-
+    template = 'order/account/order.html'
     context = {
         'active': 'orders',
-        'order': order
+        'order': order,
+        'config': config,
     }
-    return render(request, 'order/account/order.html', context)
+    return render(request, template, context)

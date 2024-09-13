@@ -13,21 +13,23 @@
     </div>
     <ul role="list">
       {% for order in orders %}
-        <li class="md:grid md:grid-cols-3 px-2 md:items-center odd:bg-neutral-100">
-          <div class="inline-block w-full md:border-r border-neutral-200 p-2">
-            <span class="md:hidden">Order:</span>
-            <a href="{% url 'account_order' order.order_number %}">{{ order.order_number }}</a>
-          </div>
+        <li class="odd:bg-neutral-100 group" role="listitem">
+          <a class="inline-block md:grid md:grid-cols-3 px-2 md:items-center group-hover:bg-blue-500 group-hover:text-white transition" href="{% url 'account_order' order.order_number %}">
+            <div class="inline-block w-full md:border-r border-neutral-200 p-2">
+              <span class="md:hidden">Order:</span>
+              <span>{{ order.order_number }}</span>
+            </div>
 
-          <div class="inline-block w-full md:border-r border-neutral-200 p-2">
-            <span class="md:hidden">Total:</span>
-            <span>{{ config.CURRENCY_SYMBOL }}{{ order.grand_total }}</span>
-          </div>
+            <div class="inline-block w-full md:border-r border-neutral-200 p-2">
+              <span class="md:hidden">Total:</span>
+              <span>{{ config.CURRENCY_SYMBOL }}{{ order.grand_total }}</span>
+            </div>
 
-          <div class="inline-block w-full p-2">
-            <span class="md:hidden">Status:</span>
-            <span>{{ order.status }}</span>
-          </div>
+            <div class="inline-block w-full p-2">
+              <span class="md:hidden">Status:</span>
+              <span>{{ order.status }}</span>
+            </div>
+          </a>
         </li>
       {% endfor %}
     </ul>
