@@ -9,7 +9,7 @@
 
     <section class="container py-rg">
       <div class="md:grid grid-cols-2 gap-4">
-        <form method="POST">
+        <form method="POST" data-cy="profile_form">
           {% csrf_token %}
           {{ form.media }}
 

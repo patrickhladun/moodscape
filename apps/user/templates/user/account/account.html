@@ -9,7 +9,7 @@
 
     <section class="container py-rg">
       <div class="grid grid-cols-2">
-        <form method="POST">
+        <form method="POST" data-cy="account_form">
           {% csrf_token %}
           {% render_field form.email %}
           {% render_field form.username %}
