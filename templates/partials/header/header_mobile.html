@@ -18,8 +18,6 @@
       </li>
 
       {% if request.user.is_authenticated %}
-        <span class="block w-full h-[2px] bg-blue-600"></span>
-
         {% if request.user.is_superuser %}
           {% include './cms_links.html' %}
         {% else %}
