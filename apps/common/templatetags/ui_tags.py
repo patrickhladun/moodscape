@@ -50,10 +50,12 @@ def active(context, link):
 
 
 @register.simple_tag
-def render_field(field, type="text", class_name=""):   
-    classes = f" {class_name}" if class_name else "" 
+def render_field(field, type="text", class_name="", cy=""):
+    classes = f" {class_name}" if class_name else ""
+    data_cy_attribute = f' data-cy="{cy}"' if cy else ""
     field_html = f"""
-    <div class="field field__{type}{classes}">
+    <div 
+        class="field field__{type}{classes}"{data_cy_attribute}>
         {field.label_tag()}
         {field}
         {field.errors}
