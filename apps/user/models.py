@@ -1,4 +1,5 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django_countries.fields import CountryField
 from django.db import models
 
 
@@ -68,7 +69,7 @@ class Customer(models.Model):
     first_name = models.CharField(max_length=30, null=False, blank=False)
     last_name = models.CharField(max_length=30, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
-    country = models.CharField(max_length=40, null=False, blank=False)
+    country = CountryField(blank_label='(select country)', null=False, blank=False)
     postcode = models.CharField(max_length=20, null=True, blank=True)
     town_city = models.CharField(max_length=40, null=False, blank=False)
     address_line_1 = models.CharField(max_length=80, null=False, blank=False)

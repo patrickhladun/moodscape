@@ -10,7 +10,9 @@ module.exports = defineConfig({
     downloadsFolder: "__tests__/cypress/downloads",
   },
   env: {
-    username: process.env.CY_ADMIN_USER_EMAIL,
-    password: process.env.CY_ADMIN_USER_PASS,
+    cms_username: process.env.CY_CMS_EMAIL,
+    cms_password: process.env.CY_CMS_PASS,
+    account_username: process.env.CY_ACCOUNT_EMAIL,
+    account_password: process.env.CY_ACCOUNT_PASS,
   },
 });

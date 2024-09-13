@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load ui_tags %}
+{% load static %}
+
+{% block content %}
+  {% include 'partials/nav_cms.html' %}
+  <section class="container md:hidden">
+    <h1>Customers</h1>
+  </section>
+
+  <section class="container">
+    <div>
+      <div class="hidden md:grid md:grid-cols-4 mb-2 p-2 bg-neutral-200">
+        <span>Name</span>
+        <span>Created</span>
+        <span>Actions</span>
+      </div>
+      {% for customer in customers %}
+        <div class="md:grid md:grid-cols-4 mb-2 p-2 md:items-center bg-neutral-100">             
+          
+          <span class="inline-block w-full">
+            <span class="md:hidden">Name:</span>
+            <span>{{ customer.first_name }} {{ customer.last_name }}</span>
+          </span>
+          <span class="inline-block w-full">
+            <span class="md:hidden">Created:</span>
+            {{ customer.created_at }}
+          </span>
+          <span class="inline-block w-full">
+            <span class="md:hidden">Action</span>
+            <a href="{% url 'cms_customer_update' customer.id %}">Edit</a>
+          </span>
+          
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}

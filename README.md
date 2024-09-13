@@ -272,27 +272,37 @@ Once the wireframes were finalized, I moved on to creating high-fidelity mockups
 
 </details>
 
-<details><summary>Admin Account</summary>
+#### Account Pages
 
-![Admin Account](./docs/mockup-admin-account.webp)
+<details><summary>Account</summary>
 
-</details>
-
-<details><summary>Admin Products</summary>
-
-![Admin Products](./docs/mockup-admin-products.webp)
+![Admin Account](./docs/mockup-account.webp)
 
 </details>
 
-<details><summary>Admin Product Update</summary>
+<details><summary>Account Orders</summary>
 
-![Admin Product Update](./docs/mockup-admin-products.webp)
+![Account Orders](./docs/mockup-account-orders.webp)
 
 </details>
 
-<details><summary>Admin Orders</summary>
+<details><summary>Account Reviews</summary>
 
-![Admin Orders](./docs/mockup-admin-orders.webp)
+![Account Reviews](./docs/mockup-account-reviews.webp)
+
+</details>
+
+<details><summary>Account Profile</summary>
+
+![Account Profile](./docs/mockup-account-profile.webp)
+
+</details>
+
+#### Admin Pages
+
+<details><summary>Account</summary>
+
+![Admin Account](./docs/mockup-account.webp)
 
 </details>
 

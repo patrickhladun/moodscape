@@ -2,12 +2,10 @@
 
 <div class="ml-auto md:hidden">
   <!-- Dropdown button -->
-  <button id="mobileMenuButton" data-dropdown-toggle="mobileMenu" type="button" aria-label="Menu Toggle Mobile">
-    {% icon 'icon-hamburger' 'sm' 'p-3 bg-blue-600 hover:bg-blue-700 rounded-md fill-blue-50' %}
-  </button>
+  <button id="mobileMenuButton" data-dropdown-toggle="mobileMenu" data-dropdown-placement="bottom-end" type="button" aria-label="Menu Toggle Mobile">{% icon 'icon-hamburger' 'sm' 'p-3 bg-blue-600 hover:bg-blue-700 rounded-md fill-blue-50' %}</button>
 
   <!-- Dropdown menu -->
-  <div id="mobileMenu" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-blue-700 dark:divide-gray-600">
+  <div id="mobileMenu" class="z-10 hidden left bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-blue-700 dark:divide-gray-600">
     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="mobileMenuButton">
       <li>
         <a href="{% url 'shop' %}" class="block px-4 py-2 hover:bg-blue-100 dark:hover:bg-blue-600 dark:hover:text-white" aria-label="Link to Shop">Shop</a>
@@ -18,7 +16,25 @@
       <li>
         <a href="{% url 'contact' %}" class="block px-4 py-2 hover:bg-blue-100 dark:hover:bg-blue-600 dark:hover:text-white" aria-label="Link to Contact">Contact</a>
       </li>
+
+      {% if request.user.is_authenticated %}
+        {% if request.user.is_superuser %}
+          {% include './cms_links.html' %}
+        {% else %}
+          {% include './account_links.html' %}
+        {% endif %}
+      {% endif %}
     </ul>
-    {% include './admin_links.html' %}
+
+    {% if request.user.is_authenticated %}
+      <span class="block w-full h-[2px] bg-blue-600"></span>
+      <div class="pb-2">
+        <a href="{% url 'account_logout' %}" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-blue-100 dark:hover:bg-blue-600 dark:text-gray-200 dark:hover:text-white" aria-label="Link to Sign Out">{% icon 'icon-logout' 'sm' 'fill-neutral-100' %}Sign Out</a>
+      </div>
+    {% else %}
+      <div class="pb-2">
+        <a href="{% url 'account_login' %}" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-blue-100 dark:hover:bg-blue-600 dark:text-gray-200 dark:hover:text-white" aria-label="Link to Sign In">{% icon 'icon-login' 'sm' 'fill-neutral-100' %}Sign In</a>
+      </div>
+    {% endif %}
   </div>
 </div>

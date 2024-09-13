@@ -169,3 +169,4 @@ cython_debug/
 
 __tests__/cypress/screenshots
 reset.py
+users.json

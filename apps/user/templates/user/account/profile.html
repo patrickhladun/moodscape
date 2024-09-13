@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load ui_tags %}
+
+{% block content %}
+  <main>
+    {% include 'partials/page_title.html' with title='Profile' variant='backend' %}
+    {% include 'partials/nav_account.html' %}
+
+    <section class="container py-rg">
+      <div class="md:grid grid-cols-2 gap-4">
+        <form method="POST" data-cy="profile_form">
+          {% csrf_token %}
+          {{ form.media }}
+
+          <fieldset class="flex flex-col">
+            <legend class="font-bold uppercase py-2">Details</legend>
+            <div class="flex gap-4">
+              {% render_field form.first_name %}
+              {% render_field form.last_name %}
+            </div>
+            {% render_field form.phone_number %}
+          </fieldset>
+
+          <fieldset class="flex flex-col">
+            <legend class="font-bold uppercase py-2">Shipping Address</legend>
+            {% render_field form.address_line_1 %}
+            {% render_field form.address_line_2 %}
+            {% render_field form.town_city %}
+            {% render_field form.postcode %}
+            {% render_field form.country type='select' %}
+          </fieldset>
+
+          <div class="flex items-center gap-4 py-xs">
+            <button class="button button__primary" type="submit" name="add_item">Update</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+{% endblock %}

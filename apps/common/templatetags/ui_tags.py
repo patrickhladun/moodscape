@@ -43,8 +43,67 @@ def icon(name, size="md", class_name=""):
         return mark_safe("<!-- Icon not found -->")
 
 
-
 @register.simple_tag(takes_context=True)
 def active(context, link):
     active = context.get('active')
     return ' active' if active == link else ''
+
+
+@register.simple_tag
+def render_field(field, type="text", class_name="", cy=""):
+    classes = f" {class_name}" if class_name else ""
+    data_cy_attribute = f' data-cy="{cy}"' if cy else ""
+    field_html = f"""
+    <div 
+        class="field field__{type}{classes}"{data_cy_attribute}>
+        {field.label_tag()}
+        {field}
+        {field.errors}
+    </div>
+    """
+    
+    return mark_safe(field_html)
+
+
+@register.simple_tag
+def render_date(date):
+    return date.strftime("%d %b %Y")
+
+
+@register.simple_tag
+def render_status(status):
+    
+    status_map = {
+        "pending": "bg-yellow-100 text-yellow-800",
+        "approved": "bg-green-100 text-green-800",
+        "rejected": "bg-red-100 text-red-800",
+        "completed": "bg-blue-100 text-blue-800",
+    }
+
+    status_class = status_map.get(status, "bg-gray-100 text-gray-800")
+    html = f"<span class='inline-block py-1 px-3 mb-2 rounded-md {status_class}'>{status.capitalize()}</span>"
+    return mark_safe(html)
+
+
+@register.simple_tag
+def render_stars(rating):
+    """
+    Returns the HTML for star rating using the same SVG icon, 
+    filling up to the rating and leaving others empty.
+    """
+    icon_path = os.path.join("static/icons", "icon-star.svg")
+    
+    try:
+        with open(icon_path) as f:
+            icon_svg = f.read()  # Load the SVG content once
+    except FileNotFoundError:
+        return mark_safe("<!-- Icon not found -->")
+
+    filled_star = f'<span class="flex fill-blue-800"><span class="inline-block w-4 h-4">{icon_svg}</span></span>'
+    empty_star = f'<span class="flex fill-blue-200"><span class="inline-block w-4 h-4">{icon_svg}</span></span>'
+    
+    stars_html = filled_star * rating
+    stars_html += empty_star * (5 - rating)
+    html = f'<div class="flex items-center">{stars_html}</div>'
+
+    return mark_safe(html)

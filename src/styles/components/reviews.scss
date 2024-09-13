@@ -1,0 +1,29 @@
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.star {
+  display: none;
+}
+
+.star + label {
+  @apply fill-blue-300;
+  cursor: pointer;
+}
+
+.star:checked ~ label {
+  @apply fill-blue-700;
+}
+
+.star + label:hover,
+.star + label:hover ~ label {
+  @apply fill-blue-700;
+}
+
+blockquote {
+  @apply text-lg;
+  @apply text-gray-700;
+  @apply italic;
+}

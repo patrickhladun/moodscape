@@ -11,7 +11,7 @@ from __tests__.pytest.factories import SuperuserFactory, OrderFactory, OrderLine
 
 
 @pytest.mark.django_db
-def test_order_update_view_update_status(test_data_orders):
+def test_cms_order_update_view_update_status(test_data_orders):
     """
     Test that the order status is updated successfully when 'update_status' is posted.
     """
@@ -30,7 +30,7 @@ def test_order_update_view_update_status(test_data_orders):
         'status': 'complete'
     }
 
-    url = reverse('admin_order_update', args=[order.order_number])
+    url = reverse('cms_order_update', args=[order.order_number])
     response = client.post(url, data=form_data)
 
     order.refresh_from_db()
@@ -40,7 +40,7 @@ def test_order_update_view_update_status(test_data_orders):
 
 
 @pytest.mark.django_db
-def test_order_update_view_update_form(test_data_orders):
+def test_cms_order_update_view_update_form(test_data_orders):
     """
     Test that the order is updated successfully when 'update_form' is posted.
     """
@@ -68,7 +68,7 @@ def test_order_update_view_update_form(test_data_orders):
         'county': 'New York',
     }
 
-    url = reverse('admin_order_update', args=[order.order_number])
+    url = reverse('cms_order_update', args=[order.order_number])
     response = client.post(url, data=form_data)
 
     order.refresh_from_db()
@@ -87,7 +87,7 @@ def test_order_update_view_update_form(test_data_orders):
 
 
 @pytest.mark.django_db
-def test_order_update_view_add_item(test_data_order, test_data_line_items):
+def test_cms_order_update_view_add_item(test_data_order, test_data_line_items):
     client = Client()
 
     admin = SuperuserFactory()
@@ -105,7 +105,7 @@ def test_order_update_view_add_item(test_data_order, test_data_line_items):
         'quantity': 2,
     }
 
-    url = reverse('admin_order_update', args=[order.order_number])
+    url = reverse('cms_order_update', args=[order.order_number])
     response = client.post(url, data=form_data)
 
     order.refresh_from_db()
@@ -116,7 +116,7 @@ def test_order_update_view_add_item(test_data_order, test_data_line_items):
 
 
 @pytest.mark.django_db
-def test_order_update_view_update_item(test_data_order, test_data_products):
+def test_cms_order_update_view_update_item(test_data_order, test_data_products):
     client = Client()
 
     admin = SuperuserFactory()
@@ -135,7 +135,7 @@ def test_order_update_view_update_item(test_data_order, test_data_products):
         'quantity': 2,
     }
 
-    url = reverse('admin_order_update', args=[order.order_number])
+    url = reverse('cms_order_update', args=[order.order_number])
     response = client.post(url, data=form_data)
 
     order.refresh_from_db()
@@ -149,7 +149,7 @@ def test_order_update_view_update_item(test_data_order, test_data_products):
 
 
 @pytest.mark.django_db
-def test_order_update_view_delete_item(test_data_order, test_data_line_items):
+def test_cms_order_update_view_delete_item(test_data_order, test_data_line_items):
     client = Client()
 
     admin = SuperuserFactory()
@@ -164,7 +164,7 @@ def test_order_update_view_delete_item(test_data_order, test_data_line_items):
         'item_id': order.lineitems.first().id,
     }
 
-    url = reverse('admin_order_update', args=[order.order_number])
+    url = reverse('cms_order_update', args=[order.order_number])
     response = client.post(url, data=form_data)
 
     order.refresh_from_db()
@@ -174,7 +174,7 @@ def test_order_update_view_delete_item(test_data_order, test_data_line_items):
 
 
 @pytest.mark.django_db
-def test_orders_view(test_data_orders):
+def test_cms_orders_view(test_data_orders):
     client = Client()
 
     admin = SuperuserFactory()
@@ -185,11 +185,11 @@ def test_orders_view(test_data_orders):
 
     test_data_orders
 
-    url = reverse('admin_orders')
+    url = reverse('cms_orders')
     response = client.get(url)
 
     assert response.status_code == 200
-    assert "order/admin/orders.html" in (t.name for t in response.templates)
+    assert "order/cms/orders.html" in (t.name for t in response.templates)
 
     orders = response.context["orders"]
     assert len(orders) == 3

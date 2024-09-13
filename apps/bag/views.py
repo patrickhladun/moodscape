@@ -4,6 +4,7 @@ from constance import config
 
 from apps.product.models import Product
 
+
 def bag_view(request):
     bag = request.session.get('bag', {})
     
@@ -14,17 +15,18 @@ def bag_view(request):
             return redirect('bag')
         elif 'remove_item' in request.POST:
             product_id = request.POST.get('product_id')
-            bag.pop(product_id)
-            request.session['bag'] = bag
-            messages.success(request, "Item removed from your cart.")
+            if product_id in bag:
+                bag.pop(product_id)
+                request.session['bag'] = bag
+                messages.success(request, "Item removed from your cart.")
+            else:
+                messages.error(request, "Item not found in your cart.")
             return redirect('bag')
         elif 'update_bag' in request.POST:
             product_id = request.POST.get('product_id')
             quantity = int(request.POST.get('quantity'))
             bag[product_id] = quantity
             request.session['bag'] = bag
-            print(f"product_id: {product_id}, quantity: {quantity}")
-            print(f"bag: {bag}")
 
 
     template = 'bag/bag.html'

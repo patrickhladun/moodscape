@@ -2,5 +2,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('account/', views.account_view, name='admin_account'),
+    path('cms/customers/', views.cms_customers_view, name='cms_customers'),
+    path('cms/customers/<int:id>/update/', views.cms_customer_update_view, name='cms_customer_update'),
+    path('account/', views.account_view, name='account'),
+    path('account/profile/', views.account_profile_view, name='account_profile'),
 ]
