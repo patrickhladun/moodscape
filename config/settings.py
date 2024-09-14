@@ -141,12 +141,13 @@ CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 CONSTANCE_CONFIG = OrderedDict([
     ('SITE_NAME', ('Moodscape', 'The name of the site')),
     ('COPYRIGHT', ('All rights reserved.', 'Copyright information')),
-    
+    ('LOCALE', ('en_GB', 'Locale')),
+    ('TWITTER', ('@moodscape', 'Twitter handle')),
+
     ('SHOP_ADDRESS', ('123 Main St', 'Shop address')),
     ('SHOP_MOBILE_PHONE', ('091456523', 'Shop mobile phone number')),
     ('SHOP_EMAIL', ('shop@moodscape.com', 'Shop email address')),
     
-    ('LOCALE', ('en_GB', 'Locale')),
     ('CURRENCY', ('eur', 'Currency used in the shop')),
     ('CURRENCY_SYMBOL', ('€', 'Currency symbol')),
     ('FREE_DELIVERY_THRESHOLD', (50, 'Free delivery threshold amount')),
@@ -154,7 +155,7 @@ CONSTANCE_CONFIG = OrderedDict([
 ])
 CONSTANCE_CONFIG_FIELDSETS = {
     'Site Settings': {
-        'fields': ('SITE_NAME', 'COPYRIGHT', 'LOCALE'),},
+        'fields': ('SITE_NAME', 'COPYRIGHT', 'LOCALE', 'TWITTER'),},
     'Shop Details': {
         'fields': (
             'SHOP_ADDRESS', 
