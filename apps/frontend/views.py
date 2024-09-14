@@ -7,10 +7,28 @@ from django.contrib import messages
 from constance import config
 from .forms import ContactForm
 from apps.product.models import Product, Category
+from apps.common.utils.metadata import make_metadata
 
 
 def home(request):
-    return render(request, "frontend/index.html")
+    metadata = make_metadata(
+        request,
+        {
+            "title": "Home",
+            "meta": {
+                "description": "description",
+                "robots": "index, follow",
+            },
+            "og": {},
+            "twitter": {},
+        },
+    )
+    
+    template = "frontend/index.html"
+    context = {
+        "metadata": metadata,
+    }
+    return render(request, template, context)
 
 
 def about(request):

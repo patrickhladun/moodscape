@@ -66,6 +66,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'constance.context_processors.config',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -145,6 +146,7 @@ CONSTANCE_CONFIG = OrderedDict([
     ('SHOP_MOBILE_PHONE', ('091456523', 'Shop mobile phone number')),
     ('SHOP_EMAIL', ('shop@moodscape.com', 'Shop email address')),
     
+    ('LOCALE', ('en_GB', 'Locale')),
     ('CURRENCY', ('eur', 'Currency used in the shop')),
     ('CURRENCY_SYMBOL', ('€', 'Currency symbol')),
     ('FREE_DELIVERY_THRESHOLD', (50, 'Free delivery threshold amount')),
@@ -152,7 +154,7 @@ CONSTANCE_CONFIG = OrderedDict([
 ])
 CONSTANCE_CONFIG_FIELDSETS = {
     'Site Settings': {
-        'fields': ('SITE_NAME', 'COPYRIGHT'),},
+        'fields': ('SITE_NAME', 'COPYRIGHT', 'LOCALE'),},
     'Shop Details': {
         'fields': (
             'SHOP_ADDRESS', 
