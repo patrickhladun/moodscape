@@ -14,13 +14,10 @@ def home(request):
     metadata = make_metadata(
         request,
         {
-            "title": "Home",
+            "title": "Unique Watercolor & Abstract Art",
             "meta": {
-                "description": "description",
-                "robots": "index, follow",
+                "description": "Explore Moonscape, an e-commerce platform offering unique watercolor art, Irish abstract landscapes, and pen plotter art. Beautify your space with stunning art pieces.",
             },
-            "og": {},
-            "twitter": {},
         },
     )
     
@@ -32,10 +29,34 @@ def home(request):
 
 
 def about(request):
-    return render(request, "frontend/about.html")
+    metadata = make_metadata(
+        request,
+        {
+            "title": "About Us",
+            "meta": {
+                "description": "Learn more about Moonscape, an online art platform providing curated collections of watercolor art, abstract landscapes, floral art, and digital photography.",
+            },
+        },
+    )
+
+    template = "frontend/about.html"
+    context = {
+        "metadata": metadata,
+    }
+    return render(request, template, context)
 
 
 def contact(request):
+    metadata = make_metadata(
+        request,
+        {
+            "title": "Contact Us",
+            "meta": {
+                "description": "Get in touch with the Moonscape Art team for inquiries, support, or questions about your order. We are here to assist with any art-related queries.",
+            },
+        },
+    )
+
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -68,30 +89,84 @@ def contact(request):
         form = ContactForm()
 
     template = "frontend/contact.html"
-    data = {
+    context = {
         "form": form,
+        "metadata": metadata,
     }
-    return render(request, template, data)
+    return render(request, template, context)
 
 
 def contact_success(request):
+    metadata = make_metadata(
+        request,
+        {
+            "title": "Message Sent",
+            "meta": {
+                "description": "Thank you for contacting Moonscape. Your message has been successfully sent, and we will get back to you shortly.",
+                "robots": "noindex, nofollow",
+            },
+        },
+    )
+
     template = "frontend/contact_success.html"
-    return render(request, template)
+    context = {
+        "metadata": metadata,
+    }
+    return render(request, template, context)
 
 
 def privacy(request):
+    metadata = make_metadata(
+        request,
+        {
+            "title": "Privacy Policy | Moonscape Art",
+            "meta": {
+                "description": "Read Moonscape's privacy policy to understand how we collect, use, and protect your personal information while you browse and shop on our platform.",
+            },
+        },
+    )
+
     template = "frontend/privacy.html"
-    return render(request, template)
+    context = {
+        "metadata": metadata,
+    }
+    return render(request, template, context)
 
 
 def terms(request):
+    metadata = make_metadata(
+        request,
+        {
+            "title": "Terms and Conditions | Moonscape Art",
+            "meta": {
+                "description": "Review Moonscape's terms and conditions for using our e-commerce platform, including details about purchases, payments, and user responsibilities.",
+            },
+        },
+    )
+
     template = "frontend/terms.html"
-    return render(request, template)
+    context = {
+        "metadata": metadata,
+    }
+    return render(request, template, context)
 
 
 def faq(request):
+    metadata = make_metadata(
+        request,
+        {
+            "title": "Frequently Asked Questions (FAQ) | Moonscape Art",
+            "meta": {
+                "description": "Find answers to common questions about Moonscape's products, shipping, payments, returns, and more in our FAQ section.",
+            },
+        },
+    )
+
     template = "frontend/faq.html"
-    return render(request, template)
+    context = {
+        "metadata": metadata,
+    }
+    return render(request, template, context)
 
 
 def shop(request): 
@@ -100,6 +175,16 @@ def shop(request):
     category = None
     sort = None
     direction = None
+
+    metadata = make_metadata(
+        request,
+        {
+            "title": "Shop Art | Moonscape Art",
+            "meta": {
+                "description": "Browse and shop unique watercolor art, Irish abstract landscapes, floral art, pen plotter art, and digital photography at Moonscape Art.",
+            },
+        },
+    )
 
     if request.GET:
         if 'category' in request.GET:
@@ -135,6 +220,7 @@ def shop(request):
     template = "frontend/shop.html"
     context = {
         "config": config,
+        "metadata": metadata,
         "products": products,
         "search_term": query,
         "category": category,
