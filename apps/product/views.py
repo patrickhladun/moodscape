@@ -28,6 +28,15 @@ def product_view(request, slug):
             },
             "twitter": {
                 "image": product.featured.url,
+            },
+            "product": {
+                "sku": product.sku,
+                "price": product.price,
+                "availability": stock,
+                "condition": "new",
+                "brand": config.SITE_NAME,
+                "category": product.category.name,
+                "image": product.featured.url,
             }
         },
     )

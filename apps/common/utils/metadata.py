@@ -78,4 +78,34 @@ def make_metadata(request, page):
     else:
         metadata.append(f'<link rel="canonical" href="{url}">')
 
+    if "product" in page:
+        product_data = page["product"]
+        schema_data = {
+            "@context": "https://schema.org/",
+            "@type": "Product",
+            "name": product_data.get("name", title),
+            "description": product_data.get("description", default_description),
+            "image": product_data.get("image", static('images/moodscape-meta-default.webp')),
+            "sku": product_data.get("sku", ""),
+            "brand": {
+                "@type": "Brand",
+                "name": product_data.get("brand", site_name)
+            },
+            "offers": {
+                "@type": "Offer",
+                "url": url,
+                "priceCurrency": config.CURRENCY,
+                "price": str(product_data.get("price", "0.00")),
+                "priceValidUntil": product_data.get("priceValidUntil", ""),
+                "itemCondition": "https://schema.org/NewCondition",
+                "availability": "https://schema.org/" + product_data.get("availability", "InStock"),
+                "seller": {
+                    "@type": "Organization",
+                    "name": site_name
+                }
+            }
+        }
+        schema_json = json.dumps(schema_data)
+        metadata.append(f'<script type="application/ld+json">{schema_json}</script>')
+
     return metadata
