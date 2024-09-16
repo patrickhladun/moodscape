@@ -4,6 +4,7 @@ from apps.user.models import User
 class Product(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
+    meta_desc = models.CharField(max_length=150, blank=True, null=True)
     slug = models.SlugField(max_length=255, unique=True, blank=True, null=True)
     details = models.TextField(null=True, blank=True)
     sku = models.CharField(max_length=255, unique=True)

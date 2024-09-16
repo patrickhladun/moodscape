@@ -66,6 +66,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'constance.context_processors.config',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -140,7 +141,9 @@ CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 CONSTANCE_CONFIG = OrderedDict([
     ('SITE_NAME', ('Moodscape', 'The name of the site')),
     ('COPYRIGHT', ('All rights reserved.', 'Copyright information')),
-    
+    ('LOCALE', ('en_GB', 'Locale')),
+    ('TWITTER', ('@moodscape', 'Twitter handle')),
+
     ('SHOP_ADDRESS', ('123 Main St', 'Shop address')),
     ('SHOP_MOBILE_PHONE', ('091456523', 'Shop mobile phone number')),
     ('SHOP_EMAIL', ('shop@moodscape.com', 'Shop email address')),
@@ -152,7 +155,7 @@ CONSTANCE_CONFIG = OrderedDict([
 ])
 CONSTANCE_CONFIG_FIELDSETS = {
     'Site Settings': {
-        'fields': ('SITE_NAME', 'COPYRIGHT'),},
+        'fields': ('SITE_NAME', 'COPYRIGHT', 'LOCALE', 'TWITTER'),},
     'Shop Details': {
         'fields': (
             'SHOP_ADDRESS', 

@@ -8,51 +8,32 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    
+    <!-- Metadata -->
+    {% include 'partials/meta.html' %}
+
+    <!-- Styles -->
+    {% block css %}
+      <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
+      <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    {% endblock %}
 
     {% block extra_css %}
     {% endblock %}
 
-    <!-- Styles Block -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'css/style.css' %}"
-    />
-
     {% block corejs %}
-    <script src="https://js.stripe.com/v3/"></script>
+      <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
 
-  <!-- Favicon Includes -->
-  <link rel="shortcut icon" href="{% static 'favicon.ico' %}" />
-  <link rel="icon" sizes="16x16 32x32 64x64" href="{% static 'favicon.ico' %}" />
-  <link rel="icon" type="image/svg+xml" sizes="any" href="{% static 'favicon/favicon.svg' %}" />
-  <link rel="icon" type="image/png" sizes="160x160" href="{% static 'favicon/favicon-160x160.png' %}" />
-  <link rel="icon" type="image/png" sizes="96x96" href="{% static 'favicon/favicon-96x96.png' %}" />
-  <link rel="icon" type="image/png" sizes="64x64" href="{% static 'assets/favicon/favicon-64x64.png' %}" />
-  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/favicon/favicon-32x32.png' %}" />
-  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/favicon/favicon-16x16.png' %}" />
-  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/favicon/favicon-180x180.png' %}" />
-  <link rel="apple-touch-icon" sizes="152x152" href="{% static 'assets/favicon/favicon-152x152.png' %}" />
-  <link rel="apple-touch-icon" sizes="144x144" href="{% static 'assets/favicon/favicon-144x144.png' %}" />
-  <link rel="apple-touch-icon" sizes="120x120" href="{% static 'assets/favicon/favicon-120x120.png' %}" />
-  <link rel="apple-touch-icon" sizes="114x114" href="{% static 'assets/favicon/favicon-114x114.png' %}" />
-  <link rel="apple-touch-icon" sizes="76x76" href="{% static 'assets/favicon/favicon-76x76.png' %}" />
-  <link rel="apple-touch-icon" sizes="72x72" href="{% static 'assets/favicon/favicon-72x72.png' %}" />
-  <link rel="apple-touch-icon" sizes="60x60" href="{% static 'assets/favicon/favicon-60x60.png' %}" />
-  <link rel="apple-touch-icon" sizes="57x57" href="{% static 'assets/favicon/favicon-57x57.png' %}" />
-
-</head>
+    <!-- Favicon Includes -->
+    {% include 'partials/favicon.html' %}
+  </head>
 
   <body class="bg-neutral-50 flex flex-col h-screen justify-between">
-    {% include 'partials/header.html' %} 
-    {% block content %} 
-    {% endblock %} 
+    {% include 'partials/header.html' %}
+    {% block content %}
+
+    {% endblock %}
     {% include 'partials/footer.html' %}
 
     {% if messages %}
@@ -63,22 +44,15 @@
       {% endfor %}
     {% endif %}
 
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
-    <script 
-      src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js">
-    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
 
     {% compress js %}
-      <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
     {% endcompress %}
 
     {% block postloadjs %}
-    {% endblock %}
 
+    {% endblock %}
   </body>
 </html>
- 

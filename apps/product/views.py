@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from constance import config
 from apps.common.decorators import superuser_required
+from apps.common.utils.metadata import make_metadata
 
 from .models import Product, Category
 from .forms import ProductForm, CategoryForm
@@ -13,11 +14,39 @@ def product_view(request, slug):
     product = get_object_or_404(Product, slug=slug)
     reviews = product.reviews.all()
 
+    stock = "in stock" if product.stock > 0 else "out of stock"
+
+    metadata = make_metadata(
+        request,
+        {
+            "title": product.name,
+            "meta": {
+                "description": product.meta_desc,
+            },
+            "og": {
+                "image": product.featured.url,
+            },
+            "twitter": {
+                "image": product.featured.url,
+            },
+            "product": {
+                "sku": product.sku,
+                "price": product.price,
+                "availability": stock,
+                "condition": "new",
+                "brand": config.SITE_NAME,
+                "category": product.category.name,
+                "image": product.featured.url,
+            }
+        },
+    )
+
     template = "product/product.html"
     context = {
         "config" : config,
         "product": product,
-        "reviews": reviews
+        "reviews": reviews,
+        "metadata": metadata,
     }
     return render(request, template, context)
 
