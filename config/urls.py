@@ -12,10 +12,10 @@ urlpatterns = [
     path("", include("apps.product.urls")),
     path("", include("apps.review.urls")),
     path("", include("apps.user.urls")),
-    path('admin/', admin.site.urls),
-    path('account/', include('allauth.urls')),
 ]
 
+urlpatterns += [path('admin/', admin.site.urls)]
+urlpatterns += [path('account/', include('allauth.urls'))]
 urlpatterns += [path('summernote/', include('django_summernote.urls'))]
 
 if settings.DEBUG:
