@@ -1,5 +1,6 @@
 import os
 import environ
+import dj_database_url
 from pathlib import Path
 from collections import OrderedDict
 
@@ -11,12 +12,6 @@ env = environ.Env()
 DEBUG = True
 SECRET_KEY = env("SECRET_KEY")
 ENVIRONMENT = os.getenv('ENVIRONMENT')
-
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
-
-if ENVIRONMENT == 'development':
-    CSRF_TRUSTED_ORIGINS = ['http://localhost:3000',]
-
 DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -33,6 +28,7 @@ EXTERNAL_APPS = [
     'constance.backends.database',
     'django_summernote',
     'compressor',
+    'storages',
 ]
 APPS = [
     'apps.bag',
@@ -78,12 +74,6 @@ TEMPLATES = [
     },
 ]
 WSGI_APPLICATION = 'config.wsgi.application'
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -115,21 +105,15 @@ LANGUAGE_CODE = "en-gb"
 TIME_ZONE = "Europe/London"
 USE_I18N = True
 USE_TZ = True
-
-STATIC_URL = "/static/"
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-
-MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-
 COMPRESS_ENABLED = True
-
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
@@ -175,7 +159,6 @@ CONSTANCE_CONFIG_FIELDSETS = {
         'collapse': True
     },
 }
-
 SUMMERNOTE_THEME = 'bs5'
 SUMMERNOTE_CONFIG = {
     'summernote': {
@@ -189,8 +172,41 @@ SUMMERNOTE_CONFIG = {
         ],
     },
 }
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
-STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')  
+
+if ENVIRONMENT == 'development':
+    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+    STATIC_URL = "/static/"
+    MEDIA_URL = "/media/"
+    CSRF_TRUSTED_ORIGINS = ['http://localhost:3000',]
+else:
+    ALLOWED_HOSTS = ['moodscape-3f1dfd651cc4.herokuapp.com']
+    DATABASES = {
+        "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
+    }
+    AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+    AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+    AWS_STORAGE_BUCKET_NAME = "codeinstitutefolder"
+    AWS_S3_CUSTOM_DOMAIN = "%s.s3.amazonaws.com" % AWS_STORAGE_BUCKET_NAME
+    AWS_S3_FILE_OVERWRITE = False
+    AWS_S3_REGION_NAME = "eu-west-1"
+    AWS_DEFAULT_ACL = "public-read"
+    AWS_QUERYSTRING_AUTH = False
+    STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/moodscape/static/"
+    MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/moodscape/media/"
+    STATICFILES_LOCATION = 'moodscape/static'
+    MEDIAFILES_LOCATION = 'moodscape/media'
+    AWS_S3_OBJECT_PARAMETERS = {
+        'CacheControl': 'max-age=86400',
+    }    
+    DEFAULT_FILE_STORAGE = "config.utils.custom_storages.MediaStorage"
+    STATICFILES_STORAGE = "config.utils.custom_storages.StaticStorage"
+
