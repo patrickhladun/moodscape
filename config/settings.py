@@ -5,17 +5,28 @@ from collections import OrderedDict
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+environ.Env.read_env(os.path.join(BASE_DIR, '.env.local'))
 env = environ.Env()
 
 DEBUG = True
 SECRET_KEY = env("SECRET_KEY")
 ENVIRONMENT = os.getenv('ENVIRONMENT')
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
-
 if ENVIRONMENT == 'development':
     CSRF_TRUSTED_ORIGINS = ['http://localhost:3000',]
+    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+elif ENVIRONMENT == 'production':
+    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+    DATABASES = {
+        "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
+    }
+
 
 DJANGO_APPS = [
     'django.contrib.admin',
@@ -78,12 +89,6 @@ TEMPLATES = [
     },
 ]
 WSGI_APPLICATION = 'config.wsgi.application'
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -175,7 +180,6 @@ CONSTANCE_CONFIG_FIELDSETS = {
         'collapse': True
     },
 }
-
 SUMMERNOTE_THEME = 'bs5'
 SUMMERNOTE_CONFIG = {
     'summernote': {
