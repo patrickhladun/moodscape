@@ -3,20 +3,20 @@ import environ
 from pathlib import Path
 from collections import OrderedDict
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 env = environ.Env()
 
+DEBUG = True
 SECRET_KEY = env("SECRET_KEY")
-DEBUG = env.bool("DEBUG", default=False)
 ENVIRONMENT = os.getenv('ENVIRONMENT')
+
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 if ENVIRONMENT == 'development':
     CSRF_TRUSTED_ORIGINS = ['http://localhost:3000',]
 
-ALLOWED_HOSTS = []
 DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
