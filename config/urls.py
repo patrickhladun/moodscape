@@ -6,16 +6,17 @@ from django.conf import settings
 
 urlpatterns = [
     path("", include("apps.bag.urls")),
+    path("", include("apps.common.urls")),
     path("", include("apps.checkout.urls")),
     path("", include("apps.frontend.urls")),
     path("", include("apps.order.urls")),
     path("", include("apps.product.urls")),
     path("", include("apps.review.urls")),
     path("", include("apps.user.urls")),
-    path('admin/', admin.site.urls),
-    path('account/', include('allauth.urls')),
 ]
 
+urlpatterns += [path('admin/', admin.site.urls)]
+urlpatterns += [path('account/', include('allauth.urls'))]
 urlpatterns += [path('summernote/', include('django_summernote.urls'))]
 
 if settings.DEBUG:
