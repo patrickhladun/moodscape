@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load ui_tags %}
+
+{% block content %}
+  {% include 'partials/page_title.html' with title="Reviews" variant="backend" %}
+  {% include 'partials/nav_account.html' %}
+
+  <section class="container py-rg">
+
+    <form method="GET" class="pb-rg">
+      <select 
+        name="reviews_filter" 
+        id="reviews_filter" 
+        class="p-2 border border-gray-300 rounded-md" 
+        onchange="this.form.submit()"
+        data-cy="reviews_filter"
+      >
+        <option value="not-reviewed" {% if reviews_filter == 'not-reviewed' %}selected{% endif %}>Not Reviewed</option>
+        <option value="approved" {% if reviews_filter == 'approved' %}selected{% endif %}>Approved</option>
+        <option value="pending" {% if reviews_filter == 'pending' %}selected{% endif %}>Pending</option>
+        <option value="rejected" {% if reviews_filter == 'rejected' %}selected{% endif %}>Rejected</option>
+      </select>
+    </form>
+
+    <div data-cy="reviews_list">
+      {% if reviews_filter == 'not-reviewed' %}
+        {% if reviews %}
+          {% for item in reviews %}
+            <div class="flex gap-4 p-2 bg-neutral-100 mb-2" data-cy="review-item">
+              <img src="{{ item.product.featured.url }}" alt="{{ item.product.name }}" class="w-16 h-16" />
+              <div class="md:flex gap-4 w-full items-center justify-between">
+                <p class="mb-2 md:m-0">{{ item.product.name }}</p>
+                <a href="{% url 'account_review_submit' item.id %}" class="button button__icon button--small">
+                  {% icon 'icon-star-empty' 'sm' %}
+                  Review
+                </a>
+              </div>
+            </div>  
+          {% endfor %}
+        {% else %}
+          <p>It looks like you have no products to review. <br>Maybe it’s time to add a new piece of art to your collection.</p>
+          <a href="{% url 'shop' %}" class="button button__primary">Check out our shop!</a>
+        {% endif %}
+      {% elif reviews_filter == 'pending' %}
+        {% if reviews %}
+          {% for review in reviews %}
+            <div class="flex items-center gap-4 p-2 bg-neutral-100 mb-2" data-cy="review-item">
+              <img src="{{ review.product.featured.url }}" alt="{{ review.product.name }}" class="w-16 h-16 self-start" />
+              <div class="mr-auto">
+                {% include 'review/partials/review.html' %}
+              </div>
+              <a href="{% url 'account_resubmit_update_review' review.id %}" class="button button__icon button--small">
+                {% icon 'icon-star-empty' 'sm' %}
+                Update
+              </a>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p>No pending reviews found.</p>
+        {% endif %}
+      {% elif reviews_filter == 'approved' %}
+        {% if reviews %}
+          {% for review in reviews %}
+            <div class="flex items-center gap-4 p-2 bg-neutral-100 mb-2" data-cy="review-item">
+              <img src="{{ review.product.featured.url }}" alt="{{ review.product.name }}" class="w-16 h-16 self-start" />
+              <div class="mr-auto">
+                {% include 'review/partials/review.html' %}
+              </div>
+              <a href="{% url 'account_resubmit_update_review' review.id %}" class="button button__icon button--small">
+                {% icon 'icon-star-empty' 'sm' %}
+                Update
+              </a>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p>No approved reviews found.</p>
+        {% endif %}  
+      {% elif reviews_filter == 'rejected' %}
+        {% if reviews %}
+          {% for review in reviews %}
+            <div class="flex gap-4 p-2 bg-neutral-100 mb-2" data-cy="review-item">
+              <img src="{{ review.product.featured.url }}" alt="{{ review.product.name }}" class="w-16 h-16" />
+              <div class="md:flex gap-4 w-full items-center justify-between">
+                <p class="mb-2 md:m-0">{{ review.product.name }}</p>
+                <a href="{% url 'account_resubmit_update_review' review.id %}" class="button button__icon button--small">
+                  {% icon 'icon-star-empty' 'sm' %}
+                  Resubmit Review
+                </a>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p>No rejected reviews found.</p>
+        {% endif %}
+      {% endif %}
+    </div>
+
+  </section>
+{% endblock %}

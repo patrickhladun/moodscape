@@ -1,0 +1,27 @@
+[
+  {
+    "model": "user.user",
+    "pk": 1,
+    "fields": {
+      "username": "patrickhladun",
+      "password": "pbkdf2_sha256$720000$8GVKOygaeWT3fseiH0uMbG$n3FCFNYKaEWQ+qMB9eRUOa+cVuYSupRUXMAA0+HRnTY=",
+      "is_superuser": true,
+      "is_admin": true,
+      "is_staff": true,
+      "is_active": true,
+      "email": "patrickhladun@gmail.com",
+      "date_joined": "2023-07-22T00:00:00Z",
+      "last_login": "2023-07-22T00:00:00Z"
+    }
+  },
+  {
+    "model": "account.emailaddress",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "email": "patrickhladun@gmail.com",
+      "verified": true,
+      "primary": true
+    }
+  }
+]

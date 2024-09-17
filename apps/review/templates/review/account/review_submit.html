@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load ui_tags %}
+
+{% block content %}
+  {% include 'partials/page_title.html' with title='Review' variant='backend' %}
+  {% include 'partials/nav_account.html' %}
+
+  <section class="container py-rg">
+    <a href="javascript:history.back()" class="button button__icon button--small">{% icon 'icon-arrow' 'sm' %}Back</a>
+  </section>
+
+  <section class="container pb-rg">
+    <div class="md:grid grid-cols-2 gap-4">
+      <img src="{{ product.featured.url }}" alt="{{ product.name }}" class="mb-8 md:mb-0w-36 md:w-full h-36 md:h-full rounded-md md:order-last" />
+      <div class="flex flex-col">
+        <header>
+          <p class="h5 m-0">Leave review for:</p>
+          <p class="m-0">{{ product.name }}</p>
+        </header>
+
+        <form method="POST">
+          {% csrf_token %}
+
+          <fieldset class="star-rating my-4">
+            {% for radio in form.rating %}
+              <input type="radio" id="{{ radio.id_for_label }}" name="{{ form.rating.name }}" value="{{ radio.data.value }}" class="star" />
+              <label for="{{ radio.id_for_label }}" title="{{ radio.choice_label }}" aria-label="{{ radio.choice_label|default:'Rate' }}">{% icon 'icon-star' 'md' %}</label>
+            {% endfor %}
+          </fieldset>
+          {% render_field form.text %}
+          <div class="flex items-center gap-4 py-xs">
+            <button class="button button__primary" type="submit" name="add_item">Submit</button>
+            <a class="button button__outline-danger" href="{% url 'cms_categories' %}">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+{% endblock %}

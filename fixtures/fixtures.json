@@ -1,0 +1,11 @@
+{
+  "fixtures": [
+    "user.superuser.json",
+    "user.accounts.json",
+    "product.categories.json",
+    "product.watercolors.json",
+    "product.photographs.json",
+    "product.plotter.json",
+    "order.order.json"
+  ]
+}

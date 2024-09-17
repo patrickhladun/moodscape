@@ -272,27 +272,37 @@ Once the wireframes were finalized, I moved on to creating high-fidelity mockups
 
 </details>
 
-<details><summary>Admin Account</summary>
+#### Account Pages
 
-![Admin Account](./docs/mockup-admin-account.webp)
+<details><summary>Account</summary>
 
-</details>
-
-<details><summary>Admin Products</summary>
-
-![Admin Products](./docs/mockup-admin-products.webp)
+![Admin Account](./docs/mockup-account.webp)
 
 </details>
 
-<details><summary>Admin Product Update</summary>
+<details><summary>Account Orders</summary>
 
-![Admin Product Update](./docs/mockup-admin-products.webp)
+![Account Orders](./docs/mockup-account-orders.webp)
 
 </details>
 
-<details><summary>Admin Orders</summary>
+<details><summary>Account Reviews</summary>
 
-![Admin Orders](./docs/mockup-admin-orders.webp)
+![Account Reviews](./docs/mockup-account-reviews.webp)
+
+</details>
+
+<details><summary>Account Profile</summary>
+
+![Account Profile](./docs/mockup-account-profile.webp)
+
+</details>
+
+#### Admin Pages
+
+<details><summary>Account</summary>
+
+![Admin Account](./docs/mockup-account.webp)
 
 </details>
 
@@ -413,7 +423,37 @@ The logo for Moodscape is a simple yet elegant icon presenting a landscape withi
 
 ## Automated testing with Pytest
 
-### Running Tests
+### Running Pytest
+
+To ensure the reliability and correctness of the backend code, we use pytest for automated testing. Follow these instructions to run the tests:
+
+1. **Ensure pytest is Installed:**
+
+Make sure `pytest` is installed in your project environment. If it's not installed, you can install it using pip:
+
+```sh
+pip install pytest
+```
+
+2. **Run the tests**
+
+```sh
+pytest -rP -v
+```
+
+### Running Cypress Tests
+
+To open Cypress in interactive mode:
+
+```sh
+npm run cy:open
+```
+
+To run Cypress tests headlessly:
+
+```sh
+npm run cy:run
+```
 
 ## Issues
 

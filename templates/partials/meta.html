@@ -1,0 +1,11 @@
+{% if metadata %}
+  {% for meta in metadata %}
+    {{ meta|safe }}
+  {% endfor %}
+{% else %}
+  <title>
+    {% block title %}
+
+    {% endblock %}| {{ config.SITE_NAME }}
+  </title>
+{% endif %}

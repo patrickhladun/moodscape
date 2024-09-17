@@ -1,14 +1,28 @@
 {
   "name": "moodscape",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Moodscape is an e-commerce platform designed to offer a curated collection of unique watercolor art, Irish abstract landscapes, floral art, macro photography, digital art, and pen plotter art.",
   "main": "index.js",
   "author": "",
   "license": "ISC",
   "scripts": {
-    "tailwind": "npx tailwindcss -i ./src/styles/style.css -o ./static/assets/css/style.css --watch"
+    "test": "pytest && npm run cy:run",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
+    "cy:axe": "cypress run --config pluginsFile=cypress-axe",
+    "cy:axe:open": "cypress open --config pluginsFile=cypress-axe"
   },
-  "dependencies": {
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "browser-sync": "^3.0.2",
+    "cypress": "^13.13.2",
+    "cypress-axe": "^1.5.0",
+    "dotenv": "^16.4.5",
+    "gulp": "^5.0.0",
+    "gulp-postcss": "^10.0.0",
+    "gulp-sass": "^5.1.0",
+    "postcss-cli": "^11.0.0",
+    "sass": "^1.77.8",
     "tailwindcss": "^3.4.7"
   }
 }

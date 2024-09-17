@@ -166,3 +166,7 @@ cython_debug/
 *.map
 
 /staticfiles
+
+__tests__/cypress/screenshots
+reset.py
+users.json
