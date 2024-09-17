@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load ui_tags %}
+
+{% block content %}
+  <main>
+    {% include 'partials/page_title.html' with title='Account' variant='backend' %}
+    {% include 'partials/nav_account.html' %}
+
+    <section class="container py-rg">
+      <div class="grid grid-cols-2">
+        <form method="POST" data-cy="account_form">
+          {% csrf_token %}
+          {% render_field form.email %}
+          {% render_field form.username %}
+          <div class="flex items-center gap-4 py-xs">
+            <button class="button button__primary" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+{% endblock %}

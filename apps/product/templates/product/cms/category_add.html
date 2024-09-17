@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load ui_tags %}
+{% load static %}
+
+{% block content %}
+  {% include 'partials/nav_cms.html' %}
+  
+  <section class="container pb-sm">
+    <a href="{% url 'cms_categories' %}" class="button button__icon button--small">{% icon 'icon-arrow' 'sm' %}Back</a>
+  </section>
+  
+  <section class="container pb-rg">
+    <h2>{{ product.name }}</h2>
+    <div>
+      <form method="POST">
+        {% csrf_token %}
+        {{ form.media }}
+
+        {% for field in form %}
+          {% if field.name != 'featured' %}
+            <div class="flex flex-col">
+              {{ field.label_tag }}
+              {{ field }}
+              {{ field.errors }}
+            </div>
+          {% endif %}
+        {% endfor %}
+
+        <div class="flex items-center gap-4 py-xs">
+          <button class="button" type="submit" name="add_item">Add</button>
+          <a href="{% url "cms_categories" %}">Cancel</a>
+        </div>
+      </form>
+      
+    </div>
+  </section>
+{% endblock %}

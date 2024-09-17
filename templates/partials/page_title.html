@@ -1,0 +1,13 @@
+{% if variant == 'backend' %}
+  <section class="md:hidden bg-neutral-100">
+    <div class="container py-sm">
+      <h1 class="m-0">{{ title }}</h1>
+    </div>
+  </section>
+{% else %}
+  <section class="bg-neutral-100">
+    <div class="container py-sm">
+      <h1 class="m-0">{{ title }}</h1>
+    </div>
+  </section>
+{% endif %}

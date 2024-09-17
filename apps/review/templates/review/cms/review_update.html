@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load ui_tags %}
+
+{% block content %}
+  {% include 'partials/nav_cms.html' %}
+  <section class="container md:hidden">
+    <h1>Review</h1>
+  </section>
+
+  <section class="container py-rg">
+    <a href="javascript:history.back()" class="button button__icon button--small">{% icon 'icon-arrow' 'sm' %}Back</a>
+  </section>
+
+  <section class="container">
+    <div class="flex gap-4">
+      <img src="{{ review.product.featured.url }}" alt="{{ review.product.name }}" class="w-24 h-24" />
+      <div>
+        {% render_status review.status %}
+        <p class="text-lg m-0">{{ review.product.name }}</p>
+        {% include 'review/partials/review.html' %}
+      </div>
+    </div>
+
+    <form method="POST">
+      {% csrf_token %}
+      <div class="field field__select">
+        <label for="status">Set status to:</label>
+        {{ status_form.status }}
+      </div>
+      <button class="button button__primary" type="submit" name="update_status">Update Status</button>
+    </form>
+  </section>
+{% endblock %}

@@ -1,0 +1,8 @@
+.site-logo svg {
+  > path {
+    @apply fill-blue-200;
+  }
+  g path {
+    @apply fill-blue-800;
+  }
+}

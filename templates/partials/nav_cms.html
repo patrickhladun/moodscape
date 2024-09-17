@@ -1,0 +1,46 @@
+{% load ui_tags %}
+
+<div class="container hidden md:flex pt-sm">
+  <a 
+    href="{% url 'cms_orders' %}" 
+    class="admin-nav-item{% active 'orders' %}"
+    aria-label="Link to Orders"
+    >
+    Orders
+  </a>
+  <a 
+    href="{% url 'cms_customers' %}" 
+    class="admin-nav-item{% active 'customers' %}"
+    aria-label="Link to customers"
+    >
+    Customers
+  </a>
+  <a 
+    href="{% url 'cms_products' %}" 
+    class="admin-nav-item{% active 'products' %}"
+    aria-label="Link to Products"
+    >
+    Products
+  </a>
+  <a 
+    href="{% url 'cms_categories' %}" 
+    class="admin-nav-item{% active 'categories' %}"
+    aria-label="Link to Categories"
+    >
+    Categories
+  </a>
+  <a 
+    href="{% url 'cms_reviews' %}" 
+    class="admin-nav-item{% active 'reviews' %}"
+    aria-label="Link to Reviews"
+    >
+    Reviews
+  </a>  
+  <a 
+    href="{% url 'admin:index' %}" 
+    class="admin-nav-item"
+    aria-label="Link to Admin"
+    >
+    Admin
+  </a>
+</div>

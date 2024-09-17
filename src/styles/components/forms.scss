@@ -1,0 +1,93 @@
+@mixin input {
+  @apply p-2 my-2 rounded-md border border-neutral-300;
+}
+@mixin label {
+  @apply text-neutral-600 text-sm;
+}
+
+input {
+  &[type="email"]:not(.newsletter &),
+  &[type="password"],
+  &[type="text"] {
+    @include input;
+  }
+}
+
+.field {
+  @apply flex flex-col w-full;
+
+  label {
+    @include label;
+  }
+
+  &__text {
+    input,
+    textarea {
+      @include input;
+    }
+  }
+  &__select {
+    select {
+      @include input;
+      @apply pr-8;
+    }
+  }
+  &__checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+
+    .form-check-input {
+      margin: 0;
+      padding: 0;
+    }
+  }
+  &__file {
+    display: block;
+  }
+}
+
+.form-header {
+  @apply flex justify-between items-center mb-xs;
+}
+
+form p {
+  @apply flex flex-col;
+}
+
+.errorlist {
+  @apply -mt-1 mb-1;
+  li {
+    @apply text-red-500 text-xs m-0 p-0;
+  }
+}
+
+.StripeElement,
+.stripe-style-input {
+  @include input;
+}
+
+.StripeElement--focus,
+.stripe-style-input:focus,
+.stripe-style-input:active {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+.stripe-style-input::placeholder {
+  color: #aab7c4;
+}
+
+.fieldset-label {
+  position: relative;
+  right: 0.5rem;
+}
+
+#payment-form .form-control,
+#card-element {
+  @apply bg-white p-2 my-2 rounded-md border border-neutral-300;
+}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load ui_tags %}
+{% load static %}
+
+{% block content %}
+  {% include 'partials/nav_cms.html' %}
+  <section class="container pb-sm">
+    <a href="{% url 'cms_products' %}" class="button button__icon button--small">{% icon 'icon-arrow' 'sm' %}Back</a>
+  </section>
+  <section class="container pb-rg">
+    <h2>{{ product.name }}</h2>
+    <div>
+      <form method="POST">
+        {% csrf_token %}
+        {{ form.media }}
+
+        <div class="flex gap-4">
+          <div class="w-1/3">
+            {% for field in form %}
+              {% if field.name != 'featured' %}
+                <div class="flex flex-col">
+                  {{ field.label_tag }}
+                  {{ field }}
+                  {{ field.errors }}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="w-2/3">
+            <div class="flex gap-2">
+              {% if product.featured %}
+                <img src="{{ product.featured.url }}" alt="{{ product.name }}" class="w-full" />
+              {% else %}
+                <img src="{% static 'images/placeholder.webp' %}" alt="{{ product.name }}" class="w-full" />
+              {% endif %}
+            </div>
+            <div class="flex flex-col">
+              {{ form.featured.label_tag }}
+              {{ form.featured }}
+              {{ form.featured.errors }}
+            </div>
+          </div>
+        </div>
+
+        <button class="button" type="submit" name="add_item">Add</button>
+        <a href="{% url "cms_products" %}">Cancel</a>
+      </form>
+      
+    </div>
+  </section>
+{% endblock %}

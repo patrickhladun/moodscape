@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load ui_tags %}
+
+{% block content %}
+  {% include 'partials/nav_cms.html' %}
+  
+  <section class="container pb-sm">
+    <a href="{% url 'cms_orders' %}" class="button button__icon button--small">{% icon 'icon-arrow' 'sm' %}Back</a>
+  </section>
+  
+  <section class="container">
+    <!-- Order number and date -->
+    <div class="bg-neutral-100 p-4">
+      <div class="flex gap-2">
+        <span class="font-bold">Order Number:</span>
+        <span>{{ order.order_number }}</span>
+      </div>
+      <div class="flex gap-2">
+        <span class="font-bold">Order Date:</span>
+        <span>{{ order.created_at }}</span>
+      </div>
+      <div class="flex gap-2">
+        <span class="font-bold">Update Date:</span>
+        <span>{{ order.updated_at }}</span>
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <!-- Order details -->
+      <div class="w-2/3">
+        <form method="POST">
+          {% csrf_token %}
+          <!-- Order details -->
+          <div class="flex gap-4">
+            <div class="field field__text">
+              {{ update_form.first_name.label }}
+              {{ update_form.first_name }}
+            </div>
+            <div class="field field__text">
+              {{ update_form.last_name.label }}
+              {{ update_form.last_name }}
+            </div>
+          </div>
+          <div class="field field__text">
+            {{ update_form.email.label }}
+            {{ update_form.email }}
+          </div>
+          {% if order.customer %}
+              {% comment %} <a href="{% url 'cms_customer_update' order.customer.id %}" class="inline-block  {% endcomment %}
+              <a href="" class="inline-block 
+            my-2 text-sm text-blue-600 underline">Customer: {{ order.customer }}</a>
+          {% endif %}
+          <div class="field field__text">
+            {{ update_form.phone_number.label }}
+            {{ update_form.phone_number }}
+          </div>
+          <p>Address</p>
+          <div class="field field__text">
+            {{ update_form.address_line1.label }}
+            {{ update_form.address_line1 }}
+          </div>
+          <div class="field field__text">
+            {{ update_form.address_line2.label }}
+            {{ update_form.address_line2 }}
+          </div>
+          <div class="field field__text">
+            {{ update_form.town_city.label }}
+            {{ update_form.town_city }}
+          </div>
+          <div class="field field__text">
+            {{ update_form.postcode.label }}
+            {{ update_form.postcode }}
+          </div>
+
+          <div class="field field__text">
+            {{ update_form.country.label }}
+            {{ update_form.country }}
+          </div>
+          <div class="field field__text">
+            {{ update_form.county.label }}
+            {{ update_form.county }}
+          </div>
+        </form>
+        <h3>Order Items</h3>
+        <div class="my-4">
+          {% for item_form in item_forms %}
+            <form method="POST" >
+              {% csrf_token %}
+              <input type="hidden" name="item_id" value="{{ item_form.instance.id }}" />
+              <div class="field field__select">
+                {{ item_form.product }}
+              </div>
+              {{ item_form.quantity }}
+              <button class="button button__primary" type="submit" name="update_item">Update</button>
+              <button class="button button__primary" type="submit" name="delete_item">Delete</button>
+            </form>
+          {% endfor %}
+        </div>
+        <form method="POST">
+          {% csrf_token %}
+          <div class="field field__select">
+            {{ add_form.product }}
+          </div>
+            {{ add_form.quantity }}
+          <button class="button button__primary" type="submit" name="add_item">Add Item</button>
+        </form>
+      </div>
+      <!-- Order status -->
+      <div class="w-1/3">
+        <form method="POST">
+          {% csrf_token %}
+          <div class="field field__select">
+            {{ status_form.status.label }}
+            {{ status_form.status }}
+          </div>
+          <button class="button button__primary" type="submit" name="update_status">Update Status</button>
+        </form>
+
+        <h3>Order Summary</h3>
+        <div class="flex flex-col border p-4 my-4">
+          <div class="flex gap-2">
+            <span class="font-bold">Subtotal:</span>
+            <span>{{ config.CURRENCY_SYMBOL }}{{ order.sub_total }}</span>
+          </div>
+          <div class="flex gap-2">
+            <span class="font-bold">Shipping:</span>
+            <span>{{ config.CURRENCY_SYMBOL }}{{ order.shipping_cost }}</span>
+          </div>
+          <div class="flex gap-2">
+            <span class="font-bold">Total:</span>
+            <span>{{ config.CURRENCY_SYMBOL }}{{ order.grand_total }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
