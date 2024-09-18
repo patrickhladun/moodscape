@@ -68,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'apps.frontend.context_processors.newsletter_form',
                 'apps.bag.context.bag_contents',
             ],
         },

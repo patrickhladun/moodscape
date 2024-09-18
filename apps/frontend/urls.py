@@ -12,3 +12,8 @@ urlpatterns = [
     path("faq/", views.faq, name="faq"),
     path("shop/", views.shop, name="shop"),
 ]
+
+urlpatterns += [
+    path('newsletter/subscribe/', views.newsletter_subscribe, name='newsletter_subscribe'),
+    path('newsletter/success/', views.success_newsletter, name='success_newsletter'),
+]
