@@ -86,32 +86,13 @@ def contact(request):
                 fail_silently=False,
             )
 
-            return redirect("contact_success")
+            return redirect("success_contact")
     else:
         form = ContactForm()
 
     template = "frontend/contact.html"
     context = {
         "form": form,
-        "metadata": metadata,
-    }
-    return render(request, template, context)
-
-
-def contact_success(request):
-    metadata = make_metadata(
-        request,
-        {
-            "title": "Message Sent",
-            "meta": {
-                "description": "Thank you for contacting Moonscape. Your message has been successfully sent, and we will get back to you shortly.",
-                "robots": "noindex, nofollow",
-            },
-        },
-    )
-
-    template = "frontend/contact_success.html"
-    context = {
         "metadata": metadata,
     }
     return render(request, template, context)
@@ -271,3 +252,21 @@ def success_newsletter(request):
     }
     return render(request, template, context)
 
+
+def success_contact(request):
+    metadata = make_metadata(
+        request,
+        {
+            "title": "Message Sent",
+            "meta": {
+                "description": "Thank you for contacting Moonscape. Your message has been successfully sent, and we will get back to you shortly.",
+                "robots": "noindex, nofollow",
+            },
+        },
+    )
+
+    template = "frontend/success_contact.html"
+    context = {
+        "metadata": metadata,
+    }
+    return render(request, template, context)

@@ -19,7 +19,7 @@ urls = [
     },
     {
         'url': '/contact/success/',
-        'name': 'contact_success',
+        'name': 'success_contact',
     },
     {
         'url': '/privacy-policy/',
