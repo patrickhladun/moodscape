@@ -1,11 +1,13 @@
+import requests
 from django.conf import settings
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 from constance import config
-from .forms import ContactForm
+from .forms import ContactForm, NewsletterForm
 from apps.product.models import Product, Category
 from apps.common.utils.metadata import make_metadata
 
@@ -84,32 +86,13 @@ def contact(request):
                 fail_silently=False,
             )
 
-            return redirect("contact_success")
+            return redirect("success_contact")
     else:
         form = ContactForm()
 
     template = "frontend/contact.html"
     context = {
         "form": form,
-        "metadata": metadata,
-    }
-    return render(request, template, context)
-
-
-def contact_success(request):
-    metadata = make_metadata(
-        request,
-        {
-            "title": "Message Sent",
-            "meta": {
-                "description": "Thank you for contacting Moonscape. Your message has been successfully sent, and we will get back to you shortly.",
-                "robots": "noindex, nofollow",
-            },
-        },
-    )
-
-    template = "frontend/contact_success.html"
-    context = {
         "metadata": metadata,
     }
     return render(request, template, context)
@@ -225,5 +208,65 @@ def shop(request):
         "search_term": query,
         "category": category,
         "sort": f'{sort}_{direction}' if sort and direction else '',
+    }
+    return render(request, template, context)
+
+
+def newsletter_subscribe(request):
+    if request.method == 'POST':
+        form = NewsletterForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            form_id = '7110513'
+            api_key = 'lJ2VYug5Dns_a4kWThvbWg'
+            try:
+                response = requests.post(
+                    f'https://api.convertkit.com/v3/forms/{form_id}/subscribe',
+                    data={'email': email, 'api_key': api_key}
+                )
+                response.raise_for_status()
+                return redirect('success_newsletter')
+            except requests.RequestException:
+                messages.error(request, 'Failed to subscribe. Please try again later.')
+    else:
+        for error in form.errors.values():
+                messages.error(request, error)
+    return redirect(request.META.get('HTTP_REFERER', '/'))
+
+
+
+def success_newsletter(request):
+    metadata = make_metadata(
+        request,
+        {
+            "title": "Subscription Newsletter",
+            "meta": {
+                "description": "Thank you for subscribing to Moonscape's newsletter. Please check your email to confirm your subscription and start receiving updates.",
+            },
+        },
+    )
+
+    template = "frontend/success_newsletter.html"
+    context = {
+        "metadata": metadata,
+    }
+    return render(request, template, context)
+
+
+def success_contact(request):
+    metadata = make_metadata(
+        request,
+        {
+            "title": "Message Sent",
+            "meta": {
+                "description": "Thank you for contacting Moonscape. Your message has been successfully sent, and we will get back to you shortly.",
+                "robots": "noindex, nofollow",
+            },
+        },
+    )
+
+    template = "frontend/success_contact.html"
+    context = {
+        "metadata": metadata,
     }
     return render(request, template, context)

@@ -20,8 +20,8 @@ views = [
         'template': 'frontend/contact.html',
     },
     {
-        'url': 'contact_success',
-        'template': 'frontend/contact_success.html',
+        'url': 'success_contact',
+        'template': 'frontend/success_contact.html',
     },
     {
         'url': 'privacy',
@@ -66,7 +66,7 @@ def test_contact_post_valid(client, mailoutbox):
     }
     response = client.post(url, data)
     assert response.status_code == 302
-    assert response.url == reverse('contact_success')
+    assert response.url == reverse('success_contact')
 
     assert len(mailoutbox) == 1
     email = mailoutbox[0]
