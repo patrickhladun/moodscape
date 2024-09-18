@@ -4,15 +4,15 @@
 
 {% block content %}
   <main>
-    <section class="bg-neutral-200">
+    <section class="bg-neutral-100">
       <div class="container py-xxs">
-        <div class="flex">
-          <div class="flex w-1/2">
-            <a href="{% url 'shop' %}" class="text-primary">Shop</a>
+        <div class="flex text-sm">
+          <div class="flex w-full md:w-1/2 gap-1">
+            <a href="{% url 'shop' %}" class="text-primary text-blue-600 underline">Shop</a>
             <span>&gt;</span>
-            <a href="{% url 'shop' %}" class="text-primary">{{ product.category }}</a>
+            <a href="{% url 'shop' %}?category={{ product.category|lower|urlencode }}" class="text-primary text-blue-600 underline">{{ product.category }}</a>
             <span>&gt;</span>
-            <a href="{% url 'product' product.slug %}" class="text-primary truncate">{{ product.name }}</a>
+            <span class="text-primary truncate text-neutral-600">{{ product.name }}</span>
           </div>
         </div>
       </div>
