@@ -6,7 +6,7 @@ from collections import OrderedDict
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+environ.Env.read_env(os.path.join(BASE_DIR, '.env.local'))
 env = environ.Env()
 
 DEBUG = True
@@ -210,3 +210,4 @@ else:
     DEFAULT_FILE_STORAGE = "config.utils.custom_storages.MediaStorage"
     STATICFILES_STORAGE = "config.utils.custom_storages.StaticStorage"
 
+print(f"ENVIRONMENT: {ENVIRONMENT}")
