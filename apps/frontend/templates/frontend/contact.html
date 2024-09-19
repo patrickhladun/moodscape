@@ -1,68 +1,67 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% load ui_tags %}
-{% load static %} 
+{% load static %}
 
 {% block content %}
-<main>
-  <!-- Page Title -->
-  <section class="bg-neutral-100">
-    <div class="container py-xxs">
-      <h1>Contact</h1>
-    </div>
-  </section>
-  <!-- Hero -->
-  <section class="bg-neutral-100">
-    <div class="container grid md:grid-cols-2 gap-4 pb-rg">
-      <div>
-        <h2>Contact Moodscape</h2>
-        <form id="contact-form" method="post">
-          {% csrf_token %}
-          {{ form.media }}
-          {% for field in form %}
-            <div class="field field__text">{{ field.label_tag }}
-              {{ field }}
-              {{ field.errors }}</div>
-          {% endfor %}
-          <button type="submit" class="button button__submit">Submit</button>
-        </form>
+  <main>
+    <!-- Page Title -->
+    <section class="bg-neutral-100">
+      <div class="container py-xxs">
+        <h1>Contact</h1>
       </div>
-      <div>
-        <h2>Get in Touch</h2>
-        <p>We appreciate your interest in Moonscape and are here to help with any questions, support needs, or feedback. Whether you need information about our art collections, assistance with your orders, or simply want to share your thoughts, feel free to contact us. Our team is dedicated to ensuring you have a great experience with Moonscape.</p>
-    
-        <div class="flex flex-col">
+    </section>
+    <!-- Hero -->
+    <section class="bg-neutral-100">
+      <div class="container grid md:grid-cols-2 gap-4 pb-rg">
+        <div>
+          <h2>Contact Moodscape</h2>
+          <form id="contact-form" method="post">
+            {% csrf_token %}
+            {{ form.media }}
+            {% for field in form %}
+              <div class="field field__text">{{ field.label_tag }}
+                {{ field }}
+                {{ field.errors }}</div>
+            {% endfor %}
+            <button type="submit" class="button button__submit">Submit</button>
+          </form>
+        </div>
+        <div>
+          <h2>Get in Touch</h2>
+          <p>We appreciate your interest in Moonscape and are here to help with any questions, support needs, or feedback. Whether you need information about our art collections, assistance with your orders, or simply want to share your thoughts, feel free to contact us. Our team is dedicated to ensuring you have a great experience with Moonscape.</p>
+
+          <div class="flex flex-col">
             <div class="flex items-start gap-2">
-                {% icon 'icon-location' 'md' %}
-                <p class="mt-0">
-                    Moonscape Gallery,<br />
-                    456 Art Lane,<br />
-                    Dublin,<br />
-                    D04 EFG2,<br />
-                    Ireland
-                </p>
+              {% icon 'icon-location' 'md' %}
+              <p class="mt-0">
+                Moonscape Gallery,<br />
+                456 Art Lane,<br />
+                Dublin,<br />
+                D04 EFG2,<br />
+                Ireland
+              </p>
             </div>
-    
+
             <div class="flex items-start gap-2">
-                {% icon 'icon-envelope' 'md' %}
-                <p class="mt-0">support@moonscape.example.com</p>
+              {% icon 'icon-envelope' 'md' %}
+              <p class="mt-0">support@moonscape.example.com</p>
             </div>
-    
+
             <div class="flex items-start gap-2">
               {% icon 'icon-phone' 'md' %}
-                <p class="mt-0">+353 (0)1 987 6543</p>
+              <p class="mt-0">+353 (0)1 987 6543</p>
             </div>
+          </div>
+
+          <!-- Social Links -->
+          <div class="flex gap-2">
+            <a href="{{ config.FACEBOOK }}" target="_blank" aria-label="Link to Facebook Profile">{% icon 'icon-facebook' 'sm' 'p-1 bg-blue-400 rounded-sm fill-blue-200 hover:fill-blue-700' %}</a>
+            <a href="https://www.instagram.com/" target="_blank" aria-label="Link to Instagram Profile">{% icon 'icon-instagram' 'sm' 'p-1 bg-blue-400 rounded-sm fill-blue-200 hover:fill-blue-700' %}</a>
+            <a href="https://www.twitter.com/" target="_blank" aria-label="Link to Twitter Profile">{% icon 'icon-twitter' 'sm' 'p-1 bg-blue-400 rounded-sm fill-blue-200 hover:fill-blue-700' %}</a>
+            <a href="https://www.linkedin.com/" target="_blank" aria-label="Link to LinkedIn Profile">{% icon 'icon-linkedin' 'sm' 'p-1 bg-blue-400 rounded-sm fill-blue-200 hover:fill-blue-700' %}</a>
+          </div>
         </div>
-    
-        <!-- Social Links -->
-        <div class="flex gap-2">
-          <a href="https://www.facebook.com/" target="_blank" aria-label="Link to Facebook Profile">{% icon 'icon-facebook' 'sm' 'p-1 bg-blue-400 rounded-sm fill-blue-200 hover:fill-blue-700' %}</a>
-          <a href="https://www.instagram.com/" target="_blank" aria-label="Link to Instagram Profile">{% icon 'icon-instagram' 'sm' 'p-1 bg-blue-400 rounded-sm fill-blue-200 hover:fill-blue-700' %}</a>
-          <a href="https://www.twitter.com/" target="_blank" aria-label="Link to Twitter Profile">{% icon 'icon-twitter' 'sm' 'p-1 bg-blue-400 rounded-sm fill-blue-200 hover:fill-blue-700' %}</a>
-          <a href="https://www.linkedin.com/" target="_blank" aria-label="Link to LinkedIn Profile">{% icon 'icon-linkedin' 'sm' 'p-1 bg-blue-400 rounded-sm fill-blue-200 hover:fill-blue-700' %}</a>
-        </div>
-    </div>
-    
-    </div>
-  </section>
-</main>
+      </div>
+    </section>
+  </main>
 {% endblock %}

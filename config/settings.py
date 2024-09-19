@@ -129,6 +129,7 @@ CONSTANCE_CONFIG = OrderedDict([
     ('COPYRIGHT', ('All rights reserved.', 'Copyright information')),
     ('LOCALE', ('en_GB', 'Locale')),
     ('TWITTER', ('@moodscape', 'Twitter handle')),
+    ('FACEBOOK', ('https://www.facebook.com/people/Moodscape/61566307404663/', 'Facebook page')),
 
     ('SHOP_ADDRESS', ('123 Main St', 'Shop address')),
     ('SHOP_MOBILE_PHONE', ('091456523', 'Shop mobile phone number')),
@@ -141,7 +142,7 @@ CONSTANCE_CONFIG = OrderedDict([
 ])
 CONSTANCE_CONFIG_FIELDSETS = {
     'Site Settings': {
-        'fields': ('SITE_NAME', 'COPYRIGHT', 'LOCALE', 'TWITTER'),},
+        'fields': ('SITE_NAME', 'COPYRIGHT', 'LOCALE', 'TWITTER', 'FACEBOOK'),},
     'Shop Details': {
         'fields': (
             'SHOP_ADDRESS', 
