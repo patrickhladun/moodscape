@@ -30,6 +30,12 @@ class ProductForm(forms.ModelForm):
             raise forms.ValidationError("Stock cannot be negative.")
         return stock
 
+    def clean_price(self):
+        price = self.cleaned_data.get('price')
+        if price < 0 or price == 0:
+            raise forms.ValidationError("Price cannot be negative.")
+        return price
+
 
 
 class CategoryForm(forms.ModelForm):
