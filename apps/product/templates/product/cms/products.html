@@ -3,12 +3,10 @@
 {% load static %}
 
 {% block content %}
+  {% include 'partials/page_title.html' with title='Products' variant='backend' %}
   {% include 'partials/nav_cms.html' %}
-  <section class="container md:hidden">
-    <h1>Account</h1>
-  </section>
 
-  <div class="container pb-sm">
+  <div class="container py-rg">
     <div class="flex items-center">
       <a href="{% url 'cms_product_add' %}" class="inline-block bg-neutral-200 hover:bg-neutral-300 transition-colors duration-200 ease-in-out p-2 pr-3 rounded-md">
         <span class="flex items-center">
@@ -19,41 +17,40 @@
     </div>
   </div>
 
-  <section class="container">
-    <div>
-      <div class="hidden md:grid md:grid-cols-4 mb-2 p-2 bg-neutral-200">
-        <span>Product</span>
-        <span>Price</span>
-        <span>Category</span>
-        <span>Created</span>
-      </div>
-      {% for product in products %}
-        <div class="md:grid md:grid-cols-4 mb-2 p-2 md:items-center bg-neutral-100">
-          
-          <a href="{% url 'cms_product_update' product.id %}" class="flex items-center">
-            {% if product.featured %}
-              <img src="{{ product.featured.url }}" alt="{{ product.name }}" class="w-12 h-12 mr-4" />
-            {% else %}
-              <img src="{% static 'images/placeholder.webp' %}" alt="{{ product.name }}" class="w-12 h-12 mr-4"/>
-            {% endif %}
-            <span class="truncate">{{ product.name }}</span>
-          </a>               
-          
-          <span class="inline-block w-full">
-            <span class="md:hidden">Price:</span>
-            <span>{{ config.CURRENCY_SYMBOL }}{{ product.price }}</span>
-          </span>
-          <span class="inline-block w-full">
-            <span class="md:hidden">Category:</span>
-            {{ product.category }}
-          </span>
-          <span class="inline-block w-full">
-            <span class="md:hidden">Created:</span>
-            {{ product.created_at }}
-          </span>
-          
-        </div>
-      {% endfor %}
+  <section class="container pb-rg">
+    <div class="hidden md:grid md:grid-cols-4 p-2 bg-blue-100 rounded-t-md border-b-4 border-blue-200">
+      <span>Product</span>
+      <span>Price</span>
+      <span>Category</span>
+      <span>Created</span>
     </div>
+    <ul role="list">
+      {% for product in products %}
+        <li class="odd:bg-neutral-100 group" role="listitem">
+          <div class="md:grid md:grid-cols-4 p-2 md:items-center group-hover:bg-blue-500 group-hover:text-white transition">
+            <a class="flex items-center overflow-hidden w-full" href="{% url 'cms_product_update' product.id %}">
+              {% if product.featured %}
+                <img class="w-12 h-12 mr-4" src="{{ product.featured.url }}" alt="{{ product.name }}" />
+              {% else %}
+                <img class="w-12 h-12 mr-4" src="{% static 'images/placeholder.webp' %}" alt="{{ product.name }}" />
+              {% endif %}
+              <span class="truncate">{{ product.name }}</span>
+            </a>
+            <span class="inline-block w-full">
+              <span class="md:hidden">Price:</span>
+              <span>{{ config.CURRENCY_SYMBOL }}{{ product.price }}</span>
+            </span>
+            <span class="inline-block w-full">
+              <span class="md:hidden">Category:</span>
+              {{ product.category }}
+            </span>
+            <span class="inline-block w-full">
+              <span class="md:hidden">Created:</span>
+              {{ product.created_at }}
+            </span>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
   </section>
 {% endblock %}
