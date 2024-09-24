@@ -4,14 +4,12 @@ import dj_database_url
 from pathlib import Path
 from collections import OrderedDict
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-environ.Env.read_env(os.path.join(BASE_DIR, '.env.local'))
 env = environ.Env()
+env.read_env()
 
-DEBUG = True
-SECRET_KEY = env("SECRET_KEY")
-ENVIRONMENT = os.getenv('ENVIRONMENT')
+SECRET_KEY = env("SECRET_KEY", default='')
 DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -101,11 +99,13 @@ ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = "/account/login/"
 LOGIN_REDIRECT_URL = "/"
+
 SITE_ID = 1
 LANGUAGE_CODE = "en-gb"
 TIME_ZONE = "Europe/London"
 USE_I18N = True
 USE_TZ = True
+
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -115,6 +115,7 @@ STATICFILES_FINDERS = [
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 COMPRESS_ENABLED = True
+
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
@@ -123,6 +124,7 @@ EMAIL_USE_SSL = False
 EMAIL_HOST_USER = env("GMAIL_EMAIL")
 EMAIL_HOST_PASSWORD = env("GMAIL_PASS")
 DEFAULT_FROM_EMAIL = env("GMAIL_EMAIL")
+
 CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 CONSTANCE_CONFIG = OrderedDict([
     ('SITE_NAME', ('Moodscape', 'The name of the site')),
@@ -175,41 +177,5 @@ SUMMERNOTE_CONFIG = {
     },
 }
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
-STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')  
-
-if ENVIRONMENT == 'development':
-    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-    STATIC_URL = "/static/"
-    MEDIA_URL = "/media/"
-    CSRF_TRUSTED_ORIGINS = ['http://localhost:3000',]
-else:
-    ALLOWED_HOSTS = ['moodscape-3f1dfd651cc4.herokuapp.com']
-    DATABASES = {
-        "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
-    }
-    AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
-    AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
-    AWS_STORAGE_BUCKET_NAME = "codeinstitutefolder"
-    AWS_S3_CUSTOM_DOMAIN = "%s.s3.amazonaws.com" % AWS_STORAGE_BUCKET_NAME
-    AWS_S3_FILE_OVERWRITE = False
-    AWS_S3_REGION_NAME = "eu-west-1"
-    AWS_DEFAULT_ACL = "public-read"
-    AWS_QUERYSTRING_AUTH = False
-    STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/moodscape/static/"
-    MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/moodscape/media/"
-    STATICFILES_LOCATION = 'moodscape/static'
-    MEDIAFILES_LOCATION = 'moodscape/media'
-    AWS_S3_OBJECT_PARAMETERS = {
-        'CacheControl': 'max-age=86400',
-    }    
-    DEFAULT_FILE_STORAGE = "config.utils.custom_storages.MediaStorage"
-    STATICFILES_STORAGE = "config.utils.custom_storages.StaticStorage"
-
-print(f"ENVIRONMENT: {ENVIRONMENT}")
+STRIPE_PUBLIC_KEY = env('STRIPE_PUBLIC_KEY', default='')
+STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY', default='')  
