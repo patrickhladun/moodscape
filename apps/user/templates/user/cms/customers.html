@@ -3,36 +3,34 @@
 {% load static %}
 
 {% block content %}
+  {% include 'partials/page_title.html' with title='Customers' variant='backend' %}
   {% include 'partials/nav_cms.html' %}
-  <section class="container md:hidden">
-    <h1>Customers</h1>
-  </section>
 
-  <section class="container">
-    <div>
-      <div class="hidden md:grid md:grid-cols-4 mb-2 p-2 bg-neutral-200">
-        <span>Name</span>
-        <span>Created</span>
-        <span>Actions</span>
-      </div>
-      {% for customer in customers %}
-        <div class="md:grid md:grid-cols-4 mb-2 p-2 md:items-center bg-neutral-100">             
-          
-          <span class="inline-block w-full">
-            <span class="md:hidden">Name:</span>
-            <span>{{ customer.first_name }} {{ customer.last_name }}</span>
-          </span>
-          <span class="inline-block w-full">
-            <span class="md:hidden">Created:</span>
-            {{ customer.created_at }}
-          </span>
-          <span class="inline-block w-full">
-            <span class="md:hidden">Action</span>
-            <a href="{% url 'cms_customer_update' customer.id %}">Edit</a>
-          </span>
-          
-        </div>
-      {% endfor %}
+  <section class="container py-rg">
+    <div class="hidden md:grid md:grid-cols-3 p-2 bg-blue-100 rounded-t-md border-b-4 border-blue-200">
+      <span class="md:border-r border-neutral-300 px-2">Name</span>
+      <span class="md:border-r border-neutral-300 px-2">Email</span>
+      <span class="px-2">Created</span>
     </div>
+    <ul role="list">
+      {% for customer in customers %}
+        <li class="odd:bg-neutral-100 group" role="listitem">
+          <a class="inline-block md:grid md:grid-cols-3 px-2 md:items-center group-hover:bg-blue-500 group-hover:text-white transition" href="{% url 'cms_customer_update' customer.id %}">
+            <div class="inline-block w-full md:border-r border-neutral-200 p-2">
+              <span class="md:hidden">Name:</span>
+              <span>{{ customer.first_name }} {{ customer.last_name }}</span>
+            </div>
+            <div class="inline-block w-full md:border-r border-neutral-200 p-2">
+              <span class="md:hidden">Email:</span>
+              <span>{{ customer.user.email }}</span>
+            </div>
+            <div class="inline-block w-full md:border-r border-neutral-200 p-2">
+              <span class="md:hidden">Created</span>
+              <span>{{ customer.created_at }}</span>
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
   </section>
 {% endblock %}
