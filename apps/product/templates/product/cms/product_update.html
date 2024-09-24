@@ -5,104 +5,125 @@
 {% block content %}
   {% include 'partials/page_title.html' with title='Update Product' variant='backend' %}
   {% include 'partials/nav_cms.html' %}
-  
-  <section class="container pb-sm">
-    <a href="{% url 'cms_products' %}" class="button button__icon button--small">{% icon 'icon-arrow' 'sm' %}Back</a>
-  </section>
 
   <section class="container py-rg">
+    <a href="{% url 'cms_products' %}" class="inline-block bg-neutral-200 hover:bg-neutral-300 transition-colors duration-200 ease-in-out p-2 pr-3 rounded-md">
+      <span class="flex items-center">
+        <span class="mr-1">{% icon 'icon-arrow' 'sm' %}</span>
+        <span class="text-xs uppercase font-bold">Back</span>
+      </span>
+    </a>
+  </section>
+
+  <section class="container pb-rg">
     <h2>{{ product.name }}</h2>
     <div>
       <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.media }}
 
-        <div class="flex gap-4">
-          <div class="w-1/3">
-            {% for field in form %}
-              {% if field.name != 'featured' %}
-                <div class="flex flex-col">
-                  {{ field.label_tag }}
-                  {{ field }}
-                  {{ field.errors }}
-                </div>
-              {% endif %}
-            {% endfor %}
+        <div class="md:grid grid-cols-3 gap-4">
+          <div class="col-span-1">
+            {% render_field form.name %}
+            {% render_field form.slug %}
+            {% render_field form.details %}
+            {% render_field form.sku %}
+            {% render_field form.price %}
+            {% render_field form.stock %}
+            {% render_field form.category type='select' %}
+            {% render_field form.is_published %}
           </div>
-          <div class="w-2/3">
-            <div class="flex gap-2">
-              {% if product.featured %}
-                <img src="{{ product.featured.url }}" alt="{{ product.name }}" class="w-full" />
-              {% else %}
-                <img src="{% static 'images/placeholder.webp' %}" alt="{{ product.name }}" class="w-full" />
-              {% endif %}
-            </div>
+          <div class="col-span-2">
+            {% if product.featured %}
+              <img id="imagePreview" src="{{ product.featured.url }}" alt="{{ product.name }}" class="w-full" />
+            {% else %}
+              <img id="imagePreview" src="{% static 'images/placeholder.webp' %}" alt="{{ product.name }}" class="w-full" />
+            {% endif %}
             <div class="flex flex-col">
-              {{ form.featured.label_tag }}
-              {{ form.featured }}
-              {{ form.featured.errors }}
+              {% render_field form.featured type='file' id='imageUpload' %}
             </div>
           </div>
         </div>
 
         <div class="flex items-center gap-4 py-xs">
-          <button class="button" type="submit" name="add_item">Update</button>
-          <button id="delete-popup-button" data-product-id="{{ product.id }}">Delete</button>
+          <button class="button button__primary" type="submit" name="add_item">Update</button>
+          <button id="delete-popup-button" class="button button__outline-danger" data-product-id="{{ product.id }}">Delete</button>
         </div>
       </form>
-      
     </div>
   </section>
-  
+
+  <!-- Overlay for confirmation popup -->
   <div id="overlay" class="hidden fixed top-0 left-0 bg-blue-800 bg-opacity-80 w-screen h-screen"></div>
 
   <div id="delete-popup" class="hidden flex fixed items-center justify-center w-screen h-screen">
-      <div class="bg-white p-4 rounded-lg">
-          <p>Are you sure you want to delete this product?</p>
-          <div class="flex gap-4">
-              <button id="confirm-delete-btn" class="button">Delete</button>
-              <button id="cancel-btn" class="button">Cancel</button>
-          </div>
+    <div class="bg-white p-4 rounded-lg">
+      <p>Are you sure you want to delete this product?</p>
+      <div class="flex gap-4">
+        <button id="confirm-delete-btn" class="button button__danger">Delete</button>
+        <button id="cancel-btn" class="button button__secondary">Cancel</button>
       </div>
+    </div>
   </div>
-  
+
+  <!-- Popup Script -->
   <script>
-    const popup = document.getElementById('delete-popup');
-    const overlay = document.getElementById('overlay');
-    const confirmDeleteBtn = document.getElementById('confirm-delete-btn');
-    const cancelDeleteBtn = document.getElementById('cancel-btn');
-
-    document.getElementById('delete-popup-button').addEventListener('click', function(event) {
-        event.preventDefault();
-        const productId = this.getAttribute('data-product-id');
-        popup.classList.replace('hidden', 'flex');
-        overlay.classList.replace('hidden', 'flex');
-
-        confirmDeleteBtn.onclick = function() {
-            submitDeleteForm(productId);
-        };
-    });
-
-    cancelDeleteBtn.addEventListener('click', function() {
-        popup.classList.add('hidden');
-        overlay.classList.add('hidden');
-    });
-
+    const popup = document.getElementById('delete-popup')
+    const overlay = document.getElementById('overlay')
+    const confirmDeleteBtn = document.getElementById('confirm-delete-btn')
+    const cancelDeleteBtn = document.getElementById('cancel-btn')
+    
+    document.getElementById('delete-popup-button').addEventListener('click', function (event) {
+      event.preventDefault()
+      const productId = this.getAttribute('data-product-id')
+      popup.classList.replace('hidden', 'flex')
+      overlay.classList.replace('hidden', 'flex')
+    
+      confirmDeleteBtn.onclick = function () {
+        submitDeleteForm(productId)
+      }
+    })
+    
+    cancelDeleteBtn.addEventListener('click', function () {
+      popup.classList.add('hidden')
+      overlay.classList.add('hidden')
+    })
+    
     function submitDeleteForm(productId) {
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = `/account/products/${productId}/delete/`;
-
-        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-        const csrfInput = document.createElement('input');
-        csrfInput.type = 'hidden';
-        csrfInput.name = 'csrfmiddlewaretoken';
-        csrfInput.value = csrfToken;
-        form.appendChild(csrfInput);
-
-        document.body.appendChild(form);
-        form.submit();
+      const form = document.createElement('form')
+      form.method = 'POST'
+      form.action = `/account/products/${productId}/delete/`
+    
+      const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value
+      const csrfInput = document.createElement('input')
+      csrfInput.type = 'hidden'
+      csrfInput.name = 'csrfmiddlewaretoken'
+      csrfInput.value = csrfToken
+      form.appendChild(csrfInput)
+    
+      document.body.appendChild(form)
+      form.submit()
     }
   </script>
-
+  <!-- Image Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const imageUpload = document.getElementById('imageUpload')
+      const imagePreview = document.getElementById('imagePreview')
+    
+      imageUpload.addEventListener('change', function (event) {
+        const files = event.target.files
+        if (files && files[0]) {
+          const reader = new FileReader()
+    
+          reader.onload = function (e) {
+            imagePreview.src = e.target.result
+            imagePreview.style.display = 'block'
+          }
+    
+          reader.readAsDataURL(files[0])
+        }
+      })
+    })
+  </script>
 {% endblock %}

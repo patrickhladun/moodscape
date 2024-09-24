@@ -40,9 +40,10 @@
             </div>
           </div>
         </div>
-
-        <button class="button button__primary" type="submit" name="add_item">Add</button>
-        <a class="button button__outline-danger" href="{% url 'cms_products' %}">Cancel</a>
+        <div class="flex gap-4">
+          <button class="button button__primary" type="submit" name="add_item">Add</button>
+          <a class="button button__secondary" href="{% url 'cms_products' %}">Cancel</a>
+        </div>
       </form>
     </div>
   </section>
