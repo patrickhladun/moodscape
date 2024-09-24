@@ -50,18 +50,27 @@ def active(context, link):
 
 
 @register.simple_tag
-def render_field(field, type="text", class_name="", cy=""):
-    classes = f" {class_name}" if class_name else ""
-    data_cy_attribute = f' data-cy="{cy}"' if cy else ""
+def render_field(field, **kwargs):
+    type = kwargs.get('type', 'text')
+    class_name = kwargs.get('class', '')
+    id_attr = f' id="{kwargs.get("id")}"' if kwargs.get('id') else ''
+    data_cy = f' data-cy="{kwargs.get("cy")}"' if kwargs.get('cy') else ''
+
+    classes = f"field field__{type} {class_name}".strip()
+
+    additional_attrs = ""
+    for key, value in kwargs.items():
+        if key not in ['type', 'class', 'id', 'cy']:
+            additional_attrs += f' {key}="{value}"'
+
     field_html = f"""
-    <div 
-        class="field field__{type}{classes}"{data_cy_attribute}>
+    <div class="{classes}"{id_attr}{data_cy}{additional_attrs}>
         {field.label_tag()}
         {field}
         {field.errors}
     </div>
     """
-    
+
     return mark_safe(field_html)
 
 
