@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block content %}
-  {% include 'partials/page_title.html' with title='Product' variant='backend' %}
+  {% include 'partials/page_title.html' with title='Add Product' variant='backend' %}
   {% include 'partials/nav_cms.html' %}
 
   <section class="container py-rg">
@@ -46,6 +46,7 @@
       </form>
     </div>
   </section>
+  <!-- Image Script -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const imageUpload = document.getElementById('imageUpload')
