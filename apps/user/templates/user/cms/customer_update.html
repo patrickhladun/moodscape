@@ -32,7 +32,7 @@
 
       <div class="flex items-center gap-4 py-xs">
         <button class="button button__primary" type="submit" name="add_item">Update</button>
-          <button class="button button__outline-danger" id="delete-popup-button" data-customer-id="{{ customer.id }}">Delete</button>
+        <button class="button button__outline-danger" id="delete-popup-button" data-customer-id="{{ customer.id }}">Delete</button>
       </div>
     </form>
   </section>
@@ -49,6 +49,43 @@
       </div>
     </div>
   </div>
-  
 
+  <script>
+    const popup = document.getElementById('delete-popup')
+    const overlay = document.getElementById('overlay')
+    const confirmDeleteBtn = document.getElementById('confirm-delete-btn')
+    const cancelDeleteBtn = document.getElementById('cancel-btn')
+    
+    document.getElementById('delete-popup-button').addEventListener('click', function (event) {
+      event.preventDefault()
+      const customerId = this.getAttribute('data-customer-id')
+      popup.classList.replace('hidden', 'flex')
+      overlay.classList.replace('hidden', 'flex')
+    
+      confirmDeleteBtn.onclick = function () {
+        submitDeleteForm(customerId)
+      }
+    })
+    
+    cancelDeleteBtn.addEventListener('click', function () {
+      popup.classList.add('hidden')
+      overlay.classList.add('hidden')
+    })
+    
+    function submitDeleteForm(customerId) {
+      const form = document.createElement('form')
+      form.method = 'POST'
+      form.action = `/cms/customers/${customerId}/delete/`
+    
+      const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value
+      const csrfInput = document.createElement('input')
+      csrfInput.type = 'hidden'
+      csrfInput.name = 'csrfmiddlewaretoken'
+      csrfInput.value = csrfToken
+      form.appendChild(csrfInput)
+    
+      document.body.appendChild(form)
+      form.submit()
+    }
+  </script>
 {% endblock %}

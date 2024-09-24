@@ -47,6 +47,19 @@ def cms_customer_update_view(request, id):
 
 
 @login_required
+@superuser_required
+def cms_customer_delete_view(request, id):
+    customer = get_object_or_404(Customer, id=id)
+    
+    if request.method == 'POST':
+        customer.delete()
+        messages.success(request, 'Customer deleted successfully.')
+        return redirect('cms_customers')
+    
+    return redirect('cms_customers')
+
+
+@login_required
 def account_view(request):
     user = request.user
 
