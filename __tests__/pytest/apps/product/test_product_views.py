@@ -50,7 +50,7 @@ def test_add_product_as_superadmin():
         'details': 'This is a test product.',
         'sku': 'wtc-ol-tp1',
         'stock': 10,
-        'price': '40.00',
+        'price': 40.00,
         'category': category.id,
         'is_published': False,
     }
@@ -81,7 +81,7 @@ def test_add_product_as_superadmin():
             'details': 'This is a test product with no name.',
             'sku': 'wtc-ol-tp1',
             'stock': 10,
-            'price': '40.00',
+            'price': 40.00,
             'category': 1,
             'is_published': False,
         }, 'name', id="missing_name"
@@ -93,7 +93,7 @@ def test_add_product_as_superadmin():
             'details': 'This is a test product with a duplicate SKU.',
             'sku': 'duplicate-sku',
             'stock': 10,
-            'price': '40.00',
+            'price': 40.00,
             'category': 1,
             'is_published': False,
         }, 'sku', id="duplicate_sku"
@@ -110,6 +110,18 @@ def test_add_product_as_superadmin():
             'is_published': False,
         }, 'price', id="invalid_price"
     ),
+    pytest.param(
+        {
+            'name': 'Test Product',
+            'slug': '',
+            'details': 'This is a test product with a negative price.',
+            'sku': 'wtc-ol-tp2',
+            'stock': 10,
+            'price': -345.00,
+            'category': 1,
+            'is_published': False,
+        }, 'price', id="negative_price"
+    ),
      pytest.param(
         {
             'name': 'Test Product',
@@ -117,7 +129,7 @@ def test_add_product_as_superadmin():
             'details': 'This is a test product with a negative price.',
             'sku': 'wtc-ol-tp2',
             'stock': -10,
-            'price': '40.00',
+            'price': 40.00,
             'category': 1,
             'is_published': False,
         }, 'stock', id="negative_stock"
@@ -219,7 +231,7 @@ def test_add_category_as_superadmin():
         }, 'slug', id="duplicated_slug"
     ),
 ])
-def test_add_product_with_invalid_data(data, expected_error):
+def test_add_category_with_invalid_data(data, expected_error):
     client = Client()
 
     admin = SuperuserFactory()
