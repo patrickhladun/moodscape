@@ -457,6 +457,8 @@ npm run cy:run
 
 ## Issues
 
+- [#77 Inconsistent Confirmation Dialogs in Admin Panel](https://github.com/patrickhladun/moodscape/issues/77)
+
 ### User Stories
 
 ### Bugs
