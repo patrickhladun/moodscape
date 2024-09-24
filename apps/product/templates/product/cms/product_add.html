@@ -18,7 +18,7 @@
   <section class="container pb-rg">
     <h2>{{ product.name }}</h2>
     <div>
-      <form method="POST">
+      <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.media }}
 
