@@ -27,28 +27,28 @@
     <ul role="list">
       {% for product in products %}
         <li class="odd:bg-neutral-100 group" role="listitem">
-          <div class="md:grid md:grid-cols-4 p-2 md:items-center group-hover:bg-blue-500 group-hover:text-white transition">
-            <a class="flex items-center overflow-hidden w-full" href="{% url 'cms_product_update' product.id %}">
+          <a class="block md:grid md:grid-cols-4 md:items-center group-hover:bg-blue-500 group-hover:text-white transition p-2" href="{% url 'cms_product_update' product.id %}">
+            <div class="flex justify-content items-center">
               {% if product.featured %}
                 <img class="w-12 h-12 mr-4" src="{{ product.featured.url }}" alt="{{ product.name }}" />
               {% else %}
                 <img class="w-12 h-12 mr-4" src="{% static 'images/placeholder.webp' %}" alt="{{ product.name }}" />
               {% endif %}
               <span class="truncate">{{ product.name }}</span>
-            </a>
-            <span class="inline-block w-full">
+            </div>
+            <div>
               <span class="md:hidden">Price:</span>
               <span>{{ config.CURRENCY_SYMBOL }}{{ product.price }}</span>
-            </span>
-            <span class="inline-block w-full">
+            </div>
+            <div>
               <span class="md:hidden">Category:</span>
               {{ product.category }}
-            </span>
-            <span class="inline-block w-full">
+            </div>
+            <div>
               <span class="md:hidden">Created:</span>
               {{ product.created_at }}
-            </span>
-          </div>
+            </div>
+          </a>
         </li>
       {% endfor %}
     </ul>
