@@ -761,6 +761,9 @@ video {
 .mt-xs {
   margin-top: 1.5rem;
 }
+.mt-4 {
+  margin-top: 1rem;
+}
 .block {
   display: block;
 }
@@ -1190,6 +1193,9 @@ video {
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
+}
+.text-h5 {
+  font-size: 1.25rem;
 }
 .font-bold {
   font-weight: 700;
@@ -1675,6 +1681,10 @@ blockquote {
   .sm\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
+  .sm\:text-left {
+    text-align: left;
+  }
 }
 
 @media (min-width: 768px) {
@@ -1685,6 +1695,14 @@ blockquote {
 
   .md\:m-0 {
     margin: 0px;
+  }
+
+  .md\:mb-4 {
+    margin-bottom: 1rem;
+  }
+
+  .md\:mb-2 {
+    margin-bottom: 0.5rem;
   }
 
   .md\:flex {
@@ -1719,6 +1737,14 @@ blockquote {
     width: 100%;
   }
 
+  .md\:w-3\/6 {
+    width: 50%;
+  }
+
+  .md\:w-2\/6 {
+    width: 33.333333%;
+  }
+
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1739,6 +1765,14 @@ blockquote {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
+  .md\:flex-col {
+    flex-direction: column;
+  }
+
   .md\:items-start {
     align-items: flex-start;
   }
@@ -1753,6 +1787,11 @@ blockquote {
 
   .md\:p-0 {
     padding: 0px;
+  }
+
+  .md\:py-0 {
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
 
   .md\:pt-0 {
