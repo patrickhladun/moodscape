@@ -5,12 +5,14 @@
 <main>
   <!-- Hero -->
   <section class="bg-neutral-100">
-    <div class="container flex py-xs">
-      <div class="grid-col-1">
-        <h1>Great art in one place</h1>
+    <div class="container lg:grid lg:grid-cols-6">
+      <div class="col-span-2 flex flex-col justify-center items-center pt-rg lg:pt-0 lg:items-start">
+          <h1 class="m-0 text-6xl text-center lg:text-left">Where Art Meets Soul</h1>
+          <p class="text-center lg:text-left">Explore our curated collection. Transform your space with art that resonates.</p>
+          <a href="{% url 'shop' %}" class="button button__primary">Browse Our Collection</a>
       </div>
-      <div class="grid-col-1">
-        <img src="https://placehold.co/600x400" alt="Hero" class="w-full" />
+      <div class="col-span-4">
+        <img src="{% static 'images/home-hero.webp' %}" alt="Hero" class="w-full" />
       </div>
     </div>
   </section>
