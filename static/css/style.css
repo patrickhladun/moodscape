@@ -758,20 +758,17 @@ video {
 .mt-auto {
   margin-top: auto;
 }
-.mt-xs {
-  margin-top: 1.5rem;
-}
 .mt-rg {
   margin-top: 3rem;
+}
+.mt-xs {
+  margin-top: 1.5rem;
 }
 .block {
   display: block;
 }
 .inline-block {
   display: inline-block;
-}
-.inline {
-  display: inline;
 }
 .flex {
   display: flex;
@@ -1646,10 +1643,6 @@ blockquote {
 }
 
 @media (min-width: 640px) {
-
-  .sm\:inline {
-    display: inline;
-  }
 
   .sm\:grid {
     display: grid;

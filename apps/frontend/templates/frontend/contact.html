@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load ui_tags %}
+{% load text_tags %}
 {% load static %}
 
 {% block content %}
@@ -31,23 +32,17 @@
           <div class="flex flex-col">
             <div class="flex items-start gap-2">
               {% icon 'icon-location' 'md' %}
-              <p class="mt-0">
-                Moonscape Gallery,<br />
-                456 Art Lane,<br />
-                Dublin,<br />
-                D04 EFG2,<br />
-                Ireland
-              </p>
+              <p class="mt-0">{{ config.SHOP_ADDRESS|break_after_commas|safe }}</p>
             </div>
 
             <div class="flex items-start gap-2">
               {% icon 'icon-envelope' 'md' %}
-              <a href="mailto:support@moonscape.example.com" class="mt-0">support@moonscape.com</a>
+              <a href="mailto:{{ config.SHOP_EMAIL }}" class="mt-0">{{ config.SHOP_EMAIL }}</a>
             </div>
 
             <div class="flex items-start gap-2">
               {% icon 'icon-phone' 'md' %}
-              <p class="mt-0">+353 (0)1 987 6543</p>
+              <p class="mt-0">{{ config.SHOP_MOBILE_PHONE }}</p>
             </div>
           </div>
 

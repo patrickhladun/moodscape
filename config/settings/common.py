@@ -133,9 +133,9 @@ CONSTANCE_CONFIG = OrderedDict([
     ('TWITTER', ('@moodscape', 'Twitter handle')),
     ('FACEBOOK', ('https://www.facebook.com/people/Moodscape/61566307404663/', 'Facebook page')),
 
-    ('SHOP_ADDRESS', ('123 Main St', 'Shop address')),
-    ('SHOP_MOBILE_PHONE', ('091456523', 'Shop mobile phone number')),
-    ('SHOP_EMAIL', ('shop@moodscape.com', 'Shop email address')),
+    ('SHOP_ADDRESS', ('Moonscape Gallery, 456 Art Lane, Dublin, D04 EFG2, Ireland', 'Shop address')),
+    ('SHOP_MOBILE_PHONE', ('+353 (0)85 425123', 'Shop mobile phone number')),
+    ('SHOP_EMAIL', ('support@moodscape.com', 'Shop email address')),
     
     ('CURRENCY', ('eur', 'Currency used in the shop')),
     ('CURRENCY_SYMBOL', ('€', 'Currency symbol')),
