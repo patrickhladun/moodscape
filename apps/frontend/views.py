@@ -13,6 +13,9 @@ from apps.common.utils.metadata import make_metadata
 
 
 def home(request):
+    product_ids = [1, 3, 8, 18]
+    featured = Product.objects.filter(id__in=product_ids)
+
     metadata = make_metadata(
         request,
         {
@@ -26,6 +29,7 @@ def home(request):
     template = "frontend/index.html"
     context = {
         "metadata": metadata,
+        "featured": featured,
     }
     return render(request, template, context)
 

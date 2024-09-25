@@ -1,65 +1,57 @@
-{% extends 'base.html' %} 
-{% load static %} 
+{% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<main>
-  <!-- Hero -->
-  <section class="bg-neutral-100">
-    <div class="container lg:grid lg:grid-cols-6">
-      <div class="col-span-2 flex flex-col justify-center items-center pt-rg lg:pt-0 lg:items-start">
+  <main>
+    <!-- Hero -->
+    <section class="bg-neutral-100">
+      <div class="container lg:grid lg:grid-cols-6">
+        <div class="col-span-2 flex flex-col justify-center items-center pt-rg lg:pt-0 lg:items-start">
           <h1 class="m-0 text-6xl text-center lg:text-left">Where Art Meets Soul</h1>
           <p class="text-center lg:text-left">Explore our curated collection. Transform your space with art that resonates.</p>
           <a href="{% url 'shop' %}" class="button button__primary">Browse Our Collection</a>
+        </div>
+        <div class="col-span-4">
+          <img src="{% static 'images/home-hero.webp' %}" alt="Hero" class="w-full" />
+        </div>
       </div>
-      <div class="col-span-4">
-        <img src="{% static 'images/home-hero.webp' %}" alt="Hero" class="w-full" />
+    </section>
+    <!-- Categories Section -->
+    <section>
+      <div class="container py-rg">
+        <h2>Categories</h2>
+        <div class="sm:grid sm:grid-cols-3 gap-4">
+          <a class="flex flex-col items-center coursor-pointer" href="{% url 'shop' %}?category=watercolor">
+            <img src="{% static 'images/home-cat-watercolor.webp' %}" alt="Category Watercolor" class="w-full" />
+            <div class="card-body">
+              <h3>Watercolor</h3>
+            </div>
+          </a>
+          <a class="flex flex-col items-center coursor-pointer" href="{% url 'shop' %}?category=photography">
+            <img src="{% static 'images/home-cat-photography.webp' %}" alt="Category Photography" class="w-full" />
+            <div class="card-body">
+              <h3>Photography</h3>
+            </div>
+          </a>
+          <a class="flex flex-col items-center coursor-pointer" href="{% url 'shop' %}?category=pen-plotter">
+            <img src="{% static 'images/home-cat-plotter.webp' %}" alt="Category Digital Art" class="w-full" />
+            <div class="card-body">
+              <h3>Digital Art</h3>
+            </div>
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
-  <!-- Categories Section -->
-  <section>
-    <div class="container py-rg">
-      <h2>Categories</h2>
-      <div class="md:grid md:grid-cols-3 gap-4">
-        <a class="flex flex-col items-center coursor-pointer" href="{% url 'shop' %}?category=watercolor">
-          <img src="{% static 'images/home-cat-watercolor.webp' %}" alt="Category Watercolor" class="w-full" />
-          <div class="card-body">
-            <h3>Watercolor</h3>
-          </div>
-        </a>
-        <a class="flex flex-col items-center coursor-pointer" href="{% url 'shop' %}?category=photography">
-          <img src="{% static 'images/home-cat-photography.webp' %}" alt="Category Photography" class="w-full" />
-          <div class="card-body">
-            <h3>Photography</h3>
-          </div>
-        </a>
-        <a class="flex flex-col items-center coursor-pointer" href="{% url 'shop' %}?category=pen-plotter">
-          <img src="{% static 'images/home-cat-plotter.webp' %}" alt="Category Digital Art" class="w-full" />
-          <div class="card-body">
-            <h3>Digital Art</h3>
-          </div>
-        </a>
+    </section>
+    <!-- Featured Art Section -->
+    <section class="bg-neutral-100">
+      <div class="container py-rg">
+        <h2>Featured Art</h2>
+        <div class="grid grid-cols-2 flex-wrap gap-4">
+          {% for product in featured %}
+            <a href="{% url 'product' slug=product.slug %}" class="grid-col-1"><img src="{{ product.featured.url }}" alt="{{ product.title }}" class="w-full" /></a>
+          {% endfor %}
+        </div>
       </div>
-    </div>
-  </section>
-  <!-- Featured Art Section -->
-  <section class="bg-neutral-100">
-    <div class="container py-rg">
-      <h2>Featured Art</h2>
-      <div class="grid grid-cols-2 flex-wrap gap-4">
-        <div class="grid-col-1">
-          <img src="https://placehold.co/300x300" alt="Featured Art" class="w-full" />
-        </div>
-        <div class="grid-col-1">
-          <img src="https://placehold.co/300x300" alt="Featured Art" class="w-full" />
-        </div>
-        <div class="grid-col-1">
-          <img src="https://placehold.co/300x300" alt="Featured Art" class="w-full" />
-        </div>
-        <div class="grid-col-1">
-          <img src="https://placehold.co/300x300" alt="Featured Art" class="w-full" />
-        </div>
-    </div>
-  </section>
-</main>
+    </section>
+  </main>
 {% endblock %}
