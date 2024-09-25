@@ -1,29 +1,23 @@
-{% extends 'base.html' %} 
-{% load static %} 
+{% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<main>
-  <!-- Page Title -->
-  <section class="bg-neutral-100">
-    <div class="container py-xxs">
-      <h1>About</h1>
-    </div>
-  </section>
-  <!-- Hero -->
-  <section class="bg-neutral-100">
-    <div class="container">
-      <h2>Welcome to Moodscape</h2>
-    </div>
-    <div class="container grid md:grid-cols-2 gap-4 pb-rg">
-      <div>
-        <p>Welcome to Moodscape, your destination for discovering and purchasing unique, high-quality artwork. Moodscape is an e-commerce platform dedicated to offering a curated collection of stunning watercolor art, captivating Irish abstract landscapes, vibrant floral art, detailed macro photography, innovative digital art, and intricate pen plotter art. This project marks the culmination of my journey as a Full Stack Developer at Code Institute, showcasing my ability to create a comprehensive and user-friendly online store.</p>
+  <main>
+    <!-- Page Title -->
+    {% include 'partials/page_title.html' with title='About' %}
+    <!-- Hero -->
+    <section class="bg-neutral-100">
+      <div class="container grid md:grid-cols-2 gap-4 pb-rg">
+        <div>
+          <h2>Welcome to Moodscape</h2>
+          <p>Welcome to Moodscape, your destination for discovering and purchasing unique, high-quality artwork. Moodscape is an e-commerce platform dedicated to offering a curated collection of stunning watercolor art, captivating Irish abstract landscapes, vibrant floral art, detailed macro photography, innovative digital art, and intricate pen plotter art. This project marks the culmination of my journey as a Full Stack Developer at Code Institute, showcasing my ability to create a comprehensive and user-friendly online store.</p>
 
-        <p>At Moodscape, we believe that art has the power to transform spaces and elevate moods. Our platform is designed to cater to art enthusiasts who are passionate about beautifying their surroundings with exquisite and unique pieces. We take pride in presenting a diverse range of art forms, each carefully selected to ensure the highest quality and uniqueness.</p>
+          <p>At Moodscape, we believe that art has the power to transform spaces and elevate moods. Our platform is designed to cater to art enthusiasts who are passionate about beautifying their surroundings with exquisite and unique pieces. We take pride in presenting a diverse range of art forms, each carefully selected to ensure the highest quality and uniqueness.</p>
+        </div>
+        <div>
+          <img src="{% static 'images/about-hero.webp' %}" alt="Welcome to Moodscape" class="w-full" />
+        </div>
       </div>
-      <div>
-        <img src="https://placehold.co/600x600" alt="Hero" class="w-full" />
-      </div>
-    </div>
-  </section>
-</main>
+    </section>
+  </main>
 {% endblock %}
