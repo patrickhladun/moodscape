@@ -716,9 +716,6 @@ video {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
-.mb-1 {
-  margin-bottom: 0.25rem;
-}
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -1080,9 +1077,6 @@ video {
 .p-4 {
   padding: 1rem;
 }
-.p-\[4px\] {
-  padding: 4px;
-}
 .p-\[8px\] {
   padding: 8px;
 }
@@ -1127,9 +1121,6 @@ video {
 }
 .pb-rg {
   padding-bottom: 3rem;
-}
-.pb-sm {
-  padding-bottom: 2rem;
 }
 .pr-3 {
   padding-right: 0.75rem;
@@ -1654,10 +1645,6 @@ blockquote {
 
   .md\:m-0 {
     margin: 0px;
-  }
-
-  .md\:block {
-    display: block;
   }
 
   .md\:flex {

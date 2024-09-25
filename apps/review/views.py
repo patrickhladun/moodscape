@@ -14,12 +14,12 @@ from .forms import ReviewForm, ReviewStatusForm
 @superuser_required
 def cms_reviews_view(request):
     reviews = Review.objects.all()
-    status = None
+    status = 'pending'
 
     if request.GET.get('status'):
         status = request.GET.get('status')
         reviews = reviews.filter(status=status)
-
+    reviews = reviews.filter(status=status)
 
     template = "review/cms/reviews.html"
     context = {

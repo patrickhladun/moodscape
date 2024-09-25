@@ -5,7 +5,7 @@
   <span>{{ review.name }}</span>
   <blockquote class="relative py-2">
     {% icon 'icon-quote' 'lg' 'absolute -left-2 -top-1 fill-blue-200 z-10' %}
-    <span class="relative z-20">{{ review.text }}</span>
+    <span class="relative z-20 group-hover:text-white">{{ review.text }}</span>
   </blockquote>
   <span class="text-sm">Reviewd on:&#32;{% render_date review.created_at %}</span>
 </div>
