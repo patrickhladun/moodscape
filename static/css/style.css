@@ -693,6 +693,9 @@ video {
 .col-span-2 {
   grid-column: span 2 / span 2;
 }
+.col-span-4 {
+  grid-column: span 4 / span 4;
+}
 .m-0 {
   margin: 0px;
 }
@@ -1134,6 +1137,12 @@ video {
 .pt-xxs {
   padding-top: .7rem;
 }
+.pt-xs {
+  padding-top: 1.5rem;
+}
+.pt-rg {
+  padding-top: 3rem;
+}
 .text-center {
   text-align: center;
 }
@@ -1161,6 +1170,26 @@ video {
 }
 .text-xs {
   font-size: 0.75rem;
+}
+.text-8xl {
+  font-size: 6rem;
+  line-height: 1;
+}
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+.text-7xl {
+  font-size: 4.5rem;
+  line-height: 1;
+}
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
 }
 .font-bold {
   font-weight: 700;
@@ -1691,6 +1720,18 @@ blockquote {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .md\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .md\:items-start {
+    align-items: flex-start;
+  }
+
   .md\:items-center {
     align-items: center;
   }
@@ -1701,6 +1742,37 @@ blockquote {
 
   .md\:p-0 {
     padding: 0px;
+  }
+
+  .md\:pt-0 {
+    padding-top: 0px;
+  }
+
+  .md\:text-left {
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .lg\:grid {
+    display: grid;
+  }
+
+  .lg\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .lg\:items-start {
+    align-items: flex-start;
+  }
+
+  .lg\:pt-0 {
+    padding-top: 0px;
+  }
+
+  .lg\:text-left {
+    text-align: left;
   }
 }
 
