@@ -81,3 +81,24 @@
 @import "components/header";
 @import "components/navigation";
 @import "components/reviews";
+
+.list-select {
+  @apply relative pl-6;
+
+  &::before,
+  &::after {
+    @apply absolute inline-block rounded-full;
+    content: "";
+    @apply top-1/2 left-0 transform -translate-y-1/2;
+  }
+
+  &::before {
+    @apply w-4 h-4 border-2 border-blue-500 mr-2 align-middle bg-transparent;
+  }
+
+  &.active {
+    &::after {
+      @apply left-1 w-2 h-2 mr-2 align-middle bg-blue-400;
+    }
+  }
+}

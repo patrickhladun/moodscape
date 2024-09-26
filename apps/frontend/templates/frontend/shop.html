@@ -6,15 +6,18 @@
 <div>
   <!-- Page Title -->
   {% include 'partials/page_title.html' with title="Shop" %}
-  <section class="container py-rg flex gap-4">
+  
+  <section class="container py-rg md:grid md:grid-cols-12 gap-4">
     <!-- Sidebar -->
-    <aside class="w-1/5 py-4">
+    <aside class="col-span-3">
       <!-- Search Form -->
-      <h3>Search</h3>
+      <div class="flex py-2 mb-4">
+        <h3 class="m-0">Search</h3>
+      </div>
       <form method="GET">
-        <div class="flex rounded-lg">
-        <input type="search" name="q" placeholder="Search" aria-label="Search" class="w-full border-none py-2 px-4 rounded-l-lg m-0">
-        <button type="submit" aria-label="Submit Search" class="flex items-center bg-blue-700 hover:bg-blue-800 text-blue-50 p-2 rounded-r-lg newsletter">
+        <div class="flex rounded-lg border-2 border-transparent focus-within:border-blue-700">
+        <input type="search" name="q" placeholder="Search" aria-label="Search" class="w-full border-none py-2 px-4 rounded-l-lg m-0 focus:ring-0">
+        <button type="submit" aria-label="Submit Search" class="flex items-center bg-blue-700 hover:bg-blue-800 text-blue-50 py-2 px-3 rounded-r-lg newsletter translate-x-[2px]">
           {% icon 'icon-search' 'sm' 'fill-blue-200' %}
         </button>
         </div>
@@ -22,43 +25,53 @@
       <!-- Categories -->
       <h3>Categories</h3>
       <div class="flex flex-col">
-        <a href="{% url 'shop' %}">All Items</a>
-        <a href="{% url 'shop' %}?category=watercolor">Watercolors</a>
-        <a href="{% url 'shop' %}?category=photographs">Photographs</a>
-        <a href="{% url 'shop' %}?category=pen-plotter">Pen Plotter</a>
+        {% with request.GET.category as current_category %}
+        <ul>
+          <li class="list-select {% if not current_category %}active{% endif %}">
+            <a href="{% url 'shop' %}">All Items</a>
+          </li>
+          <li class="list-select {% if current_category == 'watercolor' %}active{% endif %}">
+            <a href="{% url 'shop' %}?category=watercolor">Watercolors</a>
+          </li>
+          <li class="list-select {% if current_category == 'photographs' %}active{% endif %}">
+            <a href="{% url 'shop' %}?category=photographs">Photographs</a>
+          </li>
+          <li class="list-select {% if current_category == 'pen-plotter' %}active{% endif %}">
+            <a href="{% url 'shop' %}?category=pen-plotter">Pen Plotter</a>
+          </li>
+        </ul>
+        {% endwith %}
       </div>
+
+      <h3>Filters</h3>
+      <form id="sortForm" class="flex pb-sm" method="GET">
+        <!-- Preserve Category and Search in Sort Form -->
+        {% if category %}
+          <input type="hidden" name="category" value="{{ category }}">
+        {% endif %}
+        {% if search_term %}
+          <input type="hidden" name="q" value="{{ search_term }}">
+        {% endif %}
+  
+        <select name="sort" id="sort" class="p-2 border border-gray-300 rounded-md" onchange="this.form.submit()">
+          <option value="">Select an option</option>
+          <option value="price_asc" {% if sort == 'price_asc' %}selected{% endif %}>Price: Low to High</option>
+          <option value="price_desc" {% if sort == 'price_desc' %}selected{% endif %}>Price: High to Low</option>
+          <option value="rating_asc" {% if sort == 'rating_asc' %}selected{% endif %}>Rating: Low to High</option>
+          <option value="rating_desc" {% if sort == 'rating_desc' %}selected{% endif %}>Rating: High to Low</option>
+          <option value="alpha_asc" {% if sort == 'alpha_asc' %}selected{% endif %}>Alphabetical: A-Z</option>
+          <option value="alpha_desc" {% if sort == 'alpha_desc' %}selected{% endif %}>Alphabetical: Z-A</option>
+        </select>
+      </form>
+
     </aside>
     <!-- Main Content -->
-    <main class="w-4/5">
-      <!-- Sort Form -->
-      <section>
-        <div class="py-2 mb-4">
-          <form id="sortForm" method="GET">
-            <!-- Preserve Category and Search in Sort Form -->
-            {% if category %}
-              <input type="hidden" name="category" value="{{ category }}">
-            {% endif %}
-            {% if search_term %}
-              <input type="hidden" name="q" value="{{ search_term }}">
-            {% endif %}
-      
-            <select name="sort" id="sort" class="p-2 border border-gray-300 rounded-md" onchange="this.form.submit()">
-              <option value="">Select an option</option>
-              <option value="price_asc" {% if sort == 'price_asc' %}selected{% endif %}>Price: Low to High</option>
-              <option value="price_desc" {% if sort == 'price_desc' %}selected{% endif %}>Price: High to Low</option>
-              <option value="rating_asc" {% if sort == 'rating_asc' %}selected{% endif %}>Rating: Low to High</option>
-              <option value="rating_desc" {% if sort == 'rating_desc' %}selected{% endif %}>Rating: High to Low</option>
-              <option value="alpha_asc" {% if sort == 'alpha_asc' %}selected{% endif %}>Alphabetical: A-Z</option>
-              <option value="alpha_desc" {% if sort == 'alpha_desc' %}selected{% endif %}>Alphabetical: Z-A</option>
-            </select>
-          </form>
-        </div>
-      </section>
+    <main class="col-span-9">
       <!-- Products -->
-      <section class="flex flex-wrap">
+      <section class="grid grid-cols-2 lg:grid-cols-3 gap-4">
         {% if products %}
         {% for product in products %}
-          <div class="w-1/3 p-4">
+          <div class="bg-neutral-100 p-4">
             <a href="{% url 'product' product.slug %}">
               {% if product.featured %}
                 <img src="{{ product.featured.url }}" alt="{{ product.name }}" class="w-full">
@@ -71,15 +84,16 @@
                 <a href="{% url 'shop' %}?category={{ product.category|lower }}" class="uppercase text-xs py-2 font-bold text-neutral-400 hover:text-neutral-600 transition duration-300 ease-in-out">{{ product.category }}</a>
               {% endif %}
               <a href="{% url 'product' product.slug %}" class="truncate">{{ product.name }}</a>
-              <div class="flex justify-between">
-                <p>{{config.CURRENCY_SYMBOL}}{{ product.price }}</p>
+              <div class="flex justify-between items-center pt-2">
+                <p class="m-0">{{config.CURRENCY_SYMBOL}}{{ product.price }}</p>
+                <form action="{% url 'add_to_bag' product.id %}" method="POST">
+                  {% csrf_token %}
+                  <input type="hidden" name="quantity" value="1" min="1" max="{{ product.stock }}">
+                  <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                  <button type="submit" class="bg-blue-600 hover:bg-blue-800 p-1 rounded-lg w-8 h-8 flex justify-center items-center transition duration-300 ease-in-out">{% icon 'icon-cart' 'md' 'fill-white w-5 h-5' %}</button>
+                </form>
               </div>
-              <form action="{% url 'add_to_bag' product.id %}" method="POST">
-                {% csrf_token %}
-                <input type="hidden" name="quantity" value="1" min="1" max="{{ product.stock }}">
-                <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                <button type="submit" class="button button__primary">Add to Cart</button>
-              </form>
+              
             </div>
           </div>
         {% endfor %}
