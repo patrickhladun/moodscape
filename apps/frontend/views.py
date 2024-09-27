@@ -47,6 +47,7 @@ def about(request):
 
     template = "frontend/about.html"
     context = {
+        "active": "about",
         "metadata": metadata,
     }
     return render(request, template, context)
@@ -96,6 +97,7 @@ def contact(request):
 
     template = "frontend/contact.html"
     context = {
+        "active": "contact",
         "form": form,
         "metadata": metadata,
     }
@@ -207,6 +209,7 @@ def shop(request):
     template = "frontend/shop.html"
     context = {
         "config": config,
+        "active": "shop",
         "metadata": metadata,
         "products": products,
         "search_term": query,
@@ -252,6 +255,7 @@ def success_newsletter(request):
 
     template = "frontend/success_newsletter.html"
     context = {
+        "active": "contact",
         "metadata": metadata,
     }
     return render(request, template, context)

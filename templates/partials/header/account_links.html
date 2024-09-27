@@ -1,13 +1,13 @@
 {% load ui_tags %}
 <li>
-  <a href="{% url 'account_orders' %}" class="flex items-center gap-2 px-4 py-2 text-neutral-100 hover:bg-blue-800 transition duration-300 easy-in-out" aria-label="Link to Orders">{% icon 'icon-bag' 'sm' 'fill-neutral-100' %}Orders</a>
+  <a href="{% url 'account_orders' %}" class="flex items-center gap-2 px-4 py-2 text-neutral-100 hover:bg-blue-800 transition duration-300 easy-in-out{% active 'orders' 'bg-blue-600' %}" aria-label="Link to Orders">{% icon 'icon-bag' 'sm' 'fill-neutral-100' %}Orders</a>
 </li>
 <li>
-  <a href="{% url 'account_reviews' %}" class="flex items-center gap-2 px-4 py-2 text-neutral-100 hover:bg-blue-800 transition duration-300 easy-in-out" aria-label="Link to Reviews">{% icon 'icon-star-empty' 'sm' 'fill-neutral-100' %}Reviews</a>
+  <a href="{% url 'account_reviews' %}" class="flex items-center gap-2 px-4 py-2 text-neutral-100 hover:bg-blue-800 transition duration-300 easy-in-out{% active 'reviews' 'bg-blue-600' %}" aria-label="Link to Reviews">{% icon 'icon-star-empty' 'sm' 'fill-neutral-100' %}Reviews</a>
 </li>
 <li>
-  <a href="{% url 'account_profile' %}" class="flex items-center gap-2 px-4 py-2 text-neutral-100 hover:bg-blue-800 transition duration-300 easy-in-out" aria-label="Link to Profile">{% icon 'icon-profile' 'sm' 'fill-neutral-100' %}Profile</a>
+  <a href="{% url 'account_profile' %}" class="flex items-center gap-2 px-4 py-2 text-neutral-100 hover:bg-blue-800 transition duration-300 easy-in-out{% active 'profile' 'bg-blue-600' %}" aria-label="Link to Profile">{% icon 'icon-profile' 'sm' 'fill-neutral-100' %}Profile</a>
 </li>
 <li>
-  <a href="{% url 'account' %}" class="flex items-center gap-2 px-4 py-2 text-neutral-100 hover:bg-blue-800 transition duration-300 easy-in-out" aria-label="Link to Account">{% icon 'icon-account' 'sm' 'fill-neutral-100' %}Account</a>
+  <a href="{% url 'account' %}" class="flex items-center gap-2 px-4 py-2 text-neutral-100 hover:bg-blue-800 transition duration-300 easy-in-out{% active 'account' 'bg-blue-600' %}" aria-label="Link to Account">{% icon 'icon-account' 'sm' 'fill-neutral-100' %}Account</a>
 </li>

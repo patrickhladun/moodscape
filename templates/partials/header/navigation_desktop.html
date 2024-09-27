@@ -1,5 +1,18 @@
-<div class="hidden md:flex gap-2 mr-auto">
-  <a href="{% url 'shop' %}" aria-label="Link to Shop">Shop</a>
-  <a href="{% url 'about' %}" aria-label="Link to About">About</a>
-  <a href="{% url 'contact' %}" aria-label="Link to Contact">Contact</a>
+{% load ui_tags %}
+
+<div class="hidden md:flex gap-4 mr-auto">
+  <a href="{% url 'shop' %}" class="group relative inline-block overflow-hidden text-sm tracking-wider uppercase font-bold text-neural-400 hover:text-blue-600 focus:outline-none{% active 'shop' 'text-blue-600' %}">
+    <span class="ease absolute bottom-0 left-0 w-0 border-b-8 opacity-25 border-blue-600 transition-all duration-200 group-hover:w-full{% active 'shop' '!w-full' %}"></span>
+    Shop
+  </a>
+
+  <a href="{% url 'about' %}" class="group relative inline-block overflow-hidden text-sm tracking-wider uppercase font-bold text-neural-400 hover:text-blue-600 focus:outline-none{% active 'shop' 'text-blue-600' %}">
+    <span class="ease absolute bottom-0 left-0 w-0 border-b-8 opacity-25 border-blue-600 transition-all duration-200 group-hover:w-full{% active 'about' '!w-full' %}"></span>
+    About
+  </a>
+
+  <a href="{% url 'contact' %}" class="group relative inline-block overflow-hidden text-sm tracking-wider uppercase font-bold text-neural-400 hover:text-blue-600 focus:outline-none{% active 'shop' 'text-blue-600' %}">
+    <span class="ease absolute bottom-0 left-0 w-0 border-b-8 opacity-25 border-blue-600 transition-all duration-200 group-hover:w-full{% active 'contact' '!w-full' %}"></span>
+    Contact
+  </a>
 </div>

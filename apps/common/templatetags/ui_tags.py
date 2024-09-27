@@ -44,9 +44,12 @@ def icon(name, size="md", class_name=""):
 
 
 @register.simple_tag(takes_context=True)
-def active(context, link):
-    active = context.get('active')
-    return ' active' if active == link else ''
+def active(context, link, custom_classes=''):
+    current_active = context.get('active', '')
+    
+    if current_active == link:
+        return f' {custom_classes}' if custom_classes else ' active'
+    return ''
 
 
 @register.simple_tag

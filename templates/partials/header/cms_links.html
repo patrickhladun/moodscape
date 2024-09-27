@@ -1,18 +1,18 @@
 {% load ui_tags %}
 <li>
-  <a href="{% url 'cms_orders' %}" class="flex items-center gap-2 px-4 py-2 text-neutral-100 hover:bg-blue-800 transition duration-300 easy-in-out" aria-label="Link to Orders">{% icon 'icon-bag' 'sm' 'fill-neutral-100' %}Orders</a>
+  <a href="{% url 'cms_orders' %}" class="flex items-center gap-2 px-4 py-2 text-neutral-100 hover:bg-blue-800 transition duration-300 easy-in-out{% active 'orders' 'bg-blue-600' %}" aria-label="Link to Orders">{% icon 'icon-bag' 'sm' 'fill-neutral-100' %}Orders</a>
 </li>
 <li>
-  <a href="{% url 'cms_customers' %}" class="flex items-center gap-2 px-4 py-2 text-neutral-100 hover:bg-blue-800 transition duration-300 easy-in-out" aria-label="Link to Customers">{% icon 'icon-customers' 'sm' 'fill-neutral-100' %}Customers</a>
+  <a href="{% url 'cms_customers' %}" class="flex items-center gap-2 px-4 py-2 text-neutral-100 hover:bg-blue-800 transition duration-300 easy-in-out{% active 'customers' 'bg-blue-600' %}" aria-label="Link to Customers">{% icon 'icon-customers' 'sm' 'fill-neutral-100' %}Customers</a>
 </li>
 <li>
-  <a href="{% url 'cms_products' %}" class="flex items-center gap-2 px-4 py-2 text-neutral-100 hover:bg-blue-800 transition duration-300 easy-in-out" aria-label="Link to Products">{% icon 'icon-products' 'sm' 'fill-neutral-100' %}Products</a>
+  <a href="{% url 'cms_products' %}" class="flex items-center gap-2 px-4 py-2 text-neutral-100 hover:bg-blue-800 transition duration-300 easy-in-out{% active 'products' 'bg-blue-600' %}" aria-label="Link to Products">{% icon 'icon-products' 'sm' 'fill-neutral-100' %}Products</a>
 </li>
 <li>
-  <a href="{% url 'cms_categories' %}" class="flex items-center gap-2 px-4 py-2 text-neutral-100 hover:bg-blue-800 transition duration-300 easy-in-out" aria-label="Link to Categories">{% icon 'icon-categories' 'sm' 'fill-neutral-100' %}Categories</a>
+  <a href="{% url 'cms_categories' %}" class="flex items-center gap-2 px-4 py-2 text-neutral-100 hover:bg-blue-800 transition duration-300 easy-in-out{% active 'categories' 'bg-blue-600' %}" aria-label="Link to Categories">{% icon 'icon-categories' 'sm' 'fill-neutral-100' %}Categories</a>
 </li>
 <li>
-  <a href="{% url 'cms_reviews' %}" class="flex items-center gap-2 px-4 py-2 text-neutral-100 hover:bg-blue-800 transition duration-300 easy-in-out" aria-label="Link to Reviews">{% icon 'icon-star-empty' 'sm' 'fill-neutral-100' %}Reviews</a>
+  <a href="{% url 'cms_reviews' %}" class="flex items-center gap-2 px-4 py-2 text-neutral-100 hover:bg-blue-800 transition duration-300 easy-in-out{% active 'reviews' 'bg-blue-600' %}" aria-label="Link to Reviews">{% icon 'icon-star-empty' 'sm' 'fill-neutral-100' %}Reviews</a>
 </li>
 <li>
   <a href="{% url 'admin:index' %}" class="flex items-center gap-2 px-4 py-2 text-neutral-100 hover:bg-blue-800 transition duration-300 easy-in-out" aria-label="Link to Admin">{% icon 'icon-account' 'sm' 'fill-neutral-100' %}Admin</a>

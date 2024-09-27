@@ -44,6 +44,7 @@ def product_view(request, slug):
     template = "product/product.html"
     context = {
         "config" : config,
+        "active": "shop",
         "product": product,
         "reviews": reviews,
         "metadata": metadata,

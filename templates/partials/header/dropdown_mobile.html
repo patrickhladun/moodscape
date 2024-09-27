@@ -6,13 +6,13 @@
   <div id="mobileMenu" class="z-10 hidden left bg-blue-700 rounded-lg w-44">
     <ul class="py-2 text-sm text-gray-700" aria-labelledby="mobileMenuButton">
       <li>
-        <a href="{% url 'shop' %}" class="block px-4 py-2 text-neutral-100 bg-blue-700 hover:bg-blue-800 transition duration-300 easy-in-out" aria-label="Link to Shop">Shop</a>
+        <a href="{% url 'shop' %}" class="block px-4 py-2 text-neutral-100 bg-blue-700 hover:bg-blue-800 transition duration-300 easy-in-out{% active 'shop' '!bg-blue-600' %}" aria-label="Link to Shop">Shop</a>
       </li>
       <li>
-        <a href="{% url 'about' %}" class="block px-4 py-2 text-neutral-100 bg-blue-700 hover:bg-blue-800 transition duration-300 easy-in-out" aria-label="Link to About">About</a>
+        <a href="{% url 'about' %}" class="block px-4 py-2 text-neutral-100 bg-blue-700 hover:bg-blue-800 transition duration-300 easy-in-out{% active 'about' '!bg-blue-600' %}" aria-label="Link to About">About</a>
       </li>
       <li>
-        <a href="{% url 'contact' %}" class="block px-4 py-2 text-neutral-100 bg-blue-700 hover:bg-blue-800 transition duration-300 easy-in-out" aria-label="Link to Contact">Contact</a>
+        <a href="{% url 'contact' %}" class="block px-4 py-2 text-neutral-100 bg-blue-700 hover:bg-blue-800 transition duration-300 easy-in-out{% active 'contact' '!bg-blue-600' %}" aria-label="Link to Contact">Contact</a>
       </li>
 
       {% if request.user.is_authenticated %}
