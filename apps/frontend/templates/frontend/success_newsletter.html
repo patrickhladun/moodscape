@@ -3,15 +3,11 @@
 {% block content %}
   <main>
     <!-- Page Title -->
-    <section class="bg-neutral-100">
-      <div class="container py-xxs">
-        <p>Newsletter Subscription</p>
-      </div>
-    </section>
+    {% include 'partials/page_title.html' with title='Thank you for subscribing!' %}
 
     <section class="container py-rg">
-      <h1>You are amazing!</h1>
-      <h2>Thank you for subscribing to our newsletter. You are almost there.</h2>
+      <h2>You are amazing!</h2>
+      <p>Thank you for subscribing to our newsletter. You are almost there.</p>
       <p>You just need to confirm your email.</p>
     </section>
   </main>
