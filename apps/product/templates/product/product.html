@@ -34,6 +34,8 @@
           <div class="bg-neutral-100 font-medium p-2">
             {% if product.stock == 0 %}
               <span>Sold Out!</span>
+            {% elif product.category|lower == 'watercolor' and product.stock == 1 %}
+              <span>Only one Original painting available</span>
             {% elif product.stock <= 4 %}
               <span>Only {{ product.stock }} left</span>
             {% else %}
