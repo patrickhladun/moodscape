@@ -1,14 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load ui_tags %}
 {% load bag_tools %}
 
 {% block content %}
   <div>
-    <section class="container">
-      <div>
-        <h2>Checkout</h2>
-      </div>
-    </section>
+    <!-- Page Title -->
+    {% include 'partials/page_title.html' with title='Bag' %}
+
     <section class="bg-neutral-100">
       <div class="container py-xxs">
         <div class="flex text-sm">
@@ -23,99 +22,42 @@
       </div>
     </section>
 
-    <section class="container">
+    <section class="container pt-rg">
       <p>Please fill out the form below to complete your order</p>
 
-      <div class="form-check-label" for="id-save-info">
-        <a class="text-info" href="{% url 'account_login' %}?next={% url 'checkout' %}">Login</a> to use your saved information.
-      </div>
+      {% if not user.is_authenticated %}
+        <div class="form-check-label mb-sm" for="id-save-info">
+          <a class="text-info text-blue-600 underline" href="{% url 'account_login' %}?next={% url 'checkout' %}">Login</a> to use your saved information.
+        </div>
+      {% endif %}
     </section>
 
     <section class="container">
-      <div class="flex gap-4 py-rg">
-        <section class="w-1/2">
-          <div>
-            <form action="{% url 'checkout' %}" method="POST" id="payment-form">
-              {% csrf_token %}
-              <div class="flex flex-col">
-                <fieldset class="flex flex-col">
-                  <legend class="text-sm">Details</legend>
-                  <div class="flex gap-4">
-                    <div class="field field__text">{{ order_form.first_name }}</div>
-                    <div class="field field__text">{{ order_form.last_name }}</div>
-                  </div>
-                  <div class="field field__text">{{ order_form.email }}</div>
-                  <div class="field field__text">{{ order_form.phone_number }}</div>
-                </fieldset>
-                <fieldset class="flex flex-col">
-                  <legend class="text-sm">Delivery</legend>
-                  <div class="field field__select">{{ order_form.country }}</div>
-                  <div class="field field__text">{{ order_form.postcode }}</div>
-                  <div class="field field__text">{{ order_form.town_city }}</div>
-                  <div class="field field__text">{{ order_form.address_line_1 }}</div>
-                  <div class="field field__text">{{ order_form.address_line_2 }}</div>
-                  <div class="field field__text">{{ order_form.county }}</div>
-                </fieldset>
-
-                <fieldset>
-                  {% if not user.is_authenticated %}
-                    <div class="field field__checkbox">
-                      <input type="checkbox" id="id-create-account" name="create_account" />
-                      <label class="" for="id-create-account">Create an account on checkout</label>
-                    </div>
-                    <div id="account-fields" class="mt-2" style="display: none;">
-                      <div class="field field__text">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" class="form-control" />
-                      </div>
-                      <div class="field field__text">
-                        <label for="confirm_password">Confirm Password</label>
-                        <input type="password" id="confirm_password" name="confirm_password" class="form-control" />
-                      </div>
-                    </div>
+      <div class="grid md:grid-cols-2 gap-4 pb-rg">
+        <section class="md:order-2">
+          <p class="text-muted">Order Summary ({{ product_count }})</p>
+          {% for item in bag_items %}
+            <div class="flex gap-4 mb-4">
+              <div class="w-1/6">
+                <a href="{% url 'product' item.product.id %}">
+                  {% if item.product.featured %}
+                    <img class="w-full" src="{{ item.product.featured.url }}" alt="{{ product.name }}" />
+                  {% else %}
+                    <img class="w-full" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" />
                   {% endif %}
-                </fieldset>
-
-                <fieldset class="flex flex-col">
-                  <legend class="text-sm">Payment</legend>
-                  <!-- A Stripe card element will go here -->
-                  <div id="card-element"></div>
-                  <!-- Used to display form errors -->
-                  <div id="card-errors" role="alert"></div>
-                </fieldset>
+                </a>
               </div>
-              <div class="py-4">
-                <button id="submit-button" class="button button__primary" type="submit">Complete Order</button>
-              </div>
-            </form>
-          </div>
-        </section>
-        <section class="w-1/2">
-          <div>
-            <p class="text-muted">Order Summary ({{ product_count }})</p>
-            {% for item in bag_items %}
-              <div class="flex gap-4 mb-4">
-                <div class="w-1/4">
-                  <a href="{% url 'product' item.product.id %}">
-                    {% if item.product.featured %}
-                      <img class="w-full" src="{{ item.product.featured.url }}" alt="{{ product.name }}" />
-                    {% else %}
-                      <img class="w-full" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" />
-                    {% endif %}
-                  </a>
+              <div class="w-5/6">
+                <div>
+                  <strong>{{ item.product.name }}</strong>
+                  <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                 </div>
-                <div class="w-3/4">
-                  <div>
-                    <strong>{{ item.product.name }}</strong>
-                    <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
-                  </div>
-                  <div class="col-3">
-                    <p class="my-0 small text-muted">{{ config.CURRENCY_SYMBOL }}{{ item.product.price|calc_subtotal:item.quantity }}</p>
-                  </div>
+                <div class="col-3">
+                  <p class="my-0 small text-muted">{{ config.CURRENCY_SYMBOL }}{{ item.product.price|calc_subtotal:item.quantity }}</p>
                 </div>
               </div>
-            {% endfor %}
-          </div>
+            </div>
+          {% endfor %}
           <div class="text-right">
             <div class="bg-neutral-100 p-4">
               <p class="m-0">Order Total: {{ config.CURRENCY_SYMBOL }}{{ total|floatformat:2 }}</p>
@@ -127,6 +69,58 @@
               <p class="m-0">Grand Total: {{ config.CURRENCY_SYMBOL }}{{ grand_total|floatformat:2 }}</p>
             </div>
           </div>
+        </section>
+        <section>
+          <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+            {% csrf_token %}
+            <fieldset>
+              <legend class="text-sm">Details</legend>
+              {% render_field order_form.first_name show_label=False %}
+              {% render_field order_form.last_name show_label=False %}
+              {% render_field order_form.email show_label=False %}
+              {% render_field order_form.phone_number show_label=False %}
+            </fieldset>
+
+            <fieldset class="w-full">
+              <legend class="text-sm">Delivery</legend>
+              {% render_field order_form.country type='select' class='md:max-w-72' show_label=False %}
+              {% render_field order_form.postcode show_label=False %}
+              {% render_field order_form.town_city show_label=False %}
+              {% render_field order_form.address_line_1 show_label=False %}
+              {% render_field order_form.address_line_2 show_label=False %}
+              {% render_field order_form.county show_label=False %}
+            </fieldset>
+
+            <fieldset>
+              {% if not user.is_authenticated %}
+                <div class="field field__checkbox">
+                  <input type="checkbox" id="id-create-account" name="create_account" />
+                  <label for="id-create-account">Create an account on checkout</label>
+                </div>
+                <div id="account-fields" class="mt-2" style="display: none;">
+                  <div class="field field__text">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" />
+                  </div>
+                  <div class="field field__text">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" id="confirm_password" name="confirm_password" class="form-control" />
+                  </div>
+                </div>
+              {% endif %}
+            </fieldset>
+
+            <fieldset>
+              <legend class="text-sm">Payment</legend>
+              <!-- A Stripe card element will go here -->
+              <div id="card-element"></div>
+              <!-- Used to display form errors -->
+              <div id="card-errors" role="alert"></div>
+            </fieldset>
+            <div class="py-4">
+              <button id="submit-button" class="button button__primary" type="submit">Complete Order</button>
+            </div>
+          </form>
         </section>
       </div>
     </section>
