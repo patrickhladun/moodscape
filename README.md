@@ -419,6 +419,10 @@ The logo for Moodscape is a simple yet elegant icon presenting a landscape withi
 
 ### CSS Validation
 
+The CSS for my project was validated using the W3C CSS Validation Service online tool. The validation process identified some errors and warnings, predominantly stemming from the Flowbite framework. Most issues relate to vendor extensions, including vendor-specific pseudo-classes and pseudo-elements. These vendor extensions are commonly used in modern web development to ensure compatibility and functionality across various browsers, despite triggering validation warnings.
+
+[W3C CSS Validator results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmoodscape-3f1dfd651cc4.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en#errors)
+
 ### JavaScript Validation
 
 ## Automated testing with Pytest
