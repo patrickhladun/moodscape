@@ -55,17 +55,20 @@ def render_field(field, **kwargs):
     class_name = kwargs.get('class', '')
     id_attr = f' id="{kwargs.get("id")}"' if kwargs.get('id') else ''
     data_cy = f' data-cy="{kwargs.get("cy")}"' if kwargs.get('cy') else ''
+    show_label = kwargs.get('show_label', True)
 
     classes = f"field field__{type} {class_name}".strip()
 
     additional_attrs = ""
     for key, value in kwargs.items():
-        if key not in ['type', 'class', 'id', 'cy']:
+        if key not in ['type', 'class', 'id', 'cy', 'show_label']:
             additional_attrs += f' {key}="{value}"'
 
+    label_html = field.label_tag() if show_label else ''
+    
     field_html = f"""
     <div class="{classes}"{id_attr}{data_cy}{additional_attrs}>
-        {field.label_tag()}
+        {label_html}
         {field}
         {field.errors}
     </div>
