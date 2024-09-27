@@ -72,7 +72,7 @@
         {% if products %}
         {% for product in products %}
           <div class="bg-neutral-100 p-4">
-            <a href="{% url 'product' product.slug %}">
+            <a class="hover:drop-shadow-md transition duration-300 ease-in-out" href="{% url 'product' product.slug %}">
               {% if product.featured %}
                 <img src="{{ product.featured.url }}" alt="{{ product.name }}" class="w-full">
               {% else %}
