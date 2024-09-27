@@ -87,9 +87,8 @@
 
   &::before,
   &::after {
-    @apply absolute inline-block rounded-full;
+    @apply absolute inline-block rounded-full top-1/2 left-0 transform -translate-y-1/2 transition duration-100 ease-in-out;
     content: "";
-    @apply top-1/2 left-0 transform -translate-y-1/2;
   }
 
   &::before {

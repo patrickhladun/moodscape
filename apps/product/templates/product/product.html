@@ -7,10 +7,10 @@
     <section class="bg-neutral-100">
       <div class="container py-xxs">
         <div class="flex text-sm">
-          <div class="flex w-full md:w-1/2 gap-1">
+          <div class="flex w-full gap-1">
             <a href="{% url 'shop' %}" class="text-primary text-blue-600 underline">Shop</a>
             <span>&gt;</span>
-            <a href="{% url 'shop' %}?category={{ product.category|lower|urlencode }}" class="text-primary text-blue-600 underline">{{ product.category }}</a>
+            <a href="{% url 'shop' %}?category={{ product.category|lower|urlencode }}" class="inline-block text-primary text-blue-600 underline whitespace-nowrap">{{ product.category }}</a>
             <span>&gt;</span>
             <span class="text-primary truncate text-neutral-600">{{ product.name }}</span>
           </div>
@@ -19,8 +19,8 @@
     </section>
 
     <section class="container">
-      <div class="flex gap-4 py-rg">
-        <div class="w-full md:w-3/5">
+      <div class="grid md:grid-cols-2 gap-4 py-rg">
+        <div>
           {% if product.featured %}
             <img src="{{ product.featured.url }}" alt="{{ product.name }}" class="w-full" />
           {% else %}
@@ -28,7 +28,7 @@
           {% endif %}
         </div>
 
-        <div class="w-full md:w-2/5">
+        <div>
           <p class="text-h3 font-bold">{{ config.CURRENCY_SYMBOL }}{{ product.price }}</p>
           <h1 class="text-base font-normal">{{ product.name|safe }}</h1>
           <div class="bg-neutral-100 font-medium p-2">
@@ -44,7 +44,7 @@
           </div>
           <h2 class="h4">Details</h2>
           <p>{{ product.details|safe }}</p>
-          <button type="submit" class="btn btn-primary">Add to Cart</button>
+          <button type="submit" class="button button__primary">Add to Cart</button>
         </div>
       </div>
     </section>
