@@ -19,7 +19,7 @@ The scope of Moodscape is to develop a fully functional e-commerce platform that
 - **Responsive Design**: Ensure the website is fully functional and visually appealing on all devices.
 - **Secure Transactions**: Implement secure payment gateways using systems like Stripe, protecting user information and transactions.
 - **Artist Promotion**: Highlight the unique qualities of the curated art collection.
-- **Feedback System**: Implement a feedback system to report successful and unsuccessful purchases to users.
+- **Reviews System**: Implement a Reviews system to report successful and unsuccessful purchases to users.
 
 ### Key Components of the Website
 
@@ -30,7 +30,7 @@ The scope of Moodscape is to develop a fully functional e-commerce platform that
 - **Shopping Cart and Checkout**: Streamlined process for adding items to the cart and completing purchases.
 - **Search and Filter Options**: Advanced search and filtering capabilities to help users find specific types of art.
 - **E-commerce Functionality**: Integrate payment processing using Stripe for secure transactions.
-- **Feedback System**: Inform users about the status of their purchases with clear messages.
+- **Reviews System**: Inform users about the status of their purchases with clear messages.
 - **Forms with Validation**: Implement forms that allow users to create and edit models in the backend with proper validation.
 - **Navigation and Layout**: Incorporate a main navigation menu and structured layout for ease of use.
 - **SEO Techniques**: Include meta description tags, a site title, a sitemap, and a robots.txt file to improve search engine reach.
@@ -88,7 +88,7 @@ Michael shops online for most of his gifts due to the convenience and variety. H
 
 #### Online Habits
 
-Michael frequently visits e-commerce sites and gift recommendation blogs. He uses social media platforms like Facebook and Twitter to look for gift ideas. He reads product reviews and relies on customer feedback before making purchases.
+Michael frequently visits e-commerce sites and gift recommendation blogs. He uses social media platforms like Facebook and Twitter to look for gift ideas. He reads product reviews and relies on customer Reviews before making purchases.
 
 #### How Moodscape Meets Michael's Needs
 
@@ -127,8 +127,8 @@ Moodscape offers a wide range of unique and high-quality art pieces that make pe
   - Secure online payment processing (Stripe)
   - User account management
   - Admin management for adding and updating products
-  - Advanced search and filter options
-  - Feedback system for purchase status
+  - Search and filter options
+  - Reviews system for purchase status
   - Responsive design for various devices
   - SEO techniques for improved search engine reach
   - Authentication and authorization for secure access
@@ -168,7 +168,7 @@ Moodscape offers a wide range of unique and high-quality art pieces that make pe
   - Use of high-quality images for artworks.
   - Professional and elegant typography for readability and style.
   - Consistent visual elements across all pages, including buttons, icons, and navigation.
-  - Visual feedback for user interactions, such as adding items to the cart or completing a purchase.
+  - Visual Reviews for user interactions, such as adding items to the cart or completing a purchase.
 
 ## Mockups and Wireframes
 
@@ -379,7 +379,13 @@ The logo for Moodscape is a simple yet elegant icon presenting a landscape withi
 
 ## Images
 
+All images featured on the website, including product visuals, are original artworks created by my wife and me. My wife, a talented watercolor artist, has graciously permitted the use of her art pieces for the watercolor products showcased on the moodscape site. I contribute with my personal collection of macro and close-up floral photographs. Additionally, I create pen plotter art, which involves artwork generated through coding in languages like JavaScript and Python, or designed using Adobe Illustrator. This diverse array of artistic contributions enriches the visual experience of our website.
+
 ## Icons
+
+All icons displayed on the website were personally designed by me using Adobe Illustrator, ensuring a custom and consistent look throughout. The social media icons were sourced directly from the official websites.
+
+![Icons](./docs/moodscape-icons.webp)
 
 ## Pages and Features
 
