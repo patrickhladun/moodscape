@@ -350,7 +350,7 @@ The color scheme for Moodscape has been carefully chosen to create a clean, mode
 - **Brand Blue:** This accent color is used in the logo, certain buttons, and other accent elements to provide a cohesive and vibrant touch. The specific shades of blue are defined as follows in Tailwind CSS settings:
 
 ```css
-'brand': {
+'blue': {
     '50': '#f1f8fa',
     '100': '#dbecf2',
     '200': '#bcd9e5',
@@ -390,6 +390,46 @@ All icons displayed on the website were personally designed by me using Adobe Il
 ## Pages and Features
 
 ### Front End Pages
+
+Website Header
+
+The website’s header prominently displays the logo, main navigation links, a shopping bag icon, and a login icon. Upon user login, the login icon transforms into a hamburger menu button to accommodate additional user-specific options. To maintain simplicity, a customer headshot is not included; the hamburger menu alone effectively manages user navigation. On smaller screens, the main navigation links collapse into a dropdown menu, optimizing space and improving accessibility.
+
+<details><summary>Header Desktop Visitor</summary>
+
+![Header Desktop Visitor](./docs/features-header-desktop.webp)
+
+</details>
+
+<details><summary>Header Mobile Visitor</summary>
+
+![Header Mobile Visitor](./docs/features-header-mobile.webp)
+
+</details>
+
+<details><summary>Header Desktop Customer</summary>
+
+![Header Desktop Customer](./docs/features-header-desktop-customer.webp)
+
+</details>
+
+<details><summary>Header Mobile Customer</summary>
+
+![Header Mobile Customer](./docs/features-header-mobile-customer.webp)
+
+</details>
+
+<details><summary>Header Desktop Admin</summary>
+
+![Header Desktop Admin](./docs/features-header-desktop-admin.webp)
+
+</details>
+
+<details><summary>Header Mobile Admin</summary>
+
+![Header Mobile Admin](./docs/features-header-mobile-admin.webp)
+
+</details>
 
 ### User and Content Management Pages
 
