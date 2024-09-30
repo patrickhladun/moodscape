@@ -430,6 +430,44 @@ The website’s header prominently displays the logo, main navigation links, a s
 ![Header Mobile Admin](./docs/features-header-mobile-admin.webp)
 
 </details>
+<br>
+Website footer
+
+The footer includes social media icons linking to relevant platforms, secondary website navigation links, a copyright notice, and a newsletter subscription form. The newsletter form integrates with ConvertKit, enabling efficient email list management.
+
+<details><summary>Footer Desktop</summary>
+
+![Footer Desktop](./docs/features-footer-desktop.webp)
+
+</details>
+
+<details><summary>Footer Mobile</summary>
+
+![Footer Mobile](./docs/features-footer-mobile.webp)
+
+</details>
+
+When users submit their email, they receive a confirmation message asking them to verify their subscription.
+
+<details><summary>Newsletter Success</summary>
+
+![Footer](./docs/features-footer-newsletter-success.webp)
+
+</details>
+
+<details><summary>Newsletter Notification</summary>
+
+![Footer](./docs/features-footer-newsletter-email.webp)
+
+</details>
+
+Confirmation by the user triggers an acknowledgment from ConvertKit, completing the subscription process.
+
+<details><summary>Newsletter Confirmation</summary>
+
+![Footer](./docs/features-footer-newsletter-confirmed.webp)
+
+</details>
 
 ### Pages
 
@@ -468,6 +506,22 @@ In the main section, each product is displayed with an image, title, category, p
 The About Page provides a brief introduction to Moodscape. It features a straightforward layout with a descriptive paragraph and a complementary image, offering visitors a quick insight into the essence and values of Moodscape.
 
 ![About Page](./docs/features-page-about.webp)
+
+</details>
+
+<details><summary>Contact Page</summary>
+
+The Contact Page features a user-friendly contact form alongside essential contact details, including social media links.
+
+![Contact Page](./docs/features-page-contact.webp)
+
+Upon form submission, users are redirected to a success page that confirms the email has been sent.
+
+![Contact Page](./docs/features-page-contact-success.webp)
+
+The system ensures emails are directed to the appropriate recipient.
+
+![Contact Page](./docs/features-page-contact-email.webp)
 
 </details>
 
