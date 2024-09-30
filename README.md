@@ -555,6 +555,54 @@ For user management, the website utilizes Django allauth. The authentication pag
 
 ### Customers Pages
 
+<details><summary>Orders Page</summary>
+
+The customer order page displays a table listing all orders placed by the user. Each entry in the table shows the order number, total amount, and the current status of the order. Users can click on an order to access a detailed view, providing further insights into the items purchased, payment summary, and the order's fulfillment status.
+
+![Orders Page](./docs/features-page-customer-orders.webp)
+
+</details>
+
+<details><summary>Order Single Page</summary>
+
+The single order page is structured into two main columns for a detailed and user-friendly overview. The first column presents all the essential order details, such as order number, date, payment method, and shipping information. The second column lists the items purchased in that order, each with a link allowing the user to review the product directly.
+
+![Order Single Page](./docs/features-page-customer-order.webp)
+
+</details>
+
+<details><summary>Reviews Page</summary>
+
+The Reviews page displays products purchased by the customer that haven't been reviewed yet. If no products are available for review, a prompt with a button to buy some art appears. Users can filter their product reviews using a dropdown menu, sorting them by status: accepted, rejected, or pending.
+
+![Order Single Page](./docs/features-page-customer-reviews.webp)
+
+</details>
+
+<details><summary>Review Single Page</summary>
+
+The Product Review page features a straightforward form where users can submit a rating and comment about a product. Alongside the form, the product's image is displayed to remind the user of the item they are reviewing.
+
+![Order Single Page](./docs/features-page-customer-review.webp)
+
+</details>
+
+<details><summary>Profile Page</summary>
+
+The profile page allows users to update their personal details and set a default address. This ensures that their information is current and streamlines the checkout process for future purchases.
+
+![Order Single Page](./docs/features-page-customer-profile.webp)
+
+</details>
+
+<details><summary>Account Page</summary>
+
+The account page provides a straightforward interface where users can update their email and username, allowing them to manage their login credentials easily.
+
+![Account Page](./docs/features-page-customer-account.webp)
+
+</details>
+
 ### Admin Pages
 
 #### Profile Management for Talent and Employers
