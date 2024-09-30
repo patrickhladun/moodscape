@@ -431,6 +431,46 @@ The website’s header prominently displays the logo, main navigation links, a s
 
 </details>
 
+### Pages
+
+<details><summary>Home Page</summary>
+
+The home page of the website is straightforward yet engaging, showcasing a hero section that includes a captivating headline and a call-to-action (CTA) button that directs visitors to the shop page. This section is designed to immediately grasp the attention of the visitors and guide them towards exploring the available artworks.
+
+![Home Page Hero](./docs/features-page-home-hero.webp)
+
+Below the hero section, the page features a list of art categories, allowing users to easily navigate through different types of artworks such as watercolors, photographs, and digital art.
+
+![Home Page Categories](./docs/features-page-home-categories.webp)
+
+Additionally, the home page highlights featured pieces, showcasing select artworks that represent the best of what the site has to offer. This layout not only enhances the visual appeal but also serves as an effective gateway to the diverse art collection on the site.
+
+![Home Page Featured](./docs/features-page-home-featured.webp)
+
+</details>
+
+<details><summary>Shop Page</summary>
+
+The shop page of the website is laid out with two main sections: a sidebar and a main display area for products. The sidebar enhances user interaction by providing several functional elements:
+
+- Search Box: Allows users to quickly find products by entering keywords.
+- Filters: Users can refine product listings based on price, name, and rating.
+- Categories List: This feature enables users to view products from selected categories only, such as watercolors, photographs, or digital art.
+
+In the main section, each product is displayed with an image, title, category, price, and an “Add to Bag” button, providing essential information and purchase options at a glance.
+
+![Shop Page](./docs/features-page-shop.webp)
+
+</details>
+
+<details><summary>About Page</summary>
+
+The About Page provides a brief introduction to Moodscape. It features a straightforward layout with a descriptive paragraph and a complementary image, offering visitors a quick insight into the essence and values of Moodscape.
+
+![About Page](./docs/features-page-about.webp)
+
+</details>
+
 ### User and Content Management Pages
 
 #### Profile Management for Talent and Employers
