@@ -389,8 +389,6 @@ All icons displayed on the website were personally designed by me using Adobe Il
 
 ## Pages and Features
 
-### Front End Pages
-
 Website Header
 
 The website’s header prominently displays the logo, main navigation links, a shopping bag icon, and a login icon. Upon user login, the login icon transforms into a hamburger menu button to accommodate additional user-specific options. To maintain simplicity, a customer headshot is not included; the hamburger menu alone effectively manages user navigation. On smaller screens, the main navigation links collapse into a dropdown menu, optimizing space and improving accessibility.
@@ -430,7 +428,7 @@ The website’s header prominently displays the logo, main navigation links, a s
 ![Header Mobile Admin](./docs/features-header-mobile-admin.webp)
 
 </details>
-<br>
+
 Website footer
 
 The footer includes social media icons linking to relevant platforms, secondary website navigation links, a copyright notice, and a newsletter subscription form. The newsletter form integrates with ConvertKit, enabling efficient email list management.
@@ -469,7 +467,7 @@ Confirmation by the user triggers an acknowledgment from ConvertKit, completing 
 
 </details>
 
-### Pages
+### Front End Pages
 
 <details><summary>Home Page</summary>
 
@@ -517,15 +515,47 @@ The Contact Page features a user-friendly contact form alongside essential conta
 
 Upon form submission, users are redirected to a success page that confirms the email has been sent.
 
-![Contact Page](./docs/features-page-contact-success.webp)
+![Contact Success Page](./docs/features-page-contact-success.webp)
 
 The system ensures emails are directed to the appropriate recipient.
 
-![Contact Page](./docs/features-page-contact-email.webp)
+![Contact Page Email Confirmation](./docs/features-page-contact-email.webp)
 
 </details>
 
-### User and Content Management Pages
+<details><summary>Secondary pages</summary>
+
+Secondary pages on the website include basic informational content such as Terms and Conditions, Privacy Policy, and FAQ. These pages provide essential information regarding the site's policies and user guidance in a straightforward text format.
+
+![Secondary Pages](./docs/features-secondary-pages.webp)
+
+</details>
+
+### Common User Pages
+
+For user management, the website utilizes Django allauth. The authentication pages, including sign-in, sign-out, and password reset, have been customized to maintain a consistent design that aligns with the overall aesthetic of the site. This ensures a seamless user experience across all account-related interactions.
+
+<details><summary>Sign In</summary>
+
+![Sign In](./docs/features-page-user-sign-in.webp)
+
+</details>
+
+<details><summary>Sign Out</summary>
+
+![Sign Out](./docs/features-page-user-sign-out.webp)
+
+</details>
+
+<details><summary>Password Reset</summary>
+
+![Password Reset](./docs/features-page-user-reset-password.webp)
+
+</details>
+
+### Customers Pages
+
+### Admin Pages
 
 #### Profile Management for Talent and Employers
 
