@@ -6,28 +6,40 @@
   {% include 'partials/nav_cms.html' %}
 
   <section class="container py-rg">
-    <div class="hidden md:grid md:grid-cols-3 p-2 bg-blue-100 rounded-t-md border-b-4 border-blue-200">
+    <div class="hidden md:grid md:grid-cols-5 p-2 bg-blue-100 rounded-t-md border-b-4 border-blue-200 text-sm">
       <span class="md:border-r border-neutral-300 px-2">Order</span>
-      <span class="md:border-r border-neutral-300 px-2">Status</span>
-      <span class="px-2">Total</span>
+      <span class="md:border-r border-neutral-300 px-2">Date</span>
+      <span class="md:border-r border-neutral-300 px-2">Customer</span>
+      <span class="md:border-r border-neutral-300 px-2">Total</span>
+      <span class="px-2">Status</span>
     </div>
     <ul role="list">
       {% for order in orders %}
         <li class="odd:bg-neutral-100 group" role="listitem">
-          <a class="inline-block md:grid md:grid-cols-3 px-2 md:items-center group-hover:bg-blue-500 group-hover:text-white transition" href="{% url 'cms_order_update' order.order_number %}">
-            <div class="inline-block w-full md:border-r border-neutral-200 p-2">
+          <a class="inline-block md:grid md:grid-cols-5 px-2 md:items-center group-hover:bg-blue-500 group-hover:text-white transition" href="{% url 'cms_order_update' order.order_number %}">
+            <div class="inline-block w-full md:border-r border-neutral-200 p-2 truncate">
               <span class="md:hidden">Order:</span>
               <span>{{ order.order_number }}</span>
             </div>
 
             <div class="inline-block w-full md:border-r border-neutral-200 p-2">
-              <span class="md:hidden">Status:</span>
-              <span>{{ order.status }}</span>
+              <span class="md:hidden">Date:</span>
+              <span>{{ order.created_at|date:'d/m/Y' }}</span>
+            </div>
+
+            <div class="inline-block w-full md:border-r border-neutral-200 p-2 truncate">
+              <span class="md:hidden">Customer:</span>
+              <span>{{ order.email }}</span>
+            </div>
+
+            <div class="inline-block w-full md:border-r border-neutral-200 p-2">
+              <span class="md:hidden">Total:</span>
+              <span>{{ config.CURRENCY_SYMBOL }}{{ order.grand_total }}</span>
             </div>
 
             <div class="inline-block w-full p-2">
-              <span class="md:hidden">Total:</span>
-              <span>{{ config.CURRENCY_SYMBOL }}{{ order.grand_total }}</span>
+              <span class="md:hidden">Status:</span>
+              <span>{{ order.status }}</span>
             </div>
           </a>
         </li>
