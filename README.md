@@ -499,6 +499,26 @@ In the main section, each product is displayed with an image, title, category, p
 
 </details>
 
+<details><summary>Bag Page</summary>
+
+The bag page displays a list of products added by the user, featuring an image, title, price, and quantity for each item. Users can remove items, adjust quantities, or proceed to the checkout page directly from this page.
+
+![Bag Page](./docs/features-page-bag.webp)
+
+</details>
+
+<details><summary>Checkout Page</summary>
+
+The checkout page is structured into two columns: one column contains a form for users to fill in their details, shipping address, and payment information. The other column displays a summary of the products being purchased. Users also have the option to log in if they already have an account, streamlining the checkout process.
+
+![Checkout Page](./docs/features-page-checkout.webp)
+
+Checkout Success
+
+![Checkout Page](./docs/features-page-checkout-success.webp)
+
+</details>
+
 <details><summary>About Page</summary>
 
 The About Page provides a brief introduction to Moodscape. It features a straightforward layout with a descriptive paragraph and a complementary image, offering visitors a quick insight into the essence and values of Moodscape.
