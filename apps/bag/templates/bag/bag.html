@@ -37,10 +37,10 @@
                 <form method="POST" class="flex items-center gap-4">
                   {% csrf_token %}
                   <div class="field field__text">
-                    <input type="number" name="quantity" id="quantity" value="{{ item.quantity }}" min="1" max="{{ item.product.stock }}" class="w-16" />
+                    <input type="number" name="quantity" id="quantity" value="{{ item.quantity }}" min="1" max="{{ item.product.stock }}" class="w-16" aria-label="Item Quantity" />
                   </div>
                   <input type="hidden" name="product_id" value="{{ item.product.id }}" />
-                  <button class="button button__outline-primary" type="submit" name="update_bag">Update</button>
+                  <button class="button button__outline-primary" type="submit" name="update_bag" aria-label="Update Quantity">Update</button>
                 </form>
               </div>
             </div>
@@ -51,7 +51,7 @@
               {% csrf_token %}
 
               <input type="hidden" name="product_id" value="{{ item.product.id }}" />
-              <button class="button button__remove" type="submit" name="remove_item">{% icon 'icon-delete' 'sm' %}</button>
+              <button class="button button__remove" type="submit" name="remove_item" aria-label="Delete Item">{% icon 'icon-delete' 'sm' %}</button>
             </form>
           </div>
         {% endfor %}
