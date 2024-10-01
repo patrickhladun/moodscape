@@ -12,7 +12,7 @@ from .forms import ProductForm, CategoryForm
 
 def product_view(request, slug):
     product = get_object_or_404(Product, slug=slug)
-    reviews = product.reviews.all()
+    reviews = product.reviews.filter(status='approved')
 
     stock = "in stock" if product.stock > 0 else "out of stock"
 
