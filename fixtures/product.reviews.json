@@ -1,0 +1,44 @@
+[
+  {
+    "model": "review.review",
+    "pk": 1,
+    "fields": {
+      "product": 1,
+      "user": 2,
+      "order_line_item": 1,
+      "rating": 5,
+      "text": "It’s absolutely beautiful! And it’s exactly what I was looking for. The colors are true to what’s on the screen - maybe a little more vibrant. It came quickly and well packaged. I would definitely buy from this shop again!",
+      "status": "approved",
+      "created_at": "2024-09-30T15:46:08.034Z",
+      "updated_at": "2024-09-30T15:46:08.034Z"
+    }
+  },
+  {
+    "model": "review.review",
+    "pk": 2,
+    "fields": {
+      "product": 19,
+      "user": 2,
+      "order_line_item": 3,
+      "rating": 5,
+      "text": "I just received it. It is a stunning piece of art, beautiful colours and details. I am absolutely chuffed about it. I cannot wait to have it framed. Also, carefully packed and thank you so much for the extra surprise ;-) Totally made my day.",
+      "status": "deleted",
+      "created_at": "2024-09-30T15:47:44.920Z",
+      "updated_at": "2024-09-30T15:47:44.920Z"
+    }
+  },
+  {
+    "model": "review.review",
+    "pk": 3,
+    "fields": {
+      "product": 8,
+      "user": 2,
+      "order_line_item": 2,
+      "rating": 5,
+      "text": "I've just unpacked my order and I'm thrilled with the photo print! The colors are vibrant and the detail is exquisite—truly a testament to the photographer's skill. I’m eager to get it framed and displayed. It was also packaged with great care, and the little extra surprise included was a delightful touch that brightened my day. Thank you!",
+      "status": "rejected",
+      "created_at": "2024-09-30T15:49:02.652Z",
+      "updated_at": "2024-09-30T15:49:02.652Z"
+    }
+  }
+]
