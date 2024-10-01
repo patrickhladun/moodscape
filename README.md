@@ -971,12 +971,42 @@ Test Setup for Responsiveness
 
 ### HTML Validation and Accessibility Testing
 
-| Tested Page | Accesibility (WAVE) | Contrast (WAVE) | W3C HTML | Comments |
+This section details the manual tests for HTML validation and accessibility. Tests were performed using the W3C Validator and the WAVE tool by WebAIM. Publicly accessible pages were tested using direct URLs, while secure pages (such as account and admin sections) were tested by inputting the source code directly into the validator due to access restrictions.
+
+| Tested Page | Accessibility (WAVE) | Contrast (WAVE) | W3C HTML Validation | Comments |
 | --- | --- | --- | --- | --- |
 | [Home](https://moodscape-3f1dfd651cc4.herokuapp.com/) | No Errors | No Contrast Errors | [No Errors](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmoodscape-3f1dfd651cc4.herokuapp.com%2F) |  |
-| [Home](https://moodscape-3f1dfd651cc4.herokuapp.com/) | No Errors | No Contrast Errors | [No Errors](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmoodscape-3f1dfd651cc4.herokuapp.com%2F) |  |
-
-### Testing User Pages
+| [About](https://moodscape-3f1dfd651cc4.herokuapp.com/about/) | No Errors | No Contrast Errors | [No Errors](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmoodscape-3f1dfd651cc4.herokuapp.com%2Fabout%2F) |  |
+| [Contact](https://moodscape-3f1dfd651cc4.herokuapp.com/contact/) | No Errors | No Contrast Errors | [No Errors](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmoodscape-3f1dfd651cc4.herokuapp.com%2Fcontact%2F) |  |
+| [Contact Success](https://moodscape-3f1dfd651cc4.herokuapp.com/contact/success/) | No Errors | No Contrast Errors | [No Errors](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmoodscape-3f1dfd651cc4.herokuapp.com%2Fcontact%2Fsuccess%2F) |  |
+| [Shop](https://moodscape-3f1dfd651cc4.herokuapp.com/shop/) | No Errors | No Contrast Errors | [With Errors](https://moodscape-3f1dfd651cc4.herokuapp.com/shop/) | Error only appears on the live website. Not reproducible in development. Issue has been logged. |
+| [Product](https://moodscape-3f1dfd651cc4.herokuapp.com/product/irish-seascape-watercolor-painting/) | No Errors | No Contrast Errors | [No Errors](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmoodscape-3f1dfd651cc4.herokuapp.com%2Fproduct%2Firish-seascape-watercolor-painting%2F) |  |
+| [Bag](https://moodscape-3f1dfd651cc4.herokuapp.com/bag/) | No Errors | No Contrast Errors | [No Errors](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmoodscape-3f1dfd651cc4.herokuapp.com%2Fbag%2F) | Errors observed when products are added to the bag. An issue has been created. |
+| [Checkout](https://moodscape-3f1dfd651cc4.herokuapp.com/checkout/) | No Errors | No Contrast Errors | [No Errors](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmoodscape-3f1dfd651cc4.herokuapp.com%2Fcheckout%2F) |  |
+| [Privacy Policy](https://moodscape-3f1dfd651cc4.herokuapp.com/privacy-policy/) | No Errors | No Contrast Errors | [No Errors](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmoodscape-3f1dfd651cc4.herokuapp.com%2Fprivacy-policy%2F) |  |
+| [Terms and Conditions](https://moodscape-3f1dfd651cc4.herokuapp.com/terms-and-conditions/) | No Errors | No Contrast Errors | [No Errors](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmoodscape-3f1dfd651cc4.herokuapp.com%2Fterms-and-conditions%2F) |  |
+| [FAQ](https://moodscape-3f1dfd651cc4.herokuapp.com/faq/) | No Errors | No Contrast Errors | [No Errors](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmoodscape-3f1dfd651cc4.herokuapp.com%2Ffaq%2F) |  |
+| [Newsletter Success](https://moodscape-3f1dfd651cc4.herokuapp.com/newsletter/success/) | No Errors | No Contrast Errors | [No Errors](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmoodscape-3f1dfd651cc4.herokuapp.com%2Fnewsletter%2Fsuccess%2F) |  |
+| **Account Pages** |  |  |  |  |
+| Account - Orders | No Errors | No Contrast Errors | No Errors |  |
+| Account - Order | No Errors | No Contrast Errors | No Errors |  |
+| Account - Reviews | No Errors | No Contrast Errors | No Errors |  |
+| Account - Review | No Errors | No Contrast Errors | No Errors |  |
+| Account - Profile | No Errors | No Contrast Errors | No Errors |  |
+| Account - Account | No Errors | No Contrast Errors | No Errors |  |
+| **Admin Pages** |  |  |  |  |
+| Admin - Orders | No Errors | No Contrast Errors | No Errors |  |
+| Admin - Order | No Errors | No Contrast Errors | No Errors |  |
+| Admin - Customers | No Errors | No Contrast Errors | No Errors |  |
+| Admin - Customer | No Errors | No Contrast Errors | No Errors |  |
+| Admin - Products | No Errors | No Contrast Errors | No Errors |  |
+| Admin - Add Product | No Errors | No Contrast Errors | No Errors |  |
+| Admin - Update Product | No Errors | No Contrast Errors | No Errors |  |
+| Admin - Categories | No Errors | No Contrast Errors | No Errors |  |
+| Admin - Add Category | No Errors | No Contrast Errors | No Errors |  |
+| Admin - Update Category | No Errors | No Contrast Errors | No Errors |  |
+| Admin - Reviews | No Errors | No Contrast Errors | No Errors |  |
+| Admin - Review | No Errors | No Contrast Errors | No Errors |  |
 
 ### CSS Validation
 
@@ -1022,11 +1052,13 @@ npm run cy:run
 
 ## Issues
 
-- [#77 Inconsistent Confirmation Dialogs in Admin Panel](https://github.com/patrickhladun/moodscape/issues/77)
-
 ### User Stories
 
 ### Bugs
+
+- [#77 Inconsistent Confirmation Dialogs in Admin Panel](https://github.com/patrickhladun/moodscape/issues/77)
+- [#78 Duplicated quantity ID](https://github.com/patrickhladun/moodscape/issues/78)
+- [#79 Unclosed HTML elements on Shop Page](https://github.com/patrickhladun/moodscape/issues/79)
 
 ## Further Improvements
 
