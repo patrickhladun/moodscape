@@ -1249,10 +1249,6 @@ video {
   --tw-text-opacity: 1;
   color: rgb(245 245 245 / var(--tw-text-opacity));
 }
-.text-neutral-400 {
-  --tw-text-opacity: 1;
-  color: rgb(163 163 163 / var(--tw-text-opacity));
-}
 .text-neutral-600 {
   --tw-text-opacity: 1;
   color: rgb(82 82 82 / var(--tw-text-opacity));
@@ -1381,9 +1377,9 @@ video {
 .button__outline-primary {
   border-width: 1px;
   --tw-border-opacity: 1;
-  border-color: rgb(60 126 158 / var(--tw-border-opacity));
+  border-color: rgb(53 103 133 / var(--tw-border-opacity));
   --tw-text-opacity: 1;
-  color: rgb(60 126 158 / var(--tw-text-opacity));
+  color: rgb(53 103 133 / var(--tw-text-opacity));
 }
 .button__outline-primary:hover {
   --tw-bg-opacity: 1;
