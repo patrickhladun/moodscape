@@ -9,12 +9,23 @@ from apps.order.models import Order, OrderLineItem
 from apps.bag.context import bag_contents
 from apps.product.models import Product
 from apps.user.models import User, Customer
+from apps.common.utils.metadata import make_metadata
 
 import stripe
 
 def checkout_view(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
+
+    metadata = make_metadata(
+        request,
+        {
+            "title": "Checkout",
+            "meta": {
+                "description": "Complete your purchase on Moonscape. Securely enter your shipping and payment details to finalize your order of unique art pieces."
+            }
+        },
+    )
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
@@ -110,6 +121,7 @@ def checkout_view(request):
     template = 'checkout/checkout.html'
     context = {
         "config": config,
+        "metadata": metadata,
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
@@ -120,6 +132,17 @@ def checkout_view(request):
 def checkout_success_view(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+
+    metadata = make_metadata(
+        request,
+        {
+            "title": "Thank You",
+            "meta": {
+                "description": "Thank you for your purchase at Moonscape! Check your email for order details and shipping confirmation. We hope you enjoy your new art pieces."
+            },
+        },
+    )
+    
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
@@ -129,6 +152,7 @@ def checkout_success_view(request, order_number):
 
     template = 'checkout/checkout_success.html'
     context = {
+        "metadata": metadata,
         'order': order,
     }
 

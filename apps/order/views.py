@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from apps.common.decorators import superuser_required
 from constance import config
+from apps.common.utils.metadata import make_metadata
 
 from .models import Order, OrderLineItem
 from apps.review.models import Review
@@ -13,6 +14,16 @@ from .forms import UpdateOrderForm, OrderStatusForm, AddOrderItemForm, OrderItem
 @superuser_required
 def cms_order_update_view(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
+
+    metadata = make_metadata(
+        request,
+        {
+            "title": f"Order Details - {order.order_number}",
+            "meta": {
+                "description": f"Review and manage details for order {order.order_number}. Update statuses, manage items, and view customer shipping information."
+            }
+        },
+    )
 
     if request.method == 'POST':
         if 'update_status' in request.POST:
@@ -60,6 +71,7 @@ def cms_order_update_view(request, order_number):
 
     context = {
         'active': 'orders',
+        'metadata': metadata,
         'order': order,
         'status_form': status_form,
         'update_form': update_form,
@@ -74,10 +86,21 @@ def cms_order_update_view(request, order_number):
 @superuser_required
 def cms_orders_view(request):
     orders = Order.objects.all()
+
+    metadata = make_metadata(
+        request,
+        {
+            "title": "Admin Orders",
+            "meta": {
+                "description": "Manage and review all placed orders on Moonscape. Track order status, view customer details, and update order information effectively."
+            }
+        },
+    )
     
     template = 'order/cms/orders.html'
     context = {
         'active': 'orders',
+        'metadata': metadata,
         'orders': orders,
     }
     return render(request, template, context)
@@ -86,10 +109,21 @@ def cms_orders_view(request):
 @login_required
 def account_orders_view(request):
     orders = Order.objects.all()
+
+    metadata = make_metadata(
+        request,
+        {
+            "title": "Your Orders",
+            "meta": {
+                "description": "View your order history and track current orders."
+            }
+        },
+    )
     
     template = 'order/account/orders.html'
     context = {
         'active': 'orders',
+        'metadata': metadata,
         'config': config,
         'orders': orders,
     }
@@ -101,6 +135,16 @@ def account_order_view(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
     items = order.lineitems.all()
 
+    metadata = make_metadata(
+        request,
+        {
+            "title": "Order Details",
+            "meta": {
+                "description": "Detailed view of your specific order."
+            }
+        },
+    )
+
     for item in items:
         item.reviewed = Review.objects.filter(order_line_item=item, user=request.user).exists()
 
@@ -108,6 +152,7 @@ def account_order_view(request, order_number):
     template = 'order/account/order.html'
     context = {
         'active': 'orders',
+        'metadata': metadata,
         'order': order,
         'config': config,
     }

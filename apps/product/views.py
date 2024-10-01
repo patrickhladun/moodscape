@@ -58,10 +58,21 @@ def cms_products_view(request):
     user = request.user
     products = Product.objects.all()
 
+    metadata = make_metadata(
+        request,
+        {
+            "title": "Products List",
+            "meta": {
+                "description": "Browse the complete catalog of products available on Moonscape. This page provides an overview of all products, allowing for easy management and access to product details."
+            }
+        },
+    )
+
     template = "product/cms/products.html"
     context = {
         'active': 'products',
         'config': config,
+        'metadata': metadata,
         'products': products 
     }
     return render(request, template, context)
@@ -70,6 +81,17 @@ def cms_products_view(request):
 @login_required
 @superuser_required
 def cms_product_add_view(request):
+
+    metadata = make_metadata(
+    request,
+        {
+            "title": "Add New Product",
+            "meta": {
+                "description": "Add a new product to Moonscape's catalog. Specify product details such as name, price, and category to introduce new art pieces to the shop."
+            }
+        },
+    )
+
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -86,7 +108,8 @@ def cms_product_add_view(request):
     template = "product/cms/product_add.html"
     context = {
         'active': 'products',
-        "form": form,
+        'metadata': metadata,
+        'form': form,
     }
     return render(request, template, context)
 
@@ -95,6 +118,16 @@ def cms_product_add_view(request):
 @superuser_required
 def cms_product_update_view(request, id):
     product = get_object_or_404(Product, id=id)
+
+    metadata = make_metadata(
+        request,
+        {
+            "title": f"Update Product - {product.name}",
+            "meta": {
+                "description": f"Update existing product details for {product.name}. This page allows for the modification of price, stock levels, and other critical product information."
+            }
+        },
+    )
     
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
@@ -111,6 +144,7 @@ def cms_product_update_view(request, id):
     template = "product/cms/product_update.html"
     context = {
         'active': 'products',
+        'metadata': metadata,
         "product": product,
         "form": form,
     }
@@ -140,11 +174,22 @@ def cms_product_delete_view(request, id):
 def cms_categories_view(request):
     user = request.user
     categories = Category.objects.all()
+    
+    metadata = make_metadata(
+        request,
+        {
+            "title": "Categories List",
+            "meta": {
+                "description": "View and manage all categories on Moonscape. This administrative page provides an overview of all categories, facilitating the organization of products."
+            }
+        },
+    )
 
     template = "product/cms/categories.html"
     context = {
+        'active': 'categories',
+        'metadata': metadata,
         'categories': categories,
-        'active': 'categories'
     }
 
     return render(request, template, context)
@@ -155,6 +200,16 @@ def cms_categories_view(request):
 def cms_category_update_view(request, id):
     category = get_object_or_404(Category, id=id)
     
+    metadata = make_metadata(
+        request,
+        {
+            "title": f"Update Category - {category.name}",
+            "meta": {
+                "description": f"Edit the details of the {category.name} category. This page allows for the modification of category names and descriptions to better align with the evolving inventory."
+            }
+        },
+    )
+
     if request.method == 'POST':
         form = CategoryForm(request.POST, instance=category)
         if form.is_valid():
@@ -169,9 +224,10 @@ def cms_category_update_view(request, id):
 
     template = "product/cms/category_update.html"
     context = {
-        "category": category,
-        "form": form,
-        'active': 'categories'
+        'active': 'categories',
+        'metadata': metadata,
+        'category': category,
+        'form': form
     }
     return render(request, template, context)
 
@@ -203,6 +259,17 @@ def cms_category_delete_view(request, id):
 @login_required
 @superuser_required
 def cms_category_add_view(request):
+
+    metadata = make_metadata(
+        request,
+        {
+            "title": "Add New Category",
+            "meta": {
+                "description": "Create a new category for organizing products on Moonscape. This page allows administrators to define new categories that will help structure the site's offerings."
+            }
+        },
+    )
+
     if request.method == 'POST':
         form = CategoryForm(request.POST)
         if form.is_valid():
@@ -219,6 +286,7 @@ def cms_category_add_view(request):
     template = "product/cms/category_add.html"
     context = {
         'active': 'categories',
-        "form": form,
+        'metadata': metadata,
+        'form': form,
     }
     return render(request, template, context)

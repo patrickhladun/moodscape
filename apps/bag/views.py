@@ -1,12 +1,23 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from constance import config
+from apps.common.utils.metadata import make_metadata
 
 from apps.product.models import Product
 
 
 def bag_view(request):
     bag = request.session.get('bag', {})
+
+    metadata = make_metadata(
+        request,
+        {
+            "title": "Your Bag",
+            "meta": {
+                "description": "Review your selected items in your bag at Moonscape. Modify quantities or proceed to checkout to secure your unique art pieces."
+            }
+        },
+    )
     
     if request.method == 'POST':
         if 'empty_bag' in request.POST:
@@ -32,6 +43,7 @@ def bag_view(request):
     template = 'bag/bag.html'
     context = {
         'config': config,
+        "metadata": metadata,
     }
     return render(request, template, context)
 
