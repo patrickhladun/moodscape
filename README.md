@@ -605,9 +605,113 @@ The account page provides a straightforward interface where users can update the
 
 ### Admin Pages
 
-#### Profile Management for Talent and Employers
+<details><summary>Admin Orders</summary>
 
-#### Account Management
+The admin orders page provides an overview of all transactions. It displays a table listing each order by number, the date it was placed, the customer's email, the current status of the order, and the total amount.
+
+![Admin Orders Page](./docs/features-page-admin-orders.webp)
+
+</details>
+
+<details><summary>Admin Order Single Page</summary>
+
+The single order page includes sections for order details, customer information, and shipment address. Admin have the ability to add, remove, or adjust the quantity of items within an order directly from this page. Additionally, admin can update the order status to canceled, completed, or processing.
+
+![Admin Order Single Page](./docs/features-page-admin-order.webp)
+
+</details>
+
+<details><summary>Admin Customers Page</summary>
+
+The customers page displays a list of all shop customers, including their names, email and created date.
+
+![Admin Customers Page](./docs/features-page-admin-customers.webp)
+
+</details>
+
+<details><summary>Admin Customer Single Page</summary>
+
+The single customer page provides options to update customer details or delete the customer profile. Deleting a customer will not remove their associated orders.
+
+![Admin Customer Single Page](./docs/features-page-admin-customer.webp)
+
+</details>
+
+<details><summary>Admin Products Page</summary>
+
+The Products page displays a list of all shop products, each accompanied by an image, price, category, and creation date. Admins can add new products using the 'Add Product' button.
+
+![Admin Products Page](./docs/features-page-admin-products.webp)
+
+</details>
+
+<details><summary>Admin Product Page</summary>
+
+The product page allows admins to update details or delete the product.
+
+![Admin Product Page](./docs/features-page-admin-product-update.webp)
+
+Confirmation message displayed when trying to delete a product.
+
+![Admin Product Page](./docs/features-page-admin-product-delete.webp)
+
+</details>
+
+<details><summary>Admin Add Product Page</summary>
+
+The Add Product page features a form where admins can input essential details to list a new product. Mandatory fields include the product name, SKU, price, and category. The slug is generated automatically from the product name if not provided manually. Description and image are optional but can be added to enhance the product listing.
+
+![Admin Add Product Page](./docs/features-page-admin-product-add.webp)
+
+</details>
+
+<details><summary>Admin Categories Page</summary>
+
+The categories page displays all available categories, with an option for the admin to add new category.
+
+![Admin Categories Page](./docs/features-page-admin-categories.webp)
+
+</details>
+
+<details><summary>Admin Add Category Page</summary>
+
+The category add page features a straightforward form for adding new categories.
+
+![Admin Add Category Page](./docs/features-page-admin-category-add.webp)
+
+</details>
+
+<details><summary>Admin Category Page</summary>
+
+On the category page, an admin can update or delete categories. However, categories assigned to products or the default category labeled "Uncategorized" cannot be deleted. Empty categories are the only ones eligible for deletion.
+
+![Admin Category Page](./docs/features-page-admin-category-update.webp)
+
+Confirmation message displayed when trying to delete a category.
+
+![Admin Category Page](./docs/features-page-admin-category-delete.webp)
+
+Error message displayed when trying to delete default category.
+
+![Admin Category Page](./docs/features-page-admin-category-delete-error-default.webp)
+
+Error message displayed when trying to delete a category that still has products.
+
+![Admin Category Page](./docs/features-page-admin-category-delete-error-not-empty.webp)
+
+</details>
+
+<details><summary>Admin Reviews Page</summary>
+
+The review management page enables the admin to filter and display reviews based on their status: pending, approved, rejected, or deleted. The admin can modify a review's status directly from this page.
+
+![Admin Reviews Page](./docs/features-page-admin-reviews.webp)
+
+Update review page.
+
+![Admin Review Page](./docs/features-page-admin-review-update.webp)
+
+</details>
 
 ### Django Administration
 
