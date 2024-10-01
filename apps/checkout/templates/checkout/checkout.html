@@ -41,9 +41,9 @@
               <div class="w-1/6">
                 <a href="{% url 'product' item.product.id %}">
                   {% if item.product.featured %}
-                    <img class="w-full" src="{{ item.product.featured.url }}" alt="{{ product.name }}" />
+                    <img class="w-full" src="{{ item.product.featured.url }}" alt="{{ item.product.name }}" />
                   {% else %}
-                    <img class="w-full" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" />
+                    <img class="w-full" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}" />
                   {% endif %}
                 </a>
               </div>
@@ -75,20 +75,20 @@
             {% csrf_token %}
             <fieldset>
               <legend class="text-sm">Details</legend>
-              {% render_field order_form.first_name show_label=False %}
-              {% render_field order_form.last_name show_label=False %}
-              {% render_field order_form.email show_label=False %}
-              {% render_field order_form.phone_number show_label=False %}
+              {% render_field order_form.first_name show_label=False aria_label='First Name' %}
+              {% render_field order_form.last_name show_label=False aria_label='Last Name' %}
+              {% render_field order_form.email show_label=False aria_label='Email' %}
+              {% render_field order_form.phone_number show_label=False aria_label='Phone Number' %}
             </fieldset>
 
             <fieldset class="w-full">
               <legend class="text-sm">Delivery</legend>
-              {% render_field order_form.country type='select' class='md:max-w-72' show_label=False %}
-              {% render_field order_form.postcode show_label=False %}
-              {% render_field order_form.town_city show_label=False %}
-              {% render_field order_form.address_line_1 show_label=False %}
-              {% render_field order_form.address_line_2 show_label=False %}
-              {% render_field order_form.county show_label=False %}
+              {% render_field order_form.country type='select' class='md:max-w-72' show_label=False aria_label='Country' %}
+              {% render_field order_form.postcode show_label=False aria_label='Postcode' %}
+              {% render_field order_form.town_city show_label=False aria_label='Town or City' %}
+              {% render_field order_form.address_line_1 show_label=False aria_label='Address Line 1' %}
+              {% render_field order_form.address_line_2 show_label=False aria_label='Address Line 2' %}
+              {% render_field order_form.county show_label=False aria_label='County' %}
             </fieldset>
 
             <fieldset>
