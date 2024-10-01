@@ -918,6 +918,55 @@ These commands will create the example content.
 
 ### Responsive Design Tests
 
+These tests are manually conducted using the Chrome browser's Toggle Device Toolbar to ensure the page elements properly adjust across various device presets.
+
+Test Setup for Responsiveness
+
+1. Open the home page on Chrome.
+2. Activate the Toggle Device Toolbar.
+3. Cycle through each device preset to check the page's responsiveness.
+
+**What Does "Pass" Mean?** For a page to pass the responsiveness test, it must meet the following criteria:
+
+- Text remains legible and appropriately sized for all devices.
+- All interactive elements are accessible and functional.
+- Content fits within the viewport without horizontal scrolling.
+- The page adjusts smoothly across different screen resolutions.
+
+| Page | Desktop/Laptops | Tablets/Smartphones |
+| --- | --- | --- |
+| [Home](https://moodscape-3f1dfd651cc4.herokuapp.com/) | pass | pass |
+| [About](https://moodscape-3f1dfd651cc4.herokuapp.com/about/) | pass | pass |
+| [Contact](https://moodscape-3f1dfd651cc4.herokuapp.com/contact/) | pass | pass |
+| [Contact Success](https://moodscape-3f1dfd651cc4.herokuapp.com/contact/success/) | pass | pass |
+| [Shop](https://moodscape-3f1dfd651cc4.herokuapp.com/contact/shop/) | pass | pass |
+| [Product](https://moodscape-3f1dfd651cc4.herokuapp.com/product/irish-seascape-watercolor-painting/) | pass | pass |
+| [Bag](https://moodscape-3f1dfd651cc4.herokuapp.com/bag/) | pass | pass |
+| [Checkout](https://moodscape-3f1dfd651cc4.herokuapp.com/checkout/) | pass | pass |
+| [Privacy Policy](https://moodscape-3f1dfd651cc4.herokuapp.com/privacy-policy/) | pass | pass |
+| [Terms and Conditions](https://moodscape-3f1dfd651cc4.herokuapp.com/terms-and-conditions/) | pass | pass |
+| [FAQ](https://moodscape-3f1dfd651cc4.herokuapp.com/faq/) | pass | pass |
+| **Account Pages** |  |  |
+| Orders | pass | pass |
+| Order | pass | pass |
+| Reviews | pass | pass |
+| Review | pass | pass |
+| Profile | pass | pass |
+| Account | pass | pass |
+| **Admin Pages** |  |  |
+| Orders | pass | pass |
+| Order | pass | pass |
+| Customers | pass | pass |
+| Customer | pass | pass |
+| Products | pass | pass |
+| Add Product | pass | pass |
+| Update Product | pass | pass |
+| Categories | pass | pass |
+| Add Category | pass | pass |
+| Update Category | pass | pass |
+| Reviews | pass | pass |
+| Review | pass | pass |
+
 ### Google PageSpeed Insights Tests
 
 ### HTML Validation and Accessibility Testing
