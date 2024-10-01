@@ -922,6 +922,11 @@ These commands will create the example content.
 
 ### HTML Validation and Accessibility Testing
 
+| Tested Page | Accesibility (WAVE) | Contrast (WAVE) | W3C HTML | Comments |
+| --- | --- | --- | --- | --- |
+| [Home](https://moodscape-3f1dfd651cc4.herokuapp.com/) | No Errors | No Contrast Errors | [No Errors](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmoodscape-3f1dfd651cc4.herokuapp.com%2F) |  |
+| [Home](https://moodscape-3f1dfd651cc4.herokuapp.com/) | No Errors | No Contrast Errors | [No Errors](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmoodscape-3f1dfd651cc4.herokuapp.com%2F) |  |
+
 ### Testing User Pages
 
 ### CSS Validation

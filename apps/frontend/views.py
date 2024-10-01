@@ -223,7 +223,7 @@ def newsletter_subscribe(request):
     if request.method == 'POST':
         form = NewsletterForm(request.POST)
         if form.is_valid():
-            email = form.cleaned_data['email']
+            email = form.cleaned_data['subscriber_email']
             form_id = '7110513'
             api_key = 'lJ2VYug5Dns_a4kWThvbWg'
             try:
