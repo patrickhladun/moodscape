@@ -26,7 +26,7 @@
     <li class="odd:bg-neutral-100 group" role="listitem">
         <a href="{% url 'cms_review_update' review.id %}" class="flex gap-4 p-2 group-hover:bg-blue-500 group-hover:text-white transition">
           <img src="{{ review.product.featured.url }}" alt="{{ review.product.name }}" class="w-16 h-16">
-          {% include 'review/partials/review.html' %}
+          {% include 'review/partials/review.html' with variant="cms" %}
         </a>
       </li>
     {% endfor %}
