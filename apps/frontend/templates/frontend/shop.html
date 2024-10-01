@@ -7,7 +7,7 @@
   <!-- Page Title -->
   {% include 'partials/page_title.html' with title="Shop" %}
   
-  <section class="container py-rg md:grid md:grid-cols-12 gap-4">
+  <div class="container py-rg md:grid md:grid-cols-12 gap-4">
     <!-- Sidebar -->
     <aside class="col-span-3">
       <!-- Search Form -->
@@ -36,8 +36,8 @@
           <li class="list-select {% if current_category == 'photographs' %}active{% endif %}">
             <a href="{% url 'shop' %}?category=photographs">Photographs</a>
           </li>
-          <li class="list-select {% if current_category == 'pen-plotter' %}active{% endif %}">
-            <a href="{% url 'shop' %}?category=pen-plotter">Pen Plotter</a>
+          <li class="list-select {% if current_category == 'plotter' %}active{% endif %}">
+            <a href="{% url 'shop' %}?category=plotter">Pen Plotter</a>
           </li>
         </ul>
         {% endwith %}
@@ -81,14 +81,14 @@
             </a>
             <div class="flex flex-col">
               {% if product.category %}
-                <a href="{% url 'shop' %}?category={{ product.category|lower }}" class="uppercase text-xs py-2 font-bold text-neutral-400 hover:text-neutral-600 transition duration-300 ease-in-out">{{ product.category }}</a>
+                <a href="{% url 'shop' %}?category={{ product.category.slug }}" class="uppercase text-xs py-2 font-bold text-neutral-400 hover:text-neutral-600 transition duration-300 ease-in-out">{{ product.category }}</a>
               {% endif %}
               <a href="{% url 'product' product.slug %}" class="truncate">{{ product.name }}</a>
               <div class="flex justify-between items-center pt-2">
                 <p class="m-0">{{config.CURRENCY_SYMBOL}}{{ product.price }}</p>
                 <form action="{% url 'add_to_bag' product.id %}" method="POST">
                   {% csrf_token %}
-                  <input type="hidden" name="quantity" value="1" min="1" max="{{ product.stock }}">
+                  <input type="hidden" name="quantity" value="1">
                   <input type="hidden" name="redirect_url" value="{{ request.path }}">
                   <button type="submit" class="bg-blue-600 hover:bg-blue-800 p-1 rounded-lg w-8 h-8 flex justify-center items-center transition duration-300 ease-in-out">{% icon 'icon-cart' 'md' 'fill-white w-5 h-5' %}</button>
                 </form>
@@ -102,6 +102,6 @@
         {% endif %}
       </section>
     </main>
-  </section>
+  </div>
 
 {% endblock %}
