@@ -86,9 +86,9 @@ def test_superuser():
 def test_data_categories():
     category_1 = CategoryFactory(
         id=1,
-        name="Undefined",
-        slug="undefined",
-        description="Undefined category"
+        name="Uncategorized",
+        slug="uncategorized",
+        description="Uncategorized category"
     )
     category_2 = CategoryFactory(
         id=2,
