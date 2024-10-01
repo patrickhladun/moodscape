@@ -739,15 +739,42 @@ Update review page.
 
 ### Languages and Libraries
 
+- HTML
+- CSS, SCSS
+- Tailwind
+- JavaScript
+- Python
+- Django
+
 ### Version Control and Collaboration
+
+- Git, Git Flow, GitHub, and GitKraken - used for managing source code and collaboration
+- AWS Bucket - used for storing static and media files
+- VSCode - for code editing and development
 
 ### Tooling
 
+- Gulp - used for building CSS
+- Pytest - used for automated testing
+- Cypress - used for end-to-end testing to ensure the entire user experience functions correctly.
+
 ### Design Tools
+
+- Figma - used for wireframing and mockups
+- Adobe Illustrator - used for designing logos and icons
+- Adobe Photoshop - used to edit product images.
+- DB Diagram - used for database design
 
 ### Testing and Validation
 
+- W3C HTML Validator - For validating the HTML structure of each page.
+- W3C CSS Validator - For validating the CSS.
+- Web Accessibility Evaluation tool WAVE - For detecting and fixing accessibility issues.
+- Google PageSpeed - For perfomance testing
+
 ### Other
+
+- ChatGPT, Gemini - Used for content creation, and fixutes.
 
 ## Development and Deployment
 
