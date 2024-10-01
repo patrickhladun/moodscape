@@ -780,23 +780,137 @@ Update review page.
 
 ### Cloning the project
 
+1. Install Git: If you haven't already installed Git on your computer, download and install it from the Git website. Follow the installation instructions for your operating system.
+2. Create project folder `mkdir moodscape`
+3. Change to the project directory `cd moodscape`
+4. Clone the repository `git clone https://github.com/patrickhladun/moodscape.git .`
+
 ### Environment Settings
+
+Moodscape uses two environments: Development and Production. To keep the configuration simple and straightforward, I have split the settings into two separate files, one for each environment. This ensures that each environment's specific settings are easily manageable and distinct from one another.
 
 #### Development
 
-#### Staging and Production
+For local development, Django uses SQLite3 for simplicity and ease of setup. The development settings are optimized for debugging and rapid iteration.
+
+#### Production
+
+Production environment use Heroku with the Gunicorn server, PostgreSQL as the database, and AWS for storing static and media files. For sending emails, the project uses Gmail's SMTP server.
 
 #### Environment Variables Template
 
+Here is the template for environment variables that need to be set for server deployment:
+
+```
+ENVIRONMENT: Specifies the current environment (e.g., development, production).
+SECRET_KEY: A key used for cryptographic signing, essential for Django security.
+DATABASE_URL: Connection string for the database.
+WEBSITE: The URL of the website for linking back or other purposes.
+GMAIL_EMAIL: Email address used for sending emails from the application.
+GMAIL_PASS: Password for the Gmail account used in email sending.
+STRIPE_PUBLIC_KEY: Public key for Stripe API, used for handling payments.
+STRIPE_SECRET_KEY: Secret key for Stripe API, used for handling payments securely.
+CK_KEY: ConvertKit API key for integrating email marketing services.
+CK_SECRET: ConvertKit secret key for secure access to API services.
+AWS_ACCESS_KEY_ID: AWS credentials for accessing AWS services.
+AWS_SECRET_ACCESS_KEY: Secret access key for secure communication with AWS services.
+CY_CMS_EMAIL: Admin Email for Cypress testing.
+CY_CMS_PASS: Admin Password for Cypress testing.
+CY_ACCOUNT_EMAIL: Customer Email for Cypress testing.
+CY_ACCOUNT_PASS: Customer Password for Cypress testing.
+```
+
 ### Local Development
+
+To run the project locally for development, follow these steps:
+
+1. **Set Up the Database:**
+
+   The project is set to use SQLite3 locally. Run the following command to create the database:
+
+   ```
+   python manage.py migrate
+   ```
+
+2. **Run the Project Locally:**
+
+   Start the Django development server:
+
+   ```
+   python manage.py runserver
+   ```
+
+3. **Edit Styling and JavaScript:**
+
+   First, install the required npm packages:
+
+   ```
+   npm install
+   ```
+
+   Make sure your Django server is running at `127.0.0.1:8000`. Then, start Gulp to enable live reloading:
+
+   ```
+   gulp
+   ```
+
+   Gulp will proxy `127.0.0.1:8000` to `localhost:3000`. This setup allows for immediate page reloads and style updates whenever source files change.
 
 ### Deployment on Heroku
 
+To deploy Remote Forge on Heroku, follow these steps:
+
+1. Create a Heroku Account: at [sign up here](https://signup.heroku.com/).
+
+2. Create a New App:
+
+   - Once logged in, click on "Create New App."
+   - Enter a unique app name and select the region closest to your users.
+
+3. Select Buildpacks:
+
+   - Add `nodejs` and `python` as the buildpacks in the "Settings" tab.
+
+4. Configure Environment Variables:
+
+   - In the "Settings" tab, click on "Reveal Config Vars."
+   - Input all the required environment variables
+
+5. Connect to GitHub and Deploy:
+   - In the "Deploy" tab, select "GitHub" as the deployment method.
+   - Connect your GitHub account and find the desired repository.
+   - Enable automatic deploys and select the main branch.
+   - click "Deploy Branch."
+
+Your app should now be deployed and accessible on Heroku.
+
 ### Load Example Content
+
+To start developing the site with example content, you can load predefined Users, Products, Categories, Customers and Reviews. Follow these steps to set up your database and load the example content.
 
 #### Load Fixtures Locally
 
-#### Load Example Content for Staging Site
+1. Ensure the database is created:<br> Run the following commands to create and set up the database:
+
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+
+2. Load example content:<br> Run these commands in order to load the example content:
+
+```
+python manage.py loaddata fixtures/user.superuser.json
+python manage.py loaddata fixtures/user.accounts.json
+python manage.py loaddata fixtures/product.categories.json
+python manage.py loaddata fixtures/product.watercolors.json
+python manage.py loaddata fixtures/product.plotter.json
+python manage.py loaddata fixtures/product.photographs.json
+python manage.py loaddata fixtures/order.order.json
+python manage.py loaddata fixtures/product.reviews.json
+```
+
+These commands will create the example content.
 
 ## Manual testing
 
