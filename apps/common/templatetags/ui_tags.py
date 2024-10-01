@@ -62,10 +62,20 @@ def render_field(field, **kwargs):
 
     classes = f"field field__{type} {class_name}".strip()
 
+    # Prepare additional attributes string for the div container
     additional_attrs = ""
+    # Prepare aria attributes specifically for the field
+    aria_attrs = {}
     for key, value in kwargs.items():
-        if key not in ['type', 'class', 'id', 'cy', 'show_label']:
+        if key.startswith('aria_'):
+            # Properly format key for HTML (replace underscores with hyphens)
+            aria_key = key.replace('_', '-')
+            aria_attrs[aria_key] = value
+        elif key not in ['type', 'class', 'id', 'cy', 'show_label', 'aria_label', 'aria_describedby']:
             additional_attrs += f' {key}="{value}"'
+
+    # Set ARIA attributes on the field widget
+    field.field.widget.attrs.update(aria_attrs)
 
     label_html = field.label_tag() if show_label else ''
     
