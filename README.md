@@ -967,7 +967,44 @@ Test Setup for Responsiveness
 | Reviews | pass | pass |
 | Review | pass | pass |
 
-### Google PageSpeed Insights Tests
+### Lighthouse Tests
+
+I conducted Lighthouse tests on all pages, including front-end, admin, and customer areas, using Chrome's incognito mode. Each page was evaluated for: Performance, Accessibility, Best Practices, and SEO.
+
+| Page              | Desktop         | Mobile         |
+| ----------------- | --------------- | -------------- |
+| Home              | 99,95,100,100   | 83,95,100,100  |
+| About             | 100,100,100,100 | 89,100,100,100 |
+| Contact           | 100,100,100,100 | 89,100,100,100 |
+| Contact Success   | 100,98,100,66   | 87,100,100,66  |
+| Shop              | 98,94,100,100   | 73,94,100,100  |
+| Product           | 100,100,100,100 | 89,100,100,100 |
+| Cart              | 100,98,100,100  | 89,98,100,100  |
+| Checkout          | 98,95,100,100   | 89,98,100,100  |
+|                   |                 |                |
+| **Account Pages** |                 |                |
+|                   |                 |                |
+| Orders            | 100,100,100,100 | 89,98,100,100  |
+| Order             | 100,100,100,100 | 87,100,100,100 |
+| Reviews           | 100,96,100,100  | 91,94,100,100  |
+| Review            | 100,100,96,100  | 89,98,100,100  |
+| Profile           | 100,100,100,100 | 87,98,100,100  |
+| Account           | 100,100,100,100 | 89,98,100,100  |
+|                   |                 |                |
+| **Admin Pages**   |                 |                |
+|                   |                 |                |
+| Orders            | 99,100,100,100  | 87,98,100,100  |
+| Order             | 100,95,100,100  | 85,93,100,100  |
+| Customers         | 99,100,100,100  | 87,98,100,100  |
+| Customer          | 100,100,100,100 | 87,98,100,100  |
+| Products          | 98,100,100,100  | 75,98,100,100  |
+| Product           | 97,96,81,100    | 75,98,100,100  |
+| Add Products      | 97,96,81,100    | 71,96,82,100   |
+| Categories        | 100,100,100,100 | 87,98,100,100  |
+| Category          | 99,100,100,100  | 85,100,100,100 |
+| Add Category      | 100,100,100,100 | 87,100,100,100 |
+| Reviews           | 100,96,100,100  | 87,97,100,100  |
+| Review            | 99,96,100,100   | 88,94,100,100  |
 
 ### HTML Validation and Accessibility Testing
 
@@ -987,14 +1024,18 @@ This section details the manual tests for HTML validation and accessibility. Tes
 | [Terms and Conditions](https://moodscape-3f1dfd651cc4.herokuapp.com/terms-and-conditions/) | No Errors | No Contrast Errors | [No Errors](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmoodscape-3f1dfd651cc4.herokuapp.com%2Fterms-and-conditions%2F) |  |
 | [FAQ](https://moodscape-3f1dfd651cc4.herokuapp.com/faq/) | No Errors | No Contrast Errors | [No Errors](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmoodscape-3f1dfd651cc4.herokuapp.com%2Ffaq%2F) |  |
 | [Newsletter Success](https://moodscape-3f1dfd651cc4.herokuapp.com/newsletter/success/) | No Errors | No Contrast Errors | [No Errors](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmoodscape-3f1dfd651cc4.herokuapp.com%2Fnewsletter%2Fsuccess%2F) |  |
+|  |  |  |  |  |
 | **Account Pages** |  |  |  |  |
+|  |  |  |  |  |
 | Account - Orders | No Errors | No Contrast Errors | No Errors |  |
 | Account - Order | No Errors | No Contrast Errors | No Errors |  |
 | Account - Reviews | No Errors | No Contrast Errors | No Errors |  |
 | Account - Review | No Errors | No Contrast Errors | No Errors |  |
 | Account - Profile | No Errors | No Contrast Errors | No Errors |  |
 | Account - Account | No Errors | No Contrast Errors | No Errors |  |
+|  |  |  |  |  |
 | **Admin Pages** |  |  |  |  |
+|  |  |  |  |  |
 | Admin - Orders | No Errors | No Contrast Errors | No Errors |  |
 | Admin - Order | No Errors | No Contrast Errors | No Errors |  |
 | Admin - Customers | No Errors | No Contrast Errors | No Errors |  |
