@@ -1,7 +1,13 @@
-describe("Check all images have alt tags", () => {
+import "cypress-axe";
 
+describe("About Page UI and Accessibility Tests", () => {
   beforeEach(() => {
     cy.visit("/about/");
+  });
+
+  it("has no a11y violations", () => {
+    cy.injectAxe();
+    cy.checkA11y();
   });
 
   it("should ensure all img elements have non-empty alt attributes", () => {

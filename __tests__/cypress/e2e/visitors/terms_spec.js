@@ -1,6 +1,13 @@
-describe("Privacy Page", () => {
-  before(() => {
+import "cypress-axe";
+
+describe("Terms and Conditions Page UI and Accessibility Tests", () => {
+  beforeEach(() => {
     cy.visit("/terms-and-conditions/");
+  });
+
+  it("has no a11y violations", () => {
+    cy.injectAxe();
+    cy.checkA11y();
   });
 
   it("should have the correct headers", () => {

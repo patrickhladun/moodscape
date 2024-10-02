@@ -1,7 +1,7 @@
 import "cypress-axe";
 import devices from "../../support/devices";
 
-describe("UI and Accessibility Tests for the Home Page", () => {
+describe("Home Page UI and Accessibility Tests", () => {
   beforeEach(() => {
     cy.visit("/");
   });

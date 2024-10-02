@@ -1,6 +1,13 @@
-describe("Forms and Input Fields", () => {
+import "cypress-axe";
+
+describe("Contact Page UI and Accessibility Tests", () => {
   beforeEach(() => {
     cy.visit("/contact/");
+  });
+
+  it("has no a11y violations", () => {
+    cy.injectAxe();
+    cy.checkA11y();
   });
 
   it.skip("should submit the contact form", () => {
@@ -54,5 +61,33 @@ describe("Forms and Input Fields", () => {
     cy.get('textarea[name="message"]').then(($input) => {
       expect($input[0].validationMessage).to.eq("Please fill out this field.");
     });
+  });
+
+  it("should open the Facebook profile", () => {
+    cy.get('a[aria-label="Link to Facebook Profile"]')
+      .should(
+        "have.attr",
+        "href",
+        "https://www.facebook.com/people/Moodscape/61566307404663/"
+      )
+      .and("have.attr", "target", "_blank");
+  });
+
+  it("should open the Instagram profile", () => {
+    cy.get('a[aria-label="Link to Instagram Profile"]')
+      .should("have.attr", "href", "https://www.instagram.com/")
+      .and("have.attr", "target", "_blank");
+  });
+
+  it("should open the Twitter profile", () => {
+    cy.get('a[aria-label="Link to Twitter Profile"]')
+      .should("have.attr", "href", "https://www.twitter.com/")
+      .and("have.attr", "target", "_blank");
+  });
+
+  it("should open the LinkedIn profile", () => {
+    cy.get('a[aria-label="Link to LinkedIn Profile"]')
+      .should("have.attr", "href", "https://www.linkedin.com/")
+      .and("have.attr", "target", "_blank");
   });
 });
