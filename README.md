@@ -1057,7 +1057,7 @@ The CSS for my project was validated using the W3C CSS Validation Service online
 
 ### JavaScript Validation
 
-## Automated testing with Pytest
+## Automated testing with Pytest and Cypress
 
 ### Running Pytest
 
@@ -1076,6 +1076,39 @@ pip install pytest
 ```sh
 pytest -rP -v
 ```
+
+### Cypress tests
+
+<details><summary>UI and Accessibility Tests for the Home Page</summary>
+
+| test | result |
+| --- | --- |
+| should have no detectable accessibility violations on load | Pass |
+| should ensure all image elements have descriptive 'alt' attributes | Pass |
+| should redirect to the shop page when the browse button is clicked | Pass |
+| should redirect to the relevant ${category} category page when its link is clicked | Pass |
+| should navigate correctly to each featured product | Pass |
+| should be visible on iPhone 12 Pro Max / iPhone 12 screensize | Pass |
+| should be visible on iPhone 12 Pro / iPhone 11 / iPhone XR screensize | Pass |
+| should be visible on iPhone XR / iPhone XS Max screensize | Pass |
+| should be visible on iPhone XS / iPhone X screensize | Pass |
+| should be visible on iPhone 8 Plus / iPhone 7 Plus / iPhone 6 Plus / 6S Plus screensize | Pass |
+| should be visible on iPhone 8 / iPhone 7 / iPhone 6 / 6S screensize | Pass |
+| should be visible on iPhone 5 / iPod Touch screensize | Pass |
+| should be visible on iPad Pro screensize | Pass |
+| should be visible on iPad Third & Fourth Generation / iPad Air 1 & 2 / iPad Mini 2 & 3 / iPad Mini screensize | Pass |
+| should be visible on Nexus 6P / Google Pixel 2 XL / Google Pixel XL / Samsung Galaxy S7 Edge screensize | Pass |
+| should be visible on Google Pixel 3 XL screensize | Pass |
+| should be visible on Google Pixel 3 screensize | Pass |
+| should be visible on Samsung Galaxy Note 9 / Samsung Galaxy S9+ / Samsung Galaxy S9 / Samsung Galaxy S8+ / Samsung Galaxy S8 screensize | Pass |
+| should be visible on Samsung Galaxy Note 5 / LG G5 / One Plus 3 screensize | Pass |
+| should be visible on Samsung Galaxy S7 screensize | Pass |
+| should be visible on Nexus 9 screensize | Pass |
+| should be visible on Nexus 7 (2013) screensize | Pass |
+| should be visible on Samsung Galaxy Tab 10 screensize | Pass |
+| should be visible on Chromebook Pixel screensize | Pass |
+
+</details>
 
 ### Running Cypress Tests
 
