@@ -44,7 +44,12 @@
           </div>
           <h2 class="h4">Details</h2>
           <div>{{ product.details|safe }}</div>
-          <button type="submit" class="button button__primary">Add to Cart</button>
+          <form class="mt-8" action="{% url 'add_to_bag' product.id %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="quantity" value="1" />
+            <input type="hidden" name="redirect_url" value="{{ request.path }}" />
+            <button type="submit" class="button button__primary">Add to Cart</button>
+          </form>
         </div>
       </div>
     </section>
