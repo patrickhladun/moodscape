@@ -9,7 +9,7 @@
         <a href="{% url 'bag' %}" aria-label="Link to Cart" data-cy="bag-link">
           {% icon 'icon-bag' 'lg' 'fill-blue-800' %}
           {% if product_count %}
-            <span class="absolute inline-block font-mono font-medium text-white bg-blue-600 w-5 h-5 p-[8px] bottom-0 right-0 flex items-center justify-center rounded-full text-xs">{{ product_count }}</span>
+            <span class="absolute inline-block font-mono font-medium text-white bg-blue-600 w-5 h-5 p-[8px] bottom-0 right-0 flex items-center justify-center rounded-full text-xs" data-cy="bag-link-count">{{ product_count }}</span>
           {% endif %}
         </a>
       </div>

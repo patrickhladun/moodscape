@@ -19,7 +19,7 @@
       </div>
     </section>
 
-    <section class="container py-rg">
+    <section class="container py-rg" data-cy="bag-items-list">
       {% if bag_items %}
         {% for item in bag_items %}
           <div class="flex items-center p-4 my-4 gap-4 bg-neutral-100">
@@ -64,7 +64,7 @@
               <button class="button button__outline-danger" type="submit" name="empty_bag">Empty Bag</button>
             </form>
           </div>
-          <span>Total: {{ config.CURRENCY_SYMBOL }}{{ total }}</span>
+          <span data-cy="price-total">Total: {{ config.CURRENCY_SYMBOL }}{{ total }}</span>
         </div>
       {% else %}
         <p>Your bag is empty.</p>

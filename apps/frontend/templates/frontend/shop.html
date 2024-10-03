@@ -90,7 +90,7 @@
                   {% csrf_token %}
                   <input type="hidden" name="quantity" value="1">
                   <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                  <button type="submit" class="bg-blue-600 hover:bg-blue-800 p-1 rounded-lg w-8 h-8 flex justify-center items-center transition duration-300 ease-in-out" aria-label="Add to Bag">{% icon 'icon-cart' 'md' 'fill-white w-5 h-5' %}</button>
+                  <button type="submit" class="bg-blue-600 hover:bg-blue-800 p-1 rounded-lg w-8 h-8 flex justify-center items-center transition duration-300 ease-in-out" data-cy="product-{{product.slug}}" aria-label="Add to Bag">{% icon 'icon-cart' 'md' 'fill-white w-5 h-5' %}</button>
                 </form>
               </div>
               

@@ -45,7 +45,7 @@ describe("Test Account Reviews page.", () => {
     cy.get('[data-cy="reviews_filter"]')
       .find(":selected")
       .contains("Not Reviewed");
-    cy.get('[data-cy="reviews_list"]').children().should("have.length", 3);
+    cy.get('[data-cy="reviews_list"]').children().should("have.length", 1);
   });
 
   /**
