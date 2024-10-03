@@ -1,16 +1,7 @@
-/**
- * This test suite assesses the functional aspects of the Orders page within
- * the user's account section.
- */
-describe("Test Account Orders page.", () => {
+describe("Test Account Orders page functionality.", () => {
   const username = Cypress.env("account_username");
   const password = Cypress.env("account_password");
 
-  /**
-   * Before each test, the environment is prepared by clearing stored data and
-   * authenticating the user. This ensures a clean state and a consistent
-   * starting point for each test.
-   */
   beforeEach(() => {
     cy.clearLocalStorage("bluelibs-token");
     cy.clearLocalStorage();
@@ -25,12 +16,7 @@ describe("Test Account Orders page.", () => {
     });
   });
 
-  /**
-   * Confirms the user can navigate to the Orders page and perform an action,
-   * such as selecting an order. This test simulates user interaction to
-   * verify that the page's dynamic elements are functioning correctly.
-   */
-  it("should navigate to order page", () => {
+  it("should navigate to orders page", () => {
     cy.visit("/account/orders/");
     cy.get("ul[role=list]").within(() => {
       cy.get("li[role='listitem']:first-child ").click();

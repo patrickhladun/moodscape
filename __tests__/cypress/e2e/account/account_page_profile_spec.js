@@ -1,16 +1,7 @@
-/**
- * A suite of tests for verifying functionality on the Account Profile page.
- * This suite tests the ability of a logged-in user to navigate to the profile page
- * and update various personal information fields, ensuring that changes are correctly saved and persisted.
- */
-describe("Test Account user login and pages navigation.", () => {
+describe("Test Account profile page functionality.", () => {
   const username = Cypress.env("account_username");
   const password = Cypress.env("account_password");
 
-  /**
-   * Ensures a clean state by clearing relevant storage and cookies,
-   * then logs in the user before each test.
-   */
   beforeEach(() => {
     cy.clearLocalStorage("bluelibs-token");
     cy.clearLocalStorage();
@@ -25,9 +16,6 @@ describe("Test Account user login and pages navigation.", () => {
     });
   });
 
-  /**
-   * Verifies that the user can navigate to the profile page and the URL is as expected.
-   */
   it("should navigate to order page", () => {
     cy.visit("/account/profile/");
     cy.url().should("eq", Cypress.config().baseUrl + "/account/profile/");

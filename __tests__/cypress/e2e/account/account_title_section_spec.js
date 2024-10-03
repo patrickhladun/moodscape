@@ -1,15 +1,7 @@
-/**
- * This test suite validates the presence and correctness of the title sections
- * across various account-related pages after a user logs in.
- */
 describe("Check title section for account pages.", () => {
   const username = Cypress.env("account_username");
   const password = Cypress.env("account_password");
 
-  /**
-   * Checks if the page title section contains the correct text based on the
-   * provided page name.
-   */
   function checkPageTitleSection(pageName) {
     cy.get("section.md\\:hidden.bg-neutral-100")
       .should("exist")
@@ -22,11 +14,6 @@ describe("Check title section for account pages.", () => {
       });
   }
 
-  /**
-   * Clears all relevant local storage and cookies before each test, then logs
-   * in the user, ensuring each test starts from an authenticated state with a
-   * clean slate.
-   */
   beforeEach(() => {
     cy.clearLocalStorage("bluelibs-token");
     cy.clearLocalStorage();
@@ -41,7 +28,6 @@ describe("Check title section for account pages.", () => {
     });
   });
 
-  // Test cases for each account-related page to verify their respective title sections.
   it("orders page should contain correct page title", () => {
     cy.visit("/account/orders/");
     checkPageTitleSection("Orders");
