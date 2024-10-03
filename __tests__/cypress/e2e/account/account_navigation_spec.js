@@ -12,7 +12,7 @@ describe("Test Account user login and pages navigation.", () => {
    */
   function checkPageLinks(expectedUrl, pageName) {
     cy.get(
-      `a.admin-nav-item[href="${expectedUrl}"][aria-label="Link to ${pageName}"]`
+      `a.account-nav-item[href="${expectedUrl}"][aria-label="Link to ${pageName}"]`
     )
       .should("contain", pageName)
       .click();
