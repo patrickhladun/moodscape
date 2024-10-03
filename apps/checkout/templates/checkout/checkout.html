@@ -27,7 +27,7 @@
 
       {% if not user.is_authenticated %}
         <div class="form-check-label mb-sm" for="id-save-info">
-          <a class="text-info text-blue-600 underline" href="{% url 'account_login' %}?next={% url 'checkout' %}">Login</a> to use your saved information.
+          <a class="text-info text-blue-600 underline" href="{% url 'account_login' %}?next={% url 'checkout' %}" data-cy="checkout-login">Login</a> to use your saved information.
         </div>
       {% endif %}
     </section>
@@ -38,7 +38,7 @@
           <p class="text-muted">Order Summary ({{ product_count }})</p>
           {% for item in bag_items %}
             <div class="flex gap-4 mb-4">
-              <div class="w-1/6">
+              <div class="w-1/6" data-cy="checkout-summary-items-list">
                 <a href="{% url 'product' item.product.id %}">
                   {% if item.product.featured %}
                     <img class="w-full" src="{{ item.product.featured.url }}" alt="{{ item.product.name }}" />
@@ -60,7 +60,7 @@
           {% endfor %}
           <div class="text-right">
             <div class="bg-neutral-100 p-4">
-              <p class="m-0">Order Total: {{ config.CURRENCY_SYMBOL }}{{ total|floatformat:2 }}</p>
+              <p class="m-0" data-cy="checkout-summary-order-total">Order Total: {{ config.CURRENCY_SYMBOL }}{{ total|floatformat:2 }}</p>
               {% if delivery == 0 %}
                 <p class="m-0">Delivery: Free</p>
               {% else %}
@@ -118,7 +118,7 @@
               <div id="card-errors" role="alert"></div>
             </fieldset>
             <div class="py-4">
-              <button id="submit-button" class="button button__primary" type="submit">Complete Order</button>
+              <button id="submit-button" class="button button__primary" type="submit" data-cy="complete-order">Complete Order</button>
             </div>
           </form>
         </section>

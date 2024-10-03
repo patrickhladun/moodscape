@@ -31,7 +31,7 @@
     "pk": 1,
     "fields": {
       "user": 2,
-      "first_name": "Seán",
+      "first_name": "Sean",
       "last_name": "O'Connor",
       "phone_number": "+353 87 123 4567",
       "country": "IE",
