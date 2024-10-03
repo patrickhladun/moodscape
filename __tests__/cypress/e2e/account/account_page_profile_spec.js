@@ -20,7 +20,7 @@ describe("Test Account user login and pages navigation.", () => {
       cy.get('input[name="login"]').type(username);
       cy.get('input[name="password"]').type(password);
       cy.get('form[action="/account/login/"]').submit();
-      cy.get("h1").should("contain", "Great art in one place");
+      cy.get("h1").should("contain", "Where Art Meets Soul");
       cy.get("#desktopMenu").should("contain", "Sign Out");
     });
   });

@@ -14,7 +14,7 @@ describe("Django Login Test with .env Variables", () => {
         .click()
         .type(Cypress.env("password"));
       cy.get('form[action="/account/login/"]').submit();
-      cy.get("h1").should("contain", "Great art in one place");
+      cy.get("h1").should("contain", "Where Art Meets Soul");
       cy.get("#desktopMenu").should("contain", "Sign Out");
     });
   });
@@ -28,7 +28,7 @@ describe("Django Login Test with .env Variables", () => {
     cy.visit("/account/logout/");
     cy.get("h1").should("contain", "Sign Out");
     cy.get('form[action="/account/logout/"]').submit();
-    cy.get("h1").should("contain", "Great art in one place");
+    cy.get("h1").should("contain", "Where Art Meets Soul");
     cy.get("#desktopMenu").should("contain", "Sign In");
   });
 });
