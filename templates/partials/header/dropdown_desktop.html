@@ -18,7 +18,7 @@
     </div>
   {% else %}
     <div class="py-2">
-      <a href="{% url 'account_login' %}" class="flex items-center gap-2 px-4 py-2 text-sm text-neutral-100 rounded-lg bg-blue-600 hover:bg-blue-800 transition duration-300 easy-in-out" aria-label="Link to Sign In">{% icon 'icon-login' 'sm' 'fill-neutral-100' %}Sign In</a>
+      <a href="{% url 'account_login' %}" class="flex items-center gap-2 px-4 py-2 text-sm text-neutral-100 rounded-lg bg-blue-600 hover:bg-blue-800 transition duration-300 easy-in-out" aria-label="Link to Sign In" data-cy="button-sign-in">{% icon 'icon-login' 'sm' 'fill-neutral-100' %}Sign In</a>
     </div>
   {% endif %}
 </div>

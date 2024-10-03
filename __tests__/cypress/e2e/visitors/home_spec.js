@@ -1,5 +1,5 @@
 import "cypress-axe";
-import devices from "../../support/devices";
+import { smallDevices, largeDevices, breakpoints } from "../../support/devices";
 
 describe("Home Page UI and Accessibility Tests", () => {
   beforeEach(() => {
@@ -44,7 +44,16 @@ describe("Home Page UI and Accessibility Tests", () => {
       });
   });
 
-  devices.forEach((device) => {
+  smallDevices.forEach((device) => {
+    it(`should be visible on ${device.name} screensize`, () => {
+      cy.viewport(device.width, device.height);
+      cy.visit("/");
+      cy.wait(200);
+      cy.get("[data-cy=button-browse]").isWithinViewport();
+    });
+  });
+
+  largeDevices.forEach((device) => {
     it(`should be visible on ${device.name} screensize`, () => {
       cy.viewport(device.width, device.height);
       cy.visit("/");

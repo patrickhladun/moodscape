@@ -1,4 +1,3 @@
-// 40 devices
 const devices = [
   // Apple Devices
   { name: "iPhone 12 Pro Max / iPhone 12", width: 428, height: 926 },
@@ -46,4 +45,15 @@ const devices = [
   { name: "Chromebook Pixel", width: 1280, height: 850 },
 ];
 
-export default devices;
+const breakpoints = {
+  xs: { min: 0, max: 575 },
+  sm: { min: 576, max: 767 },
+  md: { min: 768, max: 1279 },
+  lg: { min: 1280, max: 1440 },
+};
+
+// Filter to separate mobile and desktop devices
+const smallDevices = devices.filter((device) => device.width <= 767);
+const largeDevices = devices.filter((device) => device.width >= 768);
+
+export { devices, smallDevices, largeDevices, breakpoints };

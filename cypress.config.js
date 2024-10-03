@@ -8,6 +8,7 @@ module.exports = defineConfig({
     supportFile: "__tests__/cypress/support/commands.js",
     screenshotsFolder: "__tests__/cypress/screenshots",
     downloadsFolder: "__tests__/cypress/downloads",
+    videosFolder: "__tests__/cypress/videos",
   },
   env: {
     cms_username: process.env.CY_CMS_EMAIL,
@@ -15,4 +16,6 @@ module.exports = defineConfig({
     account_username: process.env.CY_ACCOUNT_EMAIL,
     account_password: process.env.CY_ACCOUNT_PASS,
   },
+  // video: true,
+  // videoCompression: true,
 });
