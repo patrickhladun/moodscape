@@ -104,8 +104,8 @@ def test_data_categories():
     )
     category_4 = CategoryFactory(
         id=4,
-        name="Digital Art",
-        slug="digital-art",
+        name="Pen Plotter",
+        slug="plotter",
         description="Digital art prints"
     )
     

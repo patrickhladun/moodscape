@@ -1,6 +1,6 @@
 # Moodscape
 
-Moodscape is an e-commerce platform designed to offer a curated collection of unique watercolor art, Irish abstract landscapes, floral art, macro photography, digital art, and pen plotter art. This project serves as my final submission for the Full Stack Developer Diploma at Code Institute, showcasing my skills in developing a comprehensive, user-friendly online store.
+Moodscape is an e-commerce platform designed to offer a curated collection of unique watercolor art, Irish abstract landscapes, floral art, macro photography, digital, and pen plotter art. This project serves as my final submission for the Full Stack Developer Diploma at Code Institute, showcasing my skills in developing a comprehensive, user-friendly online store.
 
 The platform caters to art enthusiasts who wish to beautify their spaces with exquisite artwork. Moodscape aims to provide a seamless shopping experience, allowing users to explore and purchase art pieces easily. The website not only features a variety of art styles but also focuses on ensuring that each piece is of high quality and uniquely crafted.
 
@@ -475,7 +475,7 @@ The home page of the website is straightforward yet engaging, showcasing a hero 
 
 ![Home Page Hero](./docs/features-page-home-hero.webp)
 
-Below the hero section, the page features a list of art categories, allowing users to easily navigate through different types of artworks such as watercolors, photographs, and digital art.
+Below the hero section, the page features a list of art categories, allowing users to easily navigate through different types of artworks such as watercolors, photography, and pen plotter art.
 
 ![Home Page Categories](./docs/features-page-home-categories.webp)
 
@@ -491,7 +491,7 @@ The shop page of the website is laid out with two main sections: a sidebar and a
 
 - Search Box: Allows users to quickly find products by entering keywords.
 - Filters: Users can refine product listings based on price, name, and rating.
-- Categories List: This feature enables users to view products from selected categories only, such as watercolors, photographs, or digital art.
+- Categories List: This feature enables users to view products from selected categories only, such as watercolors, photography, or pen plotter art.
 
 In the main section, each product is displayed with an image, title, category, price, and an “Add to Bag” button, providing essential information and purchase options at a glance.
 
@@ -905,7 +905,7 @@ python manage.py loaddata fixtures/user.accounts.json
 python manage.py loaddata fixtures/product.categories.json
 python manage.py loaddata fixtures/product.watercolors.json
 python manage.py loaddata fixtures/product.plotter.json
-python manage.py loaddata fixtures/product.photographs.json
+python manage.py loaddata fixtures/product.photography.json
 python manage.py loaddata fixtures/order.order.json
 python manage.py loaddata fixtures/product.reviews.json
 ```

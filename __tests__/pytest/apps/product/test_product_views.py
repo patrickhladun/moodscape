@@ -42,7 +42,7 @@ def test_add_product_as_superadmin():
     client.force_login(admin)
 
     url = reverse('cms_product_add')
-    category = CategoryFactory(id=2, name="Digital Art", slug="digital-art")
+    category = CategoryFactory(id=2, name="Pen Plotter", slug="plotter")
 
     data = {
         'name': 'Test Product',
@@ -144,7 +144,7 @@ def test_add_product_with_invalid_data(data, expected_error):
 
     client.force_login(admin)
 
-    category = CategoryFactory(id=1, name="Digital Art", slug="digital-art")
+    category = CategoryFactory(id=1, name="Pen Plotter", slug="plotter")
     data['category'] = category.id
 
     if expected_error == 'sku':

@@ -10,7 +10,7 @@
           <div class="flex w-full gap-1">
             <a href="{% url 'shop' %}" class="text-primary text-blue-600 underline">Shop</a>
             <span>&gt;</span>
-            <a href="{% url 'shop' %}?category={{ product.category|lower|urlencode }}" class="inline-block text-primary text-blue-600 underline whitespace-nowrap">{{ product.category }}</a>
+            <a href="{% url 'shop' %}?category={{ product.category.slug|urlencode }}" class="inline-block text-primary text-blue-600 underline whitespace-nowrap">{{ product.category }}</a>
             <span>&gt;</span>
             <span class="text-primary truncate text-neutral-600">{{ product.name }}</span>
           </div>
