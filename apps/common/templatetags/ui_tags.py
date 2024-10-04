@@ -1,5 +1,6 @@
 import os
 
+from django.template import Template, Context
 from django import template
 from django.utils.safestring import mark_safe
 
@@ -52,8 +53,8 @@ def active(context, link, custom_classes=''):
     return ''
 
 
-@register.simple_tag
-def render_field(field, **kwargs):
+@register.simple_tag(takes_context=True)
+def render_field(context, field, **kwargs):
     type = kwargs.get('type', 'text')
     class_name = kwargs.get('class', '')
     id_attr = f' id="{kwargs.get("id")}"' if kwargs.get('id') else ''
@@ -62,19 +63,26 @@ def render_field(field, **kwargs):
 
     classes = f"field field__{type} {class_name}".strip()
 
-    # Prepare additional attributes string for the div container
+    data_cy = kwargs.get('cy', '')
+    if data_cy:
+        try:
+            data_cy_template = Template(data_cy)
+            data_cy_rendered = data_cy_template.render(Context(context))
+            data_cy = f' data-cy="{data_cy_rendered}"'
+        except Exception as e:
+            print(f"Error rendering data-cy: {e}")
+            data_cy = ''  # Reset to empty if there's a failure
+
     additional_attrs = ""
-    # Prepare aria attributes specifically for the field
+
     aria_attrs = {}
     for key, value in kwargs.items():
         if key.startswith('aria_'):
-            # Properly format key for HTML (replace underscores with hyphens)
             aria_key = key.replace('_', '-')
             aria_attrs[aria_key] = value
         elif key not in ['type', 'class', 'id', 'cy', 'show_label', 'aria_label', 'aria_describedby']:
             additional_attrs += f' {key}="{value}"'
 
-    # Set ARIA attributes on the field widget
     field.field.widget.attrs.update(aria_attrs)
 
     label_html = field.label_tag() if show_label else ''
