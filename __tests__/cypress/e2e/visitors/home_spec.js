@@ -22,11 +22,12 @@ describe("Home Page UI and Accessibility Tests", () => {
     cy.url().should("include", "/shop");
   });
 
-  const categories = ["watercolor", "photography", "plotter"];
+  const categories = ["watercolor", "photographs", "plotter"];
   categories.forEach((category) => {
     it(`should redirect to the relevant ${category} category page when its link is clicked`, () => {
       cy.get(`[data-cy=button-${category}]`).click();
       cy.url().should("include", `/shop/?category=${category}`);
+      cy.get("[data-cy=shop-products-list]").children().should('have.length.gt', 0);
     });
   });
 
