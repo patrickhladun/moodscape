@@ -1161,6 +1161,9 @@ video {
 .pt-sm {
   padding-top: 2rem;
 }
+.pb-xs {
+  padding-bottom: 1.5rem;
+}
 .text-center {
   text-align: center;
 }

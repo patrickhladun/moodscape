@@ -121,8 +121,9 @@ def render_status(status):
 @register.simple_tag
 def render_stars(rating):
     """
-    Returns the HTML for star rating using the same SVG icon, 
-    filling up to the rating and leaving others empty.
+    Returns the HTML for star rating using the same SVG icon,
+    rounding to the nearest whole number and filling up to the rating while
+    leaving the rest empty.
     """
     icon_path = os.path.join("static/icons", "icon-star.svg")
     
@@ -132,11 +133,14 @@ def render_stars(rating):
     except FileNotFoundError:
         return mark_safe("<!-- Icon not found -->")
 
+    # Round the rating to the nearest whole number
+    rounded_rating = round(rating)  # Ensures rounding half up from .5
+
     filled_star = f'<span class="flex fill-blue-800"><span class="inline-block w-4 h-4">{icon_svg}</span></span>'
     empty_star = f'<span class="flex fill-blue-200"><span class="inline-block w-4 h-4">{icon_svg}</span></span>'
     
-    stars_html = filled_star * rating
-    stars_html += empty_star * (5 - rating)
+    stars_html = filled_star * rounded_rating
+    stars_html += empty_star * (5 - rounded_rating)
     html = f'<div class="flex items-center">{stars_html}</div>'
 
     return mark_safe(html)

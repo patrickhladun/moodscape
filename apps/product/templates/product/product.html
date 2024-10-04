@@ -31,6 +31,15 @@
         <div>
           <p class="text-h3 font-bold">{{ config.CURRENCY_SYMBOL }}{{ product.price }}</p>
           <h1 class="text-base font-normal">{{ product.name|safe }}</h1>
+
+          {% if product.rating == 0 or product.rating == None %}
+            <p>Not rated yet</p>
+          {% else %}
+            <div class="pb-xs">
+              {% render_stars product.rating %}
+            </div>
+          {% endif %}
+
           <div class="bg-neutral-100 font-medium p-2">
             {% if product.stock == 0 %}
               <span>Sold Out!</span>
