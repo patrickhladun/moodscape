@@ -160,9 +160,9 @@
     "pk": 7,
     "fields": {
       "order": 3,
-      "product": 23,
+      "product": 91,
       "quantity": 1,
-      "lineitem_total": "168.00"
+      "lineitem_total": "148.00"
     }
   },
   {
@@ -170,9 +170,9 @@
     "pk": 8,
     "fields": {
       "order": 3,
-      "product": 12,
+      "product": 45,
       "quantity": 1,
-      "lineitem_total": "168.00"
+      "lineitem_total": "120.00"
     }
   },
   {
