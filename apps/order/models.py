@@ -76,6 +76,8 @@ class Order(models.Model):
     def __str__(self):
         return self.order_number
 
+
+
 class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
@@ -84,18 +86,31 @@ class OrderLineItem(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Override the original save method to set the lineitem total
-        and update the order total.
+        Override the original save method to set the lineitem total,
+        and adjust the product stock without allowing it to go negative.
         """
         self.lineitem_total = self.product.price * self.quantity
+        
+        if not self.pk:
+            if self.product.stock >= self.quantity:
+                self.product.stock -= self.quantity
+                self.product.save(update_fields=['stock'])
+            else:
+                raise ValueError(f"Insufficient stock for product {self.product.name}")
+        
         super().save(*args, **kwargs)
+
         self.order.update_total()
 
     def delete(self, *args, **kwargs):
         """
-        Override the original delete method to update the order total.
+        Override the original delete method to update the product stock and order total.
         """
+        self.product.stock += self.quantity
+        self.product.save(update_fields=['stock'])
+
         super().delete(*args, **kwargs)
+        
         self.order.update_total()
 
     class Meta:
@@ -105,3 +120,4 @@ class OrderLineItem(models.Model):
 
     def __str__(self):
         return f'SKU {self.product.sku} on order {self.order.order_number}'
+

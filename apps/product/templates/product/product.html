@@ -53,12 +53,16 @@
           </div>
           <h2 class="h4">Details</h2>
           <div>{{ product.details|safe }}</div>
-          <form class="mt-8" action="{% url 'add_to_bag' product.id %}" method="POST">
-            {% csrf_token %}
-            <input type="hidden" name="quantity" value="1" />
-            <input type="hidden" name="redirect_url" value="{{ request.path }}" />
-            <button type="submit" class="button button__primary">Add to Cart</button>
-          </form>
+          {% if product.stock == 0 %}
+            <button type="button" class="button button__disabled mt-8" disabled>Add to Cart</button>
+          {% else %}
+            <form class="mt-8" action="{% url 'add_to_bag' product.id %}" method="POST">
+              {% csrf_token %}
+              <input type="hidden" name="quantity" value="1" />
+              <input type="hidden" name="redirect_url" value="{{ request.path }}" />
+              <button type="submit" class="button button__primary">Add to Cart</button>
+            </form>
+          {% endif %}
         </div>
       </div>
     </section>

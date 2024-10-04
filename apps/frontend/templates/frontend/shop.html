@@ -85,13 +85,18 @@
               {% endif %}
               <a href="{% url 'product' product.slug %}" class="truncate">{{ product.name }}</a>
               <div class="flex justify-between items-center pt-2">
-                <p class="m-0">{{config.CURRENCY_SYMBOL}}{{ product.price }}</p>
-                <form action="{% url 'add_to_bag' product.id %}" method="POST">
-                  {% csrf_token %}
-                  <input type="hidden" name="quantity" value="1">
-                  <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                  <button type="submit" class="bg-blue-600 hover:bg-blue-800 p-1 rounded-lg w-8 h-8 flex justify-center items-center transition duration-300 ease-in-out" data-cy="product-{{product.slug}}" aria-label="Add to Bag">{% icon 'icon-cart' 'md' 'fill-white w-5 h-5' %}</button>
-                </form>
+                {% if product.stock == 0 %}
+                  <p class="m-0">Sold Out</p>
+                  <button type="button" class="bg-neutral-200 p-1 rounded-lg w-8 h-8 flex justify-center items-center" aria-label="Add to Bag Disabled" disabled>{% icon 'icon-cart' 'md' 'fill-neutral-700 w-5 h-5' %}</button>
+                {% else %}
+                  <p class="m-0">{{config.CURRENCY_SYMBOL}}{{ product.price }}</p>
+                  <form action="{% url 'add_to_bag' product.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="quantity" value="1">
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-800 p-1 rounded-lg w-8 h-8 flex justify-center items-center transition duration-300 ease-in-out" data-cy="product-{{product.slug}}" aria-label="Add to Bag">{% icon 'icon-cart' 'md' 'fill-white w-5 h-5' %}</button>
+                  </form>
+                {% endif %}
               </div>
               
             </div>

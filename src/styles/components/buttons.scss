@@ -9,6 +9,10 @@
     }
   }
 
+  &__disabled {
+    @apply bg-neutral-200 text-neutral-700;
+  }
+
   &__secondary {
     @apply bg-gray-200;
 
