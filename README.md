@@ -914,6 +914,8 @@ These commands will create the example content.
 
 ## Manual testing
 
+All manual mobile tests are performed on a physical mobile device, ensuring that the tap interaction behaves as expected for each footer link.
+
 ### Test header links as Visitor on Desktop
 
 | Test Performed | Expected Results | Actual Results |
@@ -997,6 +999,32 @@ These commands will create the example content.
 | On any page tap menu toggle then on the Categories link | Admin is redirected to the categories page | As expected |
 | On any page tap menu toggle then on the Admin link | Admin is redirected to the django admin page | As expected |
 | On any page tap menu toggle then on the Sign Out link | Admin is redirected to the sign out page | As expected |
+
+### Test footer links on Desktop
+
+| Test Performed | Expected Results | Actual Results |
+| --- | --- | --- |
+| On any page click on footer facebook icon | User is redirected to external facebook page | As expected |
+| On any page click on footer instagram icon | User is redirected to external instagram page | As expected |
+| On any page click on footer twitter icon | User is redirected to external twitter page | As expected |
+| On any page click on footer linkedin icon | User is redirected to external linkedin page | As expected |
+| On any page click on Terms and Conditions link | User is redirected to Terms and Conditions page | As expected |
+| On any page click on Privacy Policy link | User is redirected to Privacy Policy page | As expected |
+| On any page click on FAQ link | User is redirected to FAQ page | As expected |
+| On any page click on Contact link | User is redirected to Contact page | As expected |
+
+### Test footer links on Mobile
+
+| Test Performed | Expected Results | Actual Results |
+| --- | --- | --- |
+| On any page tap on footer facebook icon | User is redirected to external facebook page | As expected |
+| On any page tap on footer instagram icon | User is redirected to external instagram page | As expected |
+| On any page tap on footer twitter icon | User is redirected to external twitter page | As expected |
+| On any page tap on footer linkedin icon | User is redirected to external linkedin page | As expected |
+| On any page tap on Terms and Conditions link | User is redirected to Terms and Conditions page | As expected |
+| On any page tap on Privacy Policy link | User is redirected to Privacy Policy page | As expected |
+| On any page tap on FAQ link | User is redirected to FAQ page | As expected |
+| On any page tap on Contact link | User is redirected to Contact page | As expected |
 
 ### Responsive Design Tests
 
