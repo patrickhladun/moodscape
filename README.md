@@ -914,7 +914,89 @@ These commands will create the example content.
 
 ## Manual testing
 
-### Website Header and Navigation
+### Test header links as Visitor on Desktop
+
+| Test Performed | Expected Results | Actual Results |
+| --- | --- | --- |
+| On any page click on the website logo | User is redirected to the home page | As expected |
+| On any page click on the Shop link | User is redirected to the shop page | As expected |
+| On any page click on the About link | User is redirected to the about page | As expected |
+| On any page click on the Contact link | User is redirected to the contact page | As expected |
+| On any page click on the Bag Icon | User is redirected to the bag page | As expected |
+| On any page click on the Sign In Button | User is redirected to the sign in page | As expected |
+
+### Test header links as Visitor on Mobile
+
+| Test Performed | Expected Results | Actual Results |
+| --- | --- | --- |
+| On any page tap on the website logo | User is redirected to the home page | As expected |
+| On any page tap on the Shop link | User is redirected to the bag page | As expected |
+| On any page tap menu toggle then on the Shop link | User is redirected to the shop page | As expected |
+| On any page tap menu toggle then on the About link | User is redirected to the about page | As expected |
+| On any page tap menu toggle then on the Contact link | User is redirected to the contact page | As expected |
+| On any page tap menu toggle then on the Sign In link | User is redirected to the sign in page | As expected |
+
+### Test header links as Customer on Desktop
+
+| Test Performed | Expected Results | Actual Results |
+| --- | --- | --- |
+| On any page click on the website logo | User is redirected to the home page | As expected |
+| On any page click on the Shop link | User is redirected to the shop page | As expected |
+| On any page click on the About link | User is redirected to the about page | As expected |
+| On any page click on the Contact link | User is redirected to the contact page | As expected |
+| On any page click on the Bag Icon | User is redirected to the bag page | As expected |
+| On any page click menu toggle then on the Orders link | User is redirected to the orders page | As expected |
+| On any page click menu toggle then on the Reviews link | User is redirected to the reviews page | As expected |
+| On any page click menu toggle then on the Profile link | User is redirected to the profile page | As expected |
+| On any page click menu toggle then on the Account link | User is redirected to the account page | As expected |
+| On any page click menu toggle then on the Sign Out link | User is redirected to the sign out page | As expected |
+
+### Test header links as Customer on Mobile
+
+| Test Performed | Expected Results | Actual Results |
+| --- | --- | --- |
+| On any page tap on the website logo | User is redirected to the home page | As expected |
+| On any page click on the Bag Icon | User is redirected to the bag page | As expected |
+| On any page tap menu toggle then on the Shop link | User is redirected to the shop page | As expected |
+| On any page tap menu toggle then on the About link | User is redirected to the about page | As expected |
+| On any page tap menu toggle then on the Contact link | User is redirected to the contact page | As expected |
+| On any page tap menu toggle then on the Orders link | User is redirected to the orders page | As expected |
+| On any page tap menu toggle then on the Reviews link | User is redirected to the reviews page | As expected |
+| On any page tap menu toggle then on the Profile link | User is redirected to the profile page | As expected |
+| On any page tap menu toggle then on the Account link | User is redirected to the account page | As expected |
+| On any page tap menu toggle then on the Sign Out link | User is redirected to the sign out page | As expected |
+
+### Test header links as Admin on Desktop
+
+| Test Performed | Expected Results | Actual Results |
+| --- | --- | --- |
+| On any page click on the website logo | Admin is redirected to the home page | As expected |
+| On any page click on the Shop link | Admin is redirected to the shop page | As expected |
+| On any page click on the About link | Admin is redirected to the about page | As expected |
+| On any page click on the Contact link | Admin is redirected to the contact page | As expected |
+| On any page click menu toggle then on the Orders link | Admin is redirected to the orders page | As expected |
+| On any page click menu toggle then on the Customers link | Admin is redirected to the customers page | As expected |
+| On any page click menu toggle then on the Products link | Admin is redirected to the products page | As expected |
+| On any page click menu toggle then on the Reviews link | Admin is redirected to the reviews page | As expected |
+| On any page click menu toggle then on the Categories link | Admin is redirected to the categories page | As expected |
+| On any page click menu toggle then on the Admin link | Admin is redirected to the django admin page | As expected |
+| On any page click menu toggle then on the Sign Out link | Admin is redirected to the sign out page | As expected |
+
+### Test header links as Admin on Mobile
+
+| Test Performed | Expected Results | Actual Results |
+| --- | --- | --- |
+| On any page click on the website logo | Admin is redirected to the home page | As expected |
+| On any page tap menu toggle then on the Shop link | Admin is redirected to the shop page | As expected |
+| On any page tap menu toggle then on the About link | Admin is redirected to the about page | As expected |
+| On any page tap menu toggle then on the Contact link | Admin is redirected to the contact page | As expected |
+| On any page tap menu toggle then on the Orders link | Admin is redirected to the orders page | As expected |
+| On any page tap menu toggle then on the Customers link | Admin is redirected to the customers page | As expected |
+| On any page tap menu toggle then on the Products link | Admin is redirected to the products page | As expected |
+| On any page tap menu toggle then on the Reviews link | Admin is redirected to the reviews page | As expected |
+| On any page tap menu toggle then on the Categories link | Admin is redirected to the categories page | As expected |
+| On any page tap menu toggle then on the Admin link | Admin is redirected to the django admin page | As expected |
+| On any page tap menu toggle then on the Sign Out link | Admin is redirected to the sign out page | As expected |
 
 ### Responsive Design Tests
 
@@ -1079,36 +1161,26 @@ pytest -rP -v
 
 ### Cypress tests
 
-<details><summary>UI and Accessibility Tests for the Home Page</summary>
-
-| test | result |
-| --- | --- |
-| should have no detectable accessibility violations on load | Pass |
-| should ensure all image elements have descriptive 'alt' attributes | Pass |
-| should redirect to the shop page when the browse button is clicked | Pass |
-| should redirect to the relevant ${category} category page when its link is clicked | Pass |
-| should navigate correctly to each featured product | Pass |
-| should be visible on iPhone 12 Pro Max / iPhone 12 screensize | Pass |
-| should be visible on iPhone 12 Pro / iPhone 11 / iPhone XR screensize | Pass |
-| should be visible on iPhone XR / iPhone XS Max screensize | Pass |
-| should be visible on iPhone XS / iPhone X screensize | Pass |
-| should be visible on iPhone 8 Plus / iPhone 7 Plus / iPhone 6 Plus / 6S Plus screensize | Pass |
-| should be visible on iPhone 8 / iPhone 7 / iPhone 6 / 6S screensize | Pass |
-| should be visible on iPhone 5 / iPod Touch screensize | Pass |
-| should be visible on iPad Pro screensize | Pass |
-| should be visible on iPad Third & Fourth Generation / iPad Air 1 & 2 / iPad Mini 2 & 3 / iPad Mini screensize | Pass |
-| should be visible on Nexus 6P / Google Pixel 2 XL / Google Pixel XL / Samsung Galaxy S7 Edge screensize | Pass |
-| should be visible on Google Pixel 3 XL screensize | Pass |
-| should be visible on Google Pixel 3 screensize | Pass |
-| should be visible on Samsung Galaxy Note 9 / Samsung Galaxy S9+ / Samsung Galaxy S9 / Samsung Galaxy S8+ / Samsung Galaxy S8 screensize | Pass |
-| should be visible on Samsung Galaxy Note 5 / LG G5 / One Plus 3 screensize | Pass |
-| should be visible on Samsung Galaxy S7 screensize | Pass |
-| should be visible on Nexus 9 screensize | Pass |
-| should be visible on Nexus 7 (2013) screensize | Pass |
-| should be visible on Samsung Galaxy Tab 10 screensize | Pass |
-| should be visible on Chromebook Pixel screensize | Pass |
-
-</details>
+| Spec | Duration | Tests | Passing | Failing | Pending | Skipped |
+| --- | --- | --- | --- | --- | --- | --- |
+| `footer_spec.js` | 626ms | 5 | 5 | 0 | 0 | 0 |
+| `header_spec.js` | 00:02 | 10 | 10 | 0 | 0 | 0 |
+| `account/account_navigation_spec.js` | 00:02 | 2 | 2 | 0 | 0 | 0 |
+| `account/account_page_account_spec.js` | 00:03 | 3 | 3 | 0 | 0 | 0 |
+| `account/account_page_orders_spec.js` | 00:01 | 1 | 1 | 0 | 0 | 0 |
+| `account/account_page_profile_spec.js` | 00:07 | 9 | 9 | 0 | 0 | 0 |
+| `account/account_page_reviews_spec.js` | 00:01 | 5 | 5 | 0 | 0 | 0 |
+| `account/account_title_section_spec.js` | 00:01 | 4 | 4 | 0 | 0 | 0 |
+| `allauth/allauth_spec.js` | 274ms | 4 | 4 | 0 | 0 | 0 |
+| `visitors/about_spec.js` | 308ms | 2 | 2 | 0 | 0 | 0 |
+| `visitors/bag_spec.js` | 00:01 | 5 | 5 | 0 | 0 | 0 |
+| `visitors/checkout_page.js` | 00:05 | 3 | 3 | 0 | 0 | 0 |
+| `visitors/contact_spec.js` | 00:06 | 9 | 9 | 0 | 0 | 0 |
+| `visitors/faq_spec.js` | 378ms | 2 | 2 | 0 | 0 | 0 |
+| `visitors/home_spec.js` | 00:06 | 26 | 26 | 0 | 0 | 0 |
+| `visitors/privacy_spec.js` | 890ms | 2 | 2 | 0 | 0 | 0 |
+| `visitors/terms_spec.js` | 351ms | 2 | 2 | 0 | 0 | 0 |
+| **Total All Specs** | **00:42** | **94** | **94** | **0** | **0** | **0** |
 
 ### Running Cypress Tests
 
