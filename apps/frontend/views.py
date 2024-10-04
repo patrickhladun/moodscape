@@ -194,19 +194,25 @@ def shop(request):
             direction = sort_option.split('_')[1]
 
             if sort == 'alpha':
-                sort = 'name_lower'
+                sortfield = 'name_lower'
                 products = products.annotate(name_lower=Lower('name'))
             elif sort == 'price':
-                sort = 'price'
+                sortfield = 'price'
             elif sort == 'rating':
-                sort = 'rating'
+                sortfield = 'rating'
+            else:
+                sortfield = 'id'
 
             if direction == 'desc':
-                sort = f'-{sort}'
+                sortfield = f'-{sortfield}'
 
-            products = products.order_by(sort)
+            products = products.order_by(sortfield)
+        else:
+            sort_option = ''
 
-    template = "frontend/shop.html"
+    else:
+        sort_option = ''
+
     context = {
         "config": config,
         "active": "shop",
@@ -214,9 +220,10 @@ def shop(request):
         "products": products,
         "search_term": query,
         "category": category,
-        "sort": f'{sort}_{direction}' if sort and direction else '',
+        "sort": sort_option,
     }
-    return render(request, template, context)
+    return render(request, "frontend/shop.html", context)
+
 
 
 def newsletter_subscribe(request):
