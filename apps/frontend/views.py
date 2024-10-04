@@ -13,7 +13,7 @@ from apps.common.utils.metadata import make_metadata
 
 
 def home(request):
-    product_ids = [1, 3, 8, 18]
+    product_ids = [7, 23, 52, 86]
     featured = Product.objects.filter(id__in=product_ids)
 
     metadata = make_metadata(
