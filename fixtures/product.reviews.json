@@ -3,7 +3,7 @@
     "model": "review.review",
     "pk": 1,
     "fields": {
-      "product": 1,
+      "product": 7,
       "user": 2,
       "order_line_item": 1,
       "rating": 5,
@@ -17,7 +17,7 @@
     "model": "review.review",
     "pk": 2,
     "fields": {
-      "product": 19,
+      "product": 101,
       "user": 2,
       "order_line_item": 3,
       "rating": 5,
@@ -31,7 +31,7 @@
     "model": "review.review",
     "pk": 3,
     "fields": {
-      "product": 8,
+      "product": 36,
       "user": 2,
       "order_line_item": 2,
       "rating": 5,

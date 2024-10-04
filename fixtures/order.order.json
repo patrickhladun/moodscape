@@ -28,7 +28,7 @@
     "pk": 1,
     "fields": {
       "order": 1,
-      "product": 1,
+      "product": 7,
       "quantity": 1,
       "lineitem_total": "168.00"
     }
@@ -38,7 +38,7 @@
     "pk": 2,
     "fields": {
       "order": 1,
-      "product": 8,
+      "product": 36,
       "quantity": 1,
       "lineitem_total": "120.00"
     }
@@ -48,7 +48,7 @@
     "pk": 3,
     "fields": {
       "order": 1,
-      "product": 19,
+      "product": 101,
       "quantity": 2,
       "lineitem_total": "296.00"
     }
@@ -82,7 +82,7 @@
     "pk": 4,
     "fields": {
       "order": 2,
-      "product": 8,
+      "product": 111,
       "quantity": 1,
       "lineitem_total": "120.00"
     }

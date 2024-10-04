@@ -1,6 +1,7 @@
 [
   {
     "model": "product.product",
+    "pk": 36,
     "fields": {
       "name": "Blue flower macro photograph",
       "slug": "blue-flower-macro",
@@ -18,6 +19,7 @@
   },
   {
     "model": "product.product",
+    "pk": 41,
     "fields": {
       "name": "Macro Shot of Red Flower",
       "slug": "red-flower-macro",
@@ -35,6 +37,7 @@
   },
   {
     "model": "product.product",
+    "pk": 45,
     "fields": {
       "name": "Poppy Hungarian Breadseed Lavender Purple Flower",
       "slug": "poppy-lavender-flower",
@@ -52,6 +55,7 @@
   },
   {
     "model": "product.product",
+    "pk": 52,
     "fields": {
       "name": "Abstract Macro of Tomato Stalk",
       "slug": "abstract-tomato-stalk",
@@ -69,6 +73,7 @@
   },
   {
     "model": "product.product",
+    "pk": 60,
     "fields": {
       "name": "Large Red Flower Closeup",
       "slug": "large-red-flower",
@@ -86,6 +91,7 @@
   },
   {
     "model": "product.product",
+    "pk": 63,
     "fields": {
       "name": "Black and White Macro of Small Flowers",
       "slug": "black-white-small-flowers",
@@ -103,6 +109,7 @@
   },
   {
     "model": "product.product",
+    "pk": 66,
     "fields": {
       "name": "Close-Up of Flower Cluster with Delicate Blooms",
       "slug": "closeup-small-flowers",
@@ -120,6 +127,7 @@
   },
   {
     "model": "product.product",
+    "pk": 69,
     "fields": {
       "name": "Close-Up of Wildflower Attacked by Aliens",
       "slug": "wildflower-alien-attack",
@@ -137,6 +145,7 @@
   },
   {
     "model": "product.product",
+    "pk": 72,
     "fields": {
       "name": "Macro Shot of Small Flowers with Stunning White, Yellow, and Purple Colors",
       "slug": "small-flowers-stunning-colors",
@@ -154,6 +163,7 @@
   },
   {
     "model": "product.product",
+    "pk": 75,
     "fields": {
       "name": "Macro Shot of Dandelion with Seeds Scattered",
       "slug": "dandelion-missing-seeds",
@@ -171,6 +181,7 @@
   },
   {
     "model": "product.product",
+    "pk": 78,
     "fields": {
       "name": "Withered Daisy After Bloom",
       "slug": "withered-daisy-bloom",
