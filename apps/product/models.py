@@ -28,6 +28,7 @@ class Product(models.Model):
     sku = models.CharField(max_length=255, unique=True)
     stock = models.IntegerField(default=0)
     price = models.DecimalField(max_digits=10, decimal_places=2)
+    rating = models.DecimalField(max_digits=3, decimal_places=2, default=0.00, null=True, blank=True)
     featured = models.ImageField(upload_to=featured_image_path, null=True, blank=True)
     is_published = models.BooleanField(default=False)
     category = models.ForeignKey('Category', on_delete=models.CASCADE)

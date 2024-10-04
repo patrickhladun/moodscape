@@ -34,7 +34,7 @@ APPS = [
     'apps.common',
     'apps.frontend',
     'apps.order',
-    'apps.product',
+    'apps.product.apps.ProductConfig',
     'apps.review',
     'apps.user',
 ]

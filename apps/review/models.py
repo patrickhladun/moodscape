@@ -3,6 +3,7 @@ from apps.product.models import Product
 from apps.order.models import OrderLineItem
 from apps.user.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
+from model_utils import FieldTracker
 
 class Review(models.Model):
     STATUS_CHOICES = [
@@ -20,6 +21,8 @@ class Review(models.Model):
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    tracker = FieldTracker(fields=['status'])
 
     class Meta:
         db_table = 'mood_reviews'

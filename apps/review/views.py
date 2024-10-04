@@ -69,24 +69,28 @@ def cms_review_update_view(request, id):
 
         if review.status == 'pending':
             status_form.fields['status'].choices = [
+                ('', 'Select Option'),
                 ('approved', 'Approved'),
                 ('rejected', 'Rejected'),
                 ('deleted', 'Deleted'),
             ]
         elif review.status == 'approved':
             status_form.fields['status'].choices = [
+                ('', 'Select Option'),
                 ('rejected', 'Rejected'),
                 ('deleted', 'Deleted'),
             ]
 
         elif review.status == 'rejected':
             status_form.fields['status'].choices = [
+                ('', 'Select Option'),
                 ('approved', 'Approved'),
                 ('deleted', 'Deleted'),
             ]
 
         elif review.status == 'deleted':
             status_form.fields['status'].choices = [
+                ('', 'Select Option'),
                 ('approved', 'Approved'),
                 ('rejected', 'Rejected'),
             ]
@@ -103,8 +107,15 @@ def cms_review_update_view(request, id):
 
 @login_required
 def account_reviews_view(request):
-    user_reviews = Review.objects.filter(user=request.user)
-    purchased = OrderLineItem.objects.filter(order__customer=request.user.customer)
+    user = request.user
+    customer = user.customer
+
+    # Fetching all reviews made by the user
+    user_reviews = Review.objects.filter(user=user)
+
+    # Fetching all OrderLineItems associated with the user
+    purchased_items = OrderLineItem.objects.filter(order__customer=customer)
+
     reviews_filter = request.GET.get('reviews_filter', 'not-reviewed')
 
     metadata = make_metadata(
@@ -118,7 +129,9 @@ def account_reviews_view(request):
     )
     
     if reviews_filter == 'not-reviewed':
-        reviews = purchased.exclude(id__in=user_reviews.values('order_line_item_id'))
+        # List items that do not have a corresponding review yet
+        reviewed_items = user_reviews.values('order_line_item_id')
+        reviews = purchased_items.exclude(id__in=reviewed_items)
     elif reviews_filter == 'approved':
         reviews = user_reviews.filter(status='approved')
     elif reviews_filter == 'pending':
