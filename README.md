@@ -1083,6 +1083,25 @@ All manual mobile tests are performed on a physical mobile device, ensuring that
 | Contact page - User fills in name, correct email, and message, then clicks submit | The user should be redirected to a success page, and a confirmation email should be sent to the provided email. | As Expected |
 | Contact page - User clicks on any social link in the contact details section | The user should be redirected to the corresponding social media page. | As Expected |
 
+### Manual tests for customer pages
+
+| Test Performed | Expected Results | Actual Results |
+| --- | --- | --- |
+| Orders page - Click on an order item | Customer should be redirected to the order details page. | As expected |
+| Order page - Click on the "Review the Product" button for a purchased item | Customer should be redirected to the review page for the product. | As expected |
+| Reviews page - Select "Approved" from the filter list | Only approved reviews should be displayed. | As expected |
+| Reviews page - Select "Pending" from the filter list | Only pending reviews should be displayed. | As expected |
+| Reviews page - Select "Rejected" from the filter list | Only rejected reviews should be displayed. | As expected |
+| Reviews page - Select "Not Reviewed" from the filter list | Products that have not been reviewed should be displayed. | As expected |
+| Reviews page - Click on the "Review" button | Customer should be redirected to the review submission page for the product. | As expected |
+| Review page - Select a rating star | The selected star rating should be applied. | As expected |
+| Review page - Write a review and click submit | Customer should be redirected back to the reviews page with a success message. | As expected |
+| Profile page - Fill in correct details and click "Update" | Details should be updated with a success message displayed. | As expected |
+| Profile page - Fill in incorrect details and click "Update" | An error message should be displayed. | As expected |
+| Account page - Fill in a correct email and click "Update" | Email should be updated with a success message displayed. | As expected |
+| Account page - Fill in a correct username and click "Update" | Username should be updated with a success message displayed. | As expected |
+| Account page - Fill in incorrect details and click "Update" | An error message should be displayed. | As expected |
+
 
 ### Responsive Design Tests
 
