@@ -1102,6 +1102,42 @@ All manual mobile tests are performed on a physical mobile device, ensuring that
 | Account page - Fill in a correct username and click "Update" | Username should be updated with a success message displayed. | As expected |
 | Account page - Fill in incorrect details and click "Update" | An error message should be displayed. | As expected |
 
+### Manual tests for admin pages
+
+| Test Performed | Expected Results | Actual Results |
+| --- | --- | --- |
+| Orders page - Click on the order item | Admin should be redirected to the order details page. | As expected |
+| Order page - Change order details and click "Update Order" | The form should be updated without errors. | As expected |
+| Order page - Click "Delete" on an Order Item | A confirmation message should appear; if confirmed, the item should be removed. | As expected |
+| Order page - Change any Order Item product or quantity and click "Update" | The order item should be updated. | As expected |
+| Order page - Select a product and quantity in the blue form and click "Add Item" | An item should be added to the order. | As expected |
+| Order page - Select "Complete" status and click "Update Status" | The status should be updated to "Complete" and a confirmation message should appear. | As expected |
+| Order page - Select "Cancelled" status and click "Update Status" | The status should be updated to "Cancelled" and a confirmation message should appear. | As expected |
+| Order page - Select "Processing" status and click "Update Status" | The status should be updated to "Processing" and a confirmation message should appear. | As expected |
+| Customers page - Click on the customer item | Admin should be redirected to the customer details page. | As expected |
+| Customer page - Change any Customer details and click Update | Customer deails should be updated and confirmation message should appear. | As expected |
+| Customer page - Click on delete button | Confirmation message should appear, if confirmed customer should be deleted. | As expected |
+| Products page - Click on the product item | Admin should be redirected to the product page. | As expected |
+| Product page - Change product details and click "Update" | If there are no errors, the product should be updated, and a confirmation message should be displayed. | As expected |
+| Product page - Select a new image | The new image should replace the existing one before the update is confirmed. | As expected |
+| Product page - Click on the "Delete" button | A confirmation message should appear; if confirmed, the product should be deleted. | As expected |
+| Add Product page - Fill in the new product details and click "Add" | If there are no errors, the product should be added, and a confirmation message should be displayed. | As expected |
+| Categories page - Click on a category item | Admin should be redirected to the category details page. | As expected |
+| Category page - Change category details and click "Update" | If there are no errors, the category should be updated, and a confirmation message should be displayed. | As expected |
+| Category page - Click on the "Delete" button | A confirmation message should appear; if confirmed, the category should be deleted. | As expected |
+| Add Category page - Fill in the new category details and click "Add" | If there are no errors, the category should be added, and a confirmation message should be displayed. | As expected |
+| Reviews page - Select "Approved" from the filter list | Only approved reviews should be displayed. | As expected |
+| Reviews page - Select "Pending" from the filter list | Only pending reviews should be displayed. | As expected |
+| Reviews page - Select "Rejected" from the filter list | Only rejected reviews should be displayed. | As expected |
+| Reviews page - Select "Deleted" from the filter list | Only deleted reviews should be displayed. | As expected |
+| Review page - Select a status from the status form | The review status should update to the selected status. | As expected |
+
+### Other manual tests
+
+| Test Performed | Expected Results | Actual Results |
+| --- | --- | --- |
+| Newsletter - Submit correct email in the newsletter email field | Submitter is redirected to confirmation page and receive email confirmation from ConvertKit | As Expected |
+
 
 ### Responsive Design Tests
 
