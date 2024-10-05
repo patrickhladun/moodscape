@@ -16,6 +16,9 @@ from .models import ContactMessage
 
 
 def home(request):
+    """
+    Renders the home page with featured products and sets page metadata.
+    """
     product_ids = [7, 23, 52, 86]
     featured = Product.objects.filter(id__in=product_ids)
 
@@ -41,6 +44,9 @@ def home(request):
 
 
 def about(request):
+    """
+    Renders the about page with company information and sets page metadata.
+    """
     metadata = make_metadata(
         request,
         {
@@ -62,6 +68,11 @@ def about(request):
 
 
 def contact(request):
+    """
+    Handles contact form submissions and renders the contact page.
+    If the form is valid, saves the contact message, sends an email, and
+    redirects to a success page.
+    """
     metadata = make_metadata(
         request,
         {
@@ -116,6 +127,9 @@ def contact(request):
 
 
 def privacy(request):
+    """
+    Renders the privacy policy page and sets page metadata.
+    """
     metadata = make_metadata(
         request,
         {
@@ -136,6 +150,9 @@ def privacy(request):
 
 
 def terms(request):
+    """
+    Renders the terms and conditions page and sets page metadata.
+    """
     metadata = make_metadata(
         request,
         {
@@ -156,6 +173,10 @@ def terms(request):
 
 
 def faq(request):
+    """
+    Renders the FAQ page, providing answers to common questions and sets
+    page metadata.
+    """
     metadata = make_metadata(
         request,
         {
@@ -176,6 +197,10 @@ def faq(request):
 
 
 def shop(request):
+    """
+    Renders the shop page with filterable and sortable product listings based
+    on user input. Sets metadata for the shop page.
+    """
     products = Product.objects.all()
     query = None
     category = None
@@ -247,6 +272,11 @@ def shop(request):
 
 
 def newsletter_subscribe(request):
+    """
+    Handles newsletter subscription requests. Submits the subscriber's email
+    to a third-party service and redirects to a success page or shows an
+    error message.
+    """
     if request.method == "POST":
         form = NewsletterForm(request.POST)
         if form.is_valid():
@@ -271,6 +301,9 @@ def newsletter_subscribe(request):
 
 
 def success_newsletter(request):
+    """
+    Renders the newsletter subscription success page and sets page metadata.
+    """
     metadata = make_metadata(
         request,
         {
@@ -292,6 +325,10 @@ def success_newsletter(request):
 
 
 def success_contact(request):
+    """
+    Renders the contact form success page after a user has successfully
+    submitted a message.
+    """
     metadata = make_metadata(
         request,
         {
