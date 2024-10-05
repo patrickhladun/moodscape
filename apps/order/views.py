@@ -114,7 +114,7 @@ def cms_order_update_view(request, order_number):
 def cms_orders_view(request):
     """
     Displays a list of all orders for admin users. This view allows the
-    superuser to manage and review all placed orders on the Moonscape
+    superuser to manage and review all placed orders on the Moodscape
     platform, including tracking order status and updating order information.
     """
     orders = Order.objects.all()
@@ -125,7 +125,7 @@ def cms_orders_view(request):
             "title": "Admin Orders",
             "meta": {
                 "description": "Manage and review all placed orders on \
-                Moonscape. Track order status, view customer details, and \
+                Moodscape. Track order status, view customer details, and \
                 update order information effectively."
             },
         },

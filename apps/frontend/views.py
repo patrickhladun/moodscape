@@ -27,7 +27,7 @@ def home(request):
         {
             "title": "Unique Watercolor & Abstract Art",
             "meta": {
-                "description": "Explore Moonscape, an e-commerce platform \
+                "description": "Explore Moodscape, an e-commerce platform \
                 offering unique watercolor art, Irish abstract landscapes, \
                 and pen plotter art. Beautify your space with stunning art \
                 pieces.",
@@ -52,7 +52,7 @@ def about(request):
         {
             "title": "About Us",
             "meta": {
-                "description": "Learn more about Moonscape, an online art \
+                "description": "Learn more about Moodscape, an online art \
                 platform providing curated collections of watercolor art, \
                 abstract landscapes, floral art, and digital photography.",
             },
@@ -78,7 +78,7 @@ def contact(request):
         {
             "title": "Contact Us",
             "meta": {
-                "description": "Get in touch with the Moonscape Art team for \
+                "description": "Get in touch with the Moodscape Art team for \
                 inquiries, support, or questions about your order. We are \
                 here to assist with any art-related queries.",
             },
@@ -96,14 +96,14 @@ def contact(request):
                 name=name, email=email, message=message
             )
 
-            from_email = f'"Moonscape" <{settings.DEFAULT_FROM_EMAIL}>'
-            subject = "Thank you for contacting Moonscape"
+            from_email = f'"Moodscape" <{settings.DEFAULT_FROM_EMAIL}>'
+            subject = "Thank you for contacting Moodscape"
             admin_message = "Thank you for reaching out! We have received \
                 your message and will get back to you soon."
             user_message = form.cleaned_data["message"]
 
             message = f"Dear {name}!\n\n{admin_message}\n\nHere is your \
-                message:\n{user_message}\n\nMoonscape Team\n"
+                message:\n{user_message}\n\nMoodscape Team\n"
 
             send_mail(
                 subject,
@@ -133,9 +133,9 @@ def privacy(request):
     metadata = make_metadata(
         request,
         {
-            "title": "Privacy Policy | Moonscape Art",
+            "title": "Privacy Policy | Moodscape Art",
             "meta": {
-                "description": "Read Moonscape's privacy policy to understand \
+                "description": "Read Moodscape's privacy policy to understand \
                 how we collect, use, and protect your personal \
                 information while you browse and shop on our platform.",
             },
@@ -156,9 +156,9 @@ def terms(request):
     metadata = make_metadata(
         request,
         {
-            "title": "Terms and Conditions | Moonscape Art",
+            "title": "Terms and Conditions | Moodscape Art",
             "meta": {
-                "description": "Review Moonscape's terms and conditions for \
+                "description": "Review Moodscape's terms and conditions for \
                 using our e-commerce platform, including details about \
                 purchases, payments, and user responsibilities.",
             },
@@ -180,10 +180,10 @@ def faq(request):
     metadata = make_metadata(
         request,
         {
-            "title": "Frequently Asked Questions (FAQ) | Moonscape Art",
+            "title": "Frequently Asked Questions (FAQ) | Moodscape Art",
             "meta": {
                 "description": "Find answers to common questions about \
-                Moonscape's products, shipping, payments, returns, and more \
+                Moodscape's products, shipping, payments, returns, and more \
                 in our FAQ section.",
             },
         },
@@ -210,11 +210,11 @@ def shop(request):
     metadata = make_metadata(
         request,
         {
-            "title": "Shop Art | Moonscape Art",
+            "title": "Shop Art | Moodscape Art",
             "meta": {
                 "description": "Browse and shop unique watercolor art, Irish \
                 abstract landscapes, floral art, pen plotter art, and digital \
-                photography at Moonscape Art.",
+                photography at Moodscape Art.",
             },
         },
     )
@@ -309,7 +309,7 @@ def success_newsletter(request):
         {
             "title": "Subscription Newsletter",
             "meta": {
-                "description": "Thank you for subscribing to Moonscape's \
+                "description": "Thank you for subscribing to Moodscape's \
                 newsletter. Please check your email to confirm your \
                 subscription and start receiving updates.",
             },
@@ -334,7 +334,7 @@ def success_contact(request):
         {
             "title": "Message Sent",
             "meta": {
-                "description": "Thank you for contacting Moonscape. Your \
+                "description": "Thank you for contacting Moodscape. Your \
                 message has been successfully sent, and we will get back to \
                 you shortly.",
                 "robots": "noindex, nofollow",

@@ -19,7 +19,7 @@ def bag_view(request):
             "title": "Your Bag",
             "meta": {
                 "description": "Review your selected items in your bag at \
-                Moonscape. Modify quantities or proceed to checkout to \
+                Moodscape. Modify quantities or proceed to checkout to \
                 secure your unique art pieces."
             },
         },

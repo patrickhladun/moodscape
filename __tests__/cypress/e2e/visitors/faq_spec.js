@@ -16,7 +16,7 @@ describe("FAQ UI and Accessibility Tests", () => {
     cy.get("h2").contains("Orders and Shipping").should("exist");
     cy.get("h2").contains("Returns and Refunds").should("exist");
     cy.get("h2").contains("Product Information").should("exist");
-    cy.get("h3").contains("1. What is Moonscape?").should("exist");
+    cy.get("h3").contains("1. What is Moodscape?").should("exist");
     cy.get("h3")
       .contains("2. How can I contact customer support?")
       .should("exist");

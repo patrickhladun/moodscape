@@ -28,7 +28,7 @@ def checkout_view(request):
         {
             "title": "Checkout",
             "meta": {
-                "description": "Complete your purchase on Moonscape. Securely \
+                "description": "Complete your purchase on Moodscape. Securely \
                 enter your shipping and payment details to finalize your \
                 order of unique art pieces."
             },
@@ -183,7 +183,7 @@ def checkout_success_view(request, order_number):
         {
             "title": "Thank You",
             "meta": {
-                "description": "Thank you for your purchase at Moonscape! \
+                "description": "Thank you for your purchase at Moodscape! \
                 Check your email for order details and shipping confirmation. \
                 We hope you enjoy your new art pieces."
             },

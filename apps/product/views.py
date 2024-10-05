@@ -72,7 +72,7 @@ def cms_products_view(request):
             "title": "Products List",
             "meta": {
                 "description": "Browse the complete catalog of products \
-                available on Moonscape. This page provides an overview of all \
+                available on Moodscape. This page provides an overview of all \
                 products, allowing for easy management and access to product \
                 details."
             },
@@ -101,7 +101,7 @@ def cms_product_add_view(request):
         {
             "title": "Add New Product",
             "meta": {
-                "description": "Add a new product to Moonscape's catalog. \
+                "description": "Add a new product to Moodscape's catalog. \
                 Specify product details such as name, price, and category to \
                 introduce new art pieces to the shop."
             },
@@ -214,7 +214,7 @@ def cms_categories_view(request):
         {
             "title": "Categories List",
             "meta": {
-                "description": "View and manage all categories on Moonscape. \
+                "description": "View and manage all categories on Moodscape. \
                 This administrative page provides an overview of all \
                 categories, facilitating the organization of products."
             },
@@ -324,7 +324,7 @@ def cms_category_add_view(request):
             "title": "Add New Category",
             "meta": {
                 "description": "Create a new category for organizing products \
-                on Moonscape. This page allows administrators to define new \
+                on Moodscape. This page allows administrators to define new \
                 categories that will help structure the site's offerings."
             },
         },
