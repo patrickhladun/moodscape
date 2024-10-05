@@ -28,9 +28,9 @@ def test_email_settings():
 def test_constance_settings():
     assert settings.CONSTANCE_CONFIG['SITE_NAME'][0] == 'Moodscape'
     assert settings.CONSTANCE_CONFIG['COPYRIGHT'][0] == 'All rights reserved.'
-    assert settings.CONSTANCE_CONFIG['SHOP_ADDRESS'][0] == '123 Main St'
-    assert settings.CONSTANCE_CONFIG['SHOP_MOBILE_PHONE'][0] == '091456523'
-    assert settings.CONSTANCE_CONFIG['SHOP_EMAIL'][0] == 'shop@moodscape.com'
+    assert settings.CONSTANCE_CONFIG['SHOP_ADDRESS'][0] == 'Moonscape Gallery, 456 Art Lane, Dublin, D04 EFG2, Ireland'
+    assert settings.CONSTANCE_CONFIG['SHOP_MOBILE_PHONE'][0] == '+353 (0)85 425123'
+    assert settings.CONSTANCE_CONFIG['SHOP_EMAIL'][0] == 'support@moodscape.com'
     assert settings.CONSTANCE_CONFIG['CURRENCY'][0] == 'eur'
     assert settings.CONSTANCE_CONFIG['CURRENCY_SYMBOL'][0] == '€'
     assert settings.CONSTANCE_CONFIG['FREE_DELIVERY_THRESHOLD'][0] == 50

@@ -7,7 +7,11 @@ from django.urls import reverse
 from apps.frontend import views
 from apps.order.models import Order, OrderLineItem
 
-from __tests__.pytest.factories import SuperuserFactory, OrderFactory, OrderLineItemFactory
+from __tests__.pytest.factories import (
+    SuperuserFactory,
+    OrderFactory,
+    OrderLineItemFactory,
+)
 
 
 @pytest.mark.django_db
@@ -25,18 +29,17 @@ def test_cms_order_update_view_update_status(test_data_orders):
 
     order = test_data_orders[0]
 
-    form_data = {
-        'update_status': 'true',
-        'status': 'complete'
-    }
+    form_data = {"update_status": "true", "status": "complete"}
 
-    url = reverse('cms_order_update', args=[order.order_number])
+    url = reverse("cms_order_update", args=[order.order_number])
     response = client.post(url, data=form_data)
 
     order.refresh_from_db()
     assert response.status_code == 302
-    assert order.status == 'complete'
-    assert 'Order status updated successfully.' in [msg.message for msg in response.wsgi_request._messages] 
+    assert order.status == "complete"
+    assert "Order status updated successfully." in [
+        msg.message for msg in response.wsgi_request._messages
+    ]
 
 
 @pytest.mark.django_db
@@ -55,39 +58,43 @@ def test_cms_order_update_view_update_form(test_data_orders):
     order = test_data_orders[0]
 
     form_data = {
-        'update_form': 'true',
-        'first_name': 'John',
-        'last_name': 'Doe',
-        'email': 'johndoe@example.com',
-        'phone_number': '1234567890',
-        'country': 'US',
-        'postcode': '12345',
-        'town_city': 'New York',
-        'address_line_1': '123 Main St',
-        'address_line_2': 'Apt 1',
-        'county': 'New York',
+        "update_form": "true",
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "johndoe@example.com",
+        "phone_number": "1234567890",
+        "country": "US",
+        "postcode": "12345",
+        "town_city": "New York",
+        "address_line_1": "123 Main St",
+        "address_line_2": "Apt 1",
+        "county": "New York",
     }
 
-    url = reverse('cms_order_update', args=[order.order_number])
+    url = reverse("cms_order_update", args=[order.order_number])
     response = client.post(url, data=form_data)
 
     order.refresh_from_db()
     assert response.status_code == 302
-    assert 'Order updated successfully.' in [msg.message for msg in response.wsgi_request._messages]
-    assert order.first_name == 'John'
-    assert order.last_name == 'Doe'
-    assert order.email == 'johndoe@example.com'
-    assert order.phone_number == '1234567890'
-    assert order.country == 'US'
-    assert order.postcode == '12345'
-    assert order.town_city == 'New York'
-    assert order.address_line_1 == '123 Main St'
-    assert order.address_line_2 == 'Apt 1'
-    assert order.county == 'New York'
+    assert "Order updated successfully." in [
+        msg.message for msg in response.wsgi_request._messages
+    ]
+    assert order.first_name == "John"
+    assert order.last_name == "Doe"
+    assert order.email == "johndoe@example.com"
+    assert order.phone_number == "1234567890"
+    assert order.country == "US"
+    assert order.postcode == "12345"
+    assert order.town_city == "New York"
+    assert order.address_line_1 == "123 Main St"
+    assert order.address_line_2 == "Apt 1"
+    assert order.county == "New York"
 
 
 @pytest.mark.django_db
-def test_cms_order_update_view_add_item(test_data_order, test_data_line_items):
+def test_cms_order_update_view_add_item(
+    test_data_order, test_data_line_items
+):
     client = Client()
 
     admin = SuperuserFactory()
@@ -100,23 +107,27 @@ def test_cms_order_update_view_add_item(test_data_order, test_data_line_items):
     line_item = test_data_line_items[2]
 
     form_data = {
-        'add_item': 'true',
-        'product': line_item.product.id,
-        'quantity': 2,
+        "add_item": "true",
+        "product": line_item.product.id,
+        "quantity": 1,
     }
 
-    url = reverse('cms_order_update', args=[order.order_number])
+    url = reverse("cms_order_update", args=[order.order_number])
     response = client.post(url, data=form_data)
 
     order.refresh_from_db()
 
     assert response.status_code == 302
     assert order.lineitems.count() == 4
-    assert 'Item added successfully.' in [msg.message for msg in response.wsgi_request._messages]
+    assert "Item added successfully." in [
+        msg.message for msg in response.wsgi_request._messages
+    ]
 
 
 @pytest.mark.django_db
-def test_cms_order_update_view_update_item(test_data_order, test_data_products):
+def test_cms_order_update_view_update_item(
+    test_data_order, test_data_products
+):
     client = Client()
 
     admin = SuperuserFactory()
@@ -129,13 +140,13 @@ def test_cms_order_update_view_update_item(test_data_order, test_data_products):
     product = test_data_products[6]
 
     form_data = {
-        'update_item': 'true',
-        'item_id': item_to_update.id,
-        'product': product.id,
-        'quantity': 2,
+        "update_item": "true",
+        "item_id": item_to_update.id,
+        "product": product.id,
+        "quantity": 2,
     }
 
-    url = reverse('cms_order_update', args=[order.order_number])
+    url = reverse("cms_order_update", args=[order.order_number])
     response = client.post(url, data=form_data)
 
     order.refresh_from_db()
@@ -145,11 +156,15 @@ def test_cms_order_update_view_update_item(test_data_order, test_data_products):
     updated_item = order.lineitems.get(id=item_to_update.id)
     assert updated_item.product == product
     assert updated_item.quantity == 2
-    assert 'Item updated successfully.' in [msg.message for msg in response.wsgi_request._messages]
+    assert "Item updated successfully." in [
+        msg.message for msg in response.wsgi_request._messages
+    ]
 
 
 @pytest.mark.django_db
-def test_cms_order_update_view_delete_item(test_data_order, test_data_line_items):
+def test_cms_order_update_view_delete_item(
+    test_data_order, test_data_line_items
+):
     client = Client()
 
     admin = SuperuserFactory()
@@ -160,11 +175,11 @@ def test_cms_order_update_view_delete_item(test_data_order, test_data_line_items
     order = test_data_order
 
     form_data = {
-        'delete_item': 'true',
-        'item_id': order.lineitems.first().id,
+        "delete_item": "true",
+        "item_id": order.lineitems.first().id,
     }
 
-    url = reverse('cms_order_update', args=[order.order_number])
+    url = reverse("cms_order_update", args=[order.order_number])
     response = client.post(url, data=form_data)
 
     order.refresh_from_db()
@@ -185,7 +200,7 @@ def test_cms_orders_view(test_data_orders):
 
     test_data_orders
 
-    url = reverse('cms_orders')
+    url = reverse("cms_orders")
     response = client.get(url)
 
     assert response.status_code == 200
