@@ -1026,6 +1026,64 @@ All manual mobile tests are performed on a physical mobile device, ensuring that
 | On any page tap on FAQ link | User is redirected to FAQ page | As expected |
 | On any page tap on Contact link | User is redirected to Contact page | As expected |
 
+### Manual tests for visitor pages
+
+| Test Performed | Expected Results | Actual Results |
+| --- | --- | --- |
+| Home page - Click Browse Our Collection button | User should be redirected to the shop page | As expected |
+| Home page - Click on the Watercolor Category link | User should be redirected to the shop with Watercolor products listed | As expected |
+| Home page - Click on the Photography Category link | User should be redirected to the shop with Photography products listed | As expected |
+| Home page - Click on the Pen Plotter Art Category link | User should be redirected to the shop with Pen Plotter products listed | As expected |
+| Home page - Click on the first featured product image in the featured section | User should be redirected to the selected product page | As expected |
+| Home page - Click on the second featured product image in the featured section | User should be redirected to the selected product page | As expected |
+| Home page - Click on the third featured product image in the featured section | User should be redirected to the selected product page | As expected |
+| Home page - Click on the fourth featured product image in the featured section | User should be redirected to the selected product page | As expected |
+| Shop page - Search for "tomato" keyword | Only products that include this phrase should be displayed | As expected |
+| Shop page - Click on Watercolors radio button in the Category section | Only products within the Watercolor category should be listed | As expected |
+| Shop page - Click on Photography radio button in the Category section | Only products within the Photography category should be listed | As expected |
+| Shop page - Click on Pen Plotter radio button in the Category section | Only products within the Pen Plotter category should be listed | As expected |
+| Shop page - Click on All Items radio button in the Category section | All products should be listed | As expected |
+| Shop page - Select Price: Low to High filter with all products | All products should be filtered by lowest price from top to bottom | As expected |
+| Shop page - Select Price: High to Low filter with all products | All products should be filtered by highest price from top to bottom | As expected |
+| Shop page - Select Rating: Low to High filter with all products | All products should be filtered by highest rating from top to bottom | As expected |
+| Shop page - Select Rating: High to Low filter with all products | All products should be filtered by lowest rating from top to bottom | As expected |
+| Shop page - Select Alphabetical: A to Z filter with all products | All products should be filtered from A to Z | As expected |
+| Shop page - Select Alphabetical: Z to A filter with all products | All products should be filtered from Z to A | As expected |
+| Shop page - Select Price: Low to High filter with Watercolors products | Only Watercolor products should be filtered by lowest price from top to bottom | As expected |
+| Shop page - Select Price: High to Low filter with Watercolors products | Only Watercolor products should be filtered by highest price from top to bottom | As expected |
+| Shop page - Select Rating: Low to High filter with Watercolors products | Only Watercolor products should be filtered by highest rating from top to bottom | As expected |
+| Shop page - Select Rating: High to Low filter with Watercolors products | Only Watercolor products should be filtered by lowest rating from top to bottom | As expected |
+| Shop page - Select Alphabetical: A to Z filter with Watercolors products | Only Watercolor products should be filtered from A to Z | As expected |
+| Shop page - Select Alphabetical: Z to A filter with Watercolors products | Only Watercolor products should be filtered from Z to A | As expected |
+| Shop page - Select Price: Low to High filter with Photographs products | Only Photograph products should be filtered by lowest price from top to bottom | As expected |
+| Shop page - Select Price: High to Low filter with Photographs products | Only Photograph products should be filtered by highest price from top to bottom | As expected |
+| Shop page - Select Rating: Low to High filter with Photographs products | Only Photograph products should be filtered by highest rating from top to bottom | As expected |
+| Shop page - Select Rating: High to Low filter with Photographs products | Only Photograph products should be filtered by lowest rating from top to bottom | As expected |
+| Shop page - Select Alphabetical: A to Z filter with Photographs products | Only Photograph products should be filtered from A to Z | As expected |
+| Shop page - Select Alphabetical: Z to A filter with Photographs products | Only Photograph products should be filtered from Z to A | As expected |
+| Shop page - Select Price: Low to High filter with Pen Plotter products | Only Pen Plotter products should be filtered by lowest price from top to bottom | As expected |
+| Shop page - Select Price: High to Low filter with Pen Plotter products | Only Pen Plotter products should be filtered by highest price from top to bottom | As expected |
+| Shop page - Select Rating: Low to High filter with Pen Plotter products | Only Pen Plotter products should be filtered by highest rating from top to bottom | As expected |
+| Shop page - Select Rating: High to Low filter with Pen Plotter products | Only Pen Plotter products should be filtered by lowest rating from top to bottom | As expected |
+| Shop page - Select Alphabetical: A to Z filter with Pen Plotter products | Only Pen Plotter products should be filtered from A to Z | As expected |
+| Shop page - Select Alphabetical: Z to A filter with Pen Plotter products | Only Pen Plotter products should be filtered from Z to A | As expected |
+| Shop page - Click on the product image | User should be redirected to the product page | As expected |
+| Shop page - Click on the product title | User should be redirected to the product page | As expected |
+| Shop page - Click on the product category on the product item | Only products within the clicked category should be listed | As expected |
+| Shop page - Click on the products gray cart icon | Nothing should happen; this product is Sold Out, so the button is disabled | As expected |
+| Shop page - Click on the products blue cart icon | Product should be added to the cart, and a message should show if there is stock available for the product; if not, the relevant error message should be shown | As expected |
+| Product Page - Click on the "Add to Cart" button | The product should be updated, and a message should display if there is stock available for the product; otherwise, a relevant error message should be shown. | As Expected |
+| Bag page - Increase product quantity and click update button | The product quantity should be updated, and a message should display if there is sufficient stock; otherwise, a relevant error message should be shown. | As Expected |
+| Bag page - Decrease product quantity and click update button | The product quantity should be updated, and a message should display if there is sufficient stock; otherwise, a relevant error message should be shown. | As Expected |
+| Bag page - Click on the trash button | The product should be removed from the bag. | As Expected |
+| Bag page - Click on the Empty Bag button | All items should be removed from the bag. | As Expected |
+| Bag page - Click on the Checkout button | The user should be redirected to the Checkout page. | As Expected |
+| Checkout page - User enters incorrect email and clicks Complete Order button | A relevant error should be displayed. | As Expected |
+| Checkout page - Existing customer clicks on Login link and logs in | If the customer exists, they should be logged in, redirected back to the checkout, and their saved details should be pre-filled in the checkout form. | As Expected |
+| Contact page - User fills in name, correct email, and message, then clicks submit | The user should be redirected to a success page, and a confirmation email should be sent to the provided email. | As Expected |
+| Contact page - User clicks on any social link in the contact details section | The user should be redirected to the corresponding social media page. | As Expected |
+
+
 ### Responsive Design Tests
 
 These tests are manually conducted using the Chrome browser's Toggle Device Toolbar to ensure the page elements properly adjust across various device presets.
