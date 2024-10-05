@@ -1171,6 +1171,64 @@ The CSS for my project was validated using the W3C CSS Validation Service online
 
 ### Running Pytest
 
+#### Tests Coverage
+
+| Name                                  | Stmts | Miss | Cover |
+| ------------------------------------- | ----- | ---- | ----- |
+| apps/bag/apps.py                      | 4     | 0    | 100%  |
+| apps/bag/context.py                   | 22    | 6    | 73%   |
+| apps/bag/templatetags/bag_tools.py    | 5     | 1    | 80%   |
+| apps/bag/urls.py                      | 3     | 0    | 100%  |
+| apps/bag/views.py                     | 53    | 45   | 15%   |
+| apps/checkout/apps.py                 | 4     | 0    | 100%  |
+| apps/checkout/urls.py                 | 4     | 0    | 100%  |
+| apps/checkout/views.py                | 80    | 66   | 18%   |
+| apps/common/apps.py                   | 4     | 0    | 100%  |
+| apps/common/decorators.py             | 6     | 0    | 100%  |
+| apps/common/sitemaps.py               | 17    | 5    | 71%   |
+| apps/common/templatetags/text_tags.py | 8     | 0    | 100%  |
+| apps/common/templatetags/ui_tags.py   | 74    | 16   | 78%   |
+| apps/common/urls.py                   | 6     | 0    | 100%  |
+| apps/common/utils/metadata.py         | 95    | 7    | 93%   |
+| apps/common/views.py                  | 4     | 2    | 50%   |
+| apps/frontend/apps.py                 | 4     | 0    | 100%  |
+| apps/frontend/context_processors.py   | 3     | 0    | 100%  |
+| apps/frontend/forms.py                | 7     | 0    | 100%  |
+| apps/frontend/models.py               | 1     | 0    | 100%  |
+| apps/frontend/urls.py                 | 4     | 0    | 100%  |
+| apps/frontend/views.py                | 119   | 44   | 63%   |
+| apps/order/admin.py                   | 12    | 0    | 100%  |
+| apps/order/apps.py                    | 4     | 0    | 100%  |
+| apps/order/forms.py                   | 48    | 2    | 96%   |
+| apps/order/models.py                  | 75    | 4    | 95%   |
+| apps/order/urls.py                    | 4     | 0    | 100%  |
+| apps/order/views.py                   | 84    | 20   | 76%   |
+| apps/product/admin.py                 | 30    | 0    | 100%  |
+| apps/product/apps.py                  | 6     | 0    | 100%  |
+| apps/product/forms.py                 | 32    | 1    | 97%   |
+| apps/product/models.py                | 47    | 0    | 100%  |
+| apps/product/signals.py               | 17    | 2    | 88%   |
+| apps/product/urls.py                  | 3     | 0    | 100%  |
+| apps/product/views.py                 | 130   | 58   | 55%   |
+| apps/review/admin.py                  | 8     | 0    | 100%  |
+| apps/review/apps.py                   | 4     | 0    | 100%  |
+| apps/review/forms.py                  | 11    | 0    | 100%  |
+| apps/review/models.py                 | 25    | 1    | 96%   |
+| apps/review/urls.py                   | 3     | 0    | 100%  |
+| apps/review/views.py                  | 117   | 52   | 56%   |
+| apps/user/admin.py                    | 12    | 0    | 100%  |
+| apps/user/apps.py                     | 4     | 0    | 100%  |
+| apps/user/forms.py                    | 10    | 0    | 100%  |
+| apps/user/models.py                   | 71    | 24   | 66%   |
+| apps/user/urls.py                     | 3     | 0    | 100%  |
+| apps/user/views.py                    | 68    | 36   | 47%   |
+| config/settings/common.py             | 54    | 0    | 100%  |
+| config/settings/development.py        | 7     | 0    | 100%  |
+| config/urls.py                        | 16    | 2    | 88%   |
+| **TOTAL**                             | 1432  | 394  | 72%   |
+
+#### How to run Pytest tests
+
 To ensure the reliability and correctness of the backend code, we use pytest for automated testing. Follow these instructions to run the tests:
 
 1. **Ensure pytest is Installed:**
