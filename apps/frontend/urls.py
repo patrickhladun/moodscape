@@ -14,6 +14,14 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    path('newsletter/subscribe/', views.newsletter_subscribe, name='newsletter_subscribe'),
-    path('newsletter/success/', views.success_newsletter, name='success_newsletter'),
+    path(
+        "newsletter/subscribe/",
+        views.newsletter_subscribe,
+        name="newsletter_subscribe",
+    ),
+    path(
+        "newsletter/success/",
+        views.success_newsletter,
+        name="success_newsletter",
+    ),
 ]
