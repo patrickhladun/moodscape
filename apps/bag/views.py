@@ -69,7 +69,12 @@ def add_to_bag_view(request, id):
     else:
         new_quantity = quantity
 
-    if new_quantity > product.stock:
+    if product.stock == 0:
+        messages.error(
+            request,
+            f"There is no {product.name} available in stock at the moment.",
+        )
+    elif new_quantity > product.stock:
         messages.error(
             request,
             f"Cannot add more than {product.stock} of {product.name} to your \
