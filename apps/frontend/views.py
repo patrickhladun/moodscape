@@ -98,12 +98,16 @@ def contact(request):
 
             from_email = f'"Moodscape" <{settings.DEFAULT_FROM_EMAIL}>'
             subject = "Thank you for contacting Moodscape"
-            admin_message = "Thank you for reaching out! We have received \
-                your message and will get back to you soon."
             user_message = form.cleaned_data["message"]
 
-            message = f"Dear {name}!\n\n{admin_message}\n\nHere is your \
-                message:\n{user_message}\n\nMoodscape Team\n"
+            message = (
+                f"Dear {name}!\n\n"
+                "Thank you for reaching out! We have received "
+                "your message and will get back to you soon.\n\n"
+                "Here is your message:\n"
+                f"{user_message}\n\n"
+                "Moodscape Team\n"
+            )
 
             send_mail(
                 subject,

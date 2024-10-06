@@ -1,10 +1,9 @@
 import pytest
-
-from django.urls import reverse
 from django.conf import settings
+from django.urls import reverse
 
+from __tests__.pytest.factories import SuperuserFactory, UserFactory
 from apps.user.forms import AccountProfileForm
-from __tests__.pytest.factories import UserFactory, SuperuserFactory
 
 views = [
     {

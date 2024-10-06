@@ -1,17 +1,15 @@
 import pytest
-
-from django.test import Client
 from django.shortcuts import get_object_or_404
+from django.test import Client
 from django.urls import reverse
 
-from apps.frontend import views
-from apps.order.models import Order, OrderLineItem
-
 from __tests__.pytest.factories import (
-    SuperuserFactory,
     OrderFactory,
     OrderLineItemFactory,
+    SuperuserFactory,
 )
+from apps.frontend import views
+from apps.order.models import Order, OrderLineItem
 
 
 @pytest.mark.django_db

@@ -880,7 +880,7 @@ To deploy Remote Forge on Heroku, follow these steps:
    - In the "Deploy" tab, select "GitHub" as the deployment method.
    - Connect your GitHub account and find the desired repository.
    - Enable automatic deploys and select the main branch.
-   - click "Deploy Branch."
+   - Click "Deploy Branch."
 
 Your app should now be deployed and accessible on Heroku.
 
@@ -1282,9 +1282,118 @@ The CSS for my project was validated using the W3C CSS Validation Service online
 
 ## Automated testing with Pytest and Cypress
 
-### Running Pytest
+### Pytest Tests
 
-#### Tests Coverage
+I chose Pytest for testing the application due to its straightforward syntax and ease of use. Pytest supports advanced features like parameterization, fixtures, and plugins, which enhance the testing process by allowing for more flexible and powerful test scenarios. It's also free and has strong community support.
+Throughout the development process, I used a combination of test-driven development (TDD) and writing tests after coding the features. This method helped make sure that most parts of the application were well-tested, making it more reliable and easier to maintain.
+
+**List of Tests with Descriptions:**
+
+- **bag app `test_no_empty_path`** - Verifies no URL configurations have empty paths.
+- **common app `test_icon`** - Checks correct SVG HTML output for predefined icons and sizes.
+- **common app `test_icon_with_size`** - Confirms correct application of size-specific classes to icons.
+- **common app `test_icon_with_class_name`** - Confirms custom classes are added correctly to icons.
+- **common app `test_icon_not_found`** - Ensures proper handling of non-existent icons with appropriate error messaging.
+- **common app `test_active_exact_match`** - Validates the `active` template tag by ensuring it correctly returns 'active' for matching URL paths and an empty string for non-matching paths.
+- **common app `test_addstr_filter`** - Tests the `addstr` template filter to ensure it concatenates various types of inputs correctly, producing the expected string results.
+- **frontend app `test_views_status`** - Checks that each page in the frontend application returns a status code of 200 (OK) and renders the correct template associated with each URL.
+- **frontend app `test_contact_form_initial_state`** - Verifies that the contact form is unbound when initially loaded, ensuring that the form does not hold any data on a fresh request.
+- **frontend app `test_contact_post_valid`** - Tests that a valid POST request to the contact form results in a redirection to the success page, sends an email confirmation, and verifies the email content.
+- **frontend app `test_contact_post_invalid`** - Ensures that submitting an invalid form (missing required fields) on the contact page returns a status code of 200 and retains the form errors in the response context.
+- **frontend app `test_shop_view_list_all_products`** - Confirms that the shop view successfully lists all products and their details match expected values, ensuring product data is correctly passed to the template.
+- **frontend app `test_urls_resolves`** - Confirms that URLs in the frontend application are correctly resolved to their corresponding view functions.
+- **frontend app `test_contact_form_initial_state`** - Checks that a newly initialized `ContactForm` is not bound to any data.
+- **frontend app `test_contact_form_with_valid_data`** - Ensures the `ContactForm` validates correctly when provided with valid data. It checks that the form is bound, validates successfully, and correctly handles and returns cleaned data.
+- **frontend app `test_contact_form_with_empty_data`** - Tests that the `ContactForm` correctly identifies and handles required fields when submitted with empty data. It verifies that the form is bound, validation fails, and appropriate error messages are generated for missing required fields.
+- **frontend app `test_contact_form_with_invalid_email`** - Verifies that the `ContactForm` properly validates the email field and returns an error for invalid email addresses, ensuring accurate data validation.
+- **order app `test_cms_order_update_view_update_status`** - Verifies that an order's status is successfully updated when appropriate form data is posted to the CMS order update view.
+- **order app `test_cms_order_update_view_update_form`** - Confirms that an order can be successfully updated with new customer and address details via the CMS order update view.
+- **order app `test_cms_order_update_view_add_item`** - Checks that an item can be successfully added to an order through the CMS order update view.
+- **order app `test_cms_order_update_view_update_item`** - Ensures that an existing item in an order can be updated for both product and quantity through the CMS order update view.
+- **order app `test_cms_order_update_view_delete_item`** - Tests that an item can be successfully removed from an order using the CMS order update view.
+- **order app `test_cms_orders_view`** - Ensures that the CMS orders view correctly displays all orders and operates with the expected template.
+- **order app `test_no_empty_path`** - Verifies that there are no empty URL paths in the URL configurations of the `order` application, ensuring that each URL path is correctly specified.
+- **order app `test_cms_orders_url_resolves`** - Confirms that the URL for the CMS orders page correctly resolves to the appropriate view function.
+- **order app `test_cms_order_update_url_resolves`** - Ensures that the URL for updating an order in the CMS correctly resolves to the appropriate view function and accepts an order number as a parameter.
+- **order app `test_create_order_form_has_correct_fields`** - Checks that the CreateOrderForm contains all the expected fields with the correct field types.
+- **order app `test_create_order_form_has_correct_placeholders`** - Verifies that the placeholders for the CreateOrderForm fields are correctly set and marked for required fields.
+- **order app `test_create_order_form_first_name_autofocus`** - Ensures that the 'first_name' field in the CreateOrderForm is set to autofocus on form rendering.
+- **order app `test_create_order_form_invalid_fields`** - Tests various validation errors for fields in the CreateOrderForm using predefined invalid data to ensure robust data validation.
+- **order app `test_update_order_form_has_correct_fields`** - Confirms that the UpdateOrderForm contains all expected fields with the correct field types.
+- **order app `test_update_order_form_invalid_fields`** - Checks for various validation errors using invalid data to ensure the UpdateOrderForm correctly handles field validation.
+- **order app `test_add_order_item_form_has_correct_fields`** - Verifies that the AddOrderItemForm includes the correct fields ('product' and 'quantity') and that these fields use the appropriate Django field types.
+- **order app `test_add_order_item_form_valid_data`** - Tests that the AddOrderItemForm processes and validates correct data successfully, adding an order item with valid product and quantity.
+- **order app `test_add_order_item_form_invalid_data`** - Ensures that the AddOrderItemForm handles invalid data correctly and does not validate negative quantities.
+- **order app `test_update_order_status_form_has_correct_fields`** - Confirms that the UpdateOrderStatusForm has the correct fields with appropriate choices for 'status'.
+- **order app `test_update_order_status_form_valid_data`** - Tests that the UpdateOrderStatusForm validates correctly when given a valid status choice, ensuring proper form processing.
+- **order app `test_update_order_status_form_invalid_data`** - Ensures that the UpdateOrderStatusForm correctly identifies invalid status choices and provides appropriate error messages.
+- **product app `test_product_view`** - Verifies that the product view correctly displays the product page and loads the correct product details based on the product's slug.
+- **product app `test_add_product_as_superadmin`** - Checks that a superadmin can successfully add a new product through the CMS product add form and ensures the product is saved in the database with correct details.
+- **product app `test_add_product_with_invalid_data`** - Validates form error handling in the CMS product add form by submitting various forms of invalid data and expecting appropriate error messages.
+- **product app `test_category_view`** - Ensures the category view for a superadmin correctly displays the list of categories.
+- **product app `test_add_category_as_superadmin`** - Tests that a superadmin can add a new category through the CMS and checks that the category is correctly added to the database.
+- **product app `test_add_category_with_invalid_data`** - Tests error handling in the category add form by submitting invalid data and expecting appropriate error responses.
+- **product app `test_no_empty_path`** - Ensures there are no empty paths in the product app's URL configuration, which could potentially lead to routing errors.
+- **product app `test_product_url_resolves`** - Confirms that the URL for a product detail page resolves correctly to the intended view function with the correct slug parameter.
+- **product app `test_category_meta_options`** - Checks that the meta options for the Category model are correctly set.
+- **product app `test_category_creation`** - Verifies that a new category can be created with correct attributes and that it is stored properly in the database.
+- **product app `test_category_slug_unique`** - Ensures that category slugs are unique and raises a validation error if a duplicate slug is entered.
+- **product app `test_product_meta_options`** - Confirms the meta options for the Product model are set correctly.
+- **product app `test_product_creation`** - Tests creating a new product with correct attributes and checks that it reflects correctly in the database.
+- **product app `test_product_fields`** - Validates various field types within the Product model to ensure they conform to expected types and behaviors.
+- **product app `test_product_sku_unique`** - Ensures that product SKUs are unique and a validation error is raised for duplicate SKUs.
+- **product app `test_product_form_initial_state`** - Confirms the initial state of the ProductForm to verify it is not bound and ready for input.
+- **product app `test_product_form_with_valid_data`** - Tests the ProductForm with valid input data to ensure it is correctly bound, validated, and all fields are correctly populated.
+- **product app `test_product_form_with_empty_data`** - Validates that the ProductForm correctly handles empty data submissions and returns appropriate error messages.
+- **product app `test_product_form_slug_generation`** - Tests the automatic slug generation of the ProductForm to ensure it creates appropriate, URL-friendly slugs based on product name input.
+- **product app `test_product_stock_validation`** - Tests validation for the 'stock' field in the ProductForm to ensure negative stock values are handled correctly with an error.
+- **product app `test_product_form_details_field_type`** - Verifies that the 'details' field in the ProductForm uses the expected widget type, ensuring correct UI elements are used for input.
+- **review app `test_cms_reviews_view_unauthenticated`** - Checks if unauthenticated users are redirected when trying to access the CMS reviews page.
+- **review app `test_cms_reviews_view_customer`** - Ensures customers are redirected from accessing the CMS reviews page, which is intended only for admins.
+- **review app `test_cms_reviews_view_superuser`** - Verifies that a superuser can access the CMS reviews page and that the correct template is used with the expected number of reviews loaded.
+- **review app `test_cms_reviews_view_filter_status`** - Tests the filtering functionality on the CMS reviews page by status, ensuring the correct count of reviews is displayed based on the filter applied.
+- **review app `test_cms_review_update_view_unauthenticated`** - Ensures that unauthenticated users are redirected when attempting to update a review.
+- **review app `test_cms_review_update_view_customer`** - Confirms that customers cannot access the review update page, which is restricted to admins.
+- **review app `test_cms_review_update_superuser`** - Tests that a superuser can update a review's status and that the update is reflected in the database.
+- **review app `test_account_reviews_view_unauthenticated`** - Checks if unauthenticated users are redirected when trying to access their account reviews page.
+- **review app `test_account_reviews_view_authenticated_with_reviews`** - Verifies that authenticated users with reviews can view their reviews on the account page.
+- **review app `test_account_review_submit_view_post`** - Ensures that authenticated users can submit a review through the account review submission page and that the submission is reflected in the database.
+- **review app `test_no_empty_path`** - Verifies that there are no empty paths in the review app's URL patterns, ensuring all URLs are correctly configured.
+- **review app `test_cms_reviews_url`** - Confirms that the URL for the CMS reviews page resolves to the correct view function.
+- **review app `test_cms_review_update_url`** - Ensures the URL for updating a review resolves to the correct view function and accepts an ID parameter.
+- **review app `test_account_reviews_url`** - Checks that the URL for the account reviews page resolves to the correct view function.
+- **review app `test_account_review_submit_url`** - Verifies that the URL for submitting a review resolves to the correct view function and accepts an ID parameter.
+- **review app `test_review_form_initialization`** - Checks that the ReviewForm is initialized correctly with the expected fields.
+- **review app `test_review_form_valid_data`** - Ensures the ReviewForm validates correctly when provided with valid data.
+- **review app `test_review_form_invalid_data`** - Tests that the ReviewForm correctly identifies and handles invalid data.
+- **review app `test_review_form_rendering`** - Verifies that the ReviewForm renders correctly in HTML.
+- **review app `test_review_status_form_initialization`** - Confirms that the ReviewStatusForm is initialized correctly with the expected status field.
+- **review app `test_review_status_form_valid_data`** - Checks that the ReviewStatusForm validates correctly when provided with a valid status.
+- **review app `test_review_status_form_invalid_data`** - Ensures the ReviewStatusForm correctly identifies and handles invalid status choices.
+- **user app `test_view_status_for_unauthenticated_user`** - Checks if unauthenticated users are redirected when attempting to access user account-related pages.
+- **user app `test_view_status_for_authenticated_account_user`** - Verifies that authenticated users can access their account page with the correct template loaded.
+- **user app `test_account_view_form`** - Ensures that the account page loads the AccountProfileForm with the correct user instance when visited by an authenticated user.
+- **user app `test_update_account_user_email_form`** - Tests the functionality to update the user's email through the AccountProfileForm on the account page.
+- **user app `test_urls_resolve`** - Ensures that user account-related URLs resolve to the correct views as expected.
+- **user app `test_account_form_initial_state`** - Checks that the AccountProfileForm is not bound when initially created.
+- **user app `test_account_form_update_email`** - Verifies that the email can be updated correctly through the AccountProfileForm for a superuser.
+- **user app `test_account_form_update_username`** - Confirms that the username can be updated correctly through the AccountProfileForm for a superuser.
+- **user app `test_account_form_missing_email`** - Tests that the AccountProfileForm validation fails when the email field is empty.
+- **user app `test_account_form_invalid_email`** - Checks for an error when an invalid email is submitted through the AccountProfileForm.
+- **user app `test_account_form_missing_username`** - Ensures that the AccountProfileForm validation fails when the username field is empty.
+- **user app `test_user_admin_registration`** - Confirms that the User model is registered with the UserAdmin class.
+- **user app `test_user_admin_list_display`** - Verifies that the correct fields are displayed in the user admin list.
+- **user app `test_user_admin_search_fields`** - Ensures that the admin search functionality is set up for the User model.
+- **user app `test_user_admin_ordering`** - Confirms that users are ordered by email in the admin panel.
+- **user app `test_user_admin_fieldsets`** - Checks that the UserAdmin fieldsets are configured correctly.
+- **user app `test_user_admin_add_fieldsets`** - Verifies that the add_fieldsets for creating a new user in admin are set up correctly.
+- **user app `test_user_admin_readonly_fields`** - Ensures that the last_login and date_joined fields are read-only in the admin panel.
+
+**Tests Recording**
+
+![Pytest Test](./docs/pytest-tests.gif)
+
+**Tests Coverage**
 
 | Name                                  | Stmts | Miss | Cover |
 | ------------------------------------- | ----- | ---- | ----- |
@@ -1342,8 +1451,6 @@ The CSS for my project was validated using the W3C CSS Validation Service online
 
 #### How to run Pytest tests
 
-To ensure the reliability and correctness of the backend code, we use pytest for automated testing. Follow these instructions to run the tests:
-
 1. **Ensure pytest is Installed:**
 
 Make sure `pytest` is installed in your project environment. If it's not installed, you can install it using pip:
@@ -1355,7 +1462,12 @@ pip install pytest
 2. **Run the tests**
 
 ```sh
-pytest -rP -v
+pytest
+```
+3. **Run the tests with more details**
+
+```sh
+pytest -s -rP -vv
 ```
 
 ### Cypress tests
