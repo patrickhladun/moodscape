@@ -28,9 +28,9 @@ def checkout_view(request):
         {
             "title": "Checkout",
             "meta": {
-                "description": "Complete your purchase on Moodscape. Securely \
-                enter your shipping and payment details to finalize your \
-                order of unique art pieces."
+                "description": "Complete your purchase on Moodscape. Securely "
+                "enter your shipping and payment details to finalize your "
+                "order of unique art pieces."
             },
         },
     )
@@ -59,41 +59,35 @@ def checkout_view(request):
         order_form = CreateOrderForm(form_data)
 
         if order_form.is_valid():
-            order = order_form.save()
+            order = order_form.save(commit=False)
 
-            if create_account:
-                if password == confirm_password:
-                    user = User.objects.create_user(
-                        username=request.POST["email"],
-                        email=request.POST["email"],
-                        password=password,
-                    )
+            if request.user.is_authenticated:
+                order.customer = request.user.customer
 
-                    customer = Customer.objects.create(user=user, **address)
+            if create_account and password == confirm_password:
+                user = User.objects.create_user(
+                    username=request.POST["email"],
+                    email=request.POST["email"],
+                    password=password,
+                )
+                customer = Customer.objects.create(user=user, **address)
+                order.customer = customer
 
-                    order.customer = customer
-                    order.save()
-
-                else:
-                    messages.error(request, "Passwords do not match.")
-                    return redirect(reverse("checkout"))
+            order.save()
 
             for item_id, quantity in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
-                    order_line_item = OrderLineItem(
+                    OrderLineItem.objects.create(
                         order=order,
                         product=product,
                         quantity=quantity,
                     )
-                    order_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(
                         request,
-                        (
-                            "One of the products in your bag wasn't found in \
-                            our database. Please call us for assistance!"
-                        ),
+                        "One of the products in your bag wasn't found in our "
+                        "database. Please call us for assistance!",
                     )
                     order.delete()
                     return redirect(reverse("view_bag"))
@@ -105,11 +99,10 @@ def checkout_view(request):
         else:
             messages.error(
                 request,
-                "There was an error with your form. Please double check your \
-                information.",
+                "There was an error with your form. Please double check your "
+                "information.",
             )
 
-        client_secret = ""
     else:
         bag = request.session.get("bag", {})
         if not bag:
@@ -118,25 +111,21 @@ def checkout_view(request):
             )
             return redirect(reverse("shop"))
 
+        initial_data = {}
         if request.user.is_authenticated:
-            try:
-                customer = request.user.customer
-                initial_data = {
-                    "first_name": customer.first_name,
-                    "last_name": customer.last_name,
-                    "phone_number": customer.phone_number,
-                    "country": customer.country,
-                    "postcode": customer.postcode,
-                    "town_city": customer.town_city,
-                    "address_line_1": customer.address_line_1,
-                    "address_line_2": customer.address_line_2,
-                    "county": customer.county,
-                    "email": request.user.email,
-                }
-            except AttributeError:
-                initial_data = {"email": request.user.email}
-        else:
-            initial_data = {}
+            customer = request.user.customer
+            initial_data = {
+                "first_name": customer.first_name,
+                "last_name": customer.last_name,
+                "phone_number": customer.phone_number,
+                "country": customer.country,
+                "postcode": customer.postcode,
+                "town_city": customer.town_city,
+                "address_line_1": customer.address_line_1,
+                "address_line_2": customer.address_line_2,
+                "county": customer.county,
+                "email": request.user.email,
+            }
 
         order_form = CreateOrderForm(initial=initial_data)
 
@@ -149,22 +138,13 @@ def checkout_view(request):
             currency=config.CURRENCY,
         )
 
-        client_secret = intent.client_secret
-
-    if not stripe_public_key:
-        messages.warning(
-            request,
-            "Stripe public key is missing. Did you forget to set it in your \
-            environment?",
-        )
-
     template = "checkout/checkout.html"
     context = {
         "config": config,
         "metadata": metadata,
         "order_form": order_form,
         "stripe_public_key": stripe_public_key,
-        "client_secret": client_secret,
+        "client_secret": intent.client_secret,
     }
     return render(request, template, context)
 
@@ -183,18 +163,18 @@ def checkout_success_view(request, order_number):
         {
             "title": "Thank You",
             "meta": {
-                "description": "Thank you for your purchase at Moodscape! \
-                Check your email for order details and shipping confirmation. \
-                We hope you enjoy your new art pieces."
+                "description": "Thank you for your purchase at Moodscape! "
+                "Check your email for order details and shipping confirmation."
+                " We hope you enjoy your new art pieces."
             },
         },
     )
 
     messages.success(
         request,
-        f"Order successfully processed! \
-        Your order number is {order_number}. A confirmation \
-        email will be sent to {order.email}.",
+        f"Order successfully processed! "
+        f"Your order number is {order_number}. A confirmation "
+        f"email will be sent to {order.email}.",
     )
 
     if "bag" in request.session:
