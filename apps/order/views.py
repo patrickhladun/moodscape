@@ -147,7 +147,7 @@ def account_orders_view(request):
     track the status of their current and past orders, enhancing transparency
     and engagement with the ordering process.
     """
-    orders = Order.objects.all()
+    orders = Order.objects.filter(customer__user=request.user)
 
     metadata = make_metadata(
         request,
