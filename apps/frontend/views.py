@@ -195,9 +195,13 @@ def faq(request):
         },
     )
 
+    # Fetch all sections with their FAQs
+    sections = FAQSection.objects.prefetch_related("faq_set")
+
     template = "frontend/faq.html"
     context = {
         "metadata": metadata,
+        "sections": sections,
     }
     return render(request, template, context)
 
@@ -383,3 +387,47 @@ def cms_faqs_view(request):
         "faqs": faqs,
     }
     return render(request, template, context)
+
+
+@login_required
+@superuser_required
+def cms_faqs_add_view(request):
+    """
+    Handles the addition of a new FAQ entry in the CMS.
+    """
+
+    metadata = make_metadata(
+        request,
+        {
+            "title": "FAQ",
+            "meta": {
+                "description": "Manage and update the FAQ content on the \
+                Moodscape platform. Provide answers to common questions about \
+                products, shipping, payments, and more.",
+            },
+        },
+    )
+
+    if request.method == "POST":
+        form = FAQForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "FAQ item added successfully.")
+            return redirect(reverse("cms_faqs"))
+        else:
+            error_message = "You have errors in the following fields: "
+            error_fields = ", ".join(
+                [field for field, _ in form.errors.items()]
+            )
+            messages.error(request, error_message + error_fields)
+    else:
+        form = FAQForm()
+
+    template = "frontend/cms/faqs_add.html"
+    context = {
+        "metadata": metadata,
+        "active": "faqs",
+        "form": form,
+    }
+    return render(request, template, context)
+

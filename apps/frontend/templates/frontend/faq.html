@@ -6,76 +6,18 @@
     <!-- Page Title -->
     {% include 'partials/page_title.html' with title='Frequently Asked Questions (FAQ)' %}
     <!-- FAQ Content -->
-    <section class="bg-neutral-100">
-      <div class="container py-rg">
-        <h2>General Questions</h2>
-        <div class="faq-item">
-          <h3>1. What is Moodscape?</h3>
-          <p>Moodscape is an e-commerce platform offering a curated collection of unique watercolor art, Irish abstract landscapes, floral art, macro photography, digital art, and pen plotter art.</p>
+    <section class="bg-neutral-100 py-rg">
+      {% for section in sections %}
+        <div class="container">
+          <h2>{{ section.name }}</h2>
+          {% for faq in section.faq_set.all %}
+            <div class="faq-item">
+              <h3 number="{{ forloop.counter }}. " class="text-h4 before:content-[attr(number)]">{{ faq.question }}</h3>
+              <p class="m-1">{{ faq.answer }}</p>
+            </div>
+          {% endfor %}
         </div>
-        <div class="faq-item">
-          <h3>2. How can I contact customer support?</h3>
-          <p>You can contact our customer support team via email at support@moodscape.example.com or by phone at +353 (0)1 987 6543.</p>
-        </div>
-        <div class="faq-item">
-          <h3>3. What payment methods do you accept?</h3>
-          <p>We accept debit and credit card payments through Stripe.</p>
-        </div>
-
-        <h2>Orders and Shipping</h2>
-        <div class="faq-item">
-          <h3>4. How can I track my order?</h3>
-          <p>Once your order is shipped, you will receive a tracking number via email. You can use this number to track your order on the shipping carrier's website.</p>
-        </div>
-        <div class="faq-item">
-          <h3>5. What are the shipping options?</h3>
-          <p>We offer various shipping options, including standard and expedited shipping. The available options will be displayed at checkout based on your location.</p>
-        </div>
-        <div class="faq-item">
-          <h3>6. Do you ship internationally?</h3>
-          <p>Yes, we ship to many countries worldwide. Shipping costs and delivery times vary depending on the destination.</p>
-        </div>
-        <div class="faq-item">
-          <h3>7. How long does it take to process an order?</h3>
-          <p>Orders are typically processed within 1-2 business days. During peak times, processing may take longer.</p>
-        </div>
-        <div class="faq-item">
-          <h3>8. Can I change or cancel my order?</h3>
-          <p>If you need to change or cancel your order, please contact us as soon as possible. We will do our best to accommodate your request, but we cannot guarantee changes or cancellations once the order has been processed.</p>
-        </div>
-
-        <h2>Returns and Refunds</h2>
-        <div class="faq-item">
-          <h3>9. What is your return policy?</h3>
-          <p>We accept returns within 30 days of purchase. The items must be in their original condition and packaging. Please contact us to initiate a return.</p>
-        </div>
-        <div class="faq-item">
-          <h3>10. How do I return an item?</h3>
-          <p>To return an item, please contact our customer support team for return instructions. Once we receive the returned item, we will process your refund or exchange.</p>
-        </div>
-        <div class="faq-item">
-          <h3>11. How long does it take to receive a refund?</h3>
-          <p>Refunds are typically processed within 5-7 business days after we receive the returned item. The refund will be issued to the original payment method.</p>
-        </div>
-        <div class="faq-item">
-          <h3>12. Can I exchange an item?</h3>
-          <p>Yes, you can exchange an item within 30 days of purchase. The items must be in their original condition and packaging. Please contact us to initiate an exchange.</p>
-        </div>
-
-        <h2>Product Information</h2>
-        <div class="faq-item">
-          <h3>13. Are all the art pieces original?</h3>
-          <p>We sell both original artworks and prints. Our collection includes original paintings, photograph prints, and original pen plotter art.</p>
-        </div>
-        <div class="faq-item">
-          <h3>14. Do you offer custom art pieces?</h3>
-          <p>We offer custom art pieces upon request. Please contact us with your requirements, and we will work with our artists to create a unique piece for you.</p>
-        </div>
-        <div class="faq-item">
-          <h3>15. How do I care for my artwork?</h3>
-          <p>To ensure the longevity of your artwork, keep it out of direct sunlight and avoid exposure to extreme temperatures or humidity. Dust the surface regularly with a soft, dry cloth.</p>
-        </div>
-      </div>
+      {% endfor %}
     </section>
   </main>
 {% endblock %}

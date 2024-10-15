@@ -35,6 +35,13 @@
     aria-label="Link to Reviews"
     >
     Reviews
+  </a>
+  <a 
+    href="{% url 'cms_faqs' %}" 
+    class="cms-nav-item{% active 'faqs' %}"
+    aria-label="Link to FAQ"
+    >
+    FAQ
   </a>  
   <a 
     href="{% url 'admin:index' %}" 

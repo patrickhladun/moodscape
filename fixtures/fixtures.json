@@ -2,6 +2,7 @@
   "fixtures": [
     "user.superuser.json",
     "user.accounts.json",
+    "frontend.faq.json",
     "product.categories.json",
     "product.watercolors.json",
     "product.photography.json",
