@@ -431,3 +431,65 @@ def cms_faqs_add_view(request):
     }
     return render(request, template, context)
 
+
+@login_required
+@superuser_required
+def cms_faqs_update_view(request, id):
+    """
+    Handles the update of a new FAQ entry in the CMS.
+    """
+
+    metadata = make_metadata(
+        request,
+        {
+            "title": "FAQ",
+            "meta": {
+                "description": "Manage and update the FAQ content on the \
+                Moodscape platform. Provide answers to common questions about \
+                products, shipping, payments, and more.",
+            },
+        },
+    )
+
+    faq = get_object_or_404(FAQ, id=id)
+
+    if request.method == "POST":
+        form = FAQForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "FAQ item added successfully.")
+            return redirect(
+                reverse("cms_faqs_update", args=[form.instance.id])
+            )
+        else:
+            error_message = "You have errors in the following fields: "
+            error_fields = ", ".join(
+                [field for field, _ in form.errors.items()]
+            )
+            messages.error(request, error_message + error_fields)
+    else:
+        form = FAQForm(instance=faq)
+
+    template = "frontend/cms/faqs_update.html"
+    context = {
+        "active": "faqs",
+        "metadata": metadata,
+        "form": form,
+        "faq": faq,
+    }
+    return render(request, template, context)
+
+
+@login_required
+@superuser_required
+def cms_faqs_delete_view(request, id):
+    """
+    Handles the deletion of a FAQ item.
+    """
+    faq = get_object_or_404(FAQ, id=id)
+
+    if request.method == "POST":
+        faq.delete()
+        messages.success(request, "FAQ item deleted successfully.")
+        return redirect(reverse("cms_faqs"))
+

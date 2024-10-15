@@ -16,6 +16,16 @@ urlpatterns = [
 urlpatterns += [
     path("cms/faqs/", views.cms_faqs_view, name="cms_faqs"),
     path("cms/faqs/add/", views.cms_faqs_add_view, name="cms_faqs_add"),
+    path(
+        "cms/faqs/<int:id>/update/",
+        views.cms_faqs_update_view,
+        name="cms_faqs_update",
+    ),
+    path(
+        "cms/faqs/<int:id>/delete/",
+        views.cms_faqs_delete_view,
+        name="cms_faqs_delete",
+    ),
 ]
 
 urlpatterns += [
