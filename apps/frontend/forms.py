@@ -1,4 +1,5 @@
 from django import forms
+from .models import FAQ, FAQSection
 
 
 class ContactForm(forms.Form):
@@ -22,3 +23,18 @@ class NewsletterForm(forms.Form):
             }
         )
     )
+
+
+class FAQForm(forms.ModelForm):
+    """
+    Form for admin to add FAQs.
+    """
+
+    class Meta:
+        model = FAQ
+        fields = [
+            "question",
+            "answer",
+            "section",
+        ]
+

@@ -14,6 +14,10 @@ urlpatterns = [
 ]
 
 urlpatterns += [
+    path("cms/faqs/add/", views.cms_faqs_add_view, name="cms_faqs_add"),
+]
+
+urlpatterns += [
     path(
         "newsletter/subscribe/",
         views.newsletter_subscribe,

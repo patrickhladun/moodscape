@@ -2,17 +2,19 @@ import requests
 from constance import config
 from django.conf import settings
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.http import HttpResponseRedirect
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render, reverse
 
+from apps.common.decorators import superuser_required
 from apps.common.utils.metadata import make_metadata
 from apps.product.models import Category, Product
 
-from .forms import ContactForm, NewsletterForm
-from .models import ContactMessage
+from .forms import ContactForm, FAQForm, FAQSectionForm, NewsletterForm
+from .models import FAQ, FAQSection, ContactMessage
 
 
 def home(request):
@@ -349,5 +351,35 @@ def success_contact(request):
     template = "frontend/success_contact.html"
     context = {
         "metadata": metadata,
+    }
+    return render(request, template, context)
+
+
+@login_required
+@superuser_required
+def cms_faqs_view(request):
+    """
+    Renders the FAQ page in the CMS, allowing admin users to manage and
+    update the FAQ content.
+    """
+    faqs = FAQ.objects.all()
+
+    metadata = make_metadata(
+        request,
+        {
+            "title": "FAQ",
+            "meta": {
+                "description": "Manage and update the FAQ content on the \
+                Moodscape platform. Provide answers to common questions about \
+                products, shipping, payments, and more.",
+            },
+        },
+    )
+
+    template = "frontend/cms/faqs.html"
+    context = {
+        "metadata": metadata,
+        "active": "faqs",
+        "faqs": faqs,
     }
     return render(request, template, context)
