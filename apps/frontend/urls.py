@@ -26,6 +26,17 @@ urlpatterns += [
         views.cms_faqs_delete_view,
         name="cms_faqs_delete",
     ),
+    path("cms/sections/", views.cms_sections_view, name="cms_sections"),
+    path(
+        "cms/sections/<int:id>/update/",
+        views.cms_sections_update_view,
+        name="cms_sections_update",
+    ),
+    path(
+        "cms/sections/<int:id>/delete/",
+        views.cms_sections_delete_view,
+        name="cms_sections_delete",
+    ),
 ]
 
 urlpatterns += [

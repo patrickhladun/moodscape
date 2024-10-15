@@ -493,3 +493,111 @@ def cms_faqs_delete_view(request, id):
         messages.success(request, "FAQ item deleted successfully.")
         return redirect(reverse("cms_faqs"))
 
+
+@login_required
+@superuser_required
+def cms_sections_view(request):
+    """
+    Renders the FAQ Sections page in the CMS, allowing admin users to manage and
+    update the FAQ Sections.
+    """
+    sections = FAQSection.objects.all()
+
+    metadata = make_metadata(
+        request,
+        {
+            "title": "FAQ Sections",
+            "meta": {
+                "description": "Manage and update the FAQ content on the \
+                Moodscape platform. Provide answers to common questions about \
+                products, shipping, payments, and more.",
+            },
+        },
+    )
+
+    if request.method == "POST":
+        if "section_add" in request.POST:
+            section_add_form = FAQSectionForm(request.POST)
+            if section_add_form.is_valid():
+                section_add_form.save()
+                messages.success(request, "FAQ item added successfully.")
+                return redirect(reverse("cms_sections"))
+            else:
+                error_message = "You have errors in the following fields: "
+                error_fields = ", ".join(
+                    [field for field, _ in section_add_form.errors.items()]
+                )
+                messages.error(request, error_message + error_fields)
+    else:
+        section_add_form = FAQSectionForm()
+
+    template = "frontend/cms/sections.html"
+    context = {
+        "metadata": metadata,
+        "active": "faqs",
+        "sections": sections,
+        "section_add_form": section_add_form,
+    }
+    return render(request, template, context)
+
+
+@login_required
+@superuser_required
+def cms_sections_update_view(request, id):
+    """
+    Handles the update of a new FAQ entry in the CMS.
+    """
+
+    metadata = make_metadata(
+        request,
+        {
+            "title": "FAQ",
+            "meta": {
+                "description": "Manage and update the FAQ content on the \
+                Moodscape platform. Provide answers to common questions about \
+                products, shipping, payments, and more.",
+            },
+        },
+    )
+
+    section = get_object_or_404(FAQSection, id=id)
+
+    if request.method == "POST":
+        form = FAQSectionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "FAQ item added successfully.")
+            return redirect(
+                reverse("cms_sections_update", args=[form.instance.id])
+            )
+        else:
+            error_message = "You have errors in the following fields: "
+            error_fields = ", ".join(
+                [field for field, _ in form.errors.items()]
+            )
+            messages.error(request, error_message + error_fields)
+    else:
+        form = FAQSectionForm(instance=section)
+
+    template = "frontend/cms/sections_update.html"
+    context = {
+        "active": "faqs",
+        "metadata": metadata,
+        "form": form,
+        "section": section,
+    }
+    return render(request, template, context)
+
+
+@login_required
+@superuser_required
+def cms_sections_delete_view(request, id):
+    """
+    Handles the deletion of a FAQ item.
+    """
+    section = get_object_or_404(FAQSection, id=id)
+
+    if request.method == "POST":
+        section.delete()
+        messages.success(request, "FAQ section item deleted successfully.")
+        return redirect(reverse("cms_sections"))

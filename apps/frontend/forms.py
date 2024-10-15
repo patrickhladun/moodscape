@@ -38,3 +38,14 @@ class FAQForm(forms.ModelForm):
             "section",
         ]
 
+
+class FAQSectionForm(forms.ModelForm):
+    """
+    Form for admin to add FAQ Section.
+    """
+
+    class Meta:
+        model = FAQSection
+        fields = [
+            "name",
+        ]
