@@ -92,7 +92,7 @@
     function submitDeleteForm(productId) {
       const form = document.createElement('form')
       form.method = 'POST'
-      form.action = `/account/products/${productId}/delete/`
+      form.action = `/cms/products/${productId}/delete/`
     
       const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value
       const csrfInput = document.createElement('input')

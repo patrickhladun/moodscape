@@ -15,7 +15,7 @@ def product_view(request, slug):
     Displays a single product page based on the product slug. The page
     includes approved reviews and stock information.
     """
-    product = get_object_or_404(Product, slug=slug)
+    product = get_object_or_404(Product, slug=slug, is_published=True)
     reviews = product.reviews.filter(status="approved")
 
     stock = "in stock" if product.stock > 0 else "out of stock"

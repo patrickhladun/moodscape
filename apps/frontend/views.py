@@ -211,7 +211,7 @@ def shop(request):
     Renders the shop page with filterable and sortable product listings based
     on user input. Sets metadata for the shop page.
     """
-    products = Product.objects.all()
+    products = Product.objects.filter(is_published=True)
     query = None
     category = None
     sort = None
