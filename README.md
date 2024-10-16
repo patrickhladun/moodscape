@@ -733,7 +733,16 @@ Update review page.
 
 </details>
 
-### Django Administration
+### CRUD Operations
+
+#### Customer CRUD operation on the frontend
+
+| Model | Create | Read | Update | Delete |
+| --- | --- | --- | --- | --- |
+| Order | :white_check_mark: | :white_check_mark: | :x: | :x: |
+| Product | :x: | :white_check_mark: | :x: | :x: |
+| Reviews | :x: | :white_check_mark: | :white_check_mark: | :x: |
+| Customer | :x: | :white_check_mark: | :white_check_mark: | :x: |
 
 ## Technology used
 
