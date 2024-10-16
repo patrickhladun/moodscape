@@ -21,6 +21,11 @@ urlpatterns = [
     path(
         "account/reviews/<int:id>/update/",
         views.account_review_update_view,
-        name="account_resubmit_update_review",
+        name="account_review_update",
+    ),
+    path(
+        "account/reviews/<int:id>/delete/",
+        views.account_review_delete_view,
+        name="account_review_delete",
     ),
 ]

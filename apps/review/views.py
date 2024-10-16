@@ -274,3 +274,16 @@ def account_review_update_view(request, id):
         "product": product,
     }
     return render(request, template, context)
+
+
+@login_required
+def account_review_delete_view(request, id):
+    """
+    Handles the deletion of a Review item.
+    """
+    review = get_object_or_404(Review, id=id)
+
+    if request.method == "POST":
+        review.delete()
+        messages.success(request, "Review item deleted successfully.")
+        return redirect("account_reviews")
