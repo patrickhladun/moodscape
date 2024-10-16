@@ -101,3 +101,10 @@
     }
   }
 }
+
+.error-messages {
+  @apply text-red-600 text-sm py-1 my-1;
+  p {
+    @apply my-0;
+  }
+}

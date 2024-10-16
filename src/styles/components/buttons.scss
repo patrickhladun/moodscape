@@ -9,16 +9,16 @@
     }
   }
 
-  &__disabled {
-    @apply bg-neutral-200 text-neutral-700;
-  }
-
   &__secondary {
     @apply bg-gray-200;
 
     &:hover {
       @apply bg-gray-300;
     }
+  }
+
+  &__disabled {
+    @apply bg-neutral-200 text-neutral-700;
   }
 
   &__danger {
