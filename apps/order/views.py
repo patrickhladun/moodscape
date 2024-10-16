@@ -15,7 +15,6 @@ from .forms import (
 )
 
 
-@login_required
 @superuser_required
 def cms_order_update_view(request, order_number):
     """
@@ -109,7 +108,6 @@ def cms_order_update_view(request, order_number):
     return render(request, "order/cms/order_update.html", context)
 
 
-@login_required
 @superuser_required
 def cms_orders_view(request):
     """
@@ -177,7 +175,9 @@ def account_order_view(request, order_number):
     user. This view shows all items within the order and indicates whether
     each item has been reviewed by the user.
     """
-    order = get_object_or_404(Order, order_number=order_number)
+    order = get_object_or_404(
+        Order, order_number=order_number, customer__user=request.user
+    )
     items = order.lineitems.all()
 
     metadata = make_metadata(

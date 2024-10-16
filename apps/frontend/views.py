@@ -359,7 +359,6 @@ def success_contact(request):
     return render(request, template, context)
 
 
-@login_required
 @superuser_required
 def cms_faqs_view(request):
     """
@@ -389,7 +388,6 @@ def cms_faqs_view(request):
     return render(request, template, context)
 
 
-@login_required
 @superuser_required
 def cms_faqs_add_view(request):
     """
@@ -432,7 +430,6 @@ def cms_faqs_add_view(request):
     return render(request, template, context)
 
 
-@login_required
 @superuser_required
 def cms_faqs_update_view(request, id):
     """
@@ -480,7 +477,6 @@ def cms_faqs_update_view(request, id):
     return render(request, template, context)
 
 
-@login_required
 @superuser_required
 def cms_faqs_delete_view(request, id):
     """
@@ -494,7 +490,6 @@ def cms_faqs_delete_view(request, id):
         return redirect(reverse("cms_faqs"))
 
 
-@login_required
 @superuser_required
 def cms_sections_view(request):
     """
@@ -541,7 +536,6 @@ def cms_sections_view(request):
     return render(request, template, context)
 
 
-@login_required
 @superuser_required
 def cms_sections_update_view(request, id):
     """
@@ -589,7 +583,6 @@ def cms_sections_update_view(request, id):
     return render(request, template, context)
 
 
-@login_required
 @superuser_required
 def cms_sections_delete_view(request, id):
     """

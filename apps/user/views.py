@@ -10,7 +10,6 @@ from .forms import AccountProfileForm, CustomerProfileForm
 from .models import Customer
 
 
-@login_required
 @superuser_required
 def cms_customers_view(request):
     """
@@ -42,7 +41,6 @@ def cms_customers_view(request):
     return render(request, template, context)
 
 
-@login_required
 @superuser_required
 def cms_customer_update_view(request, id):
     """
@@ -85,7 +83,6 @@ def cms_customer_update_view(request, id):
     return render(request, template, context)
 
 
-@login_required
 @superuser_required
 def cms_customer_delete_view(request, id):
     """

@@ -56,7 +56,6 @@ def product_view(request, slug):
     return render(request, template, context)
 
 
-@login_required
 @superuser_required
 def cms_products_view(request):
     """
@@ -89,7 +88,6 @@ def cms_products_view(request):
     return render(request, template, context)
 
 
-@login_required
 @superuser_required
 def cms_product_add_view(request):
     """
@@ -134,7 +132,6 @@ def cms_product_add_view(request):
     return render(request, template, context)
 
 
-@login_required
 @superuser_required
 def cms_product_update_view(request, id):
     """
@@ -180,7 +177,6 @@ def cms_product_update_view(request, id):
     return render(request, template, context)
 
 
-@login_required
 @superuser_required
 def cms_product_delete_view(request, id):
     """
@@ -199,7 +195,6 @@ def cms_product_delete_view(request, id):
     return render(request, template, context)
 
 
-@login_required
 @superuser_required
 def cms_categories_view(request):
     """
@@ -231,7 +226,6 @@ def cms_categories_view(request):
     return render(request, template, context)
 
 
-@login_required
 @superuser_required
 def cms_category_update_view(request, id):
     """
@@ -277,7 +271,6 @@ def cms_category_update_view(request, id):
     return render(request, template, context)
 
 
-@login_required
 @superuser_required
 def cms_category_delete_view(request, id):
     """
@@ -311,7 +304,6 @@ def cms_category_delete_view(request, id):
     return render(request, template, context)
 
 
-@login_required
 @superuser_required
 def cms_category_add_view(request):
     """

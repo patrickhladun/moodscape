@@ -11,7 +11,6 @@ from .forms import ReviewForm, ReviewStatusForm
 from .models import Review
 
 
-@login_required
 @superuser_required
 def cms_reviews_view(request):
     """
@@ -48,7 +47,6 @@ def cms_reviews_view(request):
     return render(request, template, context)
 
 
-@login_required
 @superuser_required
 def cms_review_update_view(request, id):
     """
@@ -168,7 +166,9 @@ def account_review_submit_view(request, id):
     Provides a form to the user to submit a new review for a product
     associated with a specific order line item.
     """
-    line_item = get_object_or_404(OrderLineItem, id=id)
+    line_item = get_object_or_404(
+        OrderLineItem, id=id, order__customer__user=request.user
+    )
     product = line_item.product
 
     metadata = make_metadata(
