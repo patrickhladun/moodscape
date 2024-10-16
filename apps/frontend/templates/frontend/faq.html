@@ -12,7 +12,7 @@
           <h2>{{ section.name }}</h2>
           {% for faq in section.faq_set.all %}
             <div class="faq-item">
-              <h3 number="{{ forloop.counter }}. " class="text-h4 before:content-[attr(number)]">{{ faq.question }}</h3>
+              <h3 number="{{ forloop.counter }}.&nbsp;" class="text-h4 before:content-[attr(number)]">{{ faq.question }}</h3>
               <p class="m-1">{{ faq.answer }}</p>
             </div>
           {% endfor %}
