@@ -925,17 +925,17 @@ These commands will create the example content.
 
 All manual mobile tests are performed on a physical mobile device, ensuring that the tap interaction behaves as expected for each footer link.
 
-### Test header links as Visitor on Desktop
+
 
 | Test Performed | Expected Results | Actual Results |
 | --- | --- | --- |
 | On any page click on the website logo | User is redirected to the home page | As expected |
 | On any page click on the Shop link | User is redirected to the shop page | As expected |
-| On any page click on the About link | User is redirected to the about page | As expected |
+## Bugs
 | On any page click on the Contact link | User is redirected to the contact page | As expected |
 | On any page click on the Bag Icon | User is redirected to the bag page | As expected |
 | On any page click on the Sign In Button | User is redirected to the sign in page | As expected |
-
+- :bug: [#79 Unclosed HTML elements on Shop Page](https://github.com/patrickhladun/moodscape/issues/79)
 ### Test header links as Visitor on Mobile
 
 | Test Performed | Expected Results | Actual Results |
@@ -1530,6 +1530,13 @@ npm run cy:run
 
 ## Credits
 
-### Articles and Videos:
+For this project imagery and products I have used my wifes waterolor art and my own photographs and pen plotter art.
+- :tv: [Setting up AWS Bucket](https://www.youtube.com/watch?v=qq9QbfdB_ik&ab_channel=TheCloudGuy)
+- :blue_book: [Integrating Summernote in Django​](https://python.plainenglish.io/integrating-summernote-in-django-3f7508828fba)
 
 ## Acknowledgments
+
+- :mega: **Graeme Taylor**: My project mentor, for offering insightful tips and great advice throughout the development of this project.
+- :mega: **Laura Mayock** and **Kristina Wach**: Amazing facilitators who have been instrumental in running weekly stand-ups and providing excellent content and support.
+- :mega: **Colleagues and Fellow Students**: I am deeply grateful for the help, feedback, and encouragement provided by both my colleagues and peers. Their diverse insights and continuous support have been invaluable in completing this project.
+
