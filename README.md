@@ -389,7 +389,7 @@ All icons displayed on the website were personally designed by me using Adobe Il
 
 ## Pages and Features
 
-Website Header
+### Website Header
 
 The website’s header prominently displays the logo, main navigation links, a shopping bag icon, and a login icon. Upon user login, the login icon transforms into a hamburger menu button to accommodate additional user-specific options. To maintain simplicity, a customer headshot is not included; the hamburger menu alone effectively manages user navigation. On smaller screens, the main navigation links collapse into a dropdown menu, optimizing space and improving accessibility.
 
@@ -429,7 +429,7 @@ The website’s header prominently displays the logo, main navigation links, a s
 
 </details>
 
-Website footer
+### Website footer
 
 The footer includes social media icons linking to relevant platforms, secondary website navigation links, a copyright notice, and a newsletter subscription form. The newsletter form integrates with ConvertKit, enabling efficient email list management.
 
@@ -623,6 +623,15 @@ The account page provides a straightforward interface where users can update the
 
 </details>
 
+### Customer CRUD operation
+
+| Model | Create | Read | Update | Delete |
+| --- | --- | --- | --- | --- |
+| Order | :white_check_mark: | :white_check_mark: | :x: | :x: |
+| Product | :x: | :white_check_mark: | :x: | :x: |
+| Reviews | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Customer (Profile) | :x: | :white_check_mark: | :white_check_mark: | :x: |
+
 ### Admin Pages
 
 <details><summary>Admin Orders</summary>
@@ -733,16 +742,17 @@ Update review page.
 
 </details>
 
-### CRUD Operations
-
-#### Customer CRUD operation on the frontend
+### Admin CRUD operation on the frontend
 
 | Model | Create | Read | Update | Delete |
 | --- | --- | --- | --- | --- |
-| Order | :white_check_mark: | :white_check_mark: | :x: | :x: |
-| Product | :x: | :white_check_mark: | :x: | :x: |
-| Reviews | :x: | :white_check_mark: | :white_check_mark: | :x: |
-| Customer | :x: | :white_check_mark: | :white_check_mark: | :x: |
+| Order | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Product | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Category | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Reviews | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Customer | :x: | :white_check_mark::white_check_mark: | :white_check_mark: | :white_check_mark: |
+| FAQ | :white_check_mark::white_check_mark: | :white_check_mark::white_check_mark: | :white_check_mark::white_check_mark: | :white_check_mark::white_check_mark: |
+| FAQ Section | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 
 ## Technology used
 
@@ -867,7 +877,7 @@ To run the project locally for development, follow these steps:
 
 ### Deployment on Heroku
 
-To deploy Remote Forge on Heroku, follow these steps:
+To deploy Moodscape on Heroku, follow these steps:
 
 1. Create a Heroku Account: at [sign up here](https://signup.heroku.com/).
 
@@ -950,4 +960,3 @@ For this project imagery and products I have used my wifes waterolor art and my 
 - :mega: **Graeme Taylor**: My project mentor, for offering insightful tips and great advice throughout the development of this project.
 - :mega: **Laura Mayock** and **Kristina Wach**: Amazing facilitators who have been instrumental in running weekly stand-ups and providing excellent content and support.
 - :mega: **Colleagues and Fellow Students**: I am deeply grateful for the help, feedback, and encouragement provided by both my colleagues and peers. Their diverse insights and continuous support have been invaluable in completing this project.
-
