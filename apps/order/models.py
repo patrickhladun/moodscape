@@ -1,14 +1,15 @@
 import uuid
+from decimal import Decimal
 
-from django.utils.timezone import now
+from constance import config
+from django.conf import settings
 from django.db import models
 from django.db.models import Sum
-from django.conf import settings
+from django.utils.timezone import now
 from django_countries.fields import CountryField
-from constance import config
 
-from apps.user.models import Customer
 from apps.product.models import Product
+from apps.user.models import Customer
 
 
 class Order(models.Model):
@@ -71,18 +72,17 @@ class Order(models.Model):
         Update grand total each time a line item is added,
         accounting for delivery costs.
         """
-        self.order_total = (
-            self.lineitems.aggregate(Sum("lineitem_total"))[
-                "lineitem_total__sum"
-            ]
-            or 0
-        )
+        self.order_total = self.lineitems.aggregate(Sum("lineitem_total"))[
+            "lineitem_total__sum"
+        ] or Decimal("0.00")
+        # Calculate shipping costs
         if self.order_total < config.FREE_DELIVERY_THRESHOLD:
-            self.shipping_cost = (
-                self.order_total * config.STANDARD_DELIVERY_PERCENTAGE / 100
+            self.shipping_cost = self.lineitems.count() * Decimal(
+                config.STANDARD_DELIVERY_PER_ITEM
             )
         else:
-            self.shipping_cost = 0
+            self.shipping_cost = Decimal("0.00")
+
         self.grand_total = self.order_total + self.shipping_cost
         self.save()
 

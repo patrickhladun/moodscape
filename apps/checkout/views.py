@@ -1,9 +1,14 @@
+import json
+from decimal import Decimal
+
 import stripe
 from allauth.account.forms import SignupForm
 from constance import config
 from django.conf import settings
 from django.contrib import messages
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render, reverse
+from django.views.decorators.http import require_POST
 
 from apps.bag.context import bag_contents
 from apps.common.utils.metadata import make_metadata

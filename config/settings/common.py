@@ -155,10 +155,10 @@ CONSTANCE_CONFIG = OrderedDict(
         ("SHOP_EMAIL", ("support@moodscape.com", "Shop email address")),
         ("CURRENCY", ("eur", "Currency used in the shop")),
         ("CURRENCY_SYMBOL", ("€", "Currency symbol")),
-        ("FREE_DELIVERY_THRESHOLD", (50, "Free delivery threshold amount")),
+        ("FREE_DELIVERY_THRESHOLD", (500, "Free delivery threshold amount")),
         (
-            "STANDARD_DELIVERY_PERCENTAGE",
-            (10, "Standard delivery percentage"),
+            "STANDARD_DELIVERY_PER_ITEM",
+            (29, "Standard delivery cost per item"),
         ),
     ]
 )
@@ -181,7 +181,7 @@ CONSTANCE_CONFIG_FIELDSETS = {
             "CURRENCY",
             "CURRENCY_SYMBOL",
             "FREE_DELIVERY_THRESHOLD",
-            "STANDARD_DELIVERY_PERCENTAGE",
+            "STANDARD_DELIVERY_PER_ITEM",
         ),
         "collapse": True,
     },
@@ -202,3 +202,4 @@ SUMMERNOTE_CONFIG = {
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 STRIPE_PUBLIC_KEY = env("STRIPE_PUBLIC_KEY", default="")
 STRIPE_SECRET_KEY = env("STRIPE_SECRET_KEY", default="")
+STRIPE_WH_SECRET = env("STRIPE_WH_SECRET", default="")

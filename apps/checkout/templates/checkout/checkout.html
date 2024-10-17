@@ -68,6 +68,9 @@
               {% endif %}
               <p class="m-0">Grand Total: {{ config.CURRENCY_SYMBOL }}{{ grand_total|floatformat:2 }}</p>
             </div>
+            {% if total < config.FREE_DELIVERY_THRESHOLD %}
+              <p>Spend more than €{{ config.FREE_DELIVERY_THRESHOLD|floatformat:2 }} and shpping is free.</p>
+            {% endif %}
           </div>
         </section>
         <section>
