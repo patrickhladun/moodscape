@@ -479,6 +479,8 @@ The CSS for my project was validated using the W3C CSS Validation Service online
 
 I chose Pytest for testing the application due to its straightforward syntax and ease of use. Pytest supports advanced features like parameterization, fixtures, and plugins, which enhance the testing process by allowing for more flexible and powerful test scenarios. It's also free and has strong community support. Throughout the development process, I used a combination of test-driven development (TDD) and writing tests after coding the features. This method helped make sure that most parts of the application were well-tested, making it more reliable and easier to maintain.
 
+![Pytest Test](./docs/pytest-tests.gif)
+
 #### Testing Summary
 
 **Bag App**
@@ -589,10 +591,6 @@ I chose Pytest for testing the application due to its straightforward syntax and
 | `test_user_admin_readonly_fields` | Ensures that the last_login and date_joined fields are read-only in the admin panel. |
 
 </details>
-
-**Tests Recording**
-
-![Pytest Test](./docs/pytest-tests.gif)
 
 **Tests Coverage**
 
