@@ -6,6 +6,8 @@ All manual mobile tests are performed on a physical mobile device, ensuring that
 
 ### Test header links as Visitor on Desktop
 
+<details><summary>:point_right: Show Table</summary>
+
 | Test Performed | Expected Results | Actual Results |
 | --- | --- | --- |
 | On any page click on the website logo | User is redirected to the home page | As expected |
@@ -15,7 +17,11 @@ All manual mobile tests are performed on a physical mobile device, ensuring that
 | On any page click on the Bag Icon | User is redirected to the bag page | As expected |
 | On any page click on the Sign In Button | User is redirected to the sign in page | As expected |
 
+</details>
+
 ### Test header links as Visitor on Mobile
+
+<details><summary>:point_right: Show Table</summary>
 
 | Test Performed | Expected Results | Actual Results |
 | --- | --- | --- |
@@ -26,7 +32,11 @@ All manual mobile tests are performed on a physical mobile device, ensuring that
 | On any page tap menu toggle then on the Contact link | User is redirected to the contact page | As expected |
 | On any page tap menu toggle then on the Sign In link | User is redirected to the sign in page | As expected |
 
+</details>
+
 ### Test header links as Customer on Desktop
+
+<details><summary>:point_right: Show Table</summary>
 
 | Test Performed | Expected Results | Actual Results |
 | --- | --- | --- |
@@ -41,7 +51,11 @@ All manual mobile tests are performed on a physical mobile device, ensuring that
 | On any page click menu toggle then on the Account link | User is redirected to the account page | As expected |
 | On any page click menu toggle then on the Sign Out link | User is redirected to the sign out page | As expected |
 
+</details>
+
 ### Test header links as Customer on Mobile
+
+<details><summary>:point_right: Show Table</summary>
 
 | Test Performed | Expected Results | Actual Results |
 | --- | --- | --- |
@@ -56,7 +70,11 @@ All manual mobile tests are performed on a physical mobile device, ensuring that
 | On any page tap menu toggle then on the Account link | User is redirected to the account page | As expected |
 | On any page tap menu toggle then on the Sign Out link | User is redirected to the sign out page | As expected |
 
+</details>
+
 ### Test header links as Admin on Desktop
+
+<details><summary>:point_right: Show Table</summary>
 
 | Test Performed | Expected Results | Actual Results |
 | --- | --- | --- |
@@ -72,7 +90,11 @@ All manual mobile tests are performed on a physical mobile device, ensuring that
 | On any page click menu toggle then on the Admin link | Admin is redirected to the django admin page | As expected |
 | On any page click menu toggle then on the Sign Out link | Admin is redirected to the sign out page | As expected |
 
+</details>
+
 ### Test header links as Admin on Mobile
+
+<details><summary>:point_right: Show Table</summary>
 
 | Test Performed | Expected Results | Actual Results |
 | --- | --- | --- |
@@ -88,7 +110,11 @@ All manual mobile tests are performed on a physical mobile device, ensuring that
 | On any page tap menu toggle then on the Admin link | Admin is redirected to the django admin page | As expected |
 | On any page tap menu toggle then on the Sign Out link | Admin is redirected to the sign out page | As expected |
 
+</details>
+
 ### Test footer links on Desktop
+
+<details><summary>:point_right: Show Table</summary>
 
 | Test Performed | Expected Results | Actual Results |
 | --- | --- | --- |
@@ -101,7 +127,11 @@ All manual mobile tests are performed on a physical mobile device, ensuring that
 | On any page click on FAQ link | User is redirected to FAQ page | As expected |
 | On any page click on Contact link | User is redirected to Contact page | As expected |
 
+</details>
+
 ### Test footer links on Mobile
+
+<details><summary>:point_right: Show Table</summary>
 
 | Test Performed | Expected Results | Actual Results |
 | --- | --- | --- |
@@ -114,7 +144,11 @@ All manual mobile tests are performed on a physical mobile device, ensuring that
 | On any page tap on FAQ link | User is redirected to FAQ page | As expected |
 | On any page tap on Contact link | User is redirected to Contact page | As expected |
 
+</details>
+
 ### Manual tests for visitor pages
+
+<details><summary>:point_right: Show Table</summary>
 
 | Test Performed | Expected Results | Actual Results |
 | --- | --- | --- |
@@ -171,7 +205,11 @@ All manual mobile tests are performed on a physical mobile device, ensuring that
 | Contact page - User fills in name, correct email, and message, then clicks submit | The user should be redirected to a success page, and a confirmation email should be sent to the provided email. | As Expected |
 | Contact page - User clicks on any social link in the contact details section | The user should be redirected to the corresponding social media page. | As Expected |
 
+</details>
+
 ### Manual tests for customer pages
+
+<details><summary>:point_right: Show Table</summary>
 
 | Test Performed | Expected Results | Actual Results |
 | --- | --- | --- |
@@ -190,7 +228,11 @@ All manual mobile tests are performed on a physical mobile device, ensuring that
 | Account page - Fill in a correct username and click "Update" | Username should be updated with a success message displayed. | As expected |
 | Account page - Fill in incorrect details and click "Update" | An error message should be displayed. | As expected |
 
+</details>
+
 ### Manual tests for admin pages
+
+<details><summary>:point_right: Show Table</summary>
 
 | Test Performed | Expected Results | Actual Results |
 | --- | --- | --- |
@@ -219,6 +261,8 @@ All manual mobile tests are performed on a physical mobile device, ensuring that
 | Reviews page - Select "Rejected" from the filter list | Only rejected reviews should be displayed. | As expected |
 | Reviews page - Select "Deleted" from the filter list | Only deleted reviews should be displayed. | As expected |
 | Review page - Select a status from the status form | The review status should update to the selected status. | As expected |
+
+</details>
 
 ### Other manual tests
 
@@ -249,6 +293,10 @@ Test Setup for Responsiveness
 - Content fits within the viewport without horizontal scrolling.
 - The page adjusts smoothly across different screen resolutions.
 
+#### Frontend Pages
+
+<details><summary>:point_right: Show Table</summary>
+
 | Page | Desktop/Laptops | Tablets/Smartphones |
 | --- | --- | --- |
 | [Home](https://moodscape-3f1dfd651cc4.herokuapp.com/) | pass | pass |
@@ -262,69 +310,109 @@ Test Setup for Responsiveness
 | [Privacy Policy](https://moodscape-3f1dfd651cc4.herokuapp.com/privacy-policy/) | pass | pass |
 | [Terms and Conditions](https://moodscape-3f1dfd651cc4.herokuapp.com/terms-and-conditions/) | pass | pass |
 | [FAQ](https://moodscape-3f1dfd651cc4.herokuapp.com/faq/) | pass | pass |
-| **Account Pages** |  |  |
-| Orders | pass | pass |
-| Order | pass | pass |
-| Reviews | pass | pass |
-| Review | pass | pass |
-| Profile | pass | pass |
-| Account | pass | pass |
-| **Admin Pages** |  |  |
-| Orders | pass | pass |
-| Order | pass | pass |
-| Customers | pass | pass |
-| Customer | pass | pass |
-| Products | pass | pass |
-| Add Product | pass | pass |
-| Update Product | pass | pass |
-| Categories | pass | pass |
-| Add Category | pass | pass |
-| Update Category | pass | pass |
-| Reviews | pass | pass |
-| Review | pass | pass |
+
+</details>
+
+#### Account Pages
+
+<details><summary>:point_right: Show Table</summary>
+
+| Page    | Desktop/Laptops | Tablets/Smartphones |
+| ------- | --------------- | ------------------- |
+| Orders  | pass            | pass                |
+| Order   | pass            | pass                |
+| Reviews | pass            | pass                |
+| Review  | pass            | pass                |
+| Profile | pass            | pass                |
+| Account | pass            | pass                |
+
+</details>
+
+#### Admin Pages
+
+<details><summary>:point_right: Show Table</summary>
+
+| Page            | Desktop/Laptops | Tablets/Smartphones |
+| --------------- | --------------- | ------------------- |
+| Orders          | pass            | pass                |
+| Order           | pass            | pass                |
+| Customers       | pass            | pass                |
+| Customer        | pass            | pass                |
+| Products        | pass            | pass                |
+| Add Product     | pass            | pass                |
+| Update Product  | pass            | pass                |
+| Categories      | pass            | pass                |
+| Add Category    | pass            | pass                |
+| Update Category | pass            | pass                |
+| Reviews         | pass            | pass                |
+| Review          | pass            | pass                |
+
+</details>
 
 ### Lighthouse Tests
 
 I conducted Lighthouse tests on all pages, including front-end, admin, and customer areas, using Chrome's incognito mode. Each page was evaluated for: Performance, Accessibility, Best Practices, and SEO.
 
-| Page              | Desktop         | Mobile         |
-| ----------------- | --------------- | -------------- |
-| Home              | 99,95,100,100   | 83,95,100,100  |
-| About             | 100,100,100,100 | 89,100,100,100 |
-| Contact           | 100,100,100,100 | 89,100,100,100 |
-| Contact Success   | 100,98,100,66   | 87,100,100,66  |
-| Shop              | 98,94,100,100   | 73,94,100,100  |
-| Product           | 100,100,100,100 | 89,100,100,100 |
-| Cart              | 100,98,100,100  | 89,98,100,100  |
-| Checkout          | 98,95,100,100   | 89,98,100,100  |
-|                   |                 |                |
-| **Account Pages** |                 |                |
-|                   |                 |                |
-| Orders            | 100,100,100,100 | 89,98,100,100  |
-| Order             | 100,100,100,100 | 87,100,100,100 |
-| Reviews           | 100,96,100,100  | 91,94,100,100  |
-| Review            | 100,100,96,100  | 89,98,100,100  |
-| Profile           | 100,100,100,100 | 87,98,100,100  |
-| Account           | 100,100,100,100 | 89,98,100,100  |
-|                   |                 |                |
-| **Admin Pages**   |                 |                |
-|                   |                 |                |
-| Orders            | 99,100,100,100  | 87,98,100,100  |
-| Order             | 100,95,100,100  | 85,93,100,100  |
-| Customers         | 99,100,100,100  | 87,98,100,100  |
-| Customer          | 100,100,100,100 | 87,98,100,100  |
-| Products          | 98,100,100,100  | 75,98,100,100  |
-| Product           | 97,96,81,100    | 75,98,100,100  |
-| Add Products      | 97,96,81,100    | 71,96,82,100   |
-| Categories        | 100,100,100,100 | 87,98,100,100  |
-| Category          | 99,100,100,100  | 85,100,100,100 |
-| Add Category      | 100,100,100,100 | 87,100,100,100 |
-| Reviews           | 100,96,100,100  | 87,97,100,100  |
-| Review            | 99,96,100,100   | 88,94,100,100  |
+#### Visitor Pages
+
+<details><summary>:point_right: Show Table</summary>
+
+| Page            | Desktop         | Mobile         |
+| --------------- | --------------- | -------------- |
+| Home            | 99,95,100,100   | 83,95,100,100  |
+| About           | 100,100,100,100 | 89,100,100,100 |
+| Contact         | 100,100,100,100 | 89,100,100,100 |
+| Contact Success | 100,98,100,66   | 87,100,100,66  |
+| Shop            | 98,94,100,100   | 73,94,100,100  |
+| Product         | 100,100,100,100 | 89,100,100,100 |
+| Cart            | 100,98,100,100  | 89,98,100,100  |
+| Checkout        | 98,95,100,100   | 89,98,100,100  |
+
+</details>
+
+#### Account Pages
+
+<details><summary>:point_right: Show Table</summary>
+
+| Page    | Desktop         | Mobile         |
+| ------- | --------------- | -------------- |
+| Orders  | 100,100,100,100 | 89,98,100,100  |
+| Order   | 100,100,100,100 | 87,100,100,100 |
+| Reviews | 100,96,100,100  | 91,94,100,100  |
+| Review  | 100,100,96,100  | 89,98,100,100  |
+| Profile | 100,100,100,100 | 87,98,100,100  |
+| Account | 100,100,100,100 | 89,98,100,100  |
+
+</details>
+
+#### Admin Pages
+
+<details><summary>:point_right: Show Table</summary>
+
+| Page         | Desktop         | Mobile         |
+| ------------ | --------------- | -------------- |
+| Orders       | 99,100,100,100  | 87,98,100,100  |
+| Order        | 100,95,100,100  | 85,93,100,100  |
+| Customers    | 99,100,100,100  | 87,98,100,100  |
+| Customer     | 100,100,100,100 | 87,98,100,100  |
+| Products     | 98,100,100,100  | 75,98,100,100  |
+| Product      | 97,96,81,100    | 75,98,100,100  |
+| Add Products | 97,96,81,100    | 71,96,82,100   |
+| Categories   | 100,100,100,100 | 87,98,100,100  |
+| Category     | 99,100,100,100  | 85,100,100,100 |
+| Add Category | 100,100,100,100 | 87,100,100,100 |
+| Reviews      | 100,96,100,100  | 87,97,100,100  |
+| Review       | 99,96,100,100   | 88,94,100,100  |
+
+</details>
 
 ### HTML Validation and Accessibility Testing
 
 This section details the manual tests for HTML validation and accessibility. Tests were performed using the W3C Validator and the WAVE tool by WebAIM. Publicly accessible pages were tested using direct URLs, while secure pages (such as account and admin sections) were tested by inputting the source code directly into the validator due to access restrictions.
+
+#### Frontend Pages
+
+<details><summary>:point_right: Show Table</summary>
 
 | Tested Page | Accessibility (WAVE) | Contrast (WAVE) | W3C HTML Validation | Comments |
 | --- | --- | --- | --- | --- |
@@ -340,18 +428,30 @@ This section details the manual tests for HTML validation and accessibility. Tes
 | [Terms and Conditions](https://moodscape-3f1dfd651cc4.herokuapp.com/terms-and-conditions/) | No Errors | No Contrast Errors | [No Errors](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmoodscape-3f1dfd651cc4.herokuapp.com%2Fterms-and-conditions%2F) |  |
 | [FAQ](https://moodscape-3f1dfd651cc4.herokuapp.com/faq/) | No Errors | No Contrast Errors | [No Errors](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmoodscape-3f1dfd651cc4.herokuapp.com%2Ffaq%2F) |  |
 | [Newsletter Success](https://moodscape-3f1dfd651cc4.herokuapp.com/newsletter/success/) | No Errors | No Contrast Errors | [No Errors](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmoodscape-3f1dfd651cc4.herokuapp.com%2Fnewsletter%2Fsuccess%2F) |  |
-|  |  |  |  |  |
-| **Account Pages** |  |  |  |  |
-|  |  |  |  |  |
+
+</details>
+
+#### Account Pages
+
+<details><summary>:point_right: Show Table</summary>
+
+| Tested Page | Accessibility (WAVE) | Contrast (WAVE) | W3C HTML Validation | Comments |
+| --- | --- | --- | --- | --- |
 | Account - Orders | No Errors | No Contrast Errors | No Errors |  |
 | Account - Order | No Errors | No Contrast Errors | No Errors |  |
 | Account - Reviews | No Errors | No Contrast Errors | No Errors |  |
 | Account - Review | No Errors | No Contrast Errors | No Errors |  |
 | Account - Profile | No Errors | No Contrast Errors | No Errors |  |
 | Account - Account | No Errors | No Contrast Errors | No Errors |  |
-|  |  |  |  |  |
-| **Admin Pages** |  |  |  |  |
-|  |  |  |  |  |
+
+</details>
+
+#### Admin Pages
+
+<details><summary>:point_right: Show Table</summary>
+
+| Tested Page | Accessibility (WAVE) | Contrast (WAVE) | W3C HTML Validation | Comments |
+| --- | --- | --- | --- | --- |
 | Admin - Orders | No Errors | No Contrast Errors | No Errors |  |
 | Admin - Order | No Errors | No Contrast Errors | No Errors |  |
 | Admin - Customers | No Errors | No Contrast Errors | No Errors |  |
@@ -364,6 +464,8 @@ This section details the manual tests for HTML validation and accessibility. Tes
 | Admin - Update Category | No Errors | No Contrast Errors | No Errors |  |
 | Admin - Reviews | No Errors | No Contrast Errors | No Errors |  |
 | Admin - Review | No Errors | No Contrast Errors | No Errors |  |
+
+</details>
 
 ### CSS Validation
 
@@ -387,6 +489,8 @@ I chose Pytest for testing the application due to its straightforward syntax and
 
 **Common App**
 
+<details><summary>:point_right: Show Table</summary>
+
 | Test | Description |
 | --- | --- |
 | `test_icon` | Checks correct SVG HTML output for predefined icons and sizes. |
@@ -396,7 +500,11 @@ I chose Pytest for testing the application due to its straightforward syntax and
 | `test_active_exact_match` | Validates the `active` template tag by ensuring it correctly returns 'active' for matching URL paths and an empty string for non-matching paths. |
 | `test_addstr_filter` | Tests the `addstr` template filter to ensure it concatenates various types of inputs correctly, producing the expected string results. |
 
+</details>
+
 **Frontend App**
+
+<details><summary>:point_right: Show Table</summary>
 
 | Test | Description |
 | --- | --- |
@@ -407,7 +515,11 @@ I chose Pytest for testing the application due to its straightforward syntax and
 | `test_shop_view_list_all_products` | Confirms that the shop view successfully lists all products and their details match expected values, ensuring product data is correctly passed to the template. |
 | `test_urls_resolves` | Confirms that URLs in the frontend application are correctly resolved to their corresponding view functions. |
 
+</details>
+
 **Order App**
+
+<details><summary>:point_right: Show Table</summary>
 
 | Test | Description |
 | --- | --- |
@@ -421,7 +533,11 @@ I chose Pytest for testing the application due to its straightforward syntax and
 | `test_cms_orders_url_resolves` | Confirms that the URL for the CMS orders page correctly resolves to the appropriate view function. |
 | `test_cms_order_update_url_resolves` | Ensures that the URL for updating an order in the CMS correctly resolves to the appropriate view function and accepts an order number as a parameter. |
 
+</details>
+
 **Product App**
+
+<details><summary>:point_right: Show Table</summary>
 
 | Test | Description |
 | --- | --- |
@@ -432,7 +548,11 @@ I chose Pytest for testing the application due to its straightforward syntax and
 | `test_add_category_as_superadmin` | Tests that a superadmin can add a new category through the CMS and checks that the category is correctly added to the database. |
 | `test_add_category_with_invalid_data` | Tests error handling in the category add form by submitting invalid data and expecting appropriate error responses. |
 
+</details>
+
 **Review App**
+
+<details><summary>:point_right: Show Table</summary>
 
 | Test | Description |
 | --- | --- |
@@ -441,7 +561,11 @@ I chose Pytest for testing the application due to its straightforward syntax and
 | `test_cms_reviews_view_superuser` | Verifies that a superuser can access the CMS reviews page and that the correct template is used with the expected number of reviews loaded. |
 | `test_cms_reviews_view_filter_status` | Tests the filtering functionality on the CMS reviews page by status, ensuring the correct count of reviews is displayed based on the filter applied. |
 
+</details>
+
 **User App**
+
+<details><summary>:point_right: Show Table</summary>
 
 | Test | Description |
 | --- | --- |
@@ -464,13 +588,15 @@ I chose Pytest for testing the application due to its straightforward syntax and
 | `test_user_admin_add_fieldsets` | Verifies that the add_fieldsets for creating a new user in admin are set up correctly. |
 | `test_user_admin_readonly_fields` | Ensures that the last_login and date_joined fields are read-only in the admin panel. |
 
-**Note:** More applications would follow the same structure in your documentation.
+</details>
 
 **Tests Recording**
 
 ![Pytest Test](./docs/pytest-tests.gif)
 
 **Tests Coverage**
+
+<details><summary>:point_right: Show Table</summary>
 
 | Name                                  | Stmts | Miss | Cover |
 | ------------------------------------- | ----- | ---- | ----- |
@@ -526,6 +652,8 @@ I chose Pytest for testing the application due to its straightforward syntax and
 | config/urls.py                        | 16    | 2    | 88%   |
 | **TOTAL**                             | 1432  | 394  | 72%   |
 
+</details>
+
 #### How to run Pytest tests
 
 1. **Ensure pytest is Installed:**
@@ -554,6 +682,8 @@ pytest -s -rP -vv
 
 #### Cypress tests report
 
+<details><summary>:point_right: Show Table</summary>
+
 | Spec | Duration | Tests | Passing | Failing | Pending | Skipped |
 | --- | --- | --- | --- | --- | --- | --- |
 | `footer_spec.js` | 626ms | 5 | 5 | 0 | 0 | 0 |
@@ -574,6 +704,8 @@ pytest -s -rP -vv
 | `visitors/privacy_spec.js` | 890ms | 2 | 2 | 0 | 0 | 0 |
 | `visitors/terms_spec.js` | 351ms | 2 | 2 | 0 | 0 | 0 |
 | **Total All Specs** | **00:42** | **94** | **94** | **0** | **0** | **0** |
+
+</details>
 
 #### Running Cypress Tests
 
