@@ -170,6 +170,24 @@ Moodscape offers a wide range of unique and high-quality art pieces that make pe
   - Consistent visual elements across all pages, including buttons, icons, and navigation.
   - Visual Reviews for user interactions, such as adding items to the cart or completing a purchase.
 
+## Marketing
+
+My marketing strategy for Moodscape is designed to enhance its online presence, attract a targeted audience, and increase sales through various digital channels. This approach includes social media marketing, search engine optimization (SEO), and thoughtful content creation.
+
+Social Media Presence
+
+I've established a Facebook page to connect with art lovers, share updates, and promote new collections.
+
+![Facebook](./docs/moodscape-facebook.webp)
+
+Search Engine Optimization (SEO)
+
+To increase Moodscape's visibility on search engines and attract more organic traffic, I focus on several SEO best practices:
+
+- :point_right: Robots.txt: Implemented to manage and control the web crawlers accessing the website, ensuring that search engines are indexing my site properly.
+- :point_right: Sitemap: Developed a sitemap to help search engines discover all of my pages, enhancing the site’s visibility and improving page indexing.
+- :point_right: Meta Descriptions: Crafted compelling meta descriptions for each page to improve click-through rates from search engine results pages (SERPs). These descriptions succinctly communicate the content of the pages and their relevance to potential visitors.
+
 ## Mockups and Wireframes
 
 Creating mockups and wireframes was a crucial step in the design process for Moodscape. Utilizing Figma, I was able to streamline my workflow by keeping both wireframes and mockups in a single, convenient platform.
