@@ -20,6 +20,14 @@ def checkout_view(request):
     also handles that. Validates and saves the order and any associated order
     items.
     """
+
+    if request.user.is_superuser:
+        messages.error(request, "What are you doing here?")
+        return render(
+            request,
+            "checkout/checkout_nope.html",
+        )
+
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 

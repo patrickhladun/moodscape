@@ -548,6 +548,8 @@ Checkout Success
 
 ![Checkout Page](./docs/features-page-checkout-success.webp)
 
+:skull: Do not visit checkout page as a superuser :bangbang:
+
 </details>
 
 <details><summary>About Page</summary>
