@@ -2,12 +2,10 @@
 {% load ui_tags %}
 
 {% block content %}
+  {% include 'partials/page_title.html' with title='Categories' variant='backend' %}
   {% include 'partials/nav_cms.html' %}
-  <section class="container md:hidden">
-    <h1>Categories</h1>
-  </section>
 
-  <div class="container pb-sm">
+  <div class="container py-rg">
     <div class="flex items-center">
       <a href="{% url 'cms_category_add' %}" class="inline-block bg-neutral-200 hover:bg-neutral-300 transition-colors duration-200 ease-in-out p-2 pr-3 rounded-md">
         <span class="flex items-center">
@@ -18,19 +16,32 @@
     </div>
   </div>
 
-  <section class="container">
-    <div class="flex flex-col">
-      {% for cat in categories %}
-        <div class="flex items-center gap-2 p-2 mb-1 bg-neutral-100 rounded-md">
-          <span class="mr-auto">{{ cat.name }}</span>
-          <a href="{% url 'cms_category_update' cat.id %}" class="inline-block bg-neutral-200 hover:bg-neutral-300 transition-colors duration-200 ease-in-out p-2 rounded-md">
-            <span class="flex items-center">
-              <span class="p-[4px]">{% icon 'icon-edit' 'sm' %}</span>
-              <span class="text-xs uppercase font-bold">Edit Category</span>
-            </span>
-          </a>    
-        </div>
-      {% endfor %}
+  <section class="container pb-rg">
+    <div class="hidden md:grid md:grid-cols-3 p-2 bg-blue-100 rounded-t-md border-b-4 border-blue-200">
+      <span class="md:border-r border-neutral-300 px-2">Name</span>
+      <span class="md:border-r border-neutral-300 px-2">Slug</span>
+      <span class="px-2">Description</span>
     </div>
+
+    <ul role="list">
+      {% for cat in categories %}
+        <li class="odd:bg-neutral-100 group" role="listitem">
+          <a class="inline-block md:grid md:grid-cols-3 px-2 md:items-center group-hover:bg-blue-500 group-hover:text-white transition" href="{% url 'cms_category_update' cat.id %}">
+            <div class="inline-block w-full md:border-r border-neutral-200 p-2">
+              <span class="md:hidden">Name:</span>
+              <span class="mr-auto">{{ cat.name }}</span>
+            </div>
+            <div class="inline-block w-full md:border-r border-neutral-200 p-2">
+              <span class="md:hidden">Slug:</span>
+              <span class="mr-auto">{{ cat.slug }}</span>
+            </div>
+            <div class="inline-block w-full p-2">
+              <span class="md:hidden">Description:</span>
+              <span class="mr-auto">{{ cat.description }}</span>
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
   </section>
 {% endblock %}

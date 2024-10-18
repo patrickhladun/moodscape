@@ -7,10 +7,10 @@ from django.utils.safestring import mark_safe
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (
-      'name', 
-      'slug',
+        "name",
+        "slug",
     )
-    prepopulated_fields = {'slug': ('name',)}
+    prepopulated_fields = {"slug": ("name",)}
 
     filter_horizontal = ()
     list_filter = ()
@@ -20,28 +20,33 @@ class CategoryAdmin(admin.ModelAdmin):
 class ProductAdmin(SummernoteModelAdmin):
 
     list_display = (
-      'display_featured',
-      'product_name',
-      'sku',
-      'price',
-      'category',
-      'created_at',
-      'updated_at',
-      'is_published',
+        "display_featured",
+        "product_name",
+        "sku",
+        "price",
+        "category",
+        "created_at",
+        "updated_at",
+        "is_published",
     )
 
-    summernote_fields = ('details',)
+    summernote_fields = ("details",)
 
     def display_featured(self, obj):
         if obj.featured:
-            return mark_safe('<img src="%s" width="28" />' % obj.featured.url)
+            return mark_safe(
+                '<img src="%s" width="28" />' % obj.featured.url
+            )
         else:
             default_image_url = "/static/assets/images/avatar.png"
-            return mark_safe('<img src="%s" width="28" />' % default_image_url)
+            return mark_safe(
+                '<img src="%s" width="28" />' % default_image_url
+            )
 
     def product_name(self, obj):
         url = reverse(
-            "admin:%s_%s_change" % (obj._meta.app_label, obj._meta.model_name),
+            "admin:%s_%s_change"
+            % (obj._meta.app_label, obj._meta.model_name),
             args=[obj.id],
         )
         return mark_safe('<a href="{}">{}</a>'.format(url, obj.name))
@@ -52,7 +57,7 @@ class ProductAdmin(SummernoteModelAdmin):
     filter_horizontal = ()
     list_filter = ()
     fieldsets = ()
-    ordering = ('-updated_at',)
+    ordering = ("-updated_at",)
 
 
 admin.site.register(Category, CategoryAdmin)

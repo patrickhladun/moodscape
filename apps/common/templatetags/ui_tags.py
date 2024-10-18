@@ -1,5 +1,6 @@
 import os
 
+from django.template import Template, Context
 from django import template
 from django.utils.safestring import mark_safe
 
@@ -44,24 +45,56 @@ def icon(name, size="md", class_name=""):
 
 
 @register.simple_tag(takes_context=True)
-def active(context, link):
-    active = context.get('active')
-    return ' active' if active == link else ''
+def active(context, link, custom_classes=''):
+    current_active = context.get('active', '')
+    
+    if current_active == link:
+        return f' {custom_classes}' if custom_classes else ' active'
+    return ''
 
 
-@register.simple_tag
-def render_field(field, type="text", class_name="", cy=""):
-    classes = f" {class_name}" if class_name else ""
-    data_cy_attribute = f' data-cy="{cy}"' if cy else ""
+@register.simple_tag(takes_context=True)
+def render_field(context, field, **kwargs):
+    type = kwargs.get('type', 'text')
+    class_name = kwargs.get('class', '')
+    id_attr = f' id="{kwargs.get("id")}"' if kwargs.get('id') else ''
+    data_cy = f' data-cy="{kwargs.get("cy")}"' if kwargs.get('cy') else ''
+    show_label = kwargs.get('show_label', True)
+
+    classes = f"field field__{type} {class_name}".strip()
+
+    data_cy = kwargs.get('cy', '')
+    if data_cy:
+        try:
+            data_cy_template = Template(data_cy)
+            data_cy_rendered = data_cy_template.render(Context(context))
+            data_cy = f' data-cy="{data_cy_rendered}"'
+        except Exception as e:
+            print(f"Error rendering data-cy: {e}")
+            data_cy = ''  # Reset to empty if there's a failure
+
+    additional_attrs = ""
+
+    aria_attrs = {}
+    for key, value in kwargs.items():
+        if key.startswith('aria_'):
+            aria_key = key.replace('_', '-')
+            aria_attrs[aria_key] = value
+        elif key not in ['type', 'class', 'id', 'cy', 'show_label', 'aria_label', 'aria_describedby']:
+            additional_attrs += f' {key}="{value}"'
+
+    field.field.widget.attrs.update(aria_attrs)
+
+    label_html = field.label_tag() if show_label else ''
+    
     field_html = f"""
-    <div 
-        class="field field__{type}{classes}"{data_cy_attribute}>
-        {field.label_tag()}
+    <div class="{classes}"{id_attr}{data_cy}{additional_attrs}>
+        {label_html}
         {field}
         {field.errors}
     </div>
     """
-    
+
     return mark_safe(field_html)
 
 
@@ -88,8 +121,9 @@ def render_status(status):
 @register.simple_tag
 def render_stars(rating):
     """
-    Returns the HTML for star rating using the same SVG icon, 
-    filling up to the rating and leaving others empty.
+    Returns the HTML for star rating using the same SVG icon,
+    rounding to the nearest whole number and filling up to the rating while
+    leaving the rest empty.
     """
     icon_path = os.path.join("static/icons", "icon-star.svg")
     
@@ -99,11 +133,14 @@ def render_stars(rating):
     except FileNotFoundError:
         return mark_safe("<!-- Icon not found -->")
 
+    # Round the rating to the nearest whole number
+    rounded_rating = round(rating)  # Ensures rounding half up from .5
+
     filled_star = f'<span class="flex fill-blue-800"><span class="inline-block w-4 h-4">{icon_svg}</span></span>'
     empty_star = f'<span class="flex fill-blue-200"><span class="inline-block w-4 h-4">{icon_svg}</span></span>'
     
-    stars_html = filled_star * rating
-    stars_html += empty_star * (5 - rating)
+    stars_html = filled_star * rounded_rating
+    stars_html += empty_star * (5 - rounded_rating)
     html = f'<div class="flex items-center">{stars_html}</div>'
 
     return mark_safe(html)

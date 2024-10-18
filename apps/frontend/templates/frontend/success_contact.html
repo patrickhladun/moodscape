@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <main>
+    <!-- Page Title -->
+    {% include 'partials/page_title.html' with title='Thank you for your message!' %}
+
+    <section class="container py-rg">
+      <p>We will get back to you as soon as possible.</p>
+      <p>While you waiting, here are some helpful links:</p>
+      <ul>
+        <li>
+          <a class="underline" href="{% url 'about' %}">About Us</a>
+        </li>
+        <li>
+          <a class="underline" href="{% url 'about' %}">Shop</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+{% endblock %}

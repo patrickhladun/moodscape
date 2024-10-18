@@ -31,7 +31,7 @@
     "pk": 1,
     "fields": {
       "user": 2,
-      "first_name": "Seán",
+      "first_name": "Sean",
       "last_name": "O'Connor",
       "phone_number": "+353 87 123 4567",
       "country": "IE",
@@ -43,6 +43,100 @@
       "image": "",
       "created_at": "2024-08-28T12:40:04.902Z",
       "updated_at": "2024-08-28T12:40:04.902Z"
+    }
+  },
+
+  {
+    "model": "user.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$6eZRQ6EiABpmR4k7TV0JqF$LfTW4+knhtnYpV9H5KPtCon/jTw3/ztSx3XUm8lGY0Q=",
+      "email": "liam.murphy@example.ie",
+      "username": "liam.murphy@example.ie",
+      "date_joined": "2024-10-04T14:34:30.657Z",
+      "last_login": "2024-10-04T14:34:30.657Z",
+      "is_admin": false,
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "account.emailaddress",
+    "pk": 3,
+    "fields": {
+      "user": 3,
+      "email": "liam.murphy@example.ie",
+      "verified": true,
+      "primary": false
+    }
+  },
+  {
+    "model": "user.customer",
+    "pk": 2,
+    "fields": {
+      "user": 3,
+      "first_name": "Liam",
+      "last_name": "Murphy",
+      "phone_number": "+353 1 234 5678",
+      "country": "IE",
+      "postcode": "D02 R744",
+      "town_city": "Dublin",
+      "address_line_1": "32 Fitzwilliam Squar",
+      "address_line_2": "",
+      "county": "Co. Galway",
+      "image": "",
+      "created_at": "2024-10-04T14:34:30.663Z",
+      "updated_at": "2024-10-04T14:34:30.663Z"
+    }
+  },
+
+  {
+    "model": "user.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$VLraCwdrv8B2FKShTcpZn2$NWrN0VD1do4WG7XqbaIxgOseALWFSRM6T9cxFoDc/I0=",
+      "email": "eoin.griffin@example.ie",
+      "username": "eoin.griffin@example.ie",
+      "date_joined": "2024-10-04T14:38:33.081Z",
+      "last_login": "2024-10-04T14:38:33.081Z",
+      "is_admin": false,
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "account.emailaddress",
+    "pk": 4,
+    "fields": {
+      "user": 4,
+      "email": "eoin.griffin@example.ie",
+      "verified": true,
+      "primary": false
+    }
+  },
+  {
+    "model": "user.customer",
+    "pk": 3,
+    "fields": {
+      "user": 4,
+      "first_name": "Eoin",
+      "last_name": "Griffin",
+      "phone_number": "+353 51 234 5678",
+      "country": "IE",
+      "postcode": "X91 P8K5",
+      "town_city": "Waterford",
+      "address_line_1": "3 Claddagh Quay",
+      "address_line_2": "",
+      "county": "Co. Waterford",
+      "image": "",
+      "created_at": "2024-10-04T14:38:33.082Z",
+      "updated_at": "2024-10-04T14:38:33.082Z"
     }
   }
 ]

@@ -1,0 +1,172 @@
+[
+  {
+    "model": "frontend.faqsection",
+    "pk": 1,
+    "fields": {
+      "name": "General Questions",
+      "created_at": "2024-08-28T12:40:04.727Z"
+    }
+  },
+  {
+    "model": "frontend.faqsection",
+    "pk": 2,
+    "fields": {
+      "name": "Orders and Shipping",
+      "created_at": "2024-08-28T12:40:04.727Z"
+    }
+  },
+  {
+    "model": "frontend.faqsection",
+    "pk": 3,
+    "fields": {
+      "name": "Returns and Refunds",
+      "created_at": "2024-08-28T12:40:04.727Z"
+    }
+  },
+  {
+    "model": "frontend.faqsection",
+    "pk": 4,
+    "fields": {
+      "name": "Product Information",
+      "created_at": "2024-08-28T12:40:04.727Z"
+    }
+  },
+  {
+    "model": "frontend.faq",
+    "fields": {
+      "question": "What is Moodscape?",
+      "answer": "Moodscape is an e-commerce platform offering a curated collection of unique watercolor art, Irish abstract landscapes, floral art, macro photography, digital art, and pen plotter art.",
+      "section": 1,
+      "created_at": "2024-08-28T12:40:04.727Z"
+    }
+  },
+  {
+    "model": "frontend.faq",
+    "fields": {
+      "question": "How can I contact customer support?",
+      "answer": "You can contact our customer support team via email at support@moodscape.example.com or by phone at +353 (0)1 987 6543.",
+      "section": 1,
+      "created_at": "2024-08-28T12:40:04.727Z"
+    }
+  },
+  {
+    "model": "frontend.faq",
+    "fields": {
+      "question": "What payment methods do you accept?",
+      "answer": "We accept debit and credit card payments through Stripe.",
+      "section": 1,
+      "created_at": "2024-08-28T12:40:04.727Z"
+    }
+  },
+
+  {
+    "model": "frontend.faq",
+    "fields": {
+      "question": "How can I track my order?",
+      "answer": "Once your order is shipped, you will receive a tracking number via email. You can use this number to track your order on the shipping carrier's website.",
+      "section": 2,
+      "created_at": "2024-08-28T12:40:04.727Z"
+    }
+  },
+  {
+    "model": "frontend.faq",
+    "fields": {
+      "question": "What are the shipping options?",
+      "answer": "We offer various shipping options, including standard and expedited shipping. The available options will be displayed at checkout based on your location.",
+      "section": 2,
+      "created_at": "2024-08-28T12:40:04.727Z"
+    }
+  },
+  {
+    "model": "frontend.faq",
+    "fields": {
+      "question": "Do you ship internationally?",
+      "answer": "Yes, we ship to many countries worldwide. Shipping costs and delivery times vary depending on the destination.",
+      "section": 2,
+      "created_at": "2024-08-28T12:40:04.727Z"
+    }
+  },
+  {
+    "model": "frontend.faq",
+    "fields": {
+      "question": "How long does it take to process an order?",
+      "answer": "Orders are typically processed within 1-2 business days. During peak times, processing may take longer.",
+      "section": 2,
+      "created_at": "2024-08-28T12:40:04.727Z"
+    }
+  },
+  {
+    "model": "frontend.faq",
+    "fields": {
+      "question": "Can I change or cancel my order?",
+      "answer": "If you need to change or cancel your order, please contact us as soon as possible. We will do our best to accommodate your request, but we cannot guarantee changes or cancellations once the order has been processed.",
+      "section": 2,
+      "created_at": "2024-08-28T12:40:04.727Z"
+    }
+  },
+
+  {
+    "model": "frontend.faq",
+    "fields": {
+      "question": "What is your return policy?",
+      "answer": "We accept returns within 30 days of purchase. The items must be in their original condition and packaging. Please contact us to initiate a return.",
+      "section": 3,
+      "created_at": "2024-08-28T12:40:04.727Z"
+    }
+  },
+  {
+    "model": "frontend.faq",
+    "fields": {
+      "question": "How do I return an item?",
+      "answer": "To return an item, please contact our customer support team for return instructions. Once we receive the returned item, we will process your refund or exchange.",
+      "section": 3,
+      "created_at": "2024-08-28T12:40:04.727Z"
+    }
+  },
+  {
+    "model": "frontend.faq",
+    "fields": {
+      "question": "How long does it take to receive a refund?",
+      "answer": "Refunds are typically processed within 5-7 business days after we receive the returned item. The refund will be issued to the original payment method.",
+      "section": 3,
+      "created_at": "2024-08-28T12:40:04.727Z"
+    }
+  },
+  {
+    "model": "frontend.faq",
+    "fields": {
+      "question": "Can I exchange an item?",
+      "answer": "Yes, you can exchange an item within 30 days of purchase. The items must be in their original condition and packaging. Please contact us to initiate an exchange.",
+      "section": 3,
+      "created_at": "2024-08-28T12:40:04.727Z"
+    }
+  },
+
+  {
+    "model": "frontend.faq",
+    "fields": {
+      "question": "Are all the art pieces original?",
+      "answer": "We sell both original artworks and prints. Our collection includes original paintings, photograph prints, and original pen plotter art.",
+      "section": 4,
+      "created_at": "2024-08-28T12:40:04.727Z"
+    }
+  },
+  {
+    "model": "frontend.faq",
+    "fields": {
+      "question": "Do you offer custom art pieces?",
+      "answer": "We offer custom art pieces upon request. Please contact us with your requirements, and we will work with our artists to create a unique piece for you.",
+      "section": 4,
+      "created_at": "2024-08-28T12:40:04.727Z"
+    }
+  },
+  {
+    "model": "frontend.faq",
+    "fields": {
+      "question": "How do I care for my artwork?",
+      "answer": "To ensure the longevity of your artwork, keep it out of direct sunlight and avoid exposure to extreme temperatures or humidity. Dust the surface regularly with a soft, dry cloth.",
+      "section": 4,
+      "created_at": "2024-08-28T12:40:04.727Z"
+    }
+  }
+]
