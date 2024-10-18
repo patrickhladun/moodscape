@@ -119,6 +119,7 @@
               <div id="card-element"></div>
               <!-- Used to display form errors -->
               <div id="card-errors" role="alert"></div>
+              <input type="hidden" value="{{ client_secret }}" name="client_secret" />
             </fieldset>
             <div class="py-4">
               <button id="submit-button" class="button button__primary" type="submit" data-cy="complete-order">Complete Order</button>
@@ -127,8 +128,23 @@
         </section>
       </div>
     </section>
-  </div>
 
+    <div id="loading-overlay" class="hidden fixed top-0 left-0 w-full h-full bg-blue-100 z-99999">
+      <div class="flex w-full h-full justify-center items-center text-light logo-font loading-spinner">
+        <div class="flex flex-col">
+          <img src="{% static 'images/loading.webp' %}" alt="Loading" class="w-36" />
+          Loading...
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block postloadjs %}
+  {{ block.super }}
+  {{ stripe_public_key|json_script:'id_stripe_public_key' }}
+  {{ client_secret|json_script:'id_client_secret' }}
+  <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
   <script>
     document.getElementById('id-create-account').addEventListener('change', function () {
       const accountFields = document.getElementById('account-fields')
@@ -139,11 +155,4 @@
       }
     })
   </script>
-{% endblock %}
-
-{% block postloadjs %}
-  {{ block.super }}
-  {{ stripe_public_key|json_script:'id_stripe_public_key' }}
-  {{ client_secret|json_script:'id_client_secret' }}
-  <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}

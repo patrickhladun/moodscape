@@ -42,7 +42,6 @@ class Order(models.Model):
     address_line_1 = models.CharField(max_length=80, null=False, blank=False)
     address_line_2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
-
     shipping_cost = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, default=0
     )
@@ -54,6 +53,9 @@ class Order(models.Model):
     )
     status = models.CharField(
         max_length=20, choices=STATUS_CHOICES, default="processing"
+    )
+    stripe_pid = models.CharField(
+        max_length=254, null=False, blank=False, default=""
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

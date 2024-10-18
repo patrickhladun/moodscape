@@ -884,6 +884,9 @@ video {
 .w-screen {
   width: 100vw;
 }
+.w-36 {
+  width: 9rem;
+}
 .max-w-xs {
   max-width: 20rem;
 }
@@ -1294,6 +1297,12 @@ video {
 }
 .opacity-25 {
   opacity: 0.25;
+}
+.opacity-10 {
+  opacity: 0.1;
+}
+.opacity-90 {
+  opacity: 0.9;
 }
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
@@ -1858,6 +1867,14 @@ blockquote {
 
   .md\:gap-4 {
     gap: 1rem;
+  }
+
+  .md\:gap-12 {
+    gap: 3rem;
+  }
+
+  .md\:gap-16 {
+    gap: 4rem;
   }
 
   .md\:border-r {

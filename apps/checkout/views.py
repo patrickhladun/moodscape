@@ -18,6 +18,31 @@ from apps.product.models import Product
 from apps.user.models import Customer, User
 
 
+@require_POST
+def cache_checkout_data(request):
+    try:
+        pid = request.POST.get("client_secret").split("_secret")[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe.PaymentIntent.modify(
+            pid,
+            metadata={
+                "bag": json.dumps(request.session.get("bag", {})),
+                "username": (
+                    request.user.username
+                    if request.user.is_authenticated
+                    else "Guest"
+                ),
+            },
+        )
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(
+            request,
+            "Sorry, your payment cannot be processed right now. Please try again later.",
+        )
+        return JsonResponse({"error": str(e)}, status=400)
+
+
 def checkout_view(request):
     """
     Processes the checkout by handling the form submission for creating an
@@ -73,6 +98,8 @@ def checkout_view(request):
 
         if order_form.is_valid():
             order = order_form.save(commit=False)
+            pid = request.POST.get("client_secret").split("_secret")[0]
+            order.stripe_pid = pid
 
             if request.user.is_authenticated:
                 order.customer = request.user.customer
@@ -105,7 +132,6 @@ def checkout_view(request):
                     order.delete()
                     return redirect(reverse("view_bag"))
 
-            request.session["save_info"] = "save-info" in request.POST
             return redirect(
                 reverse("checkout_success", args=[order.order_number])
             )
@@ -168,7 +194,6 @@ def checkout_success_view(request, order_number):
     Displays a success message with the order details and cleans up the
     session by removing the shopping bag.
     """
-    save_info = request.session.get("save_info")
     order = get_object_or_404(Order, order_number=order_number)
 
     metadata = make_metadata(
