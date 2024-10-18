@@ -1,6 +1,6 @@
 # Moodscape
 
-Moodscape is an e-commerce platform designed to offer a curated collection of unique watercolor art, Irish abstract landscapes, floral art, macro photography, digital art, and pen plotter art. This project serves as my final submission for the Full Stack Developer Diploma at Code Institute, showcasing my skills in developing a comprehensive, user-friendly online store.
+Moodscape is an e-commerce platform designed to offer a curated collection of unique watercolor art, Irish abstract landscapes, floral art, macro photography, digital, and pen plotter art. This project serves as my final submission for the Full Stack Developer Diploma at Code Institute, showcasing my skills in developing a comprehensive, user-friendly online store.
 
 The platform caters to art enthusiasts who wish to beautify their spaces with exquisite artwork. Moodscape aims to provide a seamless shopping experience, allowing users to explore and purchase art pieces easily. The website not only features a variety of art styles but also focuses on ensuring that each piece is of high quality and uniquely crafted.
 
@@ -18,31 +18,44 @@ The scope of Moodscape is to develop a fully functional e-commerce platform that
 - **User-Friendly Interface**: Provide an intuitive and smooth user experience for browsing and purchasing art.
 - **Responsive Design**: Ensure the website is fully functional and visually appealing on all devices.
 - **Secure Transactions**: Implement secure payment gateways using systems like Stripe, protecting user information and transactions.
-- **Artist Promotion**: Highlight the unique qualities of the curated art collection.
-- **Feedback System**: Implement a feedback system to report successful and unsuccessful purchases to users.
+- **Reviews System**: Implement a Reviews system to report successful and unsuccessful purchases to users.
+
+### E-commerce Business Model
+
+Moodscape operates under a direct-to-consumer e-commerce business model, primarily focusing on selling unique artworks directly to buyers without any intermediaries. This model allows me to maintain full control over the brand, customer relationships, and product quality. Here’s how this business model integrates with our objectives:
+
+#### Key Components
+
+- **Product Offering**: Diverse artworks crafted or curated directly by the platform, aligning with the curated collection objective.
+- **Customer Segmentation**: Targeting art collectors and enthusiasts directly, enhancing the user-friendly interface and secure transaction systems.
+- **Revenue Streams**: Direct sales through the website, leveraging Stripe for secure payment processing.
+- **Marketing and Sales Channels**: Multi-channel marketing including SEO and social media, directly supporting our objectives to promote artists and secure transactions.
+- **Logistics and Operations**: Managed in-house to maintain product quality, aligning with our goal to offer high-quality artworks.
+
+By adopting this business model, Moodscape not only aims to sell artworks but also to create a community around appreciation and support for unique art forms, thus providing a comprehensive and enjoyable online shopping experience for art lovers.
 
 ### Key Components of the Website
 
-- **Homepage**: Featuring highlighted collections, promotions, and selected artworks.
+- **Homepage**: Featuring highlighted collections and selected artworks.
 - **Product Pages**: Detailed pages for each art piece with high-quality images, descriptions, and pricing information.
 - **Admin Management**: A single main user (admin) to add, edit, and manage products and content.
 - **User Account Management**: Allow users to create and manage their accounts, track orders, and manage preferences.
 - **Shopping Cart and Checkout**: Streamlined process for adding items to the cart and completing purchases.
 - **Search and Filter Options**: Advanced search and filtering capabilities to help users find specific types of art.
 - **E-commerce Functionality**: Integrate payment processing using Stripe for secure transactions.
-- **Feedback System**: Inform users about the status of their purchases with clear messages.
+- **Reviews System**: Inform users about the status of their purchases with clear messages.
 - **Forms with Validation**: Implement forms that allow users to create and edit models in the backend with proper validation.
 - **Navigation and Layout**: Incorporate a main navigation menu and structured layout for ease of use.
 - **SEO Techniques**: Include meta description tags, a site title, a sitemap, and a robots.txt file to improve search engine reach.
 - **Authentication and Authorization**: Implement secure login and registration pages, role-based access control, and restrict access to certain content.
 
-By focusing on these objectives, Moodscape aims to provide a comprehensive and enjoyable online shopping experience for art lovers, while ensuring easy management and high-quality offerings from a single admin user.
+This integrated approach ensures that all aspects of the e-commerce platform are aligned with the overall business model and the strategic objectives of the project.
 
 ## User Experience
 
 ### Audience Personas
 
-**Persona 1: Emily - Art Enthusiast**
+**Persona 1: :woman: Emily - Art Enthusiast**
 
 #### Demographics
 
@@ -68,7 +81,7 @@ Emily spends a lot of time on Instagram and Pinterest for art inspiration. She v
 
 Moodscape provides Emily with a curated collection of unique and high-quality artworks. The user-friendly interface and detailed product pages make it easy for her to find and purchase art pieces that match her taste. The platform's focus on promoting talented artists aligns with her interest in discovering new art.
 
-**Persona 2: Michael - Gift Shopper**
+**Persona 2: :man: Michael - Gift Shopper**
 
 #### Demographics
 
@@ -88,7 +101,7 @@ Michael shops online for most of his gifts due to the convenience and variety. H
 
 #### Online Habits
 
-Michael frequently visits e-commerce sites and gift recommendation blogs. He uses social media platforms like Facebook and Twitter to look for gift ideas. He reads product reviews and relies on customer feedback before making purchases.
+Michael frequently visits e-commerce sites and gift recommendation blogs. He uses social media platforms like Facebook and Twitter to look for gift ideas. He reads product reviews and relies on customer Reviews before making purchases.
 
 #### How Moodscape Meets Michael's Needs
 
@@ -96,7 +109,7 @@ Moodscape offers a wide range of unique and high-quality art pieces that make pe
 
 ### User Goals
 
-#### Emily - Art Enthusiast
+#### :woman: Emily - Art Enthusiast
 
 - **Discover New Art:** Easily find new and unique artworks from various artists and styles.
 - **Purchase High-Quality Art:** Buy high-quality, original art pieces that fit her aesthetic preferences.
@@ -104,7 +117,7 @@ Moodscape offers a wide range of unique and high-quality art pieces that make pe
 - **Seamless Shopping Experience:** Enjoy a smooth and intuitive online shopping experience.
 - **Stay Updated:** Receive updates on new collections, promotions, and featured artists.
 
-#### Michael - Gift Shopper
+#### :man: Michael - Gift Shopper
 
 - **Find Unique Gifts:** Locate unique and high-quality art pieces suitable for gifts.
 - **Quick Purchase Process:** Complete purchases quickly and efficiently without hassle.
@@ -127,8 +140,8 @@ Moodscape offers a wide range of unique and high-quality art pieces that make pe
   - Secure online payment processing (Stripe)
   - User account management
   - Admin management for adding and updating products
-  - Advanced search and filter options
-  - Feedback system for purchase status
+  - Search and filter options
+  - Reviews system for purchase status
   - Responsive design for various devices
   - SEO techniques for improved search engine reach
   - Authentication and authorization for secure access
@@ -168,7 +181,25 @@ Moodscape offers a wide range of unique and high-quality art pieces that make pe
   - Use of high-quality images for artworks.
   - Professional and elegant typography for readability and style.
   - Consistent visual elements across all pages, including buttons, icons, and navigation.
-  - Visual feedback for user interactions, such as adding items to the cart or completing a purchase.
+  - Visual Reviews for user interactions, such as adding items to the cart or completing a purchase.
+
+## Marketing
+
+My marketing strategy for Moodscape is designed to enhance its online presence, attract a targeted audience, and increase sales through various digital channels. This approach includes social media marketing, search engine optimization (SEO), and thoughtful content creation.
+
+Social Media Presence
+
+I've established a Facebook page to connect with art lovers, share updates, and promote new collections.
+
+![Facebook](./docs/moodscape-facebook.webp)
+
+Search Engine Optimization (SEO)
+
+To increase Moodscape's visibility on search engines and attract more organic traffic, I focus on several SEO best practices:
+
+- :point_right: Robots.txt: Implemented to manage and control the web crawlers accessing the website, ensuring that search engines are indexing my site properly.
+- :point_right: Sitemap: Developed a sitemap to help search engines discover all of my pages, enhancing the site’s visibility and improving page indexing.
+- :point_right: Meta Descriptions: Crafted compelling meta descriptions for each page to improve click-through rates from search engine results pages (SERPs). These descriptions succinctly communicate the content of the pages and their relevance to potential visitors.
 
 ## Mockups and Wireframes
 
@@ -272,37 +303,61 @@ Once the wireframes were finalized, I moved on to creating high-fidelity mockups
 
 </details>
 
-#### Account Pages
+#### Customer Pages
 
-<details><summary>Account</summary>
+<details><summary>Customer Orders</summary>
 
-![Admin Account](./docs/mockup-account.webp)
-
-</details>
-
-<details><summary>Account Orders</summary>
-
-![Account Orders](./docs/mockup-account-orders.webp)
+![Customer Orders](./docs/mockup-customer-orders.webp)
 
 </details>
 
-<details><summary>Account Reviews</summary>
+<details><summary>Customer Reviews</summary>
 
-![Account Reviews](./docs/mockup-account-reviews.webp)
+![Customer Reviews](./docs/mockup-customer-reviews.webp)
 
 </details>
 
-<details><summary>Account Profile</summary>
+<details><summary>Customer Profile</summary>
 
-![Account Profile](./docs/mockup-account-profile.webp)
+![Customer Profile](./docs/mockup-customer-profile.webp)
+
+</details>
+
+<details><summary>Customer Account</summary>
+
+![Customer Account](./docs/mockup-customer-account.webp)
 
 </details>
 
 #### Admin Pages
 
-<details><summary>Account</summary>
+<details><summary>Admin Orders</summary>
 
-![Admin Account](./docs/mockup-account.webp)
+![Admin Orders](./docs/mockup-admin-orders.webp)
+
+</details>
+
+<details><summary>Admin Customers</summary>
+
+![Admin Customers](./docs/mockup-admin-customers.webp)
+
+</details>
+
+<details><summary>Admin Products</summary>
+
+![Admin Products](./docs/mockup-admin-products.webp)
+
+</details>
+
+<details><summary>Admin Product</summary>
+
+![Admin Product](./docs/mockup-admin-product.webp)
+
+</details>
+
+<details><summary>Admin Categories</summary>
+
+![Admin Categories](./docs/mockup-admin-categories.webp)
 
 </details>
 
@@ -326,7 +381,7 @@ The color scheme for Moodscape has been carefully chosen to create a clean, mode
 - **Brand Blue:** This accent color is used in the logo, certain buttons, and other accent elements to provide a cohesive and vibrant touch. The specific shades of blue are defined as follows in Tailwind CSS settings:
 
 ```css
-'brand': {
+'blue': {
     '50': '#f1f8fa',
     '100': '#dbecf2',
     '200': '#bcd9e5',
@@ -355,116 +410,589 @@ The logo for Moodscape is a simple yet elegant icon presenting a landscape withi
 
 ## Images
 
+All images featured on the website, including product visuals, are original artworks created by my wife and me. My wife, a talented watercolor artist, has graciously permitted the use of her art pieces for the watercolor products showcased on the moodscape site. I contribute with my personal collection of macro and close-up floral photographs. Additionally, I create pen plotter art, which involves artwork generated through coding in languages like JavaScript and Python, or designed using Adobe Illustrator. This diverse array of artistic contributions enriches the visual experience of our website.
+
 ## Icons
+
+All icons displayed on the website were personally designed by me using Adobe Illustrator, ensuring a custom and consistent look throughout. The social media icons were sourced directly from the official websites.
+
+![Icons](./docs/moodscape-icons.webp)
 
 ## Pages and Features
 
+### Website Header
+
+The website’s header prominently displays the logo, main navigation links, a shopping bag icon, and a login icon. Upon user login, the login icon transforms into a hamburger menu button to accommodate additional user-specific options. To maintain simplicity, a customer headshot is not included; the hamburger menu alone effectively manages user navigation. On smaller screens, the main navigation links collapse into a dropdown menu, optimizing space and improving accessibility.
+
+<details><summary>Header Desktop Visitor</summary>
+
+![Header Desktop Visitor](./docs/features-header-desktop.webp)
+
+</details>
+
+<details><summary>Header Mobile Visitor</summary>
+
+![Header Mobile Visitor](./docs/features-header-mobile.webp)
+
+</details>
+
+<details><summary>Header Desktop Customer</summary>
+
+![Header Desktop Customer](./docs/features-header-desktop-customer.webp)
+
+</details>
+
+<details><summary>Header Mobile Customer</summary>
+
+![Header Mobile Customer](./docs/features-header-mobile-customer.webp)
+
+</details>
+
+<details><summary>Header Desktop Admin</summary>
+
+![Header Desktop Admin](./docs/features-header-desktop-admin.webp)
+
+</details>
+
+<details><summary>Header Mobile Admin</summary>
+
+![Header Mobile Admin](./docs/features-header-mobile-admin.webp)
+
+</details>
+
+### Website footer
+
+The footer includes social media icons linking to relevant platforms, secondary website navigation links, a copyright notice, and a newsletter subscription form. The newsletter form integrates with ConvertKit, enabling efficient email list management.
+
+<details><summary>Footer Desktop</summary>
+
+![Footer Desktop](./docs/features-footer-desktop.webp)
+
+</details>
+
+<details><summary>Footer Mobile</summary>
+
+![Footer Mobile](./docs/features-footer-mobile.webp)
+
+</details>
+
+When users submit their email, they receive a confirmation message asking them to verify their subscription.
+
+<details><summary>Newsletter Success</summary>
+
+![Footer](./docs/features-footer-newsletter-success.webp)
+
+</details>
+
+<details><summary>Newsletter Notification</summary>
+
+![Footer](./docs/features-footer-newsletter-email.webp)
+
+</details>
+
+Confirmation by the user triggers an acknowledgment from ConvertKit, completing the subscription process.
+
+<details><summary>Newsletter Confirmation</summary>
+
+![Footer](./docs/features-footer-newsletter-confirmed.webp)
+
+</details>
+
 ### Front End Pages
 
-### User and Content Management Pages
+<details><summary>Home Page</summary>
 
-#### Profile Management for Talent and Employers
+The home page of the website is straightforward yet engaging, showcasing a hero section that includes a captivating headline and a call-to-action (CTA) button that directs visitors to the shop page. This section is designed to immediately grasp the attention of the visitors and guide them towards exploring the available artworks.
 
-#### Account Management
+![Home Page Hero](./docs/features-page-home-hero.webp)
 
-### Django Administration
+Below the hero section, the page features a list of art categories, allowing users to easily navigate through different types of artworks such as watercolors, photography, and pen plotter art.
+
+![Home Page Categories](./docs/features-page-home-categories.webp)
+
+Additionally, the home page highlights featured pieces, showcasing select artworks that represent the best of what the site has to offer. This layout not only enhances the visual appeal but also serves as an effective gateway to the diverse art collection on the site.
+
+![Home Page Featured](./docs/features-page-home-featured.webp)
+
+</details>
+
+<details><summary>Shop Page</summary>
+
+The shop page of the website is laid out with two main sections: a sidebar and a main display area for products. The sidebar enhances user interaction by providing several functional elements:
+
+- Search Box: Allows users to quickly find products by entering keywords.
+- Filters: Users can refine product listings based on price, name, and rating.
+- Categories List: This feature enables users to view products from selected categories only, such as watercolors, photography, or pen plotter art.
+
+In the main section, each product is displayed with an image, title, category, price, and an “Add to Bag” button, providing essential information and purchase options at a glance.
+
+![Shop Page](./docs/features-page-shop.webp)
+
+</details>
+
+<details><summary>Bag Page</summary>
+
+The bag page displays a list of products added by the user, featuring an image, title, price, and quantity for each item. Users can remove items, adjust quantities, or proceed to the checkout page directly from this page.
+
+![Bag Page](./docs/features-page-bag.webp)
+
+</details>
+
+<details><summary>Checkout Page</summary>
+
+The checkout page is structured into two columns: one column contains a form for users to fill in their details, shipping address, and payment information. The other column displays a summary of the products being purchased. Users also have the option to log in if they already have an account, streamlining the checkout process.
+
+![Checkout Page](./docs/features-page-checkout.webp)
+
+Checkout Success
+
+![Checkout Page](./docs/features-page-checkout-success.webp)
+
+:skull: Do not visit checkout page as a superuser :bangbang:
+
+</details>
+
+<details><summary>About Page</summary>
+
+The About Page provides a brief introduction to Moodscape. It features a straightforward layout with a descriptive paragraph and a complementary image, offering visitors a quick insight into the essence and values of Moodscape.
+
+![About Page](./docs/features-page-about.webp)
+
+</details>
+
+<details><summary>Contact Page</summary>
+
+The Contact Page features a user-friendly contact form alongside essential contact details, including social media links.
+
+![Contact Page](./docs/features-page-contact.webp)
+
+Upon form submission, users are redirected to a success page that confirms the email has been sent.
+
+![Contact Success Page](./docs/features-page-contact-success.webp)
+
+The system ensures emails are directed to the appropriate recipient.
+
+![Contact Page Email Confirmation](./docs/features-page-contact-email.webp)
+
+</details>
+
+<details><summary>Secondary pages</summary>
+
+Secondary pages on the website include basic informational content such as Terms and Conditions, Privacy Policy, and FAQ. These pages provide essential information regarding the site's policies and user guidance in a straightforward text format.
+
+![Secondary Pages](./docs/features-secondary-pages.webp)
+
+</details>
+
+### Common User Pages
+
+For user management, the website utilizes Django allauth. The authentication pages, including sign-in, sign-out, and password reset, have been customized to maintain a consistent design that aligns with the overall aesthetic of the site. This ensures a seamless user experience across all account-related interactions.
+
+<details><summary>Sign In</summary>
+
+![Sign In](./docs/features-page-user-sign-in.webp)
+
+</details>
+
+<details><summary>Sign Out</summary>
+
+![Sign Out](./docs/features-page-user-sign-out.webp)
+
+</details>
+
+<details><summary>Password Reset</summary>
+
+![Password Reset](./docs/features-page-user-reset-password.webp)
+
+</details>
+
+### Customers Pages
+
+<details><summary>Orders Page</summary>
+
+The customer order page displays a table listing all orders placed by the user. Each entry in the table shows the order number, total amount, and the current status of the order. Users can click on an order to access a detailed view, providing further insights into the items purchased, payment summary, and the order's fulfillment status.
+
+![Orders Page](./docs/features-page-customer-orders.webp)
+
+</details>
+
+<details><summary>Order Single Page</summary>
+
+The single order page is structured into two main columns for a detailed and user-friendly overview. The first column presents all the essential order details, such as order number, date, payment method, and shipping information. The second column lists the items purchased in that order, each with a link allowing the user to review the product directly.
+
+![Order Single Page](./docs/features-page-customer-order.webp)
+
+</details>
+
+<details><summary>Reviews Page</summary>
+
+The Reviews page displays products purchased by the customer that haven't been reviewed yet. If no products are available for review, a prompt with a button to buy some art appears. Users can filter their product reviews using a dropdown menu, sorting them by status: accepted, rejected, or pending.
+
+![Order Single Page](./docs/features-page-customer-reviews.webp)
+
+</details>
+
+<details><summary>Review Single Page</summary>
+
+The Product Review page features a straightforward form where users can submit a rating and comment about a product. Alongside the form, the product's image is displayed to remind the user of the item they are reviewing.
+
+![Order Single Page](./docs/features-page-customer-review.webp)
+
+</details>
+
+<details><summary>Profile Page</summary>
+
+The profile page allows users to update their personal details and set a default address. This ensures that their information is current and streamlines the checkout process for future purchases.
+
+![Order Single Page](./docs/features-page-customer-profile.webp)
+
+</details>
+
+<details><summary>Account Page</summary>
+
+The account page provides a straightforward interface where users can update their email and username, allowing them to manage their login credentials easily.
+
+![Account Page](./docs/features-page-customer-account.webp)
+
+</details>
+
+### Customer CRUD operation
+
+| Model | Create | Read | Update | Delete |
+| --- | --- | --- | --- | --- |
+| Order | :white_check_mark: | :white_check_mark: | :x: | :x: |
+| Product | :x: | :white_check_mark: | :x: | :x: |
+| Reviews | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Customer (Profile) | :x: | :white_check_mark: | :white_check_mark: | :x: |
+
+### Admin Pages
+
+<details><summary>Admin Orders</summary>
+
+The admin orders page provides an overview of all transactions. It displays a table listing each order by number, the date it was placed, the customer's email, the current status of the order, and the total amount.
+
+![Admin Orders Page](./docs/features-page-admin-orders.webp)
+
+</details>
+
+<details><summary>Admin Order Single Page</summary>
+
+The single order page includes sections for order details, customer information, and shipment address. Admin have the ability to add, remove, or adjust the quantity of items within an order directly from this page. Additionally, admin can update the order status to canceled, completed, or processing.
+
+![Admin Order Single Page](./docs/features-page-admin-order.webp)
+
+</details>
+
+<details><summary>Admin Customers Page</summary>
+
+The customers page displays a list of all shop customers, including their names, email and created date.
+
+![Admin Customers Page](./docs/features-page-admin-customers.webp)
+
+</details>
+
+<details><summary>Admin Customer Single Page</summary>
+
+The single customer page provides options to update customer details or delete the customer profile. Deleting a customer will not remove their associated orders.
+
+![Admin Customer Single Page](./docs/features-page-admin-customer.webp)
+
+</details>
+
+<details><summary>Admin Products Page</summary>
+
+The Products page displays a list of all shop products, each accompanied by an image, price, category, and creation date. Admins can add new products using the 'Add Product' button.
+
+![Admin Products Page](./docs/features-page-admin-products.webp)
+
+</details>
+
+<details><summary>Admin Product Page</summary>
+
+The product page allows admins to update details or delete the product.
+
+![Admin Product Page](./docs/features-page-admin-product-update.webp)
+
+Confirmation message displayed when trying to delete a product.
+
+![Admin Product Page](./docs/features-page-admin-product-delete.webp)
+
+</details>
+
+<details><summary>Admin Add Product Page</summary>
+
+The Add Product page features a form where admins can input essential details to list a new product. Mandatory fields include the product name, SKU, price, and category. The slug is generated automatically from the product name if not provided manually. Description and image are optional but can be added to enhance the product listing.
+
+![Admin Add Product Page](./docs/features-page-admin-product-add.webp)
+
+</details>
+
+<details><summary>Admin Categories Page</summary>
+
+The categories page displays all available categories, with an option for the admin to add new category.
+
+![Admin Categories Page](./docs/features-page-admin-categories.webp)
+
+</details>
+
+<details><summary>Admin Add Category Page</summary>
+
+The category add page features a straightforward form for adding new categories.
+
+![Admin Add Category Page](./docs/features-page-admin-category-add.webp)
+
+</details>
+
+<details><summary>Admin Category Page</summary>
+
+On the category page, an admin can update or delete categories. However, categories assigned to products or the default category labeled "Uncategorized" cannot be deleted. Empty categories are the only ones eligible for deletion.
+
+![Admin Category Page](./docs/features-page-admin-category-update.webp)
+
+Confirmation message displayed when trying to delete a category.
+
+![Admin Category Page](./docs/features-page-admin-category-delete.webp)
+
+Error message displayed when trying to delete default category.
+
+![Admin Category Page](./docs/features-page-admin-category-delete-error-default.webp)
+
+Error message displayed when trying to delete a category that still has products.
+
+![Admin Category Page](./docs/features-page-admin-category-delete-error-not-empty.webp)
+
+</details>
+
+<details><summary>Admin Reviews Page</summary>
+
+The review management page enables the admin to filter and display reviews based on their status: pending, approved, rejected, or deleted. The admin can modify a review's status directly from this page.
+
+![Admin Reviews Page](./docs/features-page-admin-reviews.webp)
+
+Update review page.
+
+![Admin Review Page](./docs/features-page-admin-review-update.webp)
+
+</details>
+
+### Admin CRUD operation on the frontend
+
+| Model | Create | Read | Update | Delete |
+| --- | --- | --- | --- | --- |
+| Order | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Product | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Category | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Reviews | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Customer | :x: | :white_check_mark::white_check_mark: | :white_check_mark: | :white_check_mark: |
+| FAQ | :white_check_mark::white_check_mark: | :white_check_mark::white_check_mark: | :white_check_mark::white_check_mark: | :white_check_mark::white_check_mark: |
+| FAQ Section | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 
 ## Technology used
 
 ### Languages and Libraries
 
+- HTML
+- CSS, SCSS
+- Tailwind
+- JavaScript
+- Python
+- Django
+
 ### Version Control and Collaboration
+
+- Git, Git Flow, GitHub, and GitKraken - used for managing source code and collaboration
+- VSCode - for code editing and development
 
 ### Tooling
 
+- Gulp - used for building CSS
+- Pytest - used for automated testing
+- Cypress - used for end-to-end testing to ensure the entire user experience functions correctly.
+
 ### Design Tools
+
+- Figma - used for wireframing and mockups
+- Adobe Illustrator - used for designing logos and icons
+- Adobe Photoshop - used to edit product images.
+- DB Diagram - used for database design
 
 ### Testing and Validation
 
+- W3C HTML Validator - For validating the HTML structure of each page.
+- W3C CSS Validator - For validating the CSS.
+- Web Accessibility Evaluation tool WAVE - For detecting and fixing accessibility issues.
+- Google PageSpeed - For perfomance testing
+
 ### Other
+
+- ChatGPT, Gemini - Used for content creation, and fixutes.
+- AWS Bucket - used for storing static and media files
 
 ## Development and Deployment
 
 ### Cloning the project
 
+1. Install Git: If you haven't already installed Git on your computer, download and install it from the Git website. Follow the installation instructions for your operating system.
+2. Create project folder `mkdir moodscape`
+3. Change to the project directory `cd moodscape`
+4. Clone the repository `git clone https://github.com/patrickhladun/moodscape.git .`
+
 ### Environment Settings
+
+Moodscape uses two environments: Development and Production. To keep the configuration simple and straightforward, I have split the settings into two separate files, one for each environment. This ensures that each environment's specific settings are easily manageable and distinct from one another.
 
 #### Development
 
-#### Staging and Production
+For local development, Django uses SQLite3 for simplicity and ease of setup. The development settings are optimized for debugging and rapid iteration.
+
+#### Production
+
+Production environment use Heroku with the Gunicorn server, PostgreSQL as the database, and AWS for storing static and media files. For sending emails, the project uses Gmail's SMTP server.
 
 #### Environment Variables Template
 
+Here is the template for environment variables that need to be set for server deployment:
+
+```
+ENVIRONMENT: Specifies the current environment (e.g., development, production).
+SECRET_KEY: A key used for cryptographic signing, essential for Django security.
+DATABASE_URL: Connection string for the database.
+WEBSITE: The URL of the website for linking back or other purposes.
+GMAIL_EMAIL: Email address used for sending emails from the application.
+GMAIL_PASS: Password for the Gmail account used in email sending.
+STRIPE_PUBLIC_KEY: Public key for Stripe API, used for handling payments.
+STRIPE_SECRET_KEY: Secret key for Stripe API, used for handling payments securely.
+CK_KEY: ConvertKit API key for integrating email marketing services.
+CK_SECRET: ConvertKit secret key for secure access to API services.
+AWS_ACCESS_KEY_ID: AWS credentials for accessing AWS services.
+AWS_SECRET_ACCESS_KEY: Secret access key for secure communication with AWS services.
+CY_CMS_EMAIL: Admin Email for Cypress testing.
+CY_CMS_PASS: Admin Password for Cypress testing.
+CY_ACCOUNT_EMAIL: Customer Email for Cypress testing.
+CY_ACCOUNT_PASS: Customer Password for Cypress testing.
+```
+
 ### Local Development
+
+To run the project locally for development, follow these steps:
+
+1. **Set Up the Database:**
+
+   The project is set to use SQLite3 locally. Run the following command to create the database:
+
+   ```
+   python manage.py migrate
+   ```
+
+2. **Run the Project Locally:**
+
+   Start the Django development server:
+
+   ```
+   python manage.py runserver
+   ```
+
+3. **Edit Styling and JavaScript:**
+
+   First, install the required npm packages:
+
+   ```
+   npm install
+   ```
+
+   Make sure your Django server is running at `127.0.0.1:8000`. Then, start Gulp to enable live reloading:
+
+   ```
+   gulp
+   ```
+
+   Gulp will proxy `127.0.0.1:8000` to `localhost:3000`. This setup allows for immediate page reloads and style updates whenever source files change.
 
 ### Deployment on Heroku
 
+To deploy Moodscape on Heroku, follow these steps:
+
+1. Create a Heroku Account: at [sign up here](https://signup.heroku.com/).
+
+2. Create a New App:
+
+   - Once logged in, click on "Create New App."
+   - Enter a unique app name and select the region closest to your users.
+
+3. Select Buildpacks:
+
+   - Add `nodejs` and `python` as the buildpacks in the "Settings" tab.
+
+4. Configure Environment Variables:
+
+   - In the "Settings" tab, click on "Reveal Config Vars."
+   - Input all the required environment variables
+
+5. Connect to GitHub and Deploy:
+   - In the "Deploy" tab, select "GitHub" as the deployment method.
+   - Connect your GitHub account and find the desired repository.
+   - Enable automatic deploys and select the main branch.
+   - Click "Deploy Branch."
+
+Your app should now be deployed and accessible on Heroku.
+
 ### Load Example Content
+
+To start developing the site with example content, you can load predefined Users, Products, Categories, Customers and Reviews. Follow these steps to set up your database and load the example content.
 
 #### Load Fixtures Locally
 
-#### Load Example Content for Staging Site
+1. Ensure the database is created:<br> Run the following commands to create and set up the database:
 
-## Manual testing
-
-### Website Header and Navigation
-
-### Responsive Design Tests
-
-### Google PageSpeed Insights Tests
-
-### HTML Validation and Accessibility Testing
-
-### Testing User Pages
-
-### CSS Validation
-
-### JavaScript Validation
-
-## Automated testing with Pytest
-
-### Running Pytest
-
-To ensure the reliability and correctness of the backend code, we use pytest for automated testing. Follow these instructions to run the tests:
-
-1. **Ensure pytest is Installed:**
-
-Make sure `pytest` is installed in your project environment. If it's not installed, you can install it using pip:
-
-```sh
-pip install pytest
+```
+python manage.py makemigrations
+python manage.py migrate
 ```
 
-2. **Run the tests**
+2. Load example content:<br> Run these commands in order to load the example content:
 
-```sh
-pytest -rP -v
+```
+python manage.py loaddata fixtures/user.superuser.json
+python manage.py loaddata fixtures/user.accounts.json
+python manage.py loaddata fixtures/product.categories.json
+python manage.py loaddata fixtures/product.watercolors.json
+python manage.py loaddata fixtures/product.plotter.json
+python manage.py loaddata fixtures/product.photography.json
+python manage.py loaddata fixtures/order.order.json
+python manage.py loaddata fixtures/product.reviews.json
 ```
 
-### Running Cypress Tests
+These commands will create the example content.
 
-To open Cypress in interactive mode:
+## Testing
 
-```sh
-npm run cy:open
-```
+:traffic_light: [Project Testing Documentation](./README_TESTING.md)
 
-To run Cypress tests headlessly:
+## Issues (Future Improvements)
 
-```sh
-npm run cy:run
-```
+- :rocket: [Add a Blog Section to Share Art Tips and News](https://github.com/patrickhladun/moodscape/issues/80)
+- :rocket: [Anonymize Customer Details in Orders](https://github.com/patrickhladun/moodscape/issues/81)
+- :rocket: [Associate Guest Orders with Customer Accounts](https://github.com/patrickhladun/moodscape/issues/82)
+- :rocket: [Improve Product Feature with Options, Variants, and Gallery](https://github.com/patrickhladun/moodscape/issues/83) - possibly break this issue to multiple issues
 
-## Issues
+## Bugs
 
-### User Stories
-
-### Bugs
-
-## Further Improvements
+- :bug: [#77 Inconsistent Confirmation Dialogs in Admin Panel](https://github.com/patrickhladun/moodscape/issues/77)
+- :bug: [#78 Duplicated quantity ID](https://github.com/patrickhladun/moodscape/issues/78)
+- :bug: [#79 Unclosed HTML elements on Shop Page](https://github.com/patrickhladun/moodscape/issues/79)
 
 ## Credits
 
-### Articles and Videos:
+For this project imagery and products I have used my wifes waterolor art and my own photographs and pen plotter art.
+
+- :tv: [Setting up AWS Bucket](https://www.youtube.com/watch?v=qq9QbfdB_ik&ab_channel=TheCloudGuy)
+- :blue_book: [Integrating Summernote in Django​](https://python.plainenglish.io/integrating-summernote-in-django-3f7508828fba)
+- :camera: [Wrong Place Gif](https://giphy.com/gifs/redbull-og-ogesports-esports-fSYmeQp9MvXsUrTEzy)
+- :camera: [Loading Gif](https://giphy.com/gifs/5t9ujj9cMisyVjUZ0m)
+- :camera: [Checkout Gif](https://giphy.com/gifs/delivery-12d5LdHJKqOYFi)
 
 ## Acknowledgments
+
+- :mega: **Graeme Taylor**: My project mentor, for offering insightful tips and great advice throughout the development of this project.
+- :mega: **Laura Mayock** and **Kristina Wach**: Amazing facilitators who have been instrumental in running weekly stand-ups and providing excellent content and support.
+- :mega: **Colleagues and Fellow Students**: I am deeply grateful for the help, feedback, and encouragement provided by both my colleagues and peers. Their diverse insights and continuous support have been invaluable in completing this project.

@@ -2,16 +2,19 @@
 {% load ui_tags %}
 
 {% block content %}
+  {% include 'partials/page_title.html' with title='Update Review' variant='backend' %}
   {% include 'partials/nav_cms.html' %}
-  <section class="container md:hidden">
-    <h1>Review</h1>
-  </section>
 
   <section class="container py-rg">
-    <a href="javascript:history.back()" class="button button__icon button--small">{% icon 'icon-arrow' 'sm' %}Back</a>
+    <a href="javascript:history.back()" class="inline-block bg-neutral-200 hover:bg-neutral-300 transition-colors duration-200 ease-in-out p-2 pr-3 rounded-md">
+      <span class="flex items-center">
+        <span class="mr-1">{% icon 'icon-arrow' 'sm' %}</span>
+        <span class="text-xs uppercase font-bold">Back</span>
+      </span>
+    </a>
   </section>
 
-  <section class="container">
+  <section class="container pb-rg">
     <div class="flex gap-4">
       <img src="{{ review.product.featured.url }}" alt="{{ review.product.name }}" class="w-24 h-24" />
       <div>

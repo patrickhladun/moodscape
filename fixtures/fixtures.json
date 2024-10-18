@@ -2,10 +2,12 @@
   "fixtures": [
     "user.superuser.json",
     "user.accounts.json",
+    "frontend.faq.json",
     "product.categories.json",
     "product.watercolors.json",
-    "product.photographs.json",
+    "product.photography.json",
     "product.plotter.json",
-    "order.order.json"
+    "order.order.json",
+    "product.reviews.json"
   ]
 }

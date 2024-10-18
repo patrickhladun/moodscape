@@ -2,10 +2,12 @@ import pytest
 
 from apps.frontend.forms import ContactForm
 
+
 @pytest.mark.django_db
 def test_contact_form_initial_state():
     form = ContactForm()
     assert not form.is_bound
+
 
 @pytest.mark.django_db
 def test_contact_form_with_valid_data():
@@ -21,6 +23,7 @@ def test_contact_form_with_valid_data():
     assert form.cleaned_data["email"] == "johndoe@example.com"
     assert form.cleaned_data["message"] == "This is a test message."
 
+
 @pytest.mark.django_db
 def test_contact_form_with_empty_data():
     form_data = {}
@@ -33,6 +36,7 @@ def test_contact_form_with_empty_data():
     assert form.errors["name"] == ["This field is required."]
     assert form.errors["email"] == ["This field is required."]
     assert form.errors["message"] == ["This field is required."]
+
 
 @pytest.mark.django_db
 def test_contact_form_with_invalid_email():

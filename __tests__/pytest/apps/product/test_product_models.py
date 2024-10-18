@@ -1,13 +1,13 @@
-import pytest
-
-from unittest.mock import patch
 from io import BytesIO
-from PIL import Image
+from unittest.mock import patch
 
+import pytest
 from django.core.exceptions import ValidationError
 from django.core.files.uploadedfile import SimpleUploadedFile
+from PIL import Image
 
-from apps.product.models import Product, Category
+from apps.product.models import Category, Product
+
 
 def test_category_meta_options():
     assert Category._meta.verbose_name == "Category"
@@ -20,7 +20,7 @@ def test_category_creation():
     category = Category.objects.create(
         name="Landscapes",
         slug="landscapes",
-        description="Landscapes category"
+        description="Landscapes category",
     )
     assert category.name == "Landscapes"
     assert category.slug == "landscapes"
@@ -32,14 +32,14 @@ def test_category_slug_unique():
     Category.objects.create(
         name="Landscapes",
         slug="landscapes",
-        description="Landscapes category"
+        description="Landscapes category",
     )
 
     with pytest.raises(ValidationError):
         duplicate_category = Category(
             name="Another Category",
             slug="landscapes",
-            description="Another category description"
+            description="Another category description",
         )
         duplicate_category.full_clean()
 
@@ -55,7 +55,7 @@ def test_product_creation():
     category = Category.objects.create(
         name="Landscapes",
         slug="landscapes",
-        description="Landscapes category"
+        description="Landscapes category",
     )
     product = Product.objects.create(
         name="Irish Coastal Sunset Watercolor",
@@ -65,7 +65,7 @@ def test_product_creation():
         stock=10,
         price=150.00,
         category=category,
-        is_published=False
+        is_published=False,
     )
     assert product.name == "Irish Coastal Sunset Watercolor"
     assert product.slug == "irish-coastal-sunset-watercolor"
@@ -81,18 +81,18 @@ def test_product_fields():
     category = Category.objects.create(
         name="Landscapes",
         slug="landscapes",
-        description="Landscapes category"
+        description="Landscapes category",
     )
 
     img_io = BytesIO()
-    image = Image.new('RGB', (100, 100), color='red')
-    image.save(img_io, format='WEBP')
+    image = Image.new("RGB", (100, 100), color="red")
+    image.save(img_io, format="WEBP")
     img_io.seek(0)
 
     image_file = SimpleUploadedFile(
         "irish-coastal-sunset-watercolor.webp",
         img_io.getvalue(),
-        content_type="image/webp"
+        content_type="image/webp",
     )
 
     product = Product.objects.create(
@@ -104,7 +104,7 @@ def test_product_fields():
         price=150.00,
         featured=image_file,
         is_published=False,
-        category=category
+        category=category,
     )
 
     product.save()
@@ -114,7 +114,9 @@ def test_product_fields():
     assert isinstance(product.details, str)
     assert isinstance(product.sku, str)
     assert isinstance(product.stock, int)
-    assert isinstance(product.featured, product._meta.get_field('featured').attr_class)
+    assert isinstance(
+        product.featured, product._meta.get_field("featured").attr_class
+    )
     assert isinstance(product.price, float)
     assert isinstance(product.is_published, bool)
 
@@ -136,7 +138,7 @@ def test_product_sku_unique():
     category = Category.objects.create(
         name="Landscapes",
         slug="landscapes",
-        description="Landscapes category"
+        description="Landscapes category",
     )
     Product.objects.create(
         name="Irish Coastal Sunset Watercolor",
@@ -147,7 +149,7 @@ def test_product_sku_unique():
         price=150.00,
         featured="products/irish-coastal-sunset-watercolor.webp",
         category=category,
-        is_published=False
+        is_published=False,
     )
 
     with pytest.raises(ValidationError):
@@ -160,7 +162,6 @@ def test_product_sku_unique():
             price=100.00,
             featured="products/irish-coastal-sunset-watercolor.webp",
             category=category,
-            is_published=False
+            is_published=False,
         )
         duplicate_product.full_clean()
-

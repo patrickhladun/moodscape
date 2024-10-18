@@ -1,0 +1,37 @@
+{% load ui_tags %}
+<div class="ml-auto md:hidden">
+  <!-- Dropdown button -->
+  <button id="mobileMenuButton" data-dropdown-toggle="mobileMenu" data-dropdown-placement="bottom-end" type="button" data-cy="menu-toggle" aria-label="Menu Toggle Mobile">{% icon 'icon-hamburger' 'sm' 'p-3 bg-blue-600 hover:bg-blue-800 rounded-md fill-blue-50' %}</button>
+  <!-- Dropdown menu -->
+  <div id="mobileMenu" class="z-10 hidden left bg-blue-700 rounded-lg w-44">
+    <ul class="py-2 text-sm text-gray-700" aria-labelledby="mobileMenuButton" data-cy="main-manu-links-mobile">
+      <li>
+        <a href="{% url 'shop' %}" class="block px-4 py-2 text-neutral-100 bg-blue-700 hover:bg-blue-800 transition duration-300 easy-in-out{% active 'shop' '!bg-blue-600' %}">Shop</a>
+      </li>
+      <li>
+        <a href="{% url 'about' %}" class="block px-4 py-2 text-neutral-100 bg-blue-700 hover:bg-blue-800 transition duration-300 easy-in-out{% active 'about' '!bg-blue-600' %}">About</a>
+      </li>
+      <li>
+        <a href="{% url 'contact' %}" class="block px-4 py-2 text-neutral-100 bg-blue-700 hover:bg-blue-800 transition duration-300 easy-in-out{% active 'contact' '!bg-blue-600' %}">Contact</a>
+      </li>
+
+      {% if request.user.is_authenticated %}
+        {% if request.user.is_superuser %}
+          {% include './cms_links.html' %}
+        {% else %}
+          {% include './account_links.html' %}
+        {% endif %}
+      {% endif %}
+    </ul>
+
+    {% if request.user.is_authenticated %}
+      <div class="pb-2">
+        <a href="{% url 'account_logout' %}" class="flex items-center gap-2 px-4 py-2 text-sm text-neutral-100 bg-blue-700 hover:bg-blue-800 transition duration-300 easy-in-out" aria-label="Link to Sign Out">{% icon 'icon-logout' 'sm' 'fill-neutral-100' %}Sign Out</a>
+      </div>
+    {% else %}
+      <div class="pb-2">
+        <a href="{% url 'account_login' %}" class="flex items-center gap-2 px-4 py-2 text-sm text-neutral-100 bg-blue-700 hover:bg-blue-800 transition duration-300 easy-in-out" aria-label="Link to Sign In">{% icon 'icon-login' 'sm' 'fill-neutral-100' %}Sign In</a>
+      </div>
+    {% endif %}
+  </div>
+</div>

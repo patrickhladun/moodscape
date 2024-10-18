@@ -1,9 +1,20 @@
+{% load ui_tags %}
+
 <header>
   <div class="container flex items-center justify-between py-xxs gap-4">
-    <div class="branding">
-      {% include './logo.html' %}
+    {% include './header/logo.html' %}
+    {% include './header/navigation_desktop.html' %}
+    <div class="flex items-center gap-4">
+      <div class="relative flex flex-wrap gap-4">
+        <a href="{% url 'bag' %}" aria-label="Link to Cart" data-cy="bag-link">
+          {% icon 'icon-bag' 'lg' 'fill-blue-800' %}
+          {% if product_count %}
+            <span class="absolute inline-block font-mono font-medium text-white bg-blue-600 w-5 h-5 p-[8px] bottom-0 right-0 flex items-center justify-center rounded-full text-xs" data-cy="bag-link-count">{{ product_count }}</span>
+          {% endif %}
+        </a>
+      </div>
+      {% include './header/dropdown_desktop.html' %}
+      {% include './header/dropdown_mobile.html' %}
     </div>
-    {% include './header/header_desktop.html' %}
-    {% include './header/header_mobile.html' %}
   </div>
 </header>

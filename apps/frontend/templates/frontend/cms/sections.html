@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load ui_tags %}
+{% load static %}
+
+{% block content %}
+  {% include 'partials/page_title.html' with title='FAQs' variant='backend' %}
+  {% include 'partials/nav_cms.html' %}
+
+  <div class="container py-rg">
+    <div class="flex items-center gap-4">
+      <a href="{% url 'cms_faqs' %}" class="inline-block bg-neutral-200 hover:bg-neutral-300 transition-colors duration-200 ease-in-out p-2 pr-3 rounded-md">
+        <span class="flex items-center">
+          <span>{% icon 'icon-arrow' 'md' %}</span>
+          <span class="text-xs uppercase font-bold">Back</span>
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <section class="container pb-rg">
+    <div class="grid md:grid-cols-2 gap-4">
+      <div>
+        <h3>Sections</h3>
+        <ul role="list">
+          {% for section in sections %}
+            <li role="listitem">
+              <a class="bg-neutral-100 block p-2 mb-1" href="{% url 'cms_sections_update' section.id %}">{{ section.name }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div>
+        <h3>Add a new section</h3>
+        <form method="POST">
+          {% csrf_token %}
+          {% render_field section_add_form.name %}
+          <div class="flex gap-4">
+            <button class="button button__primary" type="submit" name="section_add">Add Section</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+{% endblock %}

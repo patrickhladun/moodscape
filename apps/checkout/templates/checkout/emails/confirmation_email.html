@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Order Confirmation</title>
+  </head>
+  <body>
+    <h1>Thank you for your order, {{ order.first_name }}!</h1>
+
+    <h4>Order Details</h4>
+    <p>
+      Your order number is <strong>{{ order.order_number }}</strong>.
+    </p>
+    <p>
+      <strong>Order Date:</strong> {{ order.created_at }}<br />
+      <strong>Order Total:</strong> {{ config.CURRENCY_SYMBOL }}{{ order.order_total }}<br />
+      <strong>Delivery:</strong> {{ config.CURRENCY_SYMBOL }}{{ order.delivery_cost }}<br />
+      <strong>Grand Total:</strong> {{ config.CURRENCY_SYMBOL }}{{ order.grand_total }}
+    </p>
+    <h4>We will ship your order to:</h4>
+    <p>
+      Name: {{ order.first_name }} {{ order.last_name }}<br />
+      Address: {{ order.address_line_1 }}, {{ order.address_line_2 }}<br />
+      County: {{ order.county }}<br />
+      Postcode: {{ order.postcode }}<br />
+      City: {{ order.town_city }}<br />
+      Country: {{ order.country }}<br />
+    </p>
+    <p>We hope you enjoy your purchase! If you have any questions, feel free to contact us.</p>
+    <p>
+      Sincerely,<br />
+      Moodscape Team
+    </p>
+  </body>
+</html>

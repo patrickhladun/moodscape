@@ -1,0 +1,200 @@
+[
+  {
+    "model": "product.product",
+    "pk": 36,
+    "fields": {
+      "name": "Blue flower macro photograph",
+      "slug": "blue-flower-macro",
+      "details": "<p>This stunning macro shot captures the intricate beauty of a blue flower, revealing details often unseen by the naked eye.</p><p>The photograph is printed on high-resolution Giclée Art Paper Hahnemühle Photo RAG 308, showcasing vibrant colors and delicate textures.</p><p><strong>Size:</strong> 297x297mm</p><p>Please note that tones and colors may differ slightly depending on the monitor or screen used for viewing the artwork.</p><p>Your order will be shipped with a tracking number to ensure it reaches you safely.</p>",
+      "meta_desc": "A vibrant macro photograph of a blue flower printed on high-quality paper. Perfect for home decor.",
+      "featured": "products/featured_1_240624_6fg7.webp",
+      "sku": "photo-blma",
+      "stock": 1,
+      "price": "88.00",
+      "is_published": true,
+      "category": 3,
+      "created_at": "2023-08-20T00:00:00Z",
+      "updated_at": "2024-08-16T10:03:48.981Z"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 41,
+    "fields": {
+      "name": "Macro Shot of Red Flower",
+      "slug": "red-flower-macro",
+      "details": "<p>This captivating macro shot highlights the vivid beauty of a red flower, capturing the rich tones and intricate details of each petal. </p><p>The photograph is printed on high-resolution Giclée Art Paper Hahnemühle Photo RAG 308, ensuring exceptional color depth and clarity. </p><p>Size: 297x297mm</p><p>Please note that tones and colors may differ slightly depending on the monitor or screen used for viewing the artwork. </p><p>Your order will be shipped with a tracking number to ensure it reaches you safely.</p>",
+      "meta_desc": "A detailed macro shot of a red flower printed on high-quality paper, perfect for enhancing any decor.",
+      "featured": "products/featured_1_240624_9xl6.webp",
+      "sku": "photo-msrf",
+      "stock": 3,
+      "price": "120.00",
+      "is_published": true,
+      "category": 3,
+      "created_at": "2023-08-20T00:00:00Z",
+      "updated_at": "2024-08-16T10:10:08.983Z"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 45,
+    "fields": {
+      "name": "Poppy Hungarian Breadseed Lavender Purple Flower",
+      "slug": "poppy-lavender-flower",
+      "details": "<p>This beautiful photograph captures the delicate elegance of a Poppy Hungarian Breadseed Lavender Purple flower, showcasing its unique texture and rich purple hues.</p><p>The photograph is printed on high-resolution Giclée Art Paper Hahnemühle Photo RAG 308, ensuring vibrant colors and fine details.</p><p><strong>Size:</strong> 297x297mm</p><p>Please note that tones and colors may differ slightly depending on the monitor or screen used for viewing the artwork.</p><p>Your order will be shipped with a tracking number to ensure it reaches you safely.</p>",
+      "meta_desc": "Elegant photograph of a Poppy Hungarian Breadseed Lavender Purple flower, printed on high-quality paper with vibrant details.",
+      "featured": "products/featured_1_240624_cjn3.webp",
+      "sku": "photo-phbl",
+      "stock": 5,
+      "price": "120.00",
+      "is_published": true,
+      "category": 3,
+      "created_at": "2023-08-20T00:00:00Z",
+      "updated_at": "2024-08-16T10:10:21.298Z"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 52,
+    "fields": {
+      "name": "Abstract Macro of Tomato Stalk",
+      "slug": "abstract-tomato-stalk",
+      "details": "<p>This intriguing abstract macro photograph captures the unique textures and patterns of a tomato stalk, transforming a simple subject into a work of art.</p><p>The photograph is printed on high-resolution Giclée Art Paper Hahnemühle Photo RAG 308, highlighting every fine detail with exceptional clarity.</p><p><strong>Size:</strong> 297x297mm</p><p>Please note that tones and colors may differ slightly depending on the monitor or screen used for viewing the artwork.</p><p>Your order will be shipped with a tracking number to ensure it reaches you safely.</p>",
+      "meta_desc": "Abstract macro photo of a tomato stalk, showcasing unique textures and fine details, printed on high-quality paper.",
+      "featured": "products/featured_1_240624_e2a3.webp",
+      "sku": "photo-amot",
+      "stock": 3,
+      "price": "88.00",
+      "is_published": true,
+      "category": 3,
+      "created_at": "2023-08-20T00:00:00Z",
+      "updated_at": "2024-08-16T10:10:37.280Z"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 60,
+    "fields": {
+      "name": "Large Red Flower Closeup",
+      "slug": "large-red-flower",
+      "details": "<p>This striking closeup photograph captures the vibrant beauty of a large red flower, showcasing the intricate details of its petals and rich color tones.</p><p>The photograph is printed on high-resolution Giclée Art Paper Hahnemühle Photo RAG 308, ensuring stunning color depth and clarity.</p><p><strong>Size:</strong> 297x297mm</p><p>Please note that tones and colors may differ slightly depending on the monitor or screen used for viewing the artwork.</p><p>Your order will be shipped with a tracking number to ensure it reaches you safely.</p>",
+      "meta_desc": "Closeup photograph of a large red flower, showcasing vibrant colors and intricate petal details, printed on high-quality paper.",
+      "featured": "products/featured_1_240624_fbxt.webp",
+      "sku": "photo-lrfc",
+      "stock": 8,
+      "price": "88.00",
+      "is_published": true,
+      "category": 3,
+      "created_at": "2023-08-20T00:00:00Z",
+      "updated_at": "2024-08-16T10:05:34.190Z"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 63,
+    "fields": {
+      "name": "Black and White Macro of Small Flowers",
+      "slug": "black-white-small-flowers",
+      "details": "<p>This elegant black and white macro photograph captures the delicate beauty of small flowers, highlighting their intricate details and subtle textures.</p><p>The photograph is printed on high-resolution Giclée Art Paper Hahnemühle Photo RAG 308, offering exceptional contrast and depth.</p><p><strong>Size:</strong> 297x297mm</p><p>Please note that tones and colors may differ slightly depending on the monitor or screen used for viewing the artwork.</p><p>Your order will be shipped with a tracking number to ensure it reaches you safely.</p>",
+      "meta_desc": "Black and white macro photograph of small flowers, showcasing delicate textures and fine details, printed on high-quality paper.",
+      "featured": "products/featured_1_240624_g8y8.webp",
+      "sku": "photo-bwsm",
+      "stock": 5,
+      "price": "88.00",
+      "is_published": true,
+      "category": 3,
+      "created_at": "2023-08-20T00:00:00Z",
+      "updated_at": "2024-08-16T10:06:57.192Z"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 66,
+    "fields": {
+      "name": "Close-Up of Flower Cluster with Delicate Blooms",
+      "slug": "closeup-small-flowers",
+      "details": "<p>This captivating close-up photograph captures a flower adorned with many small blooms, showcasing the intricate beauty and delicate arrangement of each tiny petal.</p><p>The photograph is printed on high-resolution Giclée Art Paper Hahnemühle Photo RAG 308, ensuring vivid color and fine detail.</p><p><strong>Size:</strong> 297x297mm</p><p>Please note that tones and colors may differ slightly depending on the monitor or screen used for viewing the artwork.</p><p>Your order will be shipped with a tracking number to ensure it reaches you safely.</p>",
+      "meta_desc": "Close-up photograph of a flower cluster with delicate blooms, highlighting intricate details and vibrant colors, printed on high-quality paper.",
+      "featured": "products/featured_1_240624_gzp0.webp",
+      "sku": "photo-cufc",
+      "stock": 0,
+      "price": "120.00",
+      "is_published": true,
+      "category": 3,
+      "created_at": "2023-08-20T00:00:00Z",
+      "updated_at": "2024-08-16T10:09:58.169Z"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 69,
+    "fields": {
+      "name": "Close-Up of Wildflower Attacked by Aliens",
+      "slug": "wildflower-alien-attack",
+      "details": "<p>This extraordinary close-up photograph captures a wildflower being attacked by real alien creatures on its stem, creating a scene straight out of science fiction. The vivid details of the aliens and the flower combine to create an otherworldly and captivating image.</p><p>The photograph is printed on high-resolution Giclée Art Paper Hahnemühle Photo RAG 308, ensuring that the surreal details and vibrant contrasts are rendered with stunning clarity.</p><p><strong>Size:</strong> 297x297mm</p><p>Please note that tones and colors may differ slightly depending on the monitor or screen used for viewing the artwork.</p><p>Your order will be shipped with a tracking number to ensure it reaches you safely.</p>",
+      "meta_desc": "Close-up photograph of a wildflower under alien attack, creating a surreal and captivating scene, printed on high-quality paper.",
+      "featured": "products/featured_1_240624_pi9v.webp",
+      "sku": "photo8",
+      "stock": 5,
+      "price": "120.00",
+      "is_published": true,
+      "category": 3,
+      "created_at": "2023-08-20T00:00:00Z",
+      "updated_at": "2024-08-16T10:20:20.212Z"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 72,
+    "fields": {
+      "name": "Macro Shot of Small Flowers with Stunning White, Yellow, and Purple Colors",
+      "slug": "small-flowers-stunning-colors",
+      "details": "<p>This breathtaking macro shot captures the delicate beauty of small flowers, showcasing their stunning colors of white, yellow, and purple. The intricate details and vibrant hues create a captivating visual experience.</p><p>The photograph is printed on high-resolution Giclée Art Paper Hahnemühle Photo RAG 308, ensuring that the vivid colors and fine details are rendered with exceptional clarity.</p><p><strong>Size:</strong> 297x297mm</p><p>Please note that tones and colors may differ slightly depending on the monitor or screen used for viewing the artwork.</p><p>Your order will be shipped with a tracking number to ensure it reaches you safely.</p>",
+      "meta_desc": "Macro shot of small flowers in stunning white, yellow, and purple colors, printed on high-quality paper with vibrant details.",
+      "featured": "products/featured_1_240624_u83j.webp",
+      "sku": "photo-msos",
+      "stock": 5,
+      "price": "120.00",
+      "is_published": true,
+      "category": 3,
+      "created_at": "2023-08-20T00:00:00Z",
+      "updated_at": "2024-08-16T10:22:01.527Z"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 75,
+    "fields": {
+      "name": "Macro Shot of Dandelion with Seeds Scattered",
+      "slug": "dandelion-missing-seeds",
+      "details": "<p>This striking macro shot captures a dandelion with many of its seeds already blown away, revealing the intricate structure and delicate beauty of what remains. The fine details and natural textures make this image both captivating and evocative.</p><p>The photograph is printed on high-resolution Giclée Art Paper Hahnemühle Photo RAG 308, ensuring that the subtle nuances and fine details are rendered with stunning clarity.</p><p><strong>Size:</strong> 297x297mm</p><p>Please note that tones and colors may differ slightly depending on the monitor or screen used for viewing the artwork.</p><p>Your order will be shipped with a tracking number to ensure it reaches you safely.</p>",
+      "meta_desc": "Macro shot of a dandelion with scattered seeds, highlighting its intricate structure and delicate beauty, printed on high-quality paper.",
+      "featured": "products/featured_1_240624_yf7k.webp",
+      "sku": "photo-ddms",
+      "stock": 5,
+      "price": "88.00",
+      "is_published": true,
+      "category": 3,
+      "created_at": "2023-08-20T00:00:00Z",
+      "updated_at": "2024-08-16T10:24:21.986Z"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 78,
+    "fields": {
+      "name": "Withered Daisy After Bloom",
+      "slug": "withered-daisy-bloom",
+      "details": "<p>This evocative photograph captures a large Daisy flower after the season has passed, standing bare without its leaves. The image highlights the raw beauty of nature in its cycle, with intricate details and textures that tell a story of resilience and change.</p><p>The photograph is printed on high-resolution Giclée Art Paper Hahnemühle Photo RAG 308, ensuring that the fine details and natural tones are rendered with stunning clarity.</p><p><strong>Size:</strong> 297x297mm</p><p>Please note that tones and colors may differ slightly depending on the monitor or screen used for viewing the artwork.</p><p>Your order will be shipped with a tracking number to ensure it reaches you safely.</p>",
+      "meta_desc": "Photograph of a withered Daisy after bloom, showcasing raw beauty and intricate details, printed on high-quality paper.",
+      "featured": "products/featured_1_240624_zl5k.webp",
+      "sku": "photo-wdab",
+      "stock": 5,
+      "price": "88.00",
+      "is_published": true,
+      "category": 3,
+      "created_at": "2023-08-20T00:00:00Z",
+      "updated_at": "2024-08-16T10:27:11.991Z"
+    }
+  }
+]

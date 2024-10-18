@@ -1,0 +1,27 @@
+Thank you for your order, {{ order.first_name }}!
+
+Your order number is {{ order.order_number }}.
+
+Order Details
+    
+Your order number is {{ order.order_number }}.  
+Order Date: {{ order.created_at }}
+Order Total: {{ config.CURRENCY_SYMBOL }}{{ order.order_total }}
+Delivery: {{ config.CURRENCY_SYMBOL }}{{ order.delivery_cost }}
+Grand Total: {{ config.CURRENCY_SYMBOL }}{{ order.grand_total }}
+
+
+We will ship your order to:
+Name: {{ order.first_name }} {{ order.last_name }}
+Address: {{ order.address_line_1 }} {{ order.address_line_2 }}
+County: {{ order.county }}
+Postcode: {{ order.postcode }}
+City: {{ order.town_city }}
+Country: {{ order.country }}
+
+Thank you for your order!
+
+We hope you enjoy your purchase! If you have any questions, feel free to contact us.
+
+Sincerely,
+Moodscape Team
