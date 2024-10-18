@@ -987,6 +987,9 @@ For this project imagery and products I have used my wifes waterolor art and my 
 
 - :tv: [Setting up AWS Bucket](https://www.youtube.com/watch?v=qq9QbfdB_ik&ab_channel=TheCloudGuy)
 - :blue_book: [Integrating Summernote in Django​](https://python.plainenglish.io/integrating-summernote-in-django-3f7508828fba)
+- :camera: [Wrong Place Gif](https://giphy.com/gifs/redbull-og-ogesports-esports-fSYmeQp9MvXsUrTEzy)
+- :camera: [Loading Gif](https://giphy.com/gifs/5t9ujj9cMisyVjUZ0m)
+- :camera: [Checkout Gif](https://giphy.com/gifs/delivery-12d5LdHJKqOYFi)
 
 ## Acknowledgments
 
