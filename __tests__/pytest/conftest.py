@@ -2,8 +2,14 @@ import pytest
 from pytest_factoryboy import register
 
 from .factories import (
-  ProductFactory, CategoryFactory, UserFactory, SuperuserFactory,
-  CustomerFactory, OrderFactory, OrderLineItemFactory, ReviewFactory
+    ProductFactory,
+    CategoryFactory,
+    UserFactory,
+    SuperuserFactory,
+    CustomerFactory,
+    OrderFactory,
+    OrderLineItemFactory,
+    ReviewFactory,
 )
 
 
@@ -27,11 +33,12 @@ def test_customer():
         town_city="Dublin",
         address_line_1="123 Main Street",
         address_line_2="Apt 1",
-        county="Dublin"
+        county="Dublin",
     )
     customer.user.set_password("xwMPDTd79ka&OOPiixh5NCFY")
     customer.user.save()
     return CustomerFactory()
+
 
 @pytest.fixture
 def test_customers():
@@ -45,7 +52,7 @@ def test_customers():
         town_city="Dublin",
         address_line_1="123 Main Street",
         address_line_2="Apt 1",
-        county="Dublin"
+        county="Dublin",
     )
     customer_2 = CustomerFactory(
         id=3,
@@ -57,7 +64,7 @@ def test_customers():
         town_city="Cork",
         address_line_1="456 Elm Street",
         address_line_2="Apt 2",
-        county="Cork"
+        county="Cork",
     )
     customer_3 = CustomerFactory(
         id=4,
@@ -69,7 +76,7 @@ def test_customers():
         town_city="Galway",
         address_line_1="789 Oak Street",
         address_line_2="Apt 3",
-        county="Galway"
+        county="Galway",
     )
     return [customer_1, customer_2, customer_3]
 
@@ -86,35 +93,39 @@ def test_superuser():
 def test_data_categories():
     category_1 = CategoryFactory(
         id=1,
-        name="Undefined",
-        slug="undefined",
-        description="Undefined category"
+        name="Uncategorized",
+        slug="uncategorized",
+        description="Uncategorized category",
     )
     category_2 = CategoryFactory(
         id=2,
         name="Watercolor",
         slug="watercolor",
-        description="Watercolor paints"
-    ) 
+        description="Watercolor paints",
+    )
     category_3 = CategoryFactory(
         id=3,
         name="Photography",
         slug="photography",
-        description="Photography prints"
+        description="Photography prints",
     )
     category_4 = CategoryFactory(
         id=4,
-        name="Digital Art",
-        slug="digital-art",
-        description="Digital art prints"
+        name="Pen Plotter",
+        slug="plotter",
+        description="Digital art prints",
     )
-    
+
     return [category_1, category_2, category_3, category_4]
 
 
 @pytest.fixture
 def test_data_products(test_data_categories):
-    category_1, category_2, category_3 = test_data_categories[1], test_data_categories[2], test_data_categories[3]
+    category_1, category_2, category_3 = (
+        test_data_categories[1],
+        test_data_categories[2],
+        test_data_categories[3],
+    )
 
     product_1 = ProductFactory(
         id=1,
@@ -126,7 +137,7 @@ def test_data_products(test_data_categories):
         price=168,
         featured="products/irish-watercolor-seascape-abstract.webp",
         category=category_1,
-        is_published=False
+        is_published=False,
     )
 
     product_2 = ProductFactory(
@@ -139,7 +150,7 @@ def test_data_products(test_data_categories):
         price=168,
         featured="products/abstract-watercolor-indigo.webp",
         category=category_1,
-        is_published=False
+        is_published=False,
     )
 
     product_3 = ProductFactory(
@@ -152,7 +163,7 @@ def test_data_products(test_data_categories):
         price=168,
         featured="products/abstract-irish-landscape-watercolor.webp",
         category=category_1,
-        is_published=False
+        is_published=False,
     )
 
     product_4 = ProductFactory(
@@ -165,7 +176,7 @@ def test_data_products(test_data_categories):
         price=120,
         featured="products/small-flowers-stunning-colors.webp",
         category=category_2,
-        is_published=False
+        is_published=False,
     )
 
     product_5 = ProductFactory(
@@ -178,8 +189,8 @@ def test_data_products(test_data_categories):
         price=88,
         featured="products/dandelion-missing-seeds.webp",
         category=category_2,
-        is_published=False
-    ) 
+        is_published=False,
+    )
 
     product_6 = ProductFactory(
         id=6,
@@ -191,7 +202,7 @@ def test_data_products(test_data_categories):
         price=88,
         featured="products/withered-daisy-bloom.webp",
         category=category_2,
-        is_published=False
+        is_published=False,
     )
 
     product_7 = ProductFactory(
@@ -204,7 +215,7 @@ def test_data_products(test_data_categories):
         price=148.00,
         featured="products/blue-waves-gold-black.webp",
         category=category_3,
-        is_published=False
+        is_published=False,
     )
 
     product_8 = ProductFactory(
@@ -213,23 +224,38 @@ def test_data_products(test_data_categories):
         slug="mathematical-abstract-plotted",
         details="<p>This captivating pen plotter art showcases a mathematical abstract design, plotted with a striking green gradient on a deep black background. The complex patterns and gradient effect create a visually stunning piece. The artwork is printed on Giclée Art Paper Hahnemühle German Etching 310, bringing out the intricate details with rich textures.</p><p><strong>Size:</strong> 297x297mm</p><p>Please note that tones and colors may differ slightly depending on the monitor or screen used for viewing the artwork.</p><p>Your order will be shipped with a tracking number to ensure it reaches you safely.</p>",
         sku="ppl-pl-mapg1",
-        stock=3,
+        stock=6,
         price=148.00,
         featured="products/mathematical-abstract-plotted.webp",
         category=category_3,
-        is_published=False
+        is_published=False,
     )
-    
-    return [product_1, product_2, product_3, product_4, product_5, product_6, product_7, product_8]
+
+    return [
+        product_1,
+        product_2,
+        product_3,
+        product_4,
+        product_5,
+        product_6,
+        product_7,
+        product_8,
+    ]
 
 
 @pytest.fixture
 def test_data_order(test_data_products):
     customer = CustomerFactory()
     order = OrderFactory(customer=customer)
-    line_item_1 = OrderLineItemFactory(order=order, product=test_data_products[0], quantity=1)
-    line_item_2 = OrderLineItemFactory(order=order, product=test_data_products[3], quantity=1)
-    line_item_3 = OrderLineItemFactory(order=order, product=test_data_products[7], quantity=2)
+    line_item_1 = OrderLineItemFactory(
+        order=order, product=test_data_products[0], quantity=1
+    )
+    line_item_2 = OrderLineItemFactory(
+        order=order, product=test_data_products[3], quantity=1
+    )
+    line_item_3 = OrderLineItemFactory(
+        order=order, product=test_data_products[7], quantity=2
+    )
 
     return order
 
@@ -245,6 +271,7 @@ def test_data_orders(test_customers):
 
     return [order_1, order_2, order_3]
 
+
 @pytest.fixture
 def test_data_line_items(test_data_products, test_customers):
     customer_1 = test_customers[0]
@@ -257,26 +284,71 @@ def test_data_line_items(test_data_products, test_customers):
     order_4 = OrderFactory(customer=customer_3)
     order_5 = OrderFactory(customer=customer_3)
 
-    line_item_1 = OrderLineItemFactory(order=order_1, product=test_data_products[1], quantity=1)
-    line_item_2 = OrderLineItemFactory(order=order_1, product=test_data_products[2], quantity=2)
-    line_item_3 = OrderLineItemFactory(order=order_2, product=test_data_products[3], quantity=1)
-    line_item_4 = OrderLineItemFactory(order=order_2, product=test_data_products[2], quantity=1)
-    line_item_5 = OrderLineItemFactory(order=order_2, product=test_data_products[4], quantity=1)
-    line_item_6 = OrderLineItemFactory(order=order_3, product=test_data_products[6], quantity=1)
-    line_item_7 = OrderLineItemFactory(order=order_3, product=test_data_products[7], quantity=4)
-    line_item_8 = OrderLineItemFactory(order=order_4, product=test_data_products[4], quantity=2)
-    line_item_9 = OrderLineItemFactory(order=order_4, product=test_data_products[7], quantity=3)
-    line_item_10 = OrderLineItemFactory(order=order_5, product=test_data_products[3], quantity=2)
-    line_item_11 = OrderLineItemFactory(order=order_5, product=test_data_products[5], quantity=1)
-    line_item_12 = OrderLineItemFactory(order=order_5, product=test_data_products[4], quantity=1)
-    line_item_13 = OrderLineItemFactory(order=order_5, product=test_data_products[2], quantity=1)
-    line_item_14 = OrderLineItemFactory(order=order_5, product=test_data_products[7], quantity=3)
+    line_item_1 = OrderLineItemFactory(
+        order=order_1, product=test_data_products[1], quantity=1
+    )
+    line_item_2 = OrderLineItemFactory(
+        order=order_1, product=test_data_products[2], quantity=1
+    )
+    line_item_3 = OrderLineItemFactory(
+        order=order_2, product=test_data_products[3], quantity=1
+    )
+    line_item_4 = OrderLineItemFactory(
+        order=order_2, product=test_data_products[7], quantity=1
+    )
+    line_item_5 = OrderLineItemFactory(
+        order=order_2, product=test_data_products[4], quantity=1
+    )
+    line_item_6 = OrderLineItemFactory(
+        order=order_3, product=test_data_products[6], quantity=1
+    )
+    line_item_7 = OrderLineItemFactory(
+        order=order_3, product=test_data_products[7], quantity=1
+    )
+    line_item_8 = OrderLineItemFactory(
+        order=order_4, product=test_data_products[4], quantity=1
+    )
+    line_item_9 = OrderLineItemFactory(
+        order=order_4, product=test_data_products[7], quantity=1
+    )
+    line_item_10 = OrderLineItemFactory(
+        order=order_5, product=test_data_products[4], quantity=1
+    )
+    line_item_11 = OrderLineItemFactory(
+        order=order_5, product=test_data_products[5], quantity=1
+    )
+    line_item_12 = OrderLineItemFactory(
+        order=order_5, product=test_data_products[4], quantity=1
+    )
+    line_item_13 = OrderLineItemFactory(
+        order=order_5, product=test_data_products[6], quantity=1
+    )
+    line_item_14 = OrderLineItemFactory(
+        order=order_5, product=test_data_products[7], quantity=1
+    )
 
-    return [line_item_1, line_item_2, line_item_3, line_item_4, line_item_5, line_item_6, line_item_7, line_item_8, line_item_9, line_item_10, line_item_11, line_item_12, line_item_13, line_item_14]
+    return [
+        line_item_1,
+        line_item_2,
+        line_item_3,
+        line_item_4,
+        line_item_5,
+        line_item_6,
+        line_item_7,
+        line_item_8,
+        line_item_9,
+        line_item_10,
+        line_item_11,
+        line_item_12,
+        line_item_13,
+        line_item_14,
+    ]
 
 
 @pytest.fixture
 def test_data_reviews(test_data_products, test_data_line_items):
+    
+    # Customer  - test_customers[0]
     review_1 = ReviewFactory(
         id=1,
         user=test_data_line_items[0].order.customer.user,
@@ -284,9 +356,10 @@ def test_data_reviews(test_data_products, test_data_line_items):
         order_line_item=test_data_line_items[0],
         text="Beautiful painting! The colors are vibrant and the details are stunning.",
         rating=5,
-        status="approved"
+        status="approved",
     )
 
+    # Customer  - test_customers[0]
     review_2 = ReviewFactory(
         id=2,
         user=test_data_line_items[1].order.customer.user,
@@ -294,7 +367,7 @@ def test_data_reviews(test_data_products, test_data_line_items):
         order_line_item=test_data_line_items[1],
         text="The abstract art is mesmerizing. I love the indigo hues and the flow of the design.",
         rating=4,
-        status="rejected"
+        status="rejected",
     )
 
     review_3 = ReviewFactory(
@@ -304,7 +377,7 @@ def test_data_reviews(test_data_products, test_data_line_items):
         order_line_item=test_data_line_items[2],
         text="The landscape painting captures the essence of Galway beautifully. I'm impressed by the details and the colors.",
         rating=5,
-        status="deleted"
+        status="deleted",
     )
 
     review_4 = ReviewFactory(
@@ -314,7 +387,7 @@ def test_data_reviews(test_data_products, test_data_line_items):
         order_line_item=test_data_line_items[3],
         text="The macro shot of the small flowers is exquisite. The colors are vibrant and the details are stunning.",
         rating=5,
-        status="pending"
+        status="pending",
     )
 
     review_5 = ReviewFactory(
@@ -324,7 +397,7 @@ def test_data_reviews(test_data_products, test_data_line_items):
         order_line_item=test_data_line_items[4],
         text="The macro shot of the dandelion is beautiful. The composition and details are captivating.",
         rating=4,
-        status="pending"
+        status="pending",
     )
 
     review_6 = ReviewFactory(
@@ -334,7 +407,7 @@ def test_data_reviews(test_data_products, test_data_line_items):
         order_line_item=test_data_line_items[5],
         text="The withered daisy photograph is stunning. The details and textures are beautifully captured.",
         rating=5,
-        status="approved"
+        status="approved",
     )
 
     review_7 = ReviewFactory(
@@ -344,7 +417,7 @@ def test_data_reviews(test_data_products, test_data_line_items):
         order_line_item=test_data_line_items[6],
         text="The pen plotter abstract art is mesmerizing. The colors and patterns are captivating.",
         rating=4,
-        status="approved"
+        status="approved",
     )
 
     review_8 = ReviewFactory(
@@ -354,7 +427,16 @@ def test_data_reviews(test_data_products, test_data_line_items):
         order_line_item=test_data_line_items[7],
         text="The pen plotter mathematical abstract is intriguing. The gradient and patterns are fascinating.",
         rating=5,
-        status="pending"
+        status="pending",
     )
 
-    return [review_1, review_2, review_3, review_4, review_5, review_6, review_7, review_8]
+    return [
+        review_1,
+        review_2,
+        review_3,
+        review_4,
+        review_5,
+        review_6,
+        review_7,
+        review_8,
+    ]

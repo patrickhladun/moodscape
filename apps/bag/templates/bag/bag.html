@@ -4,24 +4,30 @@
 
 {% block content %}
   <main class="main">
-    <!-- Hero -->
-    <section class="bg-neutral-50">
-      <div class="container">
-        <h1 class="h1">Bag</h1>
+    <!-- Page Title -->
+    {% include 'partials/page_title.html' with title='Bag' %}
+
+    <section class="bg-neutral-100">
+      <div class="container py-xxs">
+        <div class="flex text-sm">
+          <div class="flex w-full md:w-1/2 gap-1">
+            <a href="{% url 'shop' %}" class="text-primary text-blue-600 underline">Shop</a>
+            <span>&gt;</span>
+            <span class="text-primary truncate text-neutral-600">Bag</span>
+          </div>
+        </div>
       </div>
     </section>
-    
-    <section class="container py-rg">
-      {% if bag_items %}
-        
-      {% for item in bag_items %}
 
+    <section class="container py-rg" data-cy="bag-items-list">
+      {% if bag_items %}
+        {% for item in bag_items %}
           <div class="flex items-center p-4 my-4 gap-4 bg-neutral-100">
             <div class="w-48">
               {% if item.product.featured %}
                 <img src="{{ item.product.featured.url }}" alt="{{ item.product.name }}" class="w-24" />
               {% else %}
-                <img src="{% static 'images/placeholder.webp' %}" alt="{{ product.name }}" class="w-full">
+                <img src="{% static 'images/placeholder.webp' %}" alt="{{ product.name }}" class="w-full" />
               {% endif %}
             </div>
 
@@ -31,10 +37,10 @@
                 <form method="POST" class="flex items-center gap-4">
                   {% csrf_token %}
                   <div class="field field__text">
-                    <input type="number" name="quantity" id="quantity" value="{{ item.quantity }}" min="1" max="{{ item.product.stock }}" class="w-16"/>
+                    <input type="number" name="quantity" id="quantity" value="{{ item.quantity }}" min="1" max="{{ item.product.stock }}" class="w-16" aria-label="Item Quantity" />
                   </div>
-                  <input type="hidden" name="product_id" value="{{ item.product.id }}">
-                  <button class="button button__outline-primary" type="submit" name="update_bag">Update</button>
+                  <input type="hidden" name="product_id" value="{{ item.product.id }}" />
+                  <button class="button button__outline-primary" type="submit" name="update_bag" aria-label="Update Quantity">Update</button>
                 </form>
               </div>
             </div>
@@ -43,31 +49,26 @@
 
             <form method="POST" class="flex ml-auto">
               {% csrf_token %}
-              
-              <input type="hidden" name="product_id" value="{{ item.product.id }}">
-              <button class="button button__remove" type="submit" name="remove_item">
-                  {% icon 'icon-delete' 'sm' %}
-              </button>
-          </form>
-          </div>
 
+              <input type="hidden" name="product_id" value="{{ item.product.id }}" />
+              <button class="button button__remove" type="submit" name="remove_item" aria-label="Delete Item">{% icon 'icon-delete' 'sm' %}</button>
+            </form>
+          </div>
         {% endfor %}
 
         <div class="flex items-center justify-between gap-4 px-4">
           <div class="flex items-center gap-4">
-            <a href="{% url 'checkout' %}" class="button button__primary">Checkout</a>
+            <a href="{% url 'checkout' %}" class="button button__primary" data-cy="button-checkout">Checkout</a>
             <form method="POST" class="flex flex-wrap">
               {% csrf_token %}
-              <button class="button button__outline-danger" type="submit" name="empty_bag">Empty Bag</button>
+              <button class="button button__outline-danger" type="submit" name="empty_bag" data-cy="button-empty">Empty Bag</button>
             </form>
           </div>
-          <span>Total: {{ config.CURRENCY_SYMBOL }}{{ total }}</span>
+          <span data-cy="price-total">Total: {{ config.CURRENCY_SYMBOL }}{{ total }}</span>
         </div>
-
       {% else %}
         <p>Your bag is empty.</p>
       {% endif %}
     </section>
-    
   </main>
 {% endblock %}

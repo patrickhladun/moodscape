@@ -1,6 +1,10 @@
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
-from django_countries.fields import CountryField
+from django.contrib.auth.models import (
+    AbstractBaseUser,
+    BaseUserManager,
+    PermissionsMixin,
+)
 from django.db import models
+from django_countries.fields import CountryField
 
 
 class CustomUserManager(BaseUserManager):
@@ -32,12 +36,17 @@ class CustomUserManager(BaseUserManager):
 
         return self._create_user(email, password, **extra_fields)
 
+
 class User(AbstractBaseUser, PermissionsMixin):
     id = models.AutoField(primary_key=True)
     email = models.EmailField(verbose_name="email", unique=True)
     username = models.CharField(max_length=30, unique=True)
-    date_joined = models.DateTimeField(verbose_name="date joined", auto_now_add=True)
-    last_login = models.DateTimeField(verbose_name="last login", auto_now=True)
+    date_joined = models.DateTimeField(
+        verbose_name="date joined", auto_now_add=True
+    )
+    last_login = models.DateTimeField(
+        verbose_name="last login", auto_now=True
+    )
     is_admin = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
@@ -56,7 +65,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.username
-        
+
     class Meta:
         db_table = "mood_user"
         verbose_name = "User"
@@ -69,13 +78,15 @@ class Customer(models.Model):
     first_name = models.CharField(max_length=30, null=False, blank=False)
     last_name = models.CharField(max_length=30, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
-    country = CountryField(blank_label='(select country)', null=False, blank=False)
+    country = CountryField(
+        blank_label="(select country)", null=False, blank=False
+    )
     postcode = models.CharField(max_length=20, null=True, blank=True)
     town_city = models.CharField(max_length=40, null=False, blank=False)
     address_line_1 = models.CharField(max_length=80, null=False, blank=False)
     address_line_2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
-    image = models.ImageField(upload_to='', null=True, blank=True)
+    image = models.ImageField(upload_to="", null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

@@ -1,6 +1,7 @@
 [
   {
     "model": "product.product",
+    "pk": 81,
     "fields": {
       "name": "Pen Plotter Art Printed with Two Colors, 10 Print Code Art",
       "slug": "pen-plotter-art-printed",
@@ -18,6 +19,7 @@
   },
   {
     "model": "product.product",
+    "pk": 86,
     "fields": {
       "name": "Blue Waves, Gold Triangles on Black Background Pen Plotter Abstract Art",
       "slug": "blue-waves-gold-black",
@@ -35,6 +37,7 @@
   },
   {
     "model": "product.product",
+    "pk": 91,
     "fields": {
       "name": "Fibonacci Sequence Pen Plotter Black on White Background, Minimal Amazing Art",
       "slug": "fibonacci-sequence-pen",
@@ -52,6 +55,7 @@
   },
   {
     "model": "product.product",
+    "pk": 96,
     "fields": {
       "name": "Nice Minimal Wall Art Black Hole Style Design Pen Plotted Black on White",
       "slug": "nice-minimal-wall-art",
@@ -69,6 +73,7 @@
   },
   {
     "model": "product.product",
+    "pk": 101,
     "fields": {
       "name": "Mathematical Abstract Plotted with Green Gradient on Black",
       "slug": "mathematical-abstract-plotted",
@@ -86,6 +91,7 @@
   },
   {
     "model": "product.product",
+    "pk": 106,
     "fields": {
       "name": "Black Lines Abstract on Light Background",
       "slug": "black-lines-abstract",
@@ -103,6 +109,7 @@
   },
   {
     "model": "product.product",
+    "pk": 111,
     "fields": {
       "name": "Abstract Art Green Line Labyrinth Pen Plotted",
       "slug": "abstract-art-green-line",
@@ -120,6 +127,7 @@
   },
   {
     "model": "product.product",
+    "pk": 116,
     "fields": {
       "name": "Stacked Blocks of Lines, Black on White, Generative Pen Plotter Art",
       "slug": "stacked-blocks-lines",

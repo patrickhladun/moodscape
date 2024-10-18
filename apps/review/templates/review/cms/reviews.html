@@ -2,34 +2,34 @@
 {% load ui_tags %}
 
 {% block content %}
+  {% include 'partials/page_title.html' with title='Reviews' variant='backend' %}
   {% include 'partials/nav_cms.html' %}
-  <section class="container md:hidden">
-    <h1>Customers Reviews</h1>
-  </section>
 
-  <section class="container">
-    <h1 class="hidden md:block">Reviews</h1>
+  <section class="container py-rg">
     <form method="GET">
       <select 
         name="status" 
         id="status" 
         class="p-2 border border-gray-300 rounded-md" 
         onchange="this.form.submit()">
-        <option value="">All Reviews</option>
         <option value="pending" {% if status == 'pending' %}selected{% endif %}>Pending</option>
         <option value="approved" {% if status == 'approved' %}selected{% endif %}>Approved</option>
         <option value="rejected" {% if status == 'rejected' %}selected{% endif %}>Rejected</option>
         <option value="deleted" {% if status == 'deleted' %}selected{% endif %}>Deleted</option>
       </select>
     </form>
+  </section>
 
-    <div>
+  <section class="container pb-rg">
+    <ul role="list">
     {% for review in reviews %}
-      <a href="{% url 'cms_review_update' review.id %}" class="flex gap-4 p-2 odd:bg-neutral-100 even:bg-neutral-50 hover:bg-blue-100 transition-colors">
-        <img src="{{ review.product.featured.url }}" alt="{{ review.product.name }}" class="w-16 h-16">
-        {% include 'review/partials/review.html' %}
-      </a>
+    <li class="odd:bg-neutral-100 group" role="listitem">
+        <a href="{% url 'cms_review_update' review.id %}" class="flex gap-4 p-2 group-hover:bg-blue-500 group-hover:text-white transition">
+          <img src="{{ review.product.featured.url }}" alt="{{ review.product.name }}" class="w-16 h-16">
+          {% include 'review/partials/review.html' with variant="cms" %}
+        </a>
+      </li>
     {% endfor %}
-    </div>
+    </ul>
   </section>
 {% endblock %}

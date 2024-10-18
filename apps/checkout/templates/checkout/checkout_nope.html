@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <main>
+    <!-- Page Title -->
+    {% include 'partials/page_title.html' with title='Nope' %}
+
+    <section class="container py-rg">
+      <div class="grid grid-cols-2">
+        <div class="col-span-1">
+          <h1>Hey Superuser, This Checkout’s Not for You!</h1>
+          <p>Look around—this magnificent empire of art already belongs to you! There’s no need to sneak into the checkout line. You own all this spectacular art! Why try buying what you can already claim as yours? Head back to the admin panel, where your superpowers truly shine. Enjoy managing the realm you rule, and leave the shopping to the mortals!</p>
+        </div>
+        <div class="col-span-1">
+          <img src="{% static 'images/nope.webp' %}" alt="Nope" class="w-full" />
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock %}

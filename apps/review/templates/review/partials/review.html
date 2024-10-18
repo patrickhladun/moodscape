@@ -1,11 +1,23 @@
 {% load ui_tags %}
 
-<div class="flex flex-col gap-2 py-4">
-  {% render_stars review.rating %}
-  <span>{{ review.name }}</span>
-  <blockquote class="relative py-2">
-    {% icon 'icon-quote' 'lg' 'absolute -left-2 -top-1 fill-blue-200 z-10' %}
-    <span class="relative z-20">{{ review.text }}</span>
-  </blockquote>
-  <span class="text-sm">Reviewd on:&#32;{% render_date review.created_at %}</span>
-</div>
+{% if variant == 'cms' %}
+  <div class="flex flex-col gap-2 p-4 mb-4">
+    {% render_stars review.rating %}
+    <span>{{ review.name }}</span>
+    <blockquote class="relative py-2">
+      {% icon 'icon-quote' 'lg' 'absolute -left-2 -top-1 fill-blue-200 z-10' %}
+      <span class="relative z-20 group-hover:text-white">{{ review.text }}</span>
+    </blockquote>
+    <span class="text-sm">Reviewd on:&#32;{% render_date review.created_at %}</span>
+  </div>
+{% else %}
+  <div class="flex flex-col gap-2 p-4 mb-4 bg-neutral-100">
+    {% render_stars review.rating %}
+    <span>{{ review.name }}</span>
+    <blockquote class="relative py-2">
+      {% icon 'icon-quote' 'lg' 'absolute -left-2 -top-1 fill-blue-200 z-10' %}
+      <span class="relative z-20 group-hover:text-white">{{ review.text }}</span>
+    </blockquote>
+    <span class="text-sm">Reviewd on:&#32;{% render_date review.created_at %}</span>
+  </div>
+{% endif %}

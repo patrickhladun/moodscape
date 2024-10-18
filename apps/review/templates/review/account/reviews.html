@@ -49,7 +49,7 @@
               <div class="mr-auto">
                 {% include 'review/partials/review.html' %}
               </div>
-              <a href="{% url 'account_resubmit_update_review' review.id %}" class="button button__icon button--small">
+              <a href="{% url 'account_review_update' review.id %}" class="button button__icon button--small">
                 {% icon 'icon-star-empty' 'sm' %}
                 Update
               </a>
@@ -66,7 +66,7 @@
               <div class="mr-auto">
                 {% include 'review/partials/review.html' %}
               </div>
-              <a href="{% url 'account_resubmit_update_review' review.id %}" class="button button__icon button--small">
+              <a href="{% url 'account_review_update' review.id %}" class="button button__icon button--small">
                 {% icon 'icon-star-empty' 'sm' %}
                 Update
               </a>
@@ -82,7 +82,7 @@
               <img src="{{ review.product.featured.url }}" alt="{{ review.product.name }}" class="w-16 h-16" />
               <div class="md:flex gap-4 w-full items-center justify-between">
                 <p class="mb-2 md:m-0">{{ review.product.name }}</p>
-                <a href="{% url 'account_resubmit_update_review' review.id %}" class="button button__icon button--small">
+                <a href="{% url 'account_review_update' review.id %}" class="button button__icon button--small">
                   {% icon 'icon-star-empty' 'sm' %}
                   Resubmit Review
                 </a>

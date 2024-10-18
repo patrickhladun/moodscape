@@ -1,21 +1,21 @@
 import pytest
-
-from django.urls import reverse
 from django.conf import settings
+from django.urls import reverse
 
+from __tests__.pytest.factories import SuperuserFactory, UserFactory
 from apps.user.forms import AccountProfileForm
-from __tests__.pytest.factories import UserFactory, SuperuserFactory
 
 views = [
     {
-        'url': 'account',
-        'template': 'user/account/account.html',
+        "url": "account",
+        "template": "user/account/account.html",
     },
 ]
 
+
 @pytest.mark.parametrize("view", views)
 def test_view_status_for_unauthenticated_user(client, view):
-    url = reverse(view['url'])
+    url = reverse(view["url"])
     response = client.get(url)
 
     assert response.status_code == 302
@@ -30,11 +30,11 @@ def test_view_status_for_authenticated_account_user(client, view):
 
     client.force_login(account)
 
-    url = reverse(view['url'])
+    url = reverse(view["url"])
     response = client.get(url)
-    
+
     assert response.status_code == 200
-    assert view['template'] in [t.name for t in response.templates]
+    assert view["template"] in [t.name for t in response.templates]
 
 
 @pytest.mark.django_db
@@ -75,10 +75,6 @@ def test_update_account_user_email_form(client):
     }
 
     response = client.post(reverse("account"), data=form_data)
-
-    assert response.status_code == 302
-
-    response = client.get(reverse("account"))
     assert response.status_code == 200
 
     account.refresh_from_db()
