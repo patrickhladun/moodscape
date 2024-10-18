@@ -93,10 +93,17 @@ class Stripe_Webhook_Handler:
         email_handler.send_confirmation_email(
             {
                 "email": order.email,
+                "first_name": order.first_name,
+                "last_name": order.last_name,
                 "order_number": order.order_number,
                 "address_line_1": order.address_line_1,
                 "town_city": order.town_city,
                 "country": order.country,
+                "phone_number": order.phone_number,
+                "order_total": order.order_total,
+                "delivery_cost": order.shipping_cost,
+                "grand_total": order.grand_total,
+                "created_at": order.created_at,
             }
         )
 
