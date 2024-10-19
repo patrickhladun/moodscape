@@ -38,7 +38,10 @@ def cache_checkout_data(request):
     except Exception as e:
         messages.error(
             request,
-            "Sorry, your payment cannot be processed right now. Please try again later.",
+            (
+                "Sorry, your payment cannot be processed right now. Please "
+                "try again later."
+            ),
         )
         return JsonResponse({"error": str(e)}, status=400)
 
@@ -66,9 +69,11 @@ def checkout_view(request):
         {
             "title": "Checkout",
             "meta": {
-                "description": "Complete your purchase on Moodscape. Securely "
-                "enter your shipping and payment details to finalize your "
-                "order of unique art pieces."
+                "description": (
+                    "Complete your purchase on Moodscape. Securely enter "
+                    "your shipping and payment details to finalize your order"
+                    "of unique art pieces."
+                )
             },
         },
     )
@@ -138,8 +143,10 @@ def checkout_view(request):
         else:
             messages.error(
                 request,
-                "There was an error with your form. Please double check your "
-                "information.",
+                (
+                    "There was an error with your form. Please double check "
+                    "your information."
+                ),
             )
 
     else:
@@ -201,9 +208,11 @@ def checkout_success_view(request, order_number):
         {
             "title": "Thank You",
             "meta": {
-                "description": "Thank you for your purchase at Moodscape! "
-                "Check your email for order details and shipping confirmation."
-                " We hope you enjoy your new art pieces."
+                "description": (
+                    "Thank you for your purchase at Moodscape! Check your "
+                    "email for order details and shipping confirmation. "
+                    "We hope you enjoy your new art pieces."
+                )
             },
         },
     )

@@ -2,13 +2,18 @@
 {% load ui_tags %}
 
 {% block content %}
+  <!-- Page Title -->
   {% include 'partials/page_title.html' with title='Review' variant='backend' %}
+  
+  <!-- Account Navigation -->
   {% include 'partials/nav_account.html' %}
 
+  <!-- Back Button -->
   <section class="container py-rg">
     <a href="javascript:history.back()" class="button button__icon button--small">{% icon 'icon-arrow' 'sm' %}Back</a>
   </section>
 
+  <!-- Update Review Form -->
   <section class="container pb-rg">
     <div class="md:grid grid-cols-2 gap-4">
       <img src="{{ product.featured.url }}" alt="{{ product.name }}" class="mb-8 md:mb-0w-36 md:w-full h-36 md:h-full rounded-md md:order-last" />

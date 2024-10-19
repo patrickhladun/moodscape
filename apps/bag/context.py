@@ -6,12 +6,10 @@ from django.shortcuts import get_object_or_404
 from apps.product.models import Product
 
 
-from decimal import Decimal
-
-
 def bag_contents(request):
     """
-    Calculates the contents of the shopping bag, including total cost, product count, and delivery charges.
+    Calculates the contents of the shopping bag, including total cost, product
+    count, and delivery charges.
     """
     bag_items = []
     total = 0

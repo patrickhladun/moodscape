@@ -1,7 +1,8 @@
 from django import forms
 from django.utils.text import slugify
-from .models import Product, Category
 from django_summernote.widgets import SummernoteWidget
+
+from .models import Category, Product
 
 
 class ProductForm(forms.ModelForm):
@@ -34,8 +35,10 @@ class ProductForm(forms.ModelForm):
         )
         if queryset.exists():
             raise forms.ValidationError(
-                "A product with this slug already exists. Please choose a \
-                different name or provide a unique slug."
+                (
+                    "A product with this slug already exists. Please choose a "
+                    "different name or provide a unique slug."
+                )
             )
 
         return slug
