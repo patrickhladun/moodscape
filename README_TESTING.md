@@ -367,6 +367,9 @@ I conducted Lighthouse tests on all pages, including front-end, admin, and custo
 | Product         | 100,100,100,100 | 89,100,100,100 |
 | Cart            | 100,98,100,100  | 89,98,100,100  |
 | Checkout        | 98,95,100,100   | 89,98,100,100  |
+| FAQ             | 95,100,100,100  | 80,100,100,100 |
+| Privacy         | 93,100,100,100  | 80,100,100,100 |
+| Terms           | 94,100,100,100  | 80,100,100,100 |
 
 </details>
 
@@ -401,6 +404,11 @@ I conducted Lighthouse tests on all pages, including front-end, admin, and custo
 | Categories   | 100,100,100,100 | 87,98,100,100  |
 | Category     | 99,100,100,100  | 85,100,100,100 |
 | Add Category | 100,100,100,100 | 87,100,100,100 |
+| FAQs         | 87,100,100,100  | 73,98,100,100  |
+| FAQ Single   | 92,100,100,100  | 77,98,100,100  |
+| Add FAQ      | 94,100,100,100  | 78,100,100,100 |
+| FAQ Sections | 94,100,100,100  | 79,98,100,100  |
+| FAQ Section  | 93,100,100,100  | 78,100,100,100 |
 | Reviews      | 100,96,100,100  | 87,97,100,100  |
 | Review       | 99,96,100,100   | 88,94,100,100  |
 
@@ -462,6 +470,11 @@ This section details the manual tests for HTML validation and accessibility. Tes
 | Admin - Categories | No Errors | No Contrast Errors | No Errors |  |
 | Admin - Add Category | No Errors | No Contrast Errors | No Errors |  |
 | Admin - Update Category | No Errors | No Contrast Errors | No Errors |  |
+| Admin - FAQs | No Errors | No Contrast Errors | No Errors |  |
+| Admin - FAQ Single | No Errors | No Contrast Errors | No Errors |  |
+| Admin - Add FAQ | No Errors | No Contrast Errors | No Errors |  |
+| Admin - FAQ Sections | No Errors | No Contrast Errors | No Errors |  |
+| Admin - FAQ Section | No Errors | No Contrast Errors | No Errors |  |
 | Admin - Reviews | No Errors | No Contrast Errors | No Errors |  |
 | Admin - Review | No Errors | No Contrast Errors | No Errors |  |
 

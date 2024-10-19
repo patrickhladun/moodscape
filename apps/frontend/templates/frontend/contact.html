@@ -7,10 +7,11 @@
   <main>
     <!-- Page Title -->
     {% include 'partials/page_title.html' with title='Contact' %}
-    <!-- Hero -->
+
     <section class="bg-neutral-100">
       <div class="container md:grid md:grid-cols-2 md:gap-4 pb-rg">
-        <div>
+        <!-- Contact Form -->
+        <div class="col-span-1">
           <h2>Contact Moodscape</h2>
           <form id="contact-form" method="post">
             {% csrf_token %}
@@ -25,7 +26,9 @@
             </div>
           </form>
         </div>
-        <div class="mt-rg md:mt-0">
+
+        <!-- Contact Information -->
+        <div class="col-span-1 mt-rg md:mt-0">
           <h2>Get in Touch</h2>
           <p>We appreciate your interest in Moodscape and are here to help with any questions, support needs, or feedback. Whether you need information about our art collections, assistance with your orders, or simply want to share your thoughts, feel free to contact us. Our team is dedicated to ensuring you have a great experience with Moodscape.</p>
 

@@ -1,8 +1,9 @@
 from django.contrib import admin
-from .models import Category, Product
 from django.urls import reverse
-from django_summernote.admin import SummernoteModelAdmin
 from django.utils.safestring import mark_safe
+from django_summernote.admin import SummernoteModelAdmin
+
+from .models import Category, Product
 
 
 class CategoryAdmin(admin.ModelAdmin):

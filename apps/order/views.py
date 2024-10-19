@@ -1,18 +1,19 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
-from django.contrib.auth.decorators import login_required, user_passes_test
-from django.contrib import messages
-from apps.common.decorators import superuser_required
 from constance import config
-from apps.common.utils.metadata import make_metadata
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.shortcuts import get_object_or_404, redirect, render, reverse
 
-from .models import Order, OrderLineItem
+from apps.common.decorators import superuser_required
+from apps.common.utils.metadata import make_metadata
 from apps.review.models import Review
+
 from .forms import (
-    UpdateOrderForm,
-    OrderStatusForm,
     AddOrderItemForm,
     OrderItemForm,
+    OrderStatusForm,
+    UpdateOrderForm,
 )
+from .models import Order, OrderLineItem
 
 
 @superuser_required
@@ -30,9 +31,11 @@ def cms_order_update_view(request, order_number):
         {
             "title": f"Order Details - {order.order_number}",
             "meta": {
-                "description": f"Review and manage details for \
-                order {order.order_number}. Update statuses, manage items, \
-                and view customer shipping information."
+                "description": (
+                    "Review and manage details for order "
+                    f"{order.order_number}. Update statuses, manage items, "
+                    "and view customer shipping information."
+                )
             },
         },
     )
@@ -122,9 +125,11 @@ def cms_orders_view(request):
         {
             "title": "Admin Orders",
             "meta": {
-                "description": "Manage and review all placed orders on \
-                Moodscape. Track order status, view customer details, and \
-                update order information effectively."
+                "description": (
+                    "Manage and review all placed orders on Moodscape. Track "
+                    "order status, view customer details, and update order "
+                    "information effectively."
+                )
             },
         },
     )
@@ -152,8 +157,9 @@ def account_orders_view(request):
         {
             "title": "Your Orders",
             "meta": {
-                "description": "View your order history and track current \
-                orders."
+                "description": (
+                    "View your order history and track current orders."
+                )
             },
         },
     )

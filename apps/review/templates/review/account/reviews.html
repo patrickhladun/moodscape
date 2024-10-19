@@ -2,11 +2,15 @@
 {% load ui_tags %}
 
 {% block content %}
+  <!-- Page Title -->
   {% include 'partials/page_title.html' with title="Reviews" variant="backend" %}
+  
+  <!-- Account Navigation -->
   {% include 'partials/nav_account.html' %}
 
   <section class="container py-rg">
 
+    <!-- Status Select -->
     <form method="GET" class="pb-rg">
       <select 
         name="reviews_filter" 
@@ -22,6 +26,7 @@
       </select>
     </form>
 
+    <!-- Reviews List -->
     <div data-cy="reviews_list">
       {% if reviews_filter == 'not-reviewed' %}
         {% if reviews %}

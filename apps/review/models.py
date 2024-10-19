@@ -1,9 +1,10 @@
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
-from apps.product.models import Product
-from apps.order.models import OrderLineItem
-from apps.user.models import User
-from django.core.validators import MinValueValidator, MaxValueValidator
 from model_utils import FieldTracker
+
+from apps.order.models import OrderLineItem
+from apps.product.models import Product
+from apps.user.models import User
 
 
 class Review(models.Model):

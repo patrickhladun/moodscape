@@ -70,10 +70,12 @@ def cms_products_view(request):
         {
             "title": "Products List",
             "meta": {
-                "description": "Browse the complete catalog of products \
-                available on Moodscape. This page provides an overview of all \
-                products, allowing for easy management and access to product \
-                details."
+                "description": (
+                    "Browse the complete catalog of products available on "
+                    "Moodscape. This page provides an overview of all "
+                    "products, allowing for easy management and access to "
+                    "product details."
+                )
             },
         },
     )
@@ -99,9 +101,11 @@ def cms_product_add_view(request):
         {
             "title": "Add New Product",
             "meta": {
-                "description": "Add a new product to Moodscape's catalog. \
-                Specify product details such as name, price, and category to \
-                introduce new art pieces to the shop."
+                "description": (
+                    "Add a new product to Moodscape's catalog. Specify product"
+                    " details such as name, price, and category to introduce "
+                    "new art pieces to the shop."
+                )
             },
         },
     )
@@ -146,9 +150,11 @@ def cms_product_update_view(request, id):
         {
             "title": f"Update Product - {product.name}",
             "meta": {
-                "description": f"Update existing product details for \
-                {product.name}. This page allows for the modification of \
-                price, stock levels, and other critical product information."
+                "description": (
+                    f"Update existing product details for {product.name}. "
+                    "This page allows for the modification of price, stock "
+                    "levels, and other critical product information."
+                )
             },
         },
     )
@@ -209,9 +215,11 @@ def cms_categories_view(request):
         {
             "title": "Categories List",
             "meta": {
-                "description": "View and manage all categories on Moodscape. \
-                This administrative page provides an overview of all \
-                categories, facilitating the organization of products."
+                "description": (
+                    "View and manage all categories on Moodscape. This "
+                    "administrative page provides an overview of all "
+                    "categories, facilitating the organization of products."
+                )
             },
         },
     )
@@ -239,10 +247,11 @@ def cms_category_update_view(request, id):
         {
             "title": f"Update Category - {category.name}",
             "meta": {
-                "description": f"Edit the details of the {category.name} \
-                category. This page allows for the modification of category \
-                names and descriptions to better align with the evolving \
-                inventory."
+                "description": (
+                    f"Edit the details of the {category.name} category. This "
+                    "page allows for the modification of category names and "
+                    "descriptions to better align with the evolving inventory."
+                )
             },
         },
     )
@@ -315,9 +324,11 @@ def cms_category_add_view(request):
         {
             "title": "Add New Category",
             "meta": {
-                "description": "Create a new category for organizing products \
-                on Moodscape. This page allows administrators to define new \
-                categories that will help structure the site's offerings."
+                "description": (
+                    "Create a new category for organizing products on "
+                    "Moodscape. This page allows administrators to define new "
+                    "categories that will help structure the site's offerings."
+                )
             },
         },
     )

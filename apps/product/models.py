@@ -2,7 +2,9 @@ import os
 import random
 import string
 from datetime import datetime
+
 from django.db import models
+
 from apps.user.models import User
 
 
