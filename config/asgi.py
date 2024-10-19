@@ -5,7 +5,7 @@ from django.core.asgi import get_asgi_application
 env = environ.Env()
 env.read_env()
 
-environment = env('ENVIRONMENT')
+environment = env("ENVIRONMENT")
 
 if environment == "production":
     os.environ.setdefault(

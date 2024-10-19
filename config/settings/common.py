@@ -1,8 +1,9 @@
 import os
-import environ
-import dj_database_url
-from pathlib import Path
 from collections import OrderedDict
+from pathlib import Path
+
+import dj_database_url
+import environ
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 

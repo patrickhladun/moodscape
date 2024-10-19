@@ -16,14 +16,18 @@ urlpatterns = [
     path("", include("apps.user.urls")),
 ]
 
-urlpatterns += [path('admin/', admin.site.urls)]
-urlpatterns += [path('account/', include('allauth.urls'))]
-urlpatterns += [path('summernote/', include('django_summernote.urls'))]
+urlpatterns += [path("admin/", admin.site.urls)]
+urlpatterns += [path("account/", include("allauth.urls"))]
+urlpatterns += [path("summernote/", include("django_summernote.urls"))]
 
-handler403 = 'django.views.defaults.permission_denied'
-handler404 = 'django.views.defaults.page_not_found'
-handler500 = 'django.views.defaults.server_error'
+handler403 = "django.views.defaults.permission_denied"
+handler404 = "django.views.defaults.page_not_found"
+handler500 = "django.views.defaults.server_error"
 
 if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(
+        settings.STATIC_URL, document_root=settings.STATIC_ROOT
+    )
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+    )
