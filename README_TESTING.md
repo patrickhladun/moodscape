@@ -486,6 +486,12 @@ The CSS for my project was validated using the W3C CSS Validation Service online
 
 [W3C CSS Validator results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmoodscape-3f1dfd651cc4.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en#errors)
 
+### Python Linter
+
+I have tested all Python files across the applications using the Code Institute's Python linter, and they all pass without any errors.
+
+[CI Python Linter](https://pep8ci.herokuapp.com/)
+
 ## Automated testing with Pytest and Cypress
 
 ### Pytest Tests
