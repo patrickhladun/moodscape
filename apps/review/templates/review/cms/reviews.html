@@ -5,6 +5,7 @@
   {% include 'partials/page_title.html' with title='Reviews' variant='backend' %}
   {% include 'partials/nav_cms.html' %}
 
+  <!-- Status Select -->
   <section class="container py-rg">
     <form method="GET">
       <select 
@@ -20,6 +21,7 @@
     </form>
   </section>
 
+  <!-- Reviews List -->
   <section class="container pb-rg">
     <ul role="list">
     {% for review in reviews %}

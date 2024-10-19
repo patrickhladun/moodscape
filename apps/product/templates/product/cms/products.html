@@ -3,9 +3,13 @@
 {% load static %}
 
 {% block content %}
+  <!-- Page Title -->
   {% include 'partials/page_title.html' with title='Products' variant='backend' %}
+  
+  <!-- CMS Navigation -->
   {% include 'partials/nav_cms.html' %}
 
+  <!-- Add Product Button -->
   <div class="container py-rg">
     <div class="flex items-center">
       <a href="{% url 'cms_product_add' %}" class="inline-block bg-neutral-200 hover:bg-neutral-300 transition-colors duration-200 ease-in-out p-2 pr-3 rounded-md">
@@ -17,6 +21,7 @@
     </div>
   </div>
 
+  <!-- Products List -->
   <section class="container pb-rg">
     <div class="hidden md:grid md:grid-cols-4 p-2 bg-blue-100 rounded-t-md border-b-4 border-blue-200">
       <span class="md:border-r border-neutral-300 px-2">Product</span>

@@ -3,9 +3,13 @@
 {% load static %}
 
 {% block content %}
+  <!-- Page Title -->
   {% include 'partials/page_title.html' with title='Update Product' variant='backend' %}
+
+  <!-- CMS Navigation -->
   {% include 'partials/nav_cms.html' %}
 
+  <!-- Back Button -->
   <section class="container py-rg">
     <a href="{% url 'cms_categories' %}" class="inline-block bg-neutral-200 hover:bg-neutral-300 transition-colors duration-200 ease-in-out p-2 pr-3 rounded-md">
       <span class="flex items-center">
@@ -15,6 +19,7 @@
     </a>
   </section>
 
+  <!-- Update Category Form -->
   <section class="container pb-rg">
     <h2>{{ product.name }}</h2>
     <div>
