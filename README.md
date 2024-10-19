@@ -782,7 +782,7 @@ Update review page.
 | Order | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | Product | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | Category | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| Reviews | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Reviews | :x: | :white_check_mark: | :white_check_mark: | :x: |
 | Customer | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | FAQ | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | FAQ Section | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
@@ -955,6 +955,7 @@ python manage.py migrate
 ```
 python manage.py loaddata fixtures/user.superuser.json
 python manage.py loaddata fixtures/user.accounts.json
+python manage.py loaddata fixtures/frontend.faq.json
 python manage.py loaddata fixtures/product.categories.json
 python manage.py loaddata fixtures/product.watercolors.json
 python manage.py loaddata fixtures/product.plotter.json
