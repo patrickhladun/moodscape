@@ -197,8 +197,8 @@ Search Engine Optimization (SEO)
 
 To increase Moodscape's visibility on search engines and attract more organic traffic, I focus on several SEO best practices:
 
-- :point_right: Robots.txt: Implemented to manage and control the web crawlers accessing the website, ensuring that search engines are indexing my site properly.
-- :point_right: Sitemap: Developed a sitemap to help search engines discover all of my pages, enhancing the site’s visibility and improving page indexing.
+- :point_right: [robots.txt](https://moodscape-3f1dfd651cc4.herokuapp.com/robots.txt): Implemented to manage and control the web crawlers accessing the website, ensuring that search engines are indexing my site properly.
+- :point_right: [Sitemap](https://moodscape-3f1dfd651cc4.herokuapp.com/sitemap.xml): Developed a sitemap to help search engines discover all of my pages, enhancing the site’s visibility and improving page indexing.
 - :point_right: Meta Descriptions: Crafted compelling meta descriptions for each page to improve click-through rates from search engine results pages (SERPs). These descriptions succinctly communicate the content of the pages and their relevance to potential visitors.
 
 ## Mockups and Wireframes
@@ -991,6 +991,7 @@ All systems have bugs, and Moodscape is no different. Fixing these issues is imp
 - :bug: [#77 Inconsistent Confirmation Dialogs in Admin Panel](https://github.com/patrickhladun/moodscape/issues/77)
 - :bug: [#78 Duplicated quantity ID](https://github.com/patrickhladun/moodscape/issues/78)
 - :bug: [#79 Unclosed HTML elements on Shop Page](https://github.com/patrickhladun/moodscape/issues/79)
+- :bug: [Price Does Not Update for Multiple Products on Bag Page](https://github.com/patrickhladun/moodscape/issues/new)
 
 ## Credits
 
