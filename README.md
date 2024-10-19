@@ -779,7 +779,7 @@ Update review page.
 
 | Model | Create | Read | Update | Delete |
 | --- | --- | --- | --- | --- |
-| Order | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Order | :x: | :white_check_mark: | :white_check_mark: | :x: |
 | Product | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | Category | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | Reviews | :x: | :white_check_mark: | :white_check_mark: | :x: |
