@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import ContactMessage, FAQ, FAQSection
+
+from .models import FAQ, ContactMessage, FAQSection
 
 
 class ContactMessageAdmin(admin.ModelAdmin):

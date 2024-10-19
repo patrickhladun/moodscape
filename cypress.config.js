@@ -17,6 +17,6 @@ module.exports = defineConfig({
     account_password: process.env.CY_ACCOUNT_PASS,
   },
   chromeWebSecurity: false,
-  // video: true,
-  // videoCompression: true,
+  video: true,
+  videoCompression: true,
 });

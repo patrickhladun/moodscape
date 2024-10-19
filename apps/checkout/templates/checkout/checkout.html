@@ -8,6 +8,7 @@
     <!-- Page Title -->
     {% include 'partials/page_title.html' with title='Checkout' %}
 
+    <!-- Back Button -->
     <section class="bg-neutral-100">
       <div class="container py-xxs">
         <div class="flex text-sm">
@@ -22,6 +23,7 @@
       </div>
     </section>
 
+    <!-- Checkout Form -->
     <section class="container pt-rg">
       <p>Please fill out the form below to complete your order</p>
 
@@ -32,6 +34,7 @@
       {% endif %}
     </section>
 
+    <!-- Checkout Summary -->
     <section class="container">
       <div class="grid md:grid-cols-2 gap-4 pb-rg">
         <section class="md:order-2">
@@ -129,6 +132,7 @@
       </div>
     </section>
 
+    <!-- Loading Overlay -->
     <div id="loading-overlay" class="hidden fixed top-0 left-0 w-full h-full bg-blue-100 z-99999">
       <div class="flex w-full h-full justify-center items-center text-light logo-font loading-spinner">
         <div class="flex flex-col">

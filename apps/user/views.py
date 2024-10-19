@@ -24,9 +24,11 @@ def cms_customers_view(request):
         {
             "title": "Customer List",
             "meta": {
-                "description": "View and manage all registered customers. \
-                Access customer profiles, edit information, or initiate \
-                contact directly from this list."
+                "description": (
+                    "View and manage all registered customers. Access "
+                    "customer profiles, edit information, or initiate contact "
+                    "directly from this list."
+                )
             },
         },
     )
@@ -52,12 +54,17 @@ def cms_customer_update_view(request, id):
     metadata = make_metadata(
         request,
         {
-            "title": f"Update Customer - {customer.first_name} \
-                {customer.last_name}",
+            "title": (
+                "Update Customer "
+                f"- {customer.first_name} {customer.last_name}"
+            ),
             "meta": {
-                "description": f"Update personal and contact details for \
-                {customer.first_name} {customer.last_name}. This page allows \
-                for comprehensive management of customer information."
+                "description": (
+                    "Update personal and contact details for "
+                    f"{customer.first_name} {customer.last_name}. This page "
+                    "allows for comprehensive management of customer "
+                    "information."
+                )
             },
         },
     )
@@ -113,8 +120,10 @@ def account_view(request):
         {
             "title": "Account Settings",
             "meta": {
-                "description": "Adjust your account settings, including email \
-                and password."
+                "description": (
+                    "Adjust your account settings, including email "
+                    "and password."
+                )
             },
         },
     )
@@ -151,8 +160,9 @@ def account_profile_view(request):
         {
             "title": "Your Profile",
             "meta": {
-                "description": "Manage your personal information and \
-                preferences."
+                "description": (
+                    "Manage your personal information and preferences."
+                )
             },
         },
     )

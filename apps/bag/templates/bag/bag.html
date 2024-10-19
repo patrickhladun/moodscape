@@ -7,6 +7,7 @@
     <!-- Page Title -->
     {% include 'partials/page_title.html' with title='Bag' %}
 
+    <!-- Back Button -->
     <section class="bg-neutral-100">
       <div class="container py-xxs">
         <div class="flex text-sm">
@@ -19,6 +20,7 @@
       </div>
     </section>
 
+    <!-- Bag Items -->
     <section class="container py-rg" data-cy="bag-items-list">
       {% if bag_items %}
         {% for item in bag_items %}

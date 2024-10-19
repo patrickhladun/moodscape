@@ -25,9 +25,11 @@ def cms_reviews_view(request):
         {
             "title": "Reviews Management",
             "meta": {
-                "description": "Manage and review customer feedback on \
-                products. This page allows administrators to oversee review \
-                statuses, edit content, or remove inappropriate reviews."
+                "description": (
+                    "Manage and review customer feedback on products. This "
+                    "page allows administrators to oversee review statuses, "
+                    "edit content, or remove inappropriate reviews."
+                )
             },
         },
     )
@@ -60,10 +62,12 @@ def cms_review_update_view(request, id):
         {
             "title": "Update Review",
             "meta": {
-                "description": "Update the status of a product review. This \
-                page provides tools for administrators to approve, reject, or \
-                modify customer reviews to maintain quality and relevance on \
-                the platform."
+                "description": (
+                    "Update the status of a product review. This page provides"
+                    " tools for administrators to approve, reject, or modify "
+                    "customer reviews to maintain quality and relevance on "
+                    "the platform."
+                )
             },
         },
     )
@@ -231,8 +235,10 @@ def account_review_update_view(request, id):
                 if new_text == actual_text:
                     messages.error(
                         request,
-                        "You must provide a new text that is different from \
-                        the previous one to resubmit the review.",
+                        (
+                            "You must provide a new text that is different "
+                            "from the previous one to resubmit the review."
+                        ),
                     )
                 else:
                     review.text = new_text
@@ -241,8 +247,10 @@ def account_review_update_view(request, id):
                     review.save()
                     messages.success(
                         request,
-                        "Your review has been resubmitted and is now pending \
-                        approval.",
+                        (
+                            "Your review has been resubmitted and is now "
+                            "pending approval."
+                        ),
                     )
                     return redirect("account_reviews")
 
@@ -252,8 +260,10 @@ def account_review_update_view(request, id):
                     review.status = "pending"
                     messages.success(
                         request,
-                        "Your review has been updated and is now pending \
-                        approval for the text change.",
+                        (
+                            "Your review has been updated and is now pending "
+                            "approval for the text change."
+                        ),
                     )
                 else:
                     review.rating = new_rating
