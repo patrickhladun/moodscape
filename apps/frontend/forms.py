@@ -1,4 +1,5 @@
 from django import forms
+
 from .models import FAQ, FAQSection
 
 
@@ -16,8 +17,10 @@ class NewsletterForm(forms.Form):
     subscriber_email = forms.EmailField(
         widget=forms.EmailInput(
             attrs={
-                "class": "bg-blue-800 text-blue-50 w-full py-2 px-4 m-0 \
-                    rounded-l-lg border-none focus:ring-0",
+                "class": (
+                    "bg-blue-800 text-blue-50 w-full py-2 px-4 m-0 "
+                    "rounded-l-lg border-none focus:ring-0"
+                ),
                 "placeholder": "Enter your best email",
                 "aria-label": "Email Address",
             }

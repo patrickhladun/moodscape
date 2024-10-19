@@ -1,4 +1,5 @@
 from django import forms
+
 from .models import Review
 
 
@@ -17,15 +18,19 @@ class ReviewForm(forms.ModelForm):
                 ]
             ),
             "text": forms.Textarea(
-                attrs={"class": "form-control", "rows": 3, "placeholder": "Enter your review..."}
+                attrs={
+                    "class": "form-control",
+                    "rows": 3,
+                    "placeholder": "Enter your review...",
+                }
             ),
         }
         error_messages = {
-            'rating': {
-                'required': 'Please select a rating.',
+            "rating": {
+                "required": "Please select a rating.",
             },
-            'text': {
-                'required': 'Please enter your review text.',
+            "text": {
+                "required": "Please enter your review text.",
             },
         }
 

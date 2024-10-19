@@ -38,32 +38,47 @@ def icon(name, size="md", class_name=""):
         with open(os.path.join("static/icons", f"{name}.svg")) as f:
             icon = f.read()
             return mark_safe(
-                f'<span class="flex transition-all{ ' ' + class_name if class_name else '' }"><span class="inline-block {size}">{icon}</span></span>'
+                '<span class="flex transition-all'
+                f'{ ' ' + class_name if class_name else '' }">'
+                f'<span class="inline-block {size}">{icon}</span></span>'
             )
     except FileNotFoundError:
         return mark_safe("<!-- Icon not found -->")
 
 
 @register.simple_tag(takes_context=True)
-def active(context, link, custom_classes=''):
-    current_active = context.get('active', '')
-    
+def active(context, link, custom_classes=""):
+    """
+    Returns a CSS class if the given link is active.
+
+    Checks if the current link matches the active link in the context.
+    If they match, it returns the custom CSS class or 'active' by default.
+    """
+    current_active = context.get("active", "")
+
     if current_active == link:
-        return f' {custom_classes}' if custom_classes else ' active'
-    return ''
+        return f" {custom_classes}" if custom_classes else " active"
+    return ""
 
 
 @register.simple_tag(takes_context=True)
 def render_field(context, field, **kwargs):
-    type = kwargs.get('type', 'text')
-    class_name = kwargs.get('class', '')
-    id_attr = f' id="{kwargs.get("id")}"' if kwargs.get('id') else ''
-    data_cy = f' data-cy="{kwargs.get("cy")}"' if kwargs.get('cy') else ''
-    show_label = kwargs.get('show_label', True)
+    """
+    Renders an HTML form field with custom attributes and options.
+
+    This tag generates a form field with additional attributes like CSS
+    classes, IDs, data attributes, and ARIA attributes. It can optionally show
+    or hide the label.
+    """
+    type = kwargs.get("type", "text")
+    class_name = kwargs.get("class", "")
+    id_attr = f' id="{kwargs.get("id")}"' if kwargs.get("id") else ""
+    data_cy = f' data-cy="{kwargs.get("cy")}"' if kwargs.get("cy") else ""
+    show_label = kwargs.get("show_label", True)
 
     classes = f"field field__{type} {class_name}".strip()
 
-    data_cy = kwargs.get('cy', '')
+    data_cy = kwargs.get("cy", "")
     if data_cy:
         try:
             data_cy_template = Template(data_cy)
@@ -71,22 +86,30 @@ def render_field(context, field, **kwargs):
             data_cy = f' data-cy="{data_cy_rendered}"'
         except Exception as e:
             print(f"Error rendering data-cy: {e}")
-            data_cy = ''  # Reset to empty if there's a failure
+            data_cy = ""
 
     additional_attrs = ""
 
     aria_attrs = {}
     for key, value in kwargs.items():
-        if key.startswith('aria_'):
-            aria_key = key.replace('_', '-')
+        if key.startswith("aria_"):
+            aria_key = key.replace("_", "-")
             aria_attrs[aria_key] = value
-        elif key not in ['type', 'class', 'id', 'cy', 'show_label', 'aria_label', 'aria_describedby']:
+        elif key not in [
+            "type",
+            "class",
+            "id",
+            "cy",
+            "show_label",
+            "aria_label",
+            "aria_describedby",
+        ]:
             additional_attrs += f' {key}="{value}"'
 
     field.field.widget.attrs.update(aria_attrs)
 
-    label_html = field.label_tag() if show_label else ''
-    
+    label_html = field.label_tag() if show_label else ""
+
     field_html = f"""
     <div class="{classes}"{id_attr}{data_cy}{additional_attrs}>
         {label_html}
@@ -100,12 +123,20 @@ def render_field(context, field, **kwargs):
 
 @register.simple_tag
 def render_date(date):
+    """
+    Formats a date into "DD Mon YYYY" format (e.g., "17 Oct 2024").
+    """
     return date.strftime("%d %b %Y")
 
 
 @register.simple_tag
 def render_status(status):
-    
+    """
+    Renders an HTML span element with a CSS class based on the status.
+
+    Applies different background and text color classes depending on the
+    provided status (e.g., 'pending', 'approved', 'rejected', 'completed').
+    """
     status_map = {
         "pending": "bg-yellow-100 text-yellow-800",
         "approved": "bg-green-100 text-green-800",
@@ -114,7 +145,10 @@ def render_status(status):
     }
 
     status_class = status_map.get(status, "bg-gray-100 text-gray-800")
-    html = f"<span class='inline-block py-1 px-3 mb-2 rounded-md {status_class}'>{status.capitalize()}</span>"
+    html = (
+        f"<span class='inline-block py-1 px-3 mb-2 rounded-md {status_class}'>"
+        f"{status.capitalize()}</span>"
+    )
     return mark_safe(html)
 
 
@@ -126,19 +160,24 @@ def render_stars(rating):
     leaving the rest empty.
     """
     icon_path = os.path.join("static/icons", "icon-star.svg")
-    
+
     try:
         with open(icon_path) as f:
-            icon_svg = f.read()  # Load the SVG content once
+            icon_svg = f.read()
     except FileNotFoundError:
         return mark_safe("<!-- Icon not found -->")
 
-    # Round the rating to the nearest whole number
-    rounded_rating = round(rating)  # Ensures rounding half up from .5
+    rounded_rating = round(rating)
 
-    filled_star = f'<span class="flex fill-blue-800"><span class="inline-block w-4 h-4">{icon_svg}</span></span>'
-    empty_star = f'<span class="flex fill-blue-200"><span class="inline-block w-4 h-4">{icon_svg}</span></span>'
-    
+    filled_star = (
+        f'<span class="flex fill-blue-800"><span class="inline-block w-4 h-4">'
+        f"{icon_svg}</span></span>"
+    )
+    empty_star = (
+        f'<span class="flex fill-blue-200"><span class="inline-block w-4 h-4">'
+        f"{icon_svg}</span></span>"
+    )
+
     stars_html = filled_star * rounded_rating
     stars_html += empty_star * (5 - rounded_rating)
     html = f'<div class="flex items-center">{stars_html}</div>'

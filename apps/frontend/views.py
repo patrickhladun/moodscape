@@ -14,7 +14,7 @@ from apps.common.utils.metadata import make_metadata
 from apps.product.models import Category, Product
 
 from .forms import ContactForm, FAQForm, FAQSectionForm, NewsletterForm
-from .models import FAQ, FAQSection, ContactMessage
+from .models import FAQ, ContactMessage, FAQSection
 
 
 def home(request):
@@ -29,10 +29,12 @@ def home(request):
         {
             "title": "Unique Watercolor & Abstract Art",
             "meta": {
-                "description": "Explore Moodscape, an e-commerce platform \
-                offering unique watercolor art, Irish abstract landscapes, \
-                and pen plotter art. Beautify your space with stunning art \
-                pieces.",
+                "description": (
+                    "Explore Moodscape, an e-commerce platform offering unique"
+                    " watercolor art, Irish abstract landscapes, and pen"
+                    " plotter art. Beautify your space with stunning art"
+                    " pieces."
+                ),
             },
         },
     )
@@ -54,9 +56,11 @@ def about(request):
         {
             "title": "About Us",
             "meta": {
-                "description": "Learn more about Moodscape, an online art \
-                platform providing curated collections of watercolor art, \
-                abstract landscapes, floral art, and digital photography.",
+                "description": (
+                    "Learn more about Moodscape, an online art platform "
+                    "providing curated collections of watercolor art, "
+                    "abstract landscapes, floral art, and digital photography."
+                ),
             },
         },
     )
@@ -80,9 +84,11 @@ def contact(request):
         {
             "title": "Contact Us",
             "meta": {
-                "description": "Get in touch with the Moodscape Art team for \
-                inquiries, support, or questions about your order. We are \
-                here to assist with any art-related queries.",
+                "description": (
+                    "Get in touch with the Moodscape Art team for inquiries, "
+                    "support, or questions about your order. We are "
+                    "here to assist with any art-related queries."
+                ),
             },
         },
     )
@@ -141,9 +147,11 @@ def privacy(request):
         {
             "title": "Privacy Policy | Moodscape Art",
             "meta": {
-                "description": "Read Moodscape's privacy policy to understand \
-                how we collect, use, and protect your personal \
-                information while you browse and shop on our platform.",
+                "description": (
+                    "Read Moodscape's privacy policy to understand "
+                    "how we collect, use, and protect your personal "
+                    "information while you browse and shop on our platform."
+                ),
             },
         },
     )
@@ -164,9 +172,11 @@ def terms(request):
         {
             "title": "Terms and Conditions | Moodscape Art",
             "meta": {
-                "description": "Review Moodscape's terms and conditions for \
-                using our e-commerce platform, including details about \
-                purchases, payments, and user responsibilities.",
+                "description": (
+                    "Review Moodscape's terms and conditions for "
+                    "using our e-commerce platform, including details about "
+                    "purchases, payments, and user responsibilities."
+                ),
             },
         },
     )
@@ -188,9 +198,11 @@ def faq(request):
         {
             "title": "Frequently Asked Questions (FAQ) | Moodscape Art",
             "meta": {
-                "description": "Find answers to common questions about \
-                Moodscape's products, shipping, payments, returns, and more \
-                in our FAQ section.",
+                "description": (
+                    "Find answers to common questions about Moodscape's "
+                    "products, shipping, payments, returns, and more "
+                    "in our FAQ section."
+                ),
             },
         },
     )
@@ -222,9 +234,11 @@ def shop(request):
         {
             "title": "Shop Art | Moodscape Art",
             "meta": {
-                "description": "Browse and shop unique watercolor art, Irish \
-                abstract landscapes, floral art, pen plotter art, and digital \
-                photography at Moodscape Art.",
+                "description": (
+                    "Browse and shop unique watercolor art, Irish abstract "
+                    "landscapes, floral art, pen plotter art, and digital "
+                    "photography at Moodscape Art."
+                ),
             },
         },
     )
@@ -319,9 +333,11 @@ def success_newsletter(request):
         {
             "title": "Subscription Newsletter",
             "meta": {
-                "description": "Thank you for subscribing to Moodscape's \
-                newsletter. Please check your email to confirm your \
-                subscription and start receiving updates.",
+                "description": (
+                    "Thank you for subscribing to Moodscape's "
+                    "newsletter. Please check your email to confirm your "
+                    "subscription and start receiving updates."
+                ),
             },
         },
     )
@@ -344,9 +360,11 @@ def success_contact(request):
         {
             "title": "Message Sent",
             "meta": {
-                "description": "Thank you for contacting Moodscape. Your \
-                message has been successfully sent, and we will get back to \
-                you shortly.",
+                "description": (
+                    "Thank you for contacting Moodscape. Your message "
+                    "has been successfully sent, and we will get back to "
+                    "you shortly."
+                ),
                 "robots": "noindex, nofollow",
             },
         },
@@ -372,9 +390,11 @@ def cms_faqs_view(request):
         {
             "title": "FAQ",
             "meta": {
-                "description": "Manage and update the FAQ content on the \
-                Moodscape platform. Provide answers to common questions about \
-                products, shipping, payments, and more.",
+                "description": (
+                    "Manage and update the FAQ content on the Moodscape "
+                    "platform. Provide answers to common questions about "
+                    "products, shipping, payments, and more."
+                ),
             },
         },
     )
@@ -397,11 +417,13 @@ def cms_faqs_add_view(request):
     metadata = make_metadata(
         request,
         {
-            "title": "FAQ",
+            "title": "Add FAQ",
             "meta": {
-                "description": "Manage and update the FAQ content on the \
-                Moodscape platform. Provide answers to common questions about \
-                products, shipping, payments, and more.",
+                "description": (
+                    "Manage and update the FAQ content on the "
+                    "Moodscape platform. Provide answers to common questions "
+                    "about products, shipping, payments, and more."
+                ),
             },
         },
     )
@@ -439,11 +461,13 @@ def cms_faqs_update_view(request, id):
     metadata = make_metadata(
         request,
         {
-            "title": "FAQ",
+            "title": "Update FAQ",
             "meta": {
-                "description": "Manage and update the FAQ content on the \
-                Moodscape platform. Provide answers to common questions about \
-                products, shipping, payments, and more.",
+                "description": (
+                    "Manage and update the FAQ content on the Moodscape "
+                    "platform. Provide answers to common questions about "
+                    "products, shipping, payments, and more."
+                ),
             },
         },
     )
@@ -454,7 +478,7 @@ def cms_faqs_update_view(request, id):
         form = FAQForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, "FAQ item added successfully.")
+            messages.success(request, "FAQ item updated successfully.")
             return redirect(
                 reverse("cms_faqs_update", args=[form.instance.id])
             )
@@ -493,8 +517,8 @@ def cms_faqs_delete_view(request, id):
 @superuser_required
 def cms_sections_view(request):
     """
-    Renders the FAQ Sections page in the CMS, allowing admin users to manage and
-    update the FAQ Sections.
+    Renders the FAQ Sections page in the CMS, allowing admin users to manage
+    and update the FAQ Sections.
     """
     sections = FAQSection.objects.all()
 
@@ -503,9 +527,9 @@ def cms_sections_view(request):
         {
             "title": "FAQ Sections",
             "meta": {
-                "description": "Manage and update the FAQ content on the \
-                Moodscape platform. Provide answers to common questions about \
-                products, shipping, payments, and more.",
+                "description": (
+                    "Manage and update the FAQ sections on the Moodscape."
+                ),
             },
         },
     )
@@ -515,7 +539,7 @@ def cms_sections_view(request):
             section_add_form = FAQSectionForm(request.POST)
             if section_add_form.is_valid():
                 section_add_form.save()
-                messages.success(request, "FAQ item added successfully.")
+                messages.success(request, "Section added successfully.")
                 return redirect(reverse("cms_sections"))
             else:
                 error_message = "You have errors in the following fields: "
@@ -539,17 +563,17 @@ def cms_sections_view(request):
 @superuser_required
 def cms_sections_update_view(request, id):
     """
-    Handles the update of a new FAQ entry in the CMS.
+    Handles the update of a FAQ section in the CMS.
     """
 
     metadata = make_metadata(
         request,
         {
-            "title": "FAQ",
+            "title": "Update Section",
             "meta": {
-                "description": "Manage and update the FAQ content on the \
-                Moodscape platform. Provide answers to common questions about \
-                products, shipping, payments, and more.",
+                "description": (
+                    "Update the FAQ Section on the Moodscape platform."
+                ),
             },
         },
     )
@@ -560,7 +584,7 @@ def cms_sections_update_view(request, id):
         form = FAQSectionForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, "FAQ item added successfully.")
+            messages.success(request, "Section updated successfully.")
             return redirect(
                 reverse("cms_sections_update", args=[form.instance.id])
             )
@@ -586,11 +610,11 @@ def cms_sections_update_view(request, id):
 @superuser_required
 def cms_sections_delete_view(request, id):
     """
-    Handles the deletion of a FAQ item.
+    Handles the deletion of a Section.
     """
     section = get_object_or_404(FAQSection, id=id)
 
     if request.method == "POST":
         section.delete()
-        messages.success(request, "FAQ section item deleted successfully.")
+        messages.success(request, "FAQ section deleted successfully.")
         return redirect(reverse("cms_sections"))
