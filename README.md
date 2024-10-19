@@ -783,8 +783,8 @@ Update review page.
 | Product | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | Category | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | Reviews | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| Customer | :x: | :white_check_mark::white_check_mark: | :white_check_mark: | :white_check_mark: |
-| FAQ | :white_check_mark::white_check_mark: | :white_check_mark::white_check_mark: | :white_check_mark::white_check_mark: | :white_check_mark::white_check_mark: |
+| Customer | :x: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| FAQ | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | FAQ Section | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 
 ## Technology used
@@ -862,6 +862,7 @@ GMAIL_EMAIL: Email address used for sending emails from the application.
 GMAIL_PASS: Password for the Gmail account used in email sending.
 STRIPE_PUBLIC_KEY: Public key for Stripe API, used for handling payments.
 STRIPE_SECRET_KEY: Secret key for Stripe API, used for handling payments securely.
+STRIPE_WEBHOOK_SECRET: Secret key for verifying Stripe webhooks, ensuring secure communication.
 CK_KEY: ConvertKit API key for integrating email marketing services.
 CK_SECRET: ConvertKit secret key for secure access to API services.
 AWS_ACCESS_KEY_ID: AWS credentials for accessing AWS services.
@@ -968,14 +969,23 @@ These commands will create the example content.
 
 :traffic_light: [Project Testing Documentation](./README_TESTING.md)
 
-## Issues (Future Improvements)
+## Planned Enhancements
+
+The development of Moodscape is a continuous journey, with many opportunities to enhance both the functionality and the user experience. Below are the improvements I plan to implement, as currently outlined in my GitHub project:
 
 - :rocket: [Add a Blog Section to Share Art Tips and News](https://github.com/patrickhladun/moodscape/issues/80)
 - :rocket: [Anonymize Customer Details in Orders](https://github.com/patrickhladun/moodscape/issues/81)
 - :rocket: [Associate Guest Orders with Customer Accounts](https://github.com/patrickhladun/moodscape/issues/82)
 - :rocket: [Improve Product Feature with Options, Variants, and Gallery](https://github.com/patrickhladun/moodscape/issues/83) - possibly break this issue to multiple issues
+- [Add Locking Mechanism for Products in Basket](https://github.com/patrickhladun/moodscape/issues/89)
+- :rocket: [Handle Failed Orders and Send Payment Completion Links](https://github.com/patrickhladun/moodscape/issues/90)
+- :rocket: [Implement Abandoned Cart Recovery](https://github.com/patrickhladun/moodscape/issues/91)
+- :rocket: [Write Additional Pytest tests to Increase Code Coverage](https://github.com/patrickhladun/moodscape/issues/87)
+- :rocket: [Write Cypress Tests for Admin Interaction with Website](https://github.com/patrickhladun/moodscape/issues/88)
 
-## Bugs
+## Known Bugs
+
+All systems have bugs, and Moodscape is no different. Fixing these issues is important to improve the platform's stability and user experience. Below are some known bugs I have identified:
 
 - :bug: [#77 Inconsistent Confirmation Dialogs in Admin Panel](https://github.com/patrickhladun/moodscape/issues/77)
 - :bug: [#78 Duplicated quantity ID](https://github.com/patrickhladun/moodscape/issues/78)
@@ -987,6 +997,7 @@ For this project imagery and products I have used my wifes waterolor art and my 
 
 - :tv: [Setting up AWS Bucket](https://www.youtube.com/watch?v=qq9QbfdB_ik&ab_channel=TheCloudGuy)
 - :blue_book: [Integrating Summernote in Django​](https://python.plainenglish.io/integrating-summernote-in-django-3f7508828fba)
+- :blue_book: [Setting up Tailwindcss with Django](https://dev.to/jazzdev/setting-up-tailwindcss-with-django-easy-guide-2o6j)
 - :camera: [Wrong Place Gif](https://giphy.com/gifs/redbull-og-ogesports-esports-fSYmeQp9MvXsUrTEzy)
 - :camera: [Loading Gif](https://giphy.com/gifs/5t9ujj9cMisyVjUZ0m)
 - :camera: [Checkout Gif](https://giphy.com/gifs/delivery-12d5LdHJKqOYFi)
