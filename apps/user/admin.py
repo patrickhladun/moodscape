@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 from .models import User
+from .models import Customer
 
 
 class UserAdmin(BaseUserAdmin):
@@ -13,6 +14,7 @@ class UserAdmin(BaseUserAdmin):
         "is_active",
         "date_joined",
         "last_login",
+        "get_customer"
     )
     search_fields = ("email", "username")
     ordering = ("email",)
@@ -69,5 +71,18 @@ class UserAdmin(BaseUserAdmin):
 
     list_filter = []
 
+    def get_customer(self, obj):
+        return obj.customer.id if hasattr(obj, "customer") else "No Customer"
+    
+    get_customer.short_description = "Customer ID"
 
+
+class CustomerAdmin(admin.ModelAdmin):
+    list_display = ("user", "first_name", "last_name", "phone_number", "country")
+    search_fields = ("user__email", "user__username", "first_name", "last_name")
+    ordering = ("user__email",)
+
+
+
+admin.site.register(Customer, CustomerAdmin)
 admin.site.register(User, UserAdmin)

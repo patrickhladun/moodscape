@@ -115,7 +115,12 @@ def checkout_view(request):
                     email=request.POST["email"],
                     password=password,
                 )
-                customer = Customer.objects.create(user=user, **address)
+                customer, created = Customer.objects.get_or_create(user=user)
+
+                for field, value in address.items():
+                    setattr(customer, field, value)
+                customer.save()
+
                 order.customer = customer
 
             order.save()
